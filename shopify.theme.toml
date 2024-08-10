@@ -1,0 +1,6 @@
+[environments.env1]
+store = "4700bcpopcorn-dev"
+password  = "shptka_bcbda7a658b918b52fe205c42feecb2c"
+theme = "144077553908"
+live = true
+allow-live = true
