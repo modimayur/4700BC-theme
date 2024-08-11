@@ -13,18 +13,16 @@
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    {%- endunless -%}
-
+    {%- endunless %}
     <title>
-      {{ page_title }}
+      {{- page_title -}}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
-
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+    {% if page_description -%}
+    <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
 
     {% render 'meta-tags' %}
 
@@ -40,16 +38,22 @@
     {%- endif -%}
 
     {{ content_for_header }}
-
+    {% comment %} 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
+    {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="preload" href="{{ 'FormulaCondensed-Bold.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ 'FormulaCondensed-Light.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
 
+
+    
     {% style %}
-      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-
       @font-face {
           font-family: 'Formula Condensed';
           src: url({{ 'FormulaCondensed-Light.eot' | asset_url }});
@@ -77,11 +81,11 @@
       }
 
       {% comment %}
-        {{ settings.type_body_font | font_face: font_display: 'swap' }}
-        {{ body_font_bold | font_face: font_display: 'swap' }}
-        {{ body_font_italic | font_face: font_display: 'swap' }}
-        {{ body_font_bold_italic | font_face: font_display: 'swap' }}
-        {{ settings.type_header_font | font_face: font_display: 'swap' }}
+      {{ settings.type_body_font | font_face: font_display: 'swap' }}
+      {{ body_font_bold | font_face: font_display: 'swap' }}
+      {{ body_font_italic | font_face: font_display: 'swap' }}
+      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+      {{ settings.type_header_font | font_face: font_display: 'swap' }}
       {% endcomment %}
 
       {% for scheme in settings.color_schemes -%}
