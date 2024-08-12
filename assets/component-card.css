@@ -593,3 +593,29 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+.card__content .card__information .card__heading{
+  font-size: 24px;
+}
+
+.card__content .quick-add .button--group{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.card__content .quick-add .quick-add__submit,
+.card__content .quick-add .shopify-payment-button{
+  width:50%;
+}
+.card__content .quick-add .shopify-payment-button .shopify-payment-button__more-options{
+  display: none;
+}
+
+.card__content .quick-add .quick-add__submit{
+  padding: 0;
+  min-width: unset;
+  display: block;
+}
