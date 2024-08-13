@@ -14,6 +14,131 @@
   margin-bottom: 1.5rem;
 }
 
+.contact .grid{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+}
+
+.contact .grid .grid__item.contact-info{
+  width: 42%;
+  max-width: none;
+  flex-grow: unset;
+  position: relative;
+  padding: 120px 0;
+}
+.contact .grid .grid__item.contact-info::before{
+  background: #F2B65E80;
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.contact .grid .grid__item.contact-form{
+  width: 58%;
+  max-width: none;
+  flex-grow: unset;
+}
+
+.contact-form-container{
+  max-width: 600px;
+  margin-left: 120px;
+}
+
+.contact-information{
+  max-width: 450px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+.information-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+.information-container .icon{  
+  margin-top: 5px;
+}
+.information-container .info{
+  margin-left: 12px;
+}
+
+.information-container .info span{
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.information-container .info a{
+  text-decoration: none;
+}
+
+.information-container .info span, .information-container .info p, .information-container .info a{
+  color:#592C29;
+}
+
+.information-container .info p, .information-container .info a{
+  font-family: var(--font-heading-family);
+  margin:0 auto;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.contact__fields{
+
+}
+
+#ContactForm .field{
+  display: block;
+  margin-bottom: 35px;
+}
+
+#ContactForm .field:after, #ContactForm .field:before{
+  display: none;
+}
+
+#ContactForm .field .field__input{
+  border: 1px solid #FCDB8B;
+  border-radius: 6px;
+  background: #fff;
+}
+
+#ContactForm .field .field__label{
+  position: relative;
+  left: auto;
+  top: auto;
+  letter-spacing: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A090A;
+  margin-bottom: 10px;
+  display: block;
+}
+
+#ContactForm .field .field__label span{
+  color:#FF0000;
+}
+
+#ContactForm .field ::placeholder {
+  color: #81858D;
+  font-size: 16px;
+  opacity: 1; /* Firefox */
+}
+
+#ContactForm .field ::-ms-input-placeholder { /* Edge 12 -18 */
+  color: #81858D;
+  font-size: 16px;
+}
+
 @media screen and (min-width: 750px) {
   .contact .field {
     margin-bottom: 2rem;

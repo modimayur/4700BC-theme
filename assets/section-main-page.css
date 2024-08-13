@@ -102,6 +102,17 @@ p, li{
   border-color: #FCC000;
 }
 
+.page__column-sticky{
+  display: block;
+  position: sticky;
+  top: 3rem;
+  z-index: 2;
+}
+
+.scroll-margin{
+  scroll-margin: 45px;
+}
+
 @media screen and (min-width: 750px) and (max-width: 989px) {
   .page-heading{
     padding: 50px 15px 40px;

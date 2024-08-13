@@ -15,121 +15,250 @@
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ section.settings.heading }}
-      </h2>
-    {%- else -%}
-      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
-    {%- endif -%}
-    {%- liquid
-      assign contact_form_class = 'isolate'
-      if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-      endif
-    -%}
-    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-      {%- if form.posted_successfully? -%}
-        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
-          {% render 'icon-success' %}
-          {{ 'templates.contact.form.post_success' | t }}
-        </h2>
-      {%- elsif form.errors -%}
-        <div class="form__message">
-          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
-            {% render 'icon-error' %}
-            {{ 'templates.contact.form.error_heading' | t }}
-          </h2>
+  {% if section.settings.banner_img != blank or section.settings.subcontent != blank %}
+
+  {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+  {%- style -%}
+    @media screen and (max-width: 749px) {
+      #Banner-{{ section.id }}::before,
+      #Banner-{{ section.id }} .banner__media::before,
+      #Banner-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.banner_img.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      #Banner-{{ section.id }}::before,
+      #Banner-{{ section.id }} .banner__media::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.banner_img.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+  {%- endstyle -%}
+  
+  {%- liquid
+    assign full_width = '100vw'
+    assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+  
+    assign half_width = '60vw'
+    assign full_width = '120vw'
+    assign stacked_sizes = '(min-width: 750px) 60vw, 120vw'
+    assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
+    assign fetch_priority = 'auto'
+
+    if section.index == 1
+      assign fetch_priority = 'high'
+    endif
+  -%}
+
+  <div class="page-banner wss">
+    <div id="Banner-{{ section.id }}" class="banner banner--content-align-left banner--content-align-mobile-center banner--adapt banner--mobile-bottom scroll-trigger animate--fade-in scroll-trigger--design-mode"
+    >
+      {%- if section.settings.banner_img != blank -%}
+        <div class="banner__media media animate--ambient scroll-trigger animate--fade-in">
+          {%- liquid
+            assign image_height = section.settings.banner_img.width | divided_by: section.settings.banner_img.aspect_ratio
+            if section.settings.image_2 != blank
+              assign image_class = 'banner__media-image-half'
+            endif
+            if section.settings.image_2 != blank and section.settings.stack_images_on_mobile
+              assign sizes = stacked_sizes
+            elsif section.settings.image_2 != blank
+              assign sizes = half_width
+            else
+              assign sizes = full_width
+            endif
+          -%}
+          {{
+            section.settings.banner_img
+            | image_url: width: 3840
+            | image_tag:
+              width: section.settings.banner_img.width,
+              height: image_height,
+              class: image_class,
+              sizes: sizes,
+              widths: widths,
+              fetchpriority: fetch_priority
+          }}
         </div>
-        <ul class="form-status-list caption-large" role="list">
-          <li>
-            <a href="#ContactForm-email" class="link">
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}
-            </a>
-          </li>
-        </ul>
       {%- endif -%}
-      <div class="contact__fields">
-        <div class="field">
-          <input
-            class="field__input"
-            autocomplete="name"
-            type="text"
-            id="ContactForm-name"
-            name="contact[{{ 'templates.contact.form.name' | t }}]"
-            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="{{ 'templates.contact.form.name' | t }}"
-          >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
-        </div>
-        <div class="field field--with-error">
-          <input
-            autocomplete="email"
-            type="email"
-            id="ContactForm-email"
-            class="field__input"
-            name="contact[email]"
-            spellcheck="false"
-            autocapitalize="off"
-            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-            aria-required="true"
-            {% if form.errors contains 'email' %}
-              aria-invalid="true"
-              aria-describedby="ContactForm-email-error"
+    </div>
+    <div class="banner__content banner__content--middle-left page-width scroll-trigger animate--slide-in">
+      <h1 class="main-page-title page-title h1">
+        {{ page.title | escape }}
+      </h1>
+      <div class="banner__text rte body">
+        {{ section.settings.subcontent }}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="contact section-{{ section.id }}-padding">
+    <div class="grid">
+      <div class="grid__item contact-info">
+        <div class="contact-information">
+          {% for block in section.blocks %}
+            {% if block.type == 'heading' %}
+              <h2
+                class="inline-richtext {{ block.settings.heading_size }}"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.heading }}
+              </h2>
             {% endif %}
-            placeholder="{{ 'templates.contact.form.email' | t }}"
-          >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
-          {%- if form.errors contains 'email' -%}
-            <small class="contact__field-error" id="ContactForm-email-error">
-              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-              <span class="form__message">
-                {%- render 'icon-error' -%}
-                {{- form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email -}}
-              </span>
-            </small>
-          {%- endif -%}
+            {% if block.type == 'information' %}
+              <div class="information-container">
+                <div class="icon">
+                  {{ block.settings.icon |  image_url: width:24 | image_tag  }}
+                </div>
+                <div class="info">
+                  {% if block.settings.label != blank %}
+                    <span>{{ block.settings.label }}</span>
+                  {% endif  %}
+                  {% if block.settings.information != blank  %}
+                    <div class="content">{{ block.settings.information }}</div>
+                  {% endif  %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+      <div class="grid__item contact-form">
+        <div class="contact-form-container">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="title hxl title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- else -%}
+            <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+          {%- endif -%}
+          {%- liquid
+            assign contact_form_class = 'isolate'
+            if settings.animations_reveal_on_scroll
+              assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+            endif
+          -%}
+          {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+            {%- if form.posted_successfully? -%}
+              <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+                {% render 'icon-success' %}
+                {{ 'templates.contact.form.post_success' | t }}
+              </h2>
+            {%- elsif form.errors -%}
+              <div class="form__message">
+                <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+                  {% render 'icon-error' %}
+                  {{ 'templates.contact.form.error_heading' | t }}
+                </h2>
+              </div>
+              <ul class="form-status-list caption-large" role="list">
+                <li>
+                  <a href="#ContactForm-email" class="link">
+                    {{ form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email }}
+                  </a>
+                </li>
+              </ul>
+            {%- endif -%}
+            <div class="contact__fields">
+              <div class="field">
+                <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.first_name' | t }}<span aria-hidden="true">*</span></label>
+                <input
+                  class="field__input"
+                  autocomplete="name"
+                  type="text"
+                  id="ContactForm-name"
+                  name="contact[{{ 'templates.contact.form.first_name' | t }}]"
+                  value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                  placeholder="{{ 'templates.contact.form.first_name' | t }}"
+                >
+              </div>
+              <div class="field">
+                <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.last_name' | t }}<span aria-hidden="true">*</span></label>
+                <input
+                  class="field__input"
+                  autocomplete="name"
+                  type="text"
+                  id="ContactForm-name"
+                  name="contact[{{ 'templates.contact.form.last_name' | t }}]"
+                  value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                  placeholder="{{ 'templates.contact.form.last_name' | t }}"
+                >
+              </div>
+            </div>
+            <div class="contact__fields">
+              <div class="field field--with-error">
+                <label class="field__label" for="ContactForm-email">{{- 'templates.contact.form.email' | t }}<span aria-hidden="true">*</span></label
+                >
+                <input
+                  autocomplete="email"
+                  type="email"
+                  id="ContactForm-email"
+                  class="field__input"
+                  name="contact[email]"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  aria-required="true"
+                  {% if form.errors contains 'email' %}
+                    aria-invalid="true"
+                    aria-describedby="ContactForm-email-error"
+                  {% endif %}
+                  placeholder="{{ 'templates.contact.form.email' | t }}"
+                >
+                {%- if form.errors contains 'email' -%}
+                  <small class="contact__field-error" id="ContactForm-email-error">
+                    <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                    <span class="form__message">
+                      {%- render 'icon-error' -%}
+                      {{- form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email -}}
+                    </span>
+                  </small>
+                {%- endif -%}
+              </div>
+              <div class="field">
+                <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}<span aria-hidden="true">*</span></label>
+                <input
+                  type="tel"
+                  id="ContactForm-phone"
+                  class="field__input"
+                  autocomplete="tel"
+                  name="contact[{{ 'templates.contact.form.phone' | t }}]"
+                  pattern="[0-9\-]*"
+                  value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                  placeholder="{{ 'templates.contact.form.phone' | t }}"
+                >
+              </div>
+            </div>
+            <div class="field">
+              <label class="form__label field__label" for="ContactForm-body">
+                {{- 'templates.contact.form.comment' | t -}} <span aria-hidden="true">*</span>
+              </label>
+              <textarea
+                rows="10"
+                id="ContactForm-body"
+                class="text-area field__input"
+                name="contact[{{ 'templates.contact.form.comment' | t }}]"
+                placeholder="{{ 'templates.contact.form.comment' | t }}"
+              >
+                {{- form.body -}}
+              </textarea>
+            </div>
+            <div class="contact__button">
+              <button type="submit" class="button">
+                {{ 'templates.contact.form.send' | t }}
+              </button>
+            </div>
+          {%- endform -%}
+        </div>
       </div>
-      <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
-          {{- form.body -}}
-        </textarea>
-        <label class="form__label field__label" for="ContactForm-body">
-          {{- 'templates.contact.form.comment' | t -}}
-        </label>
-      </div>
-      <div class="contact__button">
-        <button type="submit" class="button">
-          {{ 'templates.contact.form.send' | t }}
-        </button>
-      </div>
-    {%- endform -%}
+    </div>
   </div>
 </div>
 
@@ -142,6 +271,24 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type":"header",
+      "content": "Banner"
+    },
+    {
+      "type":"image_picker",
+      "id":"banner_img",
+      "label": "Banner Image"
+    },
+    {
+      "type":"richtext",
+      "id":"subcontent",
+      "label": "Text content"
+    },
+    {
+      "type":"header",
+      "content": "Contact Form"
+    },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -205,6 +352,70 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    }
+  ],
+  "blocks":[
+    {
+      "type":"heading",
+      "name":"Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "t:sections.image-banner.blocks.heading.settings.heading.default",
+          "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            },
+            {
+              "value": "hxxl",
+              "label": "t:sections.all.heading_size.options__5.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        }
+      ]
+    },
+    {
+      "type":"information",
+      "name":"Information",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id":"icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id":"label",
+          "label": "Label"
+        },
+        {
+          "type": "richtext",
+          "id":"information",
+          "label": "Information"
+        }
+      ]
     }
   ],
   "presets": [

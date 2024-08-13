@@ -27,49 +27,8 @@
 <div class="page-width section-{{ section.id }}-padding">
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     {{ page.content }}
-      <div class="vertical-container">
-          <div class="tab-anchor">
-    
-          </div>
-          <div class="tab-content scroll-trigger animate--slide-in">
-              {{ page.content }}
-          </div>
-      </div>
   </div>
 </div>
-
-
-{% javascript %} 
-  const tabTitle = document.querySelectorAll('.rte .tab-content h2');
-  console.log(tabTitle);
-  const tabTitleContainer = document.querySelector('.tab-anchor');
-  console.log(tabTitleContainer);
-  const ulElement = document.createElement('ul');
-  tabTitle.forEach((element, index) => {
-    const liElement = document.createElement('li');
-    
-    const button = document.createElement('button');
-    button.textContent = element.textContent;
-    if(index == 0){
-      button.className = 'tab-link button active';
-    }else{
-      button.className = 'tab-link button';
-    }
-
-    liElement.appendChild(button);
-    ulElement.appendChild(liElement);
-
-    button.addEventListener('click', () => {
-      tabTitleContainer.querySelectorAll('button').forEach((button) => {
-        button.classList.remove('active');
-      });
-      button.classList.add('active');
-    });
-  });
-  tabTitleContainer.appendChild(ulElement);
-
-{% endjavascript %}
-
 
 {% schema %}
 {
