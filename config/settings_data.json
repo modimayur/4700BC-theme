@@ -6,7 +6,7 @@
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1300,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
@@ -36,7 +36,7 @@
     "card_style": "card",
     "card_image_padding": 0,
     "card_text_alignment": "center",
-    "card_color_scheme": "scheme-956d674f-6349-4bdd-b545-aa6f24a661d4",
+    "card_color_scheme": "scheme-6",
     "card_border_thickness": 1,
     "card_border_opacity": 0,
     "card_corner_radius": 16,
@@ -101,11 +101,11 @@
     "brand_description": "<p>4700BC is a premium gourmet popcorn brand focused on quality and innovation. Our mission is to blend international and domestic flavours, creating delightful snacking experiences while upholding values of excellence and customer satisfaction.<\/p>",
     "brand_image": "shopify:\/\/shop_images\/new-4700BC-logo.png",
     "brand_image_width": 100,
-    "social_facebook_link": "",
-    "social_instagram_link": "",
-    "social_youtube_link": "",
+    "social_facebook_link": "#",
+    "social_instagram_link": "#",
+    "social_youtube_link": "#",
     "social_tiktok_link": "",
-    "social_twitter_link": "",
+    "social_twitter_link": "#",
     "social_snapchat_link": "",
     "social_pinterest_link": "",
     "social_tumblr_link": "",
@@ -192,7 +192,7 @@
           "shadow": "#121212"
         }
       },
-      "scheme-956d674f-6349-4bdd-b545-aa6f24a661d4": {
+      "scheme-6": {
         "settings": {
           "background": "#fdebbe",
           "background_gradient": "",
@@ -201,6 +201,17 @@
           "button_label": "#ffffff",
           "secondary_button_label": "#070707",
           "shadow": "#121212"
+        }
+      },
+      "scheme-7": {
+        "settings": {
+          "background": "#3D3D3D",
+          "background_gradient": "",
+          "text": "#fff",
+          "button": "#fff",
+          "button_label": "#3D3D3D",
+          "secondary_button_label": "#3D3D3D",
+          "shadow": "#5D5D5D"
         }
       }
     }

@@ -1,3 +1,6 @@
 [environments.env1]
 store = "4700bc-development"
 password  = "shptka_66b1c4fae360e7f45895af16eb409c36"
+live = true
+allow-live = true
+output = "json"
