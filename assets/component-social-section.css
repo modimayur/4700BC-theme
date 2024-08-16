@@ -58,3 +58,32 @@
     width: 4.5rem;
     color: #070707;
 }
+
+@media screen and (max-width: 989px) {
+    .social-link-section .content-container .heading.custom{
+        font-size: 100px;
+        letter-spacing: 10px;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .social-link-section .content-container .heading.custom{
+        font-size: 55px;
+        letter-spacing: 6px;
+        -webkit-text-stroke: 2px #B88D28;
+    }
+    .social-link-section .content-container .social__list-social .list-social__item .list-social__link{
+        padding: 1.2rem;
+    }
+    .social-link-section .content-container .social__list-social{
+        gap: 20px;
+        padding-top: 30px;
+    }
+    .social-link-section .content-container .social__list-social .list-social__item .icon{
+        height: 2.4rem;
+        width: 2.4rem;
+    }
+    #ContactForm .field{
+        margin-bottom: 20px;
+    }
+}

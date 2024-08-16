@@ -12,6 +12,18 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  {%- if section.settings.bg_img != blank -%}
+    {% assign image_height = section.settings.bg_img.width | divided_by: section.settings.bg_img.aspect_ratio %}
+    .contact .grid .grid__item.contact-info:before{
+      background: url({{ section.settings.bg_img | image_url: height: image_height }}) no-repeat center center;
+      background-size: cover;
+    }
+  {%- endif -%}
+  {%- if section.settings.bg_color != blank -%}
+    .contact .grid .grid__item.contact-info:before{
+      background:{{section.settings.bg_color}};
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -102,7 +114,7 @@
   {% endif %}
 
   <div class="contact section-{{ section.id }}-padding">
-    <div class="grid">
+    <div class="grid">      
       <div class="grid__item contact-info">
         <div class="contact-information">
           {% for block in section.blocks %}
@@ -296,6 +308,20 @@
       "type":"richtext",
       "id":"subcontent",
       "label": "Text content"
+    },
+    {
+      "type":"header",
+      "content": "Left Contact Information"
+    },
+    {
+      "type":"image_picker",
+      "id":"bg_img",
+      "label": "Background Image"
+    },
+    {
+      "type":"color",
+      "id":"bg_color",
+      "label": "Background Color"
     },
     {
       "type":"header",
