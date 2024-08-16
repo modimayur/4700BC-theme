@@ -15,7 +15,7 @@
 <style>
   header-drawer {
     justify-self: start;
-    margin-left: -1.2rem;
+    margin-left: 0;
   }
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
@@ -74,7 +74,7 @@
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 1.6rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 1.6rem;
   }
 
   .section-header {
@@ -203,11 +203,11 @@
       {%- endif -%}
     {%- endif -%}
 
+    {%- liquid
+      if section.settings.menu != blank
+        render 'header-drawer'
+      endif -%}
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-      {%- liquid
-        if section.settings.menu != blank
-          render 'header-drawer'
-        endif -%}
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form class="small-hide medium-hide" data-prevent-hide>
