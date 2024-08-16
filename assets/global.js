@@ -78,10 +78,24 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
 
   summary.addEventListener('click', (event) => {
     event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+    var parantelement = summary.closest('.mega-menu__list');
+    if(parantelement){
+      parantelement.querySelectorAll('summary').forEach((summarys) => {
+        if(summary.id !== summarys.id){
+          console.log('summarys:');
+          // console.log(summary.id);
+          summarys.closest('details').open = false;
+          // console.log(document.querySelector(summarys.closest('details')));
+          // document.querySelector(summarys.id).open = false;
+        }
+      });
+    }
+    
   });
 
   if (summary.closest('header-drawer, menu-drawer')) return;
   summary.parentElement.addEventListener('keyup', onKeyUpEscape);
+  
 });
 
 const trapFocusHandlers = {};

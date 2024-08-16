@@ -40,43 +40,18 @@
     {{ content_for_header }}
     {% comment %} 
     {%- liquid
-      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+    assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+    assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
-    {% endcomment %}
     <link rel="preload" href="{{ 'FormulaCondensed-Bold.woff2' | file_url }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ 'FormulaCondensed-Light.woff2' | file_url }}" as="font" type="font/woff2" crossorigin>
+    {% endcomment %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-
+    
     {% style %}
-      @font-face {
-          font-family: 'Formula Condensed';
-          src: url({{ 'FormulaCondensed-Light.eot' | file_url }});
-          src: url({{ 'FormulaCondensed-Light.eot?#iefix' | file_url }}) format('embedded-opentype'),
-              url({{ 'FormulaCondensed-Light.woff2' | file_url }}) format('woff2'),
-              url({{ 'FormulaCondensed-Light.woff' | file_url }}) format('woff'),
-              url({{ 'FormulaCondensed-Light.ttf' | file_url }}) format('truetype'),
-              url({{ 'FormulaCondensed-Light.svg#FormulaCondensed-Light' | file_url }}) format('svg');
-          font-weight: 300;
-          font-style: normal;
-          font-display: swap;
-      }
-      
-      @font-face {
-          font-family: 'Formula Condensed';
-          src: url({{ 'FormulaCondensed-Bold.eot' | file_url }});
-          src: url({{ 'FormulaCondensed-Bold.eot?#iefix' | file_url }}) format('embedded-opentype'),
-              url({{ 'FormulaCondensed-Bold.woff2' | file_url }}) format('woff2'),
-              url({{ 'FormulaCondensed-Bold.woff' | file_url }}) format('woff'),
-              url({{ 'FormulaCondensed-Bold.ttf' | file_url }}) format('truetype'),
-              url({{ 'FormulaCondensed-Bold.svg#FormulaCondensed-Bold' | file_url }}) format('svg');
-          font-weight: bold;
-          font-style: normal;
-          font-display: swap;
-      }
 
       {% comment %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
@@ -84,7 +59,37 @@
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
+      @font-face {
+        font-family: 'Formula Condensed';
+        src: url({{ 'FormulaCondensed-Black.otf' | asset_url }});
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Formula Condensed';
+        src: url({{ 'FormulaCondensed-Regular.otf' | asset_url }});
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
       {% endcomment %}
+      
+      @font-face {
+        font-family: 'Formula Condensed';
+        src: url({{ 'FormulaCondensed-Light.otf' | asset_url }});
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Formula Condensed';
+        src: url({{ 'FormulaCondensed-Bold.otf' | asset_url }});
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+
 
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
