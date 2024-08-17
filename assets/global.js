@@ -1285,3 +1285,53 @@ class BulkAdd extends HTMLElement {
 if (!customElements.get('bulk-add')) {
   customElements.define('bulk-add', BulkAdd);
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('scrollto-next');
+  const sections = Array.from(document.querySelectorAll('.shopify-section.section'));
+
+  button.addEventListener('click', () => {
+      const currentScroll = window.scrollY;
+      const currentIndex = sections.findIndex(section => {
+          const rect = section.getBoundingClientRect();
+          return rect.top + window.scrollY > currentScroll;
+      });
+
+      if (currentIndex === -1) return;
+
+      // const nextIndex = currentIndex + 1;
+      const nextIndex = currentIndex;
+      console.log('nextIndex',nextIndex);
+      if (nextIndex >= sections.length) return;
+
+      const targetSection = sections[nextIndex];
+      smoothScrollTo(targetSection.offsetTop);
+  });
+
+  function smoothScrollTo(targetY) {
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const duration = 600; // Duration of the scroll animation in milliseconds
+      let startTime = null;
+
+      function scrollAnimation(currentTime) {
+          if (!startTime) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const progress = Math.min(timeElapsed / duration, 1);
+          const ease = easeInOutQuad(progress);
+          window.scrollTo(0, startY + distance * ease);
+          if (timeElapsed < duration) {
+              window.requestAnimationFrame(scrollAnimation);
+          }
+      }
+
+      window.requestAnimationFrame(scrollAnimation);
+  }
+
+  function easeInOutQuad(t) {
+      return t < 0.5
+          ? 2 * t * t
+          : -1 + (4 - 2 * t) * t;
+  }
+});
