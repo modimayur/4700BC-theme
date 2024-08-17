@@ -124,6 +124,12 @@
           data-cascade
         {% endif %}
       >
+        <div class="page-width center">
+          <h1 class="collection__title">
+            <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+            Shop {{ collection.title | escape }}
+          </h1>
+        </div>
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>

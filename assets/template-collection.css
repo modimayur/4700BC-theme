@@ -97,10 +97,3 @@
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }
-
-.facets-container-bg {
-  box-shadow: 0px 10px 15px 0px rgba(100, 114, 133, 0.1);
-  background: #FFF9F0;
-  background: #FFF9F0;
-  padding: 10px 0 18px;
-}

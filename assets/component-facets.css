@@ -1240,11 +1240,26 @@ input.mobile-facets__checkbox {
   }
 }
 
+.facets__form .js-filter,
 .facet-filters.sorting .facet-filters__field{
   background: #ffedc6;
   border: 1px solid #D2B275;
   padding: 7px 10px 7px 12px;
   border-radius: 6px;
+}
+
+.facets-container-bg {
+  box-shadow: 0px 10px 15px 0px rgba(100, 114, 133, 0.1);
+  background: #FFF9F0;
+  padding: 14px 0 14px;
+}
+
+.facets-container{
+  padding-top: 0;
+}
+.facets__form,
+.facets__form .js-filter .facets__summary{
+  margin: 0 auto;
 }
 
 .facet-filters.sorting .facet-filters__field .facet-filters__label, .facet-filters.sorting .facet-filters__field .facet-filters__sort{
@@ -1263,7 +1278,7 @@ input.mobile-facets__checkbox {
 }
 
 .product-count{
-  padding: 9px 0;
+  padding: 8px 0;
 }
 
 .product-count .product-count__text{
