@@ -5,7 +5,7 @@
 
 .collection-hero--with-image .collection-hero__inner {
   margin-bottom: 0;
-  padding-bottom: 2rem;
+  /* padding-bottom: 2rem; */
 }
 
 @media screen and (min-width: 750px) {
@@ -78,9 +78,9 @@
 }
 
 @media screen and (max-width: 749px) {
-  .collection-hero__image-container {
+  /* .collection-hero__image-container {
     height: 20rem;
-  }
+  } */
 }
 
 @media screen and (min-width: 750px) {
@@ -95,10 +95,10 @@
     /* margin-left: 3rem; */
     min-height: 20rem;
   }
-  .collection-hero__image-container:before{
-    content: '';
-    height: 100%;
-    display: block;
-    padding-top: 25.555555%;
-  }
+}
+.collection-hero__image-container:before{
+  content: '';
+  height: 100%;
+  display: block;
+  padding-top: 25.555555%;
 }

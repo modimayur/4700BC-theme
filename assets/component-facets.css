@@ -1295,6 +1295,17 @@ input.mobile-facets__checkbox {
   display: none;
 }
 
-.facets__wrapper {
-  
+@media screen and (max-width: 749px) {
+  .facets__form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  .facets-container-bg{
+    padding: 14px 0 8px;
+  }
+  .product-count{
+    padding: 12px 0 8px;
+  }
 }
