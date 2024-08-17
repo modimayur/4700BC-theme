@@ -74,6 +74,51 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "ticker-section": {
+      "type": "ticker-section",
+      "blocks": {
+        "icon_with_text_TdGXmK": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Happiness at its crispiest"
+          }
+        },
+        "icon_with_text_dFJhyr": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Happiness at its crispiest"
+          }
+        },
+        "icon_with_text_KdNMqj": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Happiness at its crispiest"
+          }
+        },
+        "icon_with_text_96CmVE": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Happiness at its crispiest"
+          }
+        },
+        "icon_with_text_GCbmQ8": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Happiness at its crispiest"
+          }
+        }
+      },
+      "block_order": [
+        "icon_with_text_TdGXmK",
+        "icon_with_text_dFJhyr",
+        "icon_with_text_KdNMqj",
+        "icon_with_text_96CmVE",
+        "icon_with_text_GCbmQ8"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -166,6 +211,7 @@
   },
   "order": [
     "slideshow_JLnqx7",
+    "ticker-section",
     "featured_collection",
     "collapsible_content_V4tQij"
   ]

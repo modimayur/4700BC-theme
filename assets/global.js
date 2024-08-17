@@ -1334,4 +1334,21 @@ document.addEventListener('DOMContentLoaded', () => {
           ? 2 * t * t
           : -1 + (4 - 2 * t) * t;
   }
+
+  
+  // Add event listener to close button
+  var announcementlosebtn = document.querySelector('.announcement-bar__close-btn');
+  if(announcementlosebtn){
+    var announcementbar = document.querySelector('.announcement-bar-section');
+    if (localStorage.getItem('announcementClosed') !== 'true') {
+      announcementbar.classList.remove('hidden');
+    }
+    announcementlosebtn.addEventListener('click', function() {
+      announcementbar.classList.add('hidden');
+  
+      // Store the closed state in local storage
+      localStorage.setItem('announcementClosed', 'true');
+    });
+
+  }
 });

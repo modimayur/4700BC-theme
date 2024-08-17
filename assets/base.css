@@ -2155,6 +2155,9 @@ input[type='checkbox'] {
   grid-area: announcements;
 }
 
+.announcement-bar .announcement-bar__close-btn{
+  display: block;
+}
 .announcement-bar .slider--everywhere {
   margin-bottom: 0;
   scroll-behavior: auto;
