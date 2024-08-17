@@ -69,6 +69,7 @@ class HTMLUpdateUtility {
 }
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
+  var details = summary.closest('details');
   summary.setAttribute('role', 'button');
   summary.setAttribute('aria-expanded', summary.parentNode.hasAttribute('open'));
 
@@ -84,14 +85,18 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
         if(summary.id !== summarys.id){
           console.log('summarys:');
           // console.log(summary.id);
-          summarys.closest('details').open = false;
+          details.open = false;
           // console.log(document.querySelector(summarys.closest('details')));
           // document.querySelector(summarys.id).open = false;
         }
       });
-    }
-    
+    }    
   });
+
+  // var summaryclose = details.querySelector('.summary-close');
+  // // console.log('summaryclose',summaryclose);
+  // console.log('details',details);
+  
 
   if (summary.closest('header-drawer, menu-drawer')) return;
   summary.parentElement.addEventListener('keyup', onKeyUpEscape);

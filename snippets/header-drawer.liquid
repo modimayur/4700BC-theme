@@ -20,8 +20,17 @@
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
+            <div class="navigation-header">
+              <div class="h2">Menu</div>
+              <button type="button" class="summary-close" aria-label="{{ 'sections.header.menu' | t }}"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
-              {%- for link in section.settings.menu.links -%}
+              {%- for link in headermenu -%}
                 <li>
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
@@ -39,10 +48,12 @@
                         tabindex="-1"
                       >
                         <div class="menu-drawer__inner-submenu">
+                          {% comment %} 
                           <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
                             {% render 'icon-arrow' %}
                             {{ link.title | escape }}
                           </button>
+                          {% endcomment %}
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
                               <li>
@@ -71,6 +82,7 @@
                                       id="childlink-{{ childlink.handle | escape }}"
                                       class="menu-drawer__submenu has-submenu gradient motion-reduce"
                                     >
+                                      {% comment %} 
                                       <button
                                         class="menu-drawer__close-button link link--text focus-inset"
                                         aria-expanded="true"
@@ -78,6 +90,7 @@
                                         {% render 'icon-arrow' %}
                                         {{ childlink.title | escape }}
                                       </button>
+                                      {% endcomment %}
                                       <ul
                                         class="menu-drawer__menu list-menu"
                                         role="list"
@@ -123,6 +136,7 @@
               {%- endfor -%}
             </ul>
           </nav>
+          {% comment %} 
           <div class="menu-drawer__utility-links">
             {%- if shop.customer_accounts_enabled -%}
               <a
@@ -253,6 +267,7 @@
               {%- endif -%}
             </ul>
           </div>
+          {% endcomment %}
         </div>
       </div>
     </div>
