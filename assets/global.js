@@ -1351,4 +1351,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   }
+  $('.curve-marquee').marquee();
 });

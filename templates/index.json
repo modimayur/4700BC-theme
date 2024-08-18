@@ -74,8 +74,16 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "svg-curve-text-marquee": {
+      "type": "svg-curve-text-marquee",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "icon_text": "Happiness at its crispiest"
+      }
+    },
     "ticker-section": {
       "type": "ticker-section",
+      "disabled": true,
       "blocks": {
         "icon_with_text_TdGXmK": {
           "type": "icon_with_text",
@@ -211,6 +219,7 @@
   },
   "order": [
     "slideshow_JLnqx7",
+    "svg-curve-text-marquee",
     "ticker-section",
     "featured_collection",
     "collapsible_content_V4tQij"
