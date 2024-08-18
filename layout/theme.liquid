@@ -26,6 +26,7 @@
 
     {% render 'meta-tags' %}
 
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
@@ -47,8 +48,8 @@
     <link rel="preload" href="{{ 'FormulaCondensed-Bold.woff2' | file_url }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ 'FormulaCondensed-Light.woff2' | file_url }}" as="font" type="font/woff2" crossorigin>
     {% endcomment %}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {% comment %} <link rel="preconnect" href="https://fonts.googleapis.com"> {% endcomment %}
+    {% comment %} <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> {% endcomment %}
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     
     {% style %}
@@ -91,6 +92,7 @@
       }
 
 
+      {% assign scheme_classes =  '' %}
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
         {% if forloop.index == 1 -%}
@@ -292,6 +294,7 @@
       }
     {% endstyle %}
 
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
