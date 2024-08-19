@@ -21,6 +21,12 @@
 .price .price-item {
   display: inline-block;
   margin: 0 1rem 0 0;
+  font-size: 40px;
+  letter-spacing: 0;
+  font-weight: 700;
+  color: #070707;
+  font-family: var(--font-heading-family);
+  letter-spacing: 0.16rem;
 }
 
 .price__regular .price-item--regular {
