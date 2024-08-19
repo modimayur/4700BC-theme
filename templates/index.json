@@ -265,6 +265,23 @@
         
       }
     },
+    "product-search-range": {
+      "type": "product-search-range",
+      "settings": {
+        "heading": "Our Range",
+        "heading_size": "hxl",
+        "product_list": [
+          "cheese-and-herbs-corn-chips-pack-of-6-55g",
+          "hawaiian-barbeque-corn-chips-pack-of-6-55g",
+          "salt-and-truffle-corn-chips-pack-of-6-55g",
+          "sundried-tomato-corn-chips-pack-of-6-55g",
+          "crunchy-corn-hawaiian-bbq-pouch-pack-of-8-40g"
+        ],
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -360,6 +377,7 @@
     "svg-curve-text-marquee",
     "ticker-section",
     "sections-product-range",
+    "product-search-range",
     "featured_collection",
     "collapsible_content_V4tQij"
   ]

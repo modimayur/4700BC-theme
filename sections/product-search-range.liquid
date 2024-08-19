@@ -1,0 +1,212 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
+{{ 'component-search.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="page-width section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="wrapper-title center inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+    <custom-predictive-search>
+      <form
+        id="custom-search-form"
+        class="search search-form"
+        action="{{ routes.search_url }}"
+        method="get"
+        role="search"
+      >
+        <input type="hidden" name="type" value="product">
+        {% comment %}
+          <input type="hidden" name="options[unavailable_products]" value="hide" />
+          <input type="hidden" name="options[prefix]" value="last" />
+        {% endcomment %}
+        <input type="search" id="search-input" placeholder="Search products...">
+        <button type="submit">Search</button>
+      </form>
+      <div id="search-results">
+      <ul>
+        {% for product in section.settings.product_list %}
+          <li class="product-iteam">
+            <a href="{{ product.url }}">
+              <div class="product-image">
+                {{
+                  product.featured_media
+                  | image_url: height: 255
+                  | image_tag: class: 'product-range-thumb'
+                }}
+               </div>
+               <h6 class="product-title">{{ product.title }}</h6>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      
+      </div>
+    </custom-predictive-search>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        class CustomPredictivesearch extends HTMLElement {
+          constructor() {
+            super();
+            this.input = this.querySelector('input[type="search"]');
+            this.predictiveSearchResults = this.querySelector('#predictive-search');
+            this.resultsContainer = this.querySelector('#search-results');
+
+            this.input.addEventListener(
+              'input',
+              this.debounce((event) => {
+                this.onChange(event);
+              }, 300).bind(this)
+            );
+          }
+
+          onChange() {
+            const searchTerm = this.input.value.trim();
+            if (!searchTerm.length) {
+              this.close();
+              return;
+            }
+            this.getSearchResults(searchTerm);
+          }
+
+          getSearchResults(query) {
+            this.resultsContainer.innerHTML = 'Loading...';
+            fetch(`/search/suggest.json?q=${query}`)
+              .then((response) => response.json())
+              .then((data) => {
+                var products = data.resources.results.products;
+                //console.log('products', products);
+                if (products.length > 0) {
+                  var resultsHtml = '<ul>';
+                  products.forEach(function (product) {
+                    //console.log('product title: ',product.title);
+                    resultsHtml += '<li class="product-iteam"><a href="' + product.url + '"><div class="product-image"><img src="'+product.image+'" alt=""/></div><h6 class="product-title">' + product.title + '</h6></a></li>';
+                  });
+                  resultsHtml += '</ul>';
+                  this.resultsContainer.innerHTML = resultsHtml;
+                } else {
+                  this.resultsContainer.innerHTML = 'No products found.';
+                }
+              })
+              .catch(function (error) {
+                //this.resultsContainer.innerHTML = 'Error occurred while searching.';
+                console.error('Error:', error);
+              });
+          }
+          debounce(fn, wait) {
+            let t;
+            return (...args) => {
+              clearTimeout(t);
+              t = setTimeout(() => fn.apply(this, args), wait);
+            };
+          }
+        }
+        customElements.define('custom-predictive-search', CustomPredictivesearch);
+      });
+    </script>
+  </div>
+</div>
+        {}
+
+{% schema %}
+{
+  "name": "Product Search Range",
+  "tag": "section",
+  "class": "section sections-product-range",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Our Range",
+      "label": "t:sections.collage.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "hxl",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Product List"
+    },    
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Search Range"
+    }
+  ]
+}
+{% endschema %}
