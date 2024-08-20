@@ -261,14 +261,15 @@
       ],
       "settings": {
         "color_scheme": "scheme-8",
-        "heading_size": "hxxl"
-        
+        "heading_size": "hxxl",
+        "padding_top": 0,
+        "padding_bottom": 0        
       }
     },
     "product-search-range": {
       "type": "product-search-range",
       "settings": {
-        "heading": "Our Range",
+        "heading": "",
         "heading_size": "hxl",
         "product_list": [
           "cheese-and-herbs-corn-chips-pack-of-6-55g",
@@ -281,95 +282,6 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
-    "collapsible_content_V4tQij": {
-      "type": "collapsible-content",
-      "blocks": {
-        "collapsible_row_QEmJgr": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_UqNnqX": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_k8wJz4": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
-            "page": ""
-          }
-        },
-        "collapsible_row_wRBDkt": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "row_content": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
-            "page": ""
-          }
-        }
-      },
-      "block_order": [
-        "collapsible_row_QEmJgr",
-        "collapsible_row_UqNnqX",
-        "collapsible_row_k8wJz4",
-        "collapsible_row_wRBDkt"
-      ],
-      "settings": {
-        "caption": "",
-        "heading": "Collapsible content",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "layout": "none",
-        "color_scheme": "",
-        "container_color_scheme": "",
-        "open_first_collapsible_row": false,
-        "image_ratio": "adapt",
-        "desktop_layout": "image_second",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -377,8 +289,6 @@
     "svg-curve-text-marquee",
     "ticker-section",
     "sections-product-range",
-    "product-search-range",
-    "featured_collection",
-    "collapsible_content_V4tQij"
+    "product-search-range"
   ]
 }

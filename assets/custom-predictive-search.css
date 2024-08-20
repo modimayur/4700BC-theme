@@ -1,0 +1,91 @@
+.sections-product-search-range .custom-predictive-search-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='1440' height='266' viewBox='0 0 1440 266' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_32_97' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='1440' height='266'%3E%3Crect width='1440' height='266' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_32_97)'%3E%3Cpath d='M260.363 136.31L134.929 116.535L65.9656 73.4521L0.000365735 0L0 428H949V290.983H911.02L751 271.208L640.663 236.601L497.5 211.881L352.315 165.974L260.363 136.31Z' fill='%23FEEEC7'/%3E%3Cpath d='M51 369.945L0 382.255V753.988L79 773.447L162 764.758L240 753.171L312.5 745.208L375 753.171L432.5 762.586L480 767.655L547.5 762.586L613.5 767.655H674L726 773.447L781 786.123L833.5 798.053H883.5L935.5 807L981.5 798.053L1037 807L1090 798.053H1141.5L1202.5 807L1249.5 798.053L1312 786.123H1375.5L1440 753.988V26L1376 80.3061L1335.5 123.752L1300 159.957H1245H1200L1124.5 193.265L1081 220.057L1029 229.47H933.5H886L778 265.675H690H637.5L481.5 327.948H383.5H283L177.5 360.532H122.5L87.5 369.945H51Z' fill='%23FEEEC7'/%3E%3C/g%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    position: relative;
+    z-index: 1;
+}
+.sections-product-search-range .custom-predictive-search-bg::before{
+    content: "";
+    background-color: #FEEEC7;
+    position: absolute;
+    inset: 65% 0 0;
+    display: block;
+    z-index: -1;
+}
+
+.sections-product-search-range .custom-predictive-search {
+    margin-bottom: 2rem;
+}
+.sections-product-search-range .custom-predictive-search #custom-search-form{
+    max-width: 658px;
+    margin-inline: auto;
+    position: relative;
+}
+.sections-product-search-range .custom-predictive-search #custom-search-form:before{
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.6667 44.3333C35.976 44.3333 44.3333 35.976 44.3333 25.6667C44.3333 15.3574 35.976 7 25.6667 7C15.3574 7 7 15.3574 7 25.6667C7 35.976 15.3574 44.3333 25.6667 44.3333Z' stroke='%23070707' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M49.0021 48.9982L38.9688 38.9648' stroke='%23070707' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    background-position: left center;
+    width: 5.6rem;
+    height: 5.6rem;
+    position: absolute;
+    inset: 0 auto 0 0;
+    display: block;
+    margin: auto;
+    opacity: 0.5;
+}
+.sections-product-search-range .custom-predictive-search #custom-search-form #search-input {
+    width: 100%;
+    padding-left: 7.2rem;
+    height: 8.4rem;
+    background: transparent;
+    border: 0;
+    color: #070707;
+    font-size: 5.6rem;
+    font-weight: normal;
+    box-shadow: none;
+    outline: none;
+}
+.sections-product-search-range .tegsuggestions ul{
+    list-style: none;
+    margin: 0 0 5rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+.sections-product-search-range .tegsuggestions ul a{
+    font-size: 2rem;
+    font-weight: normal;
+    text-transform: capitalize;
+    color: #000;
+    text-decoration: none;
+    background: rgb(252, 192, 0, 0.5);
+    display: flex;
+    align-items: center;
+}
+.sections-product-search-range .tegsuggestions ul a span {
+    padding: 0rem 1rem;
+    height: 100%;
+}
+.sections-product-search-range .tegsuggestions ul a mark{
+    background-color: #FCC000;
+    font-weight: bold;
+    padding: 0.25rem 1rem;
+}
+
+.sections-product-search-range #search-results .product-iteam a{
+    text-decoration: none;
+}
+.sections-product-search-range #search-results .product-iteam .product-title{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6rem;
+    /* font-size: 32px; */
+    line-height: 150%;
+    color: #592C29;
+    margin: 0.5rem 0 0;
+}

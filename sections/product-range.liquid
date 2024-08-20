@@ -1,3 +1,6 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
 {{ 'product-range.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
@@ -14,162 +17,164 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient isolate">
-  <div class="page-width section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="wrapper-title center inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-        {{ section.settings.heading }}
-      </h2>
-    {%- endif -%}
-    {% if section.blocks.size > 0 %}
-      <div class="product-range-wrapper">
-        <div
-          style="--swiper-navigation-color: rgb(var(--color-foreground)); --swiper-pagination-color: rgb(var(--color-foreground))"
-          class="swiper mainSlider"
-        >
-          <div class="swiper-wrapper">
-            {%- for block in section.blocks -%}
-              {%- liquid
-                assign product = block.settings.product
-                assign ratio = 1
-                assign lazy_load = false
-                assign producttitle = product.title
-                if block.settings.title != blank
-                  assign producttitle = block.settings.title
-                endif
-              -%}
+<div class="shopify-section-bg color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="shopify-section-inner-bg">
+    <div class="page-width section-{{ section.id }}-padding">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="wrapper-title center inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.heading }}
+        </h2>
+      {%- endif -%}
+      {% if section.blocks.size > 0 %}
+        <div class="product-range-wrapper">
+          <div
+            style="--swiper-navigation-color: rgb(var(--color-foreground)); --swiper-pagination-color: rgb(var(--color-foreground))"
+            class="swiper mainSlider"
+          >
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign product = block.settings.product
+                  assign ratio = 1
+                  assign lazy_load = false
+                  assign producttitle = product.title
+                  if block.settings.title != blank
+                    assign producttitle = block.settings.title
+                  endif
+                -%}
 
-              <div
-                class="swiper-slide card-wrapper product-card-wrapper underline-links-hover {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                {{ block.shopify_attributes }}
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
                 <div
-                  class="product_item"
-                  style="--theme-color:{{ block.settings.color_background.red }},{{ block.settings.color_background.green }},{{ block.settings.color_background.blue }};"
+                  class="swiper-slide card-wrapper product-card-wrapper underline-links-hover {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {{ block.shopify_attributes }}
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
                 >
-                  <div class="card">
-                    <div
-                      class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
-                      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
-                    >
-                      {%- if block.settings.custom_image != blank -%}
-                        <div class="card__media">
-                          <div class="media media--transparent media--hover-effect">
-                            <img
-                              srcset="
-                                {%- if block.settings.custom_image.width >= 165 -%}{{ block.settings.custom_image | image_url: width: 165 }} 165w,{%- endif -%}
-                                {%- if block.settings.custom_image.width >= 360 -%}{{ block.settings.custom_image | image_url: width: 360 }} 360w,{%- endif -%}
-                                {%- if block.settings.custom_image.width >= 533 -%}{{ block.settings.custom_image | image_url: width: 533 }} 533w,{%- endif -%}
-                                {%- if block.settings.custom_image.width >= 720 -%}{{ block.settings.custom_image | image_url: width: 720 }} 720w,{%- endif -%}
-                                {%- if block.settings.custom_image.width >= 940 -%}{{ block.settings.custom_image | image_url: width: 940 }} 940w,{%- endif -%}
-                                {%- if block.settings.custom_image.width >= 1066 -%}{{ block.settings.custom_image | image_url: width: 1066 }} 1066w,{%- endif -%}
-                                {{ block.settings.custom_image | image_url }} {{ block.settings.custom_image.width }}w
-                              "
-                              src="{{ block.settings.custom_image | image_url: width: 533 }}"
-                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                              alt="{{ block.settings.custom_image.alt | escape }}"
-                              class="motion-reduce"
-                              {% unless lazy_load == false %}
-                                loading="lazy"
-                              {% endunless %}
-                              width="{{ block.settings.custom_image.width }}"
-                              height="{{ block.settings.custom_image.height }}"
-                            >
+                  <div
+                    class="product_item"
+                    style="--theme-color:{{ block.settings.color_background.red }},{{ block.settings.color_background.green }},{{ block.settings.color_background.blue }};"
+                  >
+                    <div class="card">
+                      <div
+                        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
+                        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+                      >
+                        {%- if block.settings.custom_image != blank -%}
+                          <div class="card__media">
+                            <div class="media media--transparent media--hover-effect">
+                              <img
+                                srcset="
+                                  {%- if block.settings.custom_image.width >= 165 -%}{{ block.settings.custom_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 360 -%}{{ block.settings.custom_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 533 -%}{{ block.settings.custom_image | image_url: width: 533 }} 533w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 720 -%}{{ block.settings.custom_image | image_url: width: 720 }} 720w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 940 -%}{{ block.settings.custom_image | image_url: width: 940 }} 940w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 1066 -%}{{ block.settings.custom_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                  {{ block.settings.custom_image | image_url }} {{ block.settings.custom_image.width }}w
+                                "
+                                src="{{ block.settings.custom_image | image_url: width: 533 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                alt="{{ block.settings.custom_image.alt | escape }}"
+                                class="motion-reduce"
+                                {% unless lazy_load == false %}
+                                  loading="lazy"
+                                {% endunless %}
+                                width="{{ block.settings.custom_image.width }}"
+                                height="{{ block.settings.custom_image.height }}"
+                              >
+                            </div>
                           </div>
-                        </div>
-                      {%- elsif product.featured_media -%}
-                        <div class="card__media shape--round">
-                          <div class="media media--transparent media--hover-effect">
-                            <img
-                              srcset="
-                                {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
-                                {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
-                                {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
-                                {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
-                                {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
-                                {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
-                                {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
-                              "
-                              src="{{ product.featured_media | image_url: width: 533 }}"
-                              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                              alt="{{ product.featured_media.alt | escape }}"
-                              class="motion-reduce"
-                              {% unless lazy_load == false %}
-                                loading="lazy"
-                              {% endunless %}
-                              width="{{ product.featured_media.width }}"
-                              height="{{ product.featured_media.height }}"
-                            >
+                        {%- elsif product.featured_media -%}
+                          <div class="card__media shape--round">
+                            <div class="media media--transparent media--hover-effect">
+                              <img
+                                srcset="
+                                  {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                  {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+                                "
+                                src="{{ product.featured_media | image_url: width: 533 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                alt="{{ product.featured_media.alt | escape }}"
+                                class="motion-reduce"
+                                {% unless lazy_load == false %}
+                                  loading="lazy"
+                                {% endunless %}
+                                width="{{ product.featured_media.width }}"
+                                height="{{ product.featured_media.height }}"
+                              >
+                            </div>
                           </div>
-                        </div>
-                      {% endif %}
-                    </div>
+                        {% endif %}
+                      </div>
 
-                    <h2 class="producttitle">{{ producttitle }}</h2>
+                      <h2 class="producttitle">{{ producttitle }}</h2>
+                    </div>
                   </div>
                 </div>
-              </div>
-            {% endfor %}
+              {% endfor %}
+            </div>
+            <button type="button" class="swiper-navigation-button swiper-button-next">
+              <span>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="icon icon-caret"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9 18.5L15 12.5L9 6.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+            <button type="button" class="swiper-navigation-button swiper-button-prev">
+              <span>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="icon icon-caret"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9 18.5L15 12.5L9 6.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
           </div>
-          <button type="button" class="swiper-navigation-button swiper-button-next">
-            <span>
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                class="icon icon-caret"
-                width="24"
-                height="25"
-                viewBox="0 0 24 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9 18.5L15 12.5L9 6.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-          </button>
-          <button type="button" class="swiper-navigation-button swiper-button-prev">
-            <span>
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                class="icon icon-caret"
-                width="24"
-                height="25"
-                viewBox="0 0 24 25"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9 18.5L15 12.5L9 6.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-          </button>
-        </div>
-        <div thumbsSlider="" class="swiper thumbsSlider">
-          <div class="swiper-wrapper">
-            {%- for block in section.blocks -%}
-              <div
-                class="swiper-slide"
-                style="--theme-color:{{ block.settings.color_background.red }},{{ block.settings.color_background.green }},{{ block.settings.color_background.blue }};"
-              >
-                {%- if block.settings.custom_image != blank -%}
-                  {{ block.settings.custom_image | image_url: height: 60 | image_tag: class: 'product-range-thumb' }}
-                {% elsif block.settings.product.featured_media %}
-                  {{
-                    block.settings.product.featured_media
-                    | image_url: height: 60
-                    | image_tag: class: 'product-range-thumb'
-                  }}
-                {% endif %}
-              </div>
-            {% endfor %}
+          <div thumbsSlider="" class="swiper thumbsSlider">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                <div
+                  class="swiper-slide"
+                  style="--theme-color:{{ block.settings.color_background.red }},{{ block.settings.color_background.green }},{{ block.settings.color_background.blue }};"
+                >
+                  {%- if block.settings.custom_image != blank -%}
+                    {{ block.settings.custom_image | image_url: height: 60 | image_tag: class: 'product-range-thumb' }}
+                  {% elsif block.settings.product.featured_media %}
+                    {{
+                      block.settings.product.featured_media
+                      | image_url: height: 60
+                      | image_tag: class: 'product-range-thumb'
+                    }}
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
-      </div>
-    {% endif %}
+      {% endif %}
+    </div>
   </div>
 </div>
 
@@ -299,32 +304,3 @@
   ]
 }
 {% endschema %}
-
-<div class="smilytext">
-  <svg width="1294" height="340" viewBox="0 0 1294 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M132.881 49.8808L149.445 61.7897L79.9353 130.051L54.7982 111.978L95.7948 54.9924L47.1011 106.443L21.964 88.3701L78.0279 10.4416L92.6424 20.9494L48.282 82.6103L100.047 26.2733L125.477 44.5569L81.1161 106.218L132.881 49.8808Z" fill="#592C29"/>
-    <path d="M175.972 77.1634L191.337 86.5409L141.302 168.471L125.937 159.093L146.264 125.809L136.636 119.933L116.309 153.217L100.945 143.839L150.98 61.9093L166.344 71.2868L146.017 104.571L155.646 110.447L175.972 77.1634Z" fill="#592C29"/>
-    <path d="M174.873 186.775L181.431 171.773L173.078 167.29L164.194 181.044L148.334 172.531L204.116 93.5172L225.791 105.151L190.733 195.288L174.873 186.775ZM182.863 152.113L188.679 155.234L205.979 116.172L182.863 152.113Z" fill="#592C29"/>
-    <path d="M277.646 130.234L269.989 146.524L258.802 141.269L225.62 211.859L209.328 204.205L242.51 133.615L231.323 128.36L238.98 112.069L277.646 130.234Z" fill="#592C29"/>
-    <path d="M293.271 239.994L297.848 224.274L288.988 220.9L281.944 235.681L265.122 229.276L310.291 143.751L333.281 152.505L310.092 246.399L293.271 239.994ZM296.742 204.592L302.91 206.941L315.049 165.979L296.742 204.592Z" fill="#592C29"/>
-    <path d="M363.711 254.803C362.614 258.232 361.668 261.583 362.373 263.32L345.228 257.839C344.523 256.102 345.469 252.751 346.566 249.322L352.196 231.721C354.317 225.092 352.396 223.218 345.767 221.099L335.055 254.587L317.91 249.106L347.158 157.67L364.303 163.151C383.849 169.399 388.28 177.997 382.394 196.398L379.798 204.513C376.58 214.571 371.41 220.1 364.795 222.268C369.857 226.532 370.987 232.059 368.245 240.631L363.711 254.803ZM365.248 190.917C367.369 184.288 365.448 182.415 358.819 180.295L351.251 203.954C357.88 206.074 360.532 205.661 362.653 199.032L365.248 190.917Z" fill="#592C29"/>
-    <path d="M422.057 198.574L406.409 194.378L400.967 214.66L416.614 218.856L411.949 236.241L396.302 232.045L390.86 252.328L406.507 256.524L401.842 273.909L368.809 265.051L393.689 172.331L426.722 181.189L422.057 198.574Z" fill="#592C29"/>
-    <path d="M454.614 251.273L449.381 186.738L468.239 190.348L467.472 231.986L482.146 193.01L501.004 196.62L472.293 254.657L465.972 287.657L448.293 284.273L454.614 251.273Z" fill="#592C29"/>
-    <path d="M525.94 198.713C540.332 200.635 547.237 209.668 544.678 228.818L538.893 272.113C536.335 291.263 527.3 298.168 512.908 296.246C498.516 294.324 491.611 285.291 494.17 266.141L499.955 222.846C502.514 203.696 511.548 196.791 525.94 198.713ZM521.21 268.541L526.677 227.625C527.758 219.537 527.481 217.079 523.556 216.554C519.631 216.03 518.718 218.33 517.638 226.418L512.171 267.334C511.09 275.422 511.367 277.881 515.292 278.405C519.217 278.929 520.13 276.629 521.21 268.541Z" fill="#592C29"/>
-    <path d="M596.284 206.836L590.71 276.453C589.168 295.712 580.512 303.085 566.038 301.927C551.565 300.768 544.192 292.113 545.734 272.854L551.308 203.237L569.25 204.673L563.772 273.094C563.121 281.228 563.527 283.668 567.475 283.984C571.422 284.3 572.212 281.955 572.863 273.821L578.341 205.4L596.284 206.836Z" fill="#592C29"/>
-    <path d="M646.416 246.977L646.474 235.337C646.514 227.177 645.926 224.774 641.966 224.754C638.007 224.734 637.395 227.131 637.354 235.291L637.148 276.571C637.107 284.731 637.695 287.134 641.655 287.153C645.615 287.173 646.227 284.776 646.268 276.616L646.326 264.976L664.325 265.066L664.261 277.906C664.165 297.226 656.085 305.226 641.565 305.153C627.045 305.081 619.045 297.001 619.142 277.681L619.36 234.001C619.456 214.682 627.537 206.682 642.056 206.754C656.576 206.827 664.576 214.907 664.479 234.227L664.415 247.066L646.416 246.977Z" fill="#592C29"/>
-    <path d="M717.296 293.214C717.469 296.81 717.755 300.28 719.023 301.661L701.043 302.523C699.776 301.142 699.489 297.672 699.317 294.076L698.431 275.617C698.098 268.665 695.643 267.582 688.691 267.915L690.376 303.035L672.396 303.897L667.796 208.007L685.775 207.145C706.272 206.162 713.432 212.667 714.358 231.965L714.766 240.475C715.272 251.023 712.363 258.01 706.925 262.355C713.159 264.579 716.152 269.361 716.583 278.351L717.296 293.214ZM696.378 232.827C696.045 225.875 693.59 224.791 686.638 225.124L687.828 249.936C694.78 249.602 697.12 248.289 696.787 241.337L696.378 232.827Z" fill="#592C29"/>
-    <path d="M755.684 298.091L752.703 281.992L743.273 282.96L743.627 299.329L725.721 301.168L727.61 204.469L752.081 201.957L773.59 296.253L755.684 298.091ZM742.866 264.907L749.431 264.233L741.855 222.187L742.866 264.907Z" fill="#592C29"/>
-    <path d="M796.413 195.646L814.188 192.811L817.708 289.463L793.415 293.338L766.669 200.391L784.445 197.556L802.613 272.55L796.413 195.646Z" fill="#592C29"/>
-    <path d="M818.308 191.767L835.953 188.207L854.953 282.308L837.309 285.868L818.308 191.767Z" fill="#592C29"/>
-    <path d="M872.669 179.621L890.147 175.316L913.123 268.526L895.646 272.831L869.27 230.512L880.615 276.534L863.138 280.84L840.161 187.63L857.639 183.324L884.014 225.644L872.669 179.621Z" fill="#592C29"/>
-    <path d="M947.162 198.62L929.952 203.896L926.539 192.767C924.146 184.966 922.754 182.883 919.083 184.008C915.297 185.169 915.427 187.639 917.82 195.44L929.924 234.906C932.317 242.707 933.594 244.826 937.381 243.665C941.167 242.504 941.037 240.034 938.644 232.233L937.342 227.988L932.982 229.324L927.704 212.116L949.273 205.504L963.876 253.115L956.992 255.225L952.233 249.53C950.049 255.094 946.215 259.783 940.02 261.683C927.629 265.481 918.732 259.799 913.067 241.328L900.258 199.568C894.593 181.098 899.922 171.055 913.805 166.799C927.687 162.544 937.732 167.874 943.397 186.345L947.162 198.62Z" fill="#592C29"/>
-    <path d="M997.556 138.164L1004.09 154.936L992.572 159.42L1020.89 232.099L1004.11 238.63L975.799 165.951L964.281 170.436L957.747 153.664L997.556 138.164Z" fill="#592C29"/>
-    <path d="M1021.04 126.432C1034.28 120.469 1044.91 124.497 1052.85 142.11L1070.8 181.933C1078.74 199.546 1074.71 210.178 1061.47 216.142C1048.23 222.105 1037.6 218.077 1029.66 200.463L1011.71 160.641C1003.77 143.027 1007.8 132.395 1021.04 126.432ZM1053.89 188.231L1036.93 150.597C1033.58 143.158 1032.04 141.216 1028.43 142.842C1024.82 144.469 1025.26 146.903 1028.62 154.342L1045.58 191.977C1048.93 199.416 1050.46 201.358 1054.07 199.731C1057.68 198.105 1057.25 195.67 1053.89 188.231Z" fill="#592C29"/>
-    <path d="M1060.97 108.638C1079.2 99.2326 1088.42 102.176 1097.28 119.345L1117.31 158.162C1126.06 175.118 1123.22 184.545 1104.99 193.95L1088.99 202.2L1044.97 116.887L1060.97 108.638ZM1096.73 177.954C1102.92 174.764 1104.5 172.597 1101.31 166.412L1081.28 127.595C1078.09 121.41 1075.41 121.444 1069.22 124.634L1096.73 177.954Z" fill="#592C29"/>
-    <path d="M1162.34 162.34L1152.94 148.933L1144.76 153.73L1151.89 168.472L1136.36 177.58L1097.91 88.8383L1119.13 76.3911L1177.87 153.232L1162.34 162.34ZM1136.9 137.478L1142.59 134.139L1118.23 99.0392L1136.9 137.478Z" fill="#592C29"/>
-    <path d="M1180.65 111.349L1131.62 69.0444L1147.59 58.3875L1176.27 88.5893L1159.37 50.528L1175.34 39.8711L1195.62 101.358L1214.28 129.302L1199.3 139.293L1180.65 111.349Z" fill="#592C29"/>
-    <path d="M1205.78 37.962C1203.58 39.6209 1203.2 42.909 1208.83 50.388L1194.44 61.207C1182.1 44.8109 1182.88 32.6674 1194.96 23.5794C1207.04 14.4915 1218.16 17.6912 1226.17 28.3343C1237.72 43.6757 1224.87 55.7403 1239.01 74.5336L1226.54 83.9101C1209.3 60.9938 1220.3 50.4676 1213.23 41.071C1210.49 37.4274 1207.99 36.3031 1205.78 37.962ZM1239.99 88.8102C1244.21 85.6366 1249.9 86.0125 1253.51 90.8066C1256.97 95.4091 1255.76 100.978 1251.54 104.152C1247.32 107.325 1241.63 106.949 1238.17 102.347C1234.56 97.5528 1235.77 91.9838 1239.99 88.8102Z" fill="#592C29"/>
-    </svg>
-    
-</div>

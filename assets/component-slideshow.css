@@ -203,7 +203,7 @@ slideshow-component:not(.page-width) .slider-buttons {
 
 .scrollto-next{
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   width: 32px;
   height: 74px;
   font-size: 12px;
