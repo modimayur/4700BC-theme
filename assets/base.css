@@ -81,6 +81,10 @@
   margin: 0 auto;
   padding: 0 1.5rem;
 }
+.full-page-width {
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   max-width: 100%;
@@ -3676,4 +3680,10 @@ details-disclosure > details {
   100% {
     transform: translateX(100%) scaleX(0);
   }
+}
+
+
+.section-before-curve svg{
+  width: 100%;
+  height: auto;
 }

@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "slideshow_JLnqx7": {
@@ -78,12 +87,17 @@
       "type": "svg-curve-text-marquee",
       "settings": {
         "color_scheme": "scheme-5",
-        "icon_text": "Happiness at its crispiest"
+        "icon_text": "Happiness at its crispiest",
+        "background_color": "#ffe11b",
+        "color": "#592C29",
+        "border_color": "#000",
+        "border-width": 5,
+        "sectionn_before_color": "#000",
+        "sectionn_after_color": "#F2B65E"
       }
     },
     "ticker-section": {
       "type": "ticker-section",
-      "disabled": true,
       "blocks": {
         "icon_with_text_TdGXmK": {
           "type": "icon_with_text",
@@ -123,65 +137,66 @@
         "icon_with_text_96CmVE",
         "icon_with_text_GCbmQ8"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-5"
       }
     },
-    "sections-product-range":{
+    "sections-product-range": {
       "type": "product-range",
       "blocks": {
         "productrange-001": {
           "type": "product",
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#BD4B0F",
+            "color_background": "#bd4b0f",
             "custom_image": "shopify:\/\/shop_images\/product-image-01.png",
-            "title":"Chips +"
+            "title": "Chips +"
           }
         },
         "productrange-002": {
           "type": "product",
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#2A314B",
+            "color_background": "#2a314b",
             "custom_image": "shopify:\/\/shop_images\/product-image-02.png",
-            "title":"Himalayan Salt Caramel Popcorn"
+            "title": "Himalayan Salt Caramel Popcorn"
           }
         },
         "productrange-003": {
           "type": "product",
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#01867F",
+            "color_background": "#01867f",
             "custom_image": "shopify:\/\/shop_images\/product-image-03.png",
-            "title":"Crunchy Corn"
+            "title": "Crunchy Corn"
           }
         },
         "productrange-004": {
           "type": "product",
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#C83204",
+            "color_background": "#c83204",
             "custom_image": "shopify:\/\/shop_images\/product-image-04.png",
-            "title":"Protein Pops"
+            "title": "Protein Pops"
           }
         },
         "productrange-005": {
           "type": "product",
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#D69819",
+            "color_background": "#d69819",
             "custom_image": "shopify:\/\/shop_images\/product-image-05.png",
-            "title":"Cheese"
+            "title": "Cheese"
           }
         },
         "productrange-006": {
           "type": "product",
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#738E3A",
+            "color_background": "#738e3a",
             "custom_image": "shopify:\/\/shop_images\/product-image-06.png",
-            "title":"Sweet Corn"
+            "title": "Sweet Corn"
           }
         },
         "productrange-007": {
@@ -189,9 +204,9 @@
           "disabled": true,
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#2A314B",
+            "color_background": "#2a314b",
             "custom_image": "shopify:\/\/shop_images\/product-image-01.png",
-            "title":""
+            "title": ""
           }
         },
         "productrange-008": {
@@ -199,9 +214,9 @@
           "disabled": true,
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#2A314B",
+            "color_background": "#2a314b",
             "custom_image": "shopify:\/\/shop_images\/product-image-02.png",
-            "title":""
+            "title": ""
           }
         },
         "productrange-009": {
@@ -209,9 +224,9 @@
           "disabled": true,
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#00A4B1",
+            "color_background": "#00a4b1",
             "custom_image": "shopify:\/\/shop_images\/product-image-03.png",
-            "title":""
+            "title": ""
           }
         },
         "productrange-010": {
@@ -219,9 +234,9 @@
           "disabled": true,
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#C83204",
+            "color_background": "#c83204",
             "custom_image": "shopify:\/\/shop_images\/product-image-04.png",
-            "title":""
+            "title": ""
           }
         },
         "productrange-011": {
@@ -229,9 +244,9 @@
           "disabled": true,
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#D69819",
+            "color_background": "#d69819",
             "custom_image": "shopify:\/\/shop_images\/product-image-05.png",
-            "title":""
+            "title": ""
           }
         },
         "productrange-012": {
@@ -239,9 +254,9 @@
           "disabled": true,
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
-            "color_background": "#738E3A",
+            "color_background": "#738e3a",
             "custom_image": "shopify:\/\/shop_images\/product-image-06.png",
-            "title":""
+            "title": ""
           }
         }
       },
@@ -260,10 +275,11 @@
         "productrange-012"
       ],
       "settings": {
-        "color_scheme": "scheme-8",
+        "heading": "Our Range",
         "heading_size": "hxxl",
+        "color_scheme": "scheme-8",
         "padding_top": 0,
-        "padding_bottom": 0        
+        "padding_bottom": 0
       }
     },
     "product-search-range": {
@@ -280,7 +296,61 @@
         ],
         "color_scheme": "",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 80
+      }
+    },
+    "featuredrecipes": {
+      "type": "featured-recipes",
+      "blocks": {
+        "videoblock_dLgcnB": {
+          "type": "videoblock",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/123.mp4",
+            "video_title":"Vanilla-Caramel Popcorn Cake"
+          }
+        },
+        "videoblock_xcrC7C": {
+          "type": "videoblock",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/123.mp4",
+            "video_title":"Vanilla-Caramel Popcorn Cake"
+          }
+        },
+        "videoblock_U4BGxg": {
+          "type": "videoblock",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/123.mp4",
+            "video_title":"Vanilla-Caramel Popcorn Cake"
+          }
+        },
+        "videoblock_NzUbRM": {
+          "type": "videoblock",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/123.mp4",
+            "video_title":"Vanilla-Caramel Popcorn Cake"
+          }
+        },
+        "videoblock_mQMrqH": {
+          "type": "videoblock",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/123.mp4",
+            "video_title":"Vanilla-Caramel Popcorn Cake"
+          }
+        }
+      },
+      "block_order": [
+        "videoblock_dLgcnB",
+        "videoblock_xcrC7C",
+        "videoblock_U4BGxg",
+        "videoblock_NzUbRM",
+        "videoblock_mQMrqH"
+      ],
+      "settings": {
+        "full_width": false,
+        "heading": "Recipes",
+        "color_scheme": "scheme-9",
+        "button_label": "VIEW MORE RECIPES",
+        "button_link": "shopify:\/\/blogs\/news"
       }
     }
   },
@@ -289,6 +359,7 @@
     "svg-curve-text-marquee",
     "ticker-section",
     "sections-product-range",
-    "product-search-range"
+    "product-search-range",
+    "featuredrecipes"
   ]
 }
