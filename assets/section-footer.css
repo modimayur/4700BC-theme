@@ -39,10 +39,6 @@
   }
 }
 
-.footer__content-bottom {
-  /* border-top: solid 0.1rem rgba(var(--color-foreground), 0.08); */
-  /* padding-top: 3rem; */
-}
 
 .footer__content-bottom:only-child {
   border-top: 0;
@@ -461,14 +457,6 @@
   align-items: center;
 }
 
-.policies li:nth-of-type(1n+2)::before {
-  content: '';
-  padding: 0;
-  height: 24px;
-  width: 1px;
-  background-color: #fff;
-  margin: 0 12px;
-}
 
 .policies li a {
   padding: 0.6rem 0;
@@ -539,8 +527,11 @@
   text-align: left;
   font-size: 1.6rem;
   margin-bottom: 0;
-  font-family: var(--font-body-family);
+  /* font-family: var(--font-body-family); */
   width: 100%;
+}
+.footer__blocks-wrapper.footer_custom_layout .footer-block__brand-info .footer-block__newsletter .footer-block__heading {
+  font-size: 1.6rem;
 }
 .footer__blocks-wrapper.footer_custom_layout .footer-block__brand-info .rte:not(.footer-block__heading) {
   grid-area: brandinfo;
@@ -640,6 +631,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 9px;
 }
 .footer__content-bottom-wrapper a.link.list-social__link svg{
   max-width: 100%;
@@ -659,6 +651,9 @@
     padding-top: 0;
   }
 }
+@media screen and (min-width: 750px) {
+}
+
 @media screen and (min-width: 990px) {
   .footer__content-top .gradient{
     padding: 32px;
@@ -673,6 +668,9 @@
     min-width: 354px;
     position: relative;    
   }
+  .footer__blocks-wrapper.footer_custom_layout .footer-block__brand-info .footer-block__heading {
+    font-size: 3.2rem;
+  }
   .footer__blocks-wrapper.footer_custom_layout .footer-block.grid__item:first-of-type:after {
     content: "";
     width: 1px;
@@ -681,8 +679,24 @@
     inset: 0 -27px 0 auto;
     background-color: #5D5D5D;
   }
+  .policies li:nth-of-type(1n+2)::before {
+    content: '';
+    padding: 0;
+    height: 24px;
+    width: 1px;
+    background-color: #fff;
+    margin: 0 12px;
+  }
+  
 }
-@media screen and (min-width: 750px) {
+@media screen and (max-width: 1180px) {
+  .footer__blocks-wrapper.footer_custom_layout {
+    grid-template-columns: 2fr repeat(3, 1fr) 1.6fr;
+    gap: 40px;
+  }
+  .footer__blocks-wrapper.footer_custom_layout .footer-block.grid__item:first-of-type{
+    min-width: auto;
+  }
 }
 @media screen and (max-width: 989px) {
   .footer__blocks-wrapper.footer_custom_layout {
@@ -693,6 +707,15 @@
   }
   .footer__blocks-wrapper.footer_custom_layout .footer-block.grid__item:first-of-type{
     margin-bottom: 8px;
+    font-size: 1.6rem;
+    grid-column: 1 / span 5;
+  }
+  .footer__blocks-wrapper.footer_custom_layout .footer-block.grid__item:first-of-type .newsletter-form__field-wrapper{
+    max-width: none;
+  }
+  .footer__blocks-wrapper.footer_custom_layout .footer-block__brand-info .footer__newsletter {
+    max-width: none;
+    /* width: 100%; */
   }
   .footer__blocks-wrapper.footer_custom_layout .footer-block.grid__item:last-of-type{
     margin-top: 8px;
@@ -721,5 +744,48 @@
   .policies {
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .footer__content-bottom-wrapper--center{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    row-gap: 20px;
+  }
+  .footer__content-bottom-wrapper .footer__copyright.caption{
+    width: 100%;
+    text-align: left;
+  }
+  .footer__content-bottom-wrapper .footer__copyright.caption .policies {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    row-gap: 6px;
+  }
+  .footer__content-bottom-wrapper .footer__copyright.caption .policies li a,
+  .footer__content-bottom-wrapper .footer__copyright.caption .policies li{
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  .footer__content-bottom-wrapper .footer__copyright.caption .policies li:nth-of-type(1) a,
+  .footer__content-bottom-wrapper .footer__copyright.caption .policies li:nth-of-type(3) a{
+    text-align: left;
+  }
+}
+@media screen and (max-width: 749px) {
+  .footer__blocks-wrapper.footer_custom_layout{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .footer__blocks-wrapper.footer_custom_layout .footer-block.grid__item:last-of-type {
+    grid-column: inherit;
+  }
+  .footer__blocks-wrapper.footer_custom_layout .footer-block.grid__item:first-of-type {
+    grid-column: inherit;
+    margin-bottom: 16px;
+  }
+  .footer__icon-links h2.footer-block__heading {
+    margin-top: 1.2rem;
   }
 }

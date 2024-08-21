@@ -1,0 +1,306 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'product-range.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="shopify-section-bg color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="shopify-section-inner-bg">
+    <div class="page-width section-{{ section.id }}-padding">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="wrapper-title center inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.heading }}
+        </h2>
+      {%- endif -%}
+      {% if section.blocks.size > 0 %}
+        <div class="product-range-wrapper">
+          <div
+            style="--swiper-navigation-color: rgb(var(--color-foreground)); --swiper-pagination-color: rgb(var(--color-foreground))"
+            class="swiper mainSlider"
+          >
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign product = block.settings.product
+                  assign ratio = 1
+                  assign lazy_load = false
+                  assign producttitle = product.title
+                  if block.settings.title != blank
+                    assign producttitle = block.settings.title
+                  endif
+                -%}
+
+                <div
+                  class="swiper-slide card-wrapper product-card-wrapper underline-links-hover {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {{ block.shopify_attributes }}
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  <div
+                    class="product_item"
+                    style="--theme-color:{{ block.settings.color_background.red }},{{ block.settings.color_background.green }},{{ block.settings.color_background.blue }};"
+                  >
+                    <div class="card">
+                      <div
+                        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
+                        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+                      >
+                        {%- if block.settings.custom_image != blank -%}
+                          <div class="card__media">
+                            <div class="media media--transparent media--hover-effect">
+                              <img
+                                srcset="
+                                  {%- if block.settings.custom_image.width >= 165 -%}{{ block.settings.custom_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 360 -%}{{ block.settings.custom_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 533 -%}{{ block.settings.custom_image | image_url: width: 533 }} 533w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 720 -%}{{ block.settings.custom_image | image_url: width: 720 }} 720w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 940 -%}{{ block.settings.custom_image | image_url: width: 940 }} 940w,{%- endif -%}
+                                  {%- if block.settings.custom_image.width >= 1066 -%}{{ block.settings.custom_image | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                  {{ block.settings.custom_image | image_url }} {{ block.settings.custom_image.width }}w
+                                "
+                                src="{{ block.settings.custom_image | image_url: width: 533 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                alt="{{ block.settings.custom_image.alt | escape }}"
+                                class="motion-reduce"
+                                {% unless lazy_load == false %}
+                                  loading="lazy"
+                                {% endunless %}
+                                width="{{ block.settings.custom_image.width }}"
+                                height="{{ block.settings.custom_image.height }}"
+                              >
+                            </div>
+                          </div>
+                        {%- elsif product.featured_media -%}
+                          <div class="card__media shape--round">
+                            <div class="media media--transparent media--hover-effect">
+                              <img
+                                srcset="
+                                  {%- if product.featured_media.width >= 165 -%}{{ product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 533 -%}{{ product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 940 -%}{{ product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                                  {%- if product.featured_media.width >= 1066 -%}{{ product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                                  {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+                                "
+                                src="{{ product.featured_media | image_url: width: 533 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                alt="{{ product.featured_media.alt | escape }}"
+                                class="motion-reduce"
+                                {% unless lazy_load == false %}
+                                  loading="lazy"
+                                {% endunless %}
+                                width="{{ product.featured_media.width }}"
+                                height="{{ product.featured_media.height }}"
+                              >
+                            </div>
+                          </div>
+                        {% endif %}
+                      </div>
+
+                      <h2 class="producttitle">{{ producttitle }}</h2>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <button type="button" class="swiper-navigation-button swiper-button-next">
+              <span>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="icon icon-caret"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9 18.5L15 12.5L9 6.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+            <button type="button" class="swiper-navigation-button swiper-button-prev">
+              <span>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="icon icon-caret"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9 18.5L15 12.5L9 6.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div thumbsSlider="" class="swiper thumbsSlider">
+            <div class="swiper-wrapper">
+              {%- for block in section.blocks -%}
+                <div
+                  class="swiper-slide"
+                  style="--theme-color:{{ block.settings.color_background.red }},{{ block.settings.color_background.green }},{{ block.settings.color_background.blue }};"
+                >
+                  {%- if block.settings.custom_image != blank -%}
+                    {{ block.settings.custom_image | image_url: height: 60 | image_tag: class: 'product-range-thumb' }}
+                  {% elsif block.settings.product.featured_media %}
+                    {{
+                      block.settings.product.featured_media
+                      | image_url: height: 60
+                      | image_tag: class: 'product-range-thumb'
+                    }}
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Range",
+  "tag": "section",
+  "class": "section sections-product-range",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Our Range",
+      "label": "t:sections.collage.settings.heading.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "hxl",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "t:sections.collage.blocks.product.name",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "t:sections.collage.blocks.product.settings.product.label"
+        },
+        {
+          "type": "color",
+          "id": "color_background",
+          "default": "#2A314B",
+          "label": "Background color"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Cusome Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Product Range",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

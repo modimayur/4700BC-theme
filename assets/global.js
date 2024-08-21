@@ -69,6 +69,7 @@ class HTMLUpdateUtility {
 }
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
+  var details = summary.closest('details');
   summary.setAttribute('role', 'button');
   summary.setAttribute('aria-expanded', summary.parentNode.hasAttribute('open'));
 
@@ -78,10 +79,28 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
 
   summary.addEventListener('click', (event) => {
     event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+    var parantelement = summary.closest('.mega-menu__list');
+    if (parantelement) {
+      parantelement.querySelectorAll('summary').forEach((summarys) => {
+        if (summary.id !== summarys.id) {
+          console.log('summarys:');
+          // console.log(summary.id);
+          details.open = false;
+          // console.log(document.querySelector(summarys.closest('details')));
+          // document.querySelector(summarys.id).open = false;
+        }
+      });
+    }
   });
+
+  // var summaryclose = details.querySelector('.summary-close');
+  // // console.log('summaryclose',summaryclose);
+  // console.log('details',details);
+
 
   if (summary.closest('header-drawer, menu-drawer')) return;
   summary.parentElement.addEventListener('keyup', onKeyUpEscape);
+
 });
 
 const trapFocusHandlers = {};
@@ -1042,7 +1061,7 @@ class SlideshowComponent extends SliderComponent {
     const slideScrollPosition =
       this.slider.scrollLeft +
       this.sliderFirstItemNode.clientWidth *
-        (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+      (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
     this.slider.scrollTo({
       left: slideScrollPosition,
     });
@@ -1266,3 +1285,124 @@ class BulkAdd extends HTMLElement {
 if (!customElements.get('bulk-add')) {
   customElements.define('bulk-add', BulkAdd);
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('scrollto-next');
+  const sections = Array.from(document.querySelectorAll('.shopify-section.section'));
+  if (button) {
+    button.addEventListener('click', () => {
+      const currentScroll = window.scrollY;
+      const currentIndex = sections.findIndex(section => {
+        const rect = section.getBoundingClientRect();
+        return rect.top + window.scrollY > currentScroll;
+      });
+
+      if (currentIndex === -1) return;
+
+      // const nextIndex = currentIndex + 1;
+      const nextIndex = currentIndex;
+      console.log('nextIndex', nextIndex);
+      if (nextIndex >= sections.length) return;
+
+      const targetSection = sections[nextIndex];
+      smoothScrollTo(targetSection.offsetTop);
+    });
+    function smoothScrollTo(targetY) {
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      const duration = 600; // Duration of the scroll animation in milliseconds
+      let startTime = null;
+
+      function scrollAnimation(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeInOutQuad(progress);
+        window.scrollTo(0, startY + distance * ease);
+        if (timeElapsed < duration) {
+          window.requestAnimationFrame(scrollAnimation);
+        }
+      }
+
+      window.requestAnimationFrame(scrollAnimation);
+    }
+
+    function easeInOutQuad(t) {
+      return t < 0.5
+        ? 2 * t * t
+        : -1 + (4 - 2 * t) * t;
+    }
+  }
+
+
+
+  // Add event listener to close button
+  var announcementlosebtn = document.querySelector('.announcement-bar__close-btn');
+  if (announcementlosebtn) {
+    var announcementbar = document.querySelector('.announcement-bar-section');
+    if (localStorage.getItem('announcementClosed') !== 'true') {
+      announcementbar.classList.remove('hidden');
+    }
+    announcementlosebtn.addEventListener('click', function () {
+      announcementbar.classList.add('hidden');
+
+      // Store the closed state in local storage
+      localStorage.setItem('announcementClosed', 'true');
+    });
+
+  }
+  /* 
+  var curvemarquee = document.querySelector('.curve-marquee');
+  if(curvemarquee){
+    var marquee = new Marquee(document.querySelector(curvemarquee), {
+      speed: 10000,
+      gap: 20,
+      delayBeforeStart: 1000,
+      direction: 'left',
+      postAnimationPause: 0
+      });
+      }
+      */
+  var productrange = document.querySelector('.product-range-wrapper');
+  if (productrange) {
+    var thumbsSlider = productrange.querySelector('.thumbsSlider');
+    var mainSlider = productrange.querySelector('.mainSlider');
+    var swiperMainSlider = new Swiper(thumbsSlider, {
+      loop: false,
+      spaceBetween: 20,
+      slideToClickedSlide: true,
+      slidesPerView: 6,
+      speed: 1000,
+      centeredSlides: true
+      // watchSlidesProgress: true,
+    });
+    var swiperThumbsSlider = new Swiper(mainSlider, {
+      loop: false,
+      spaceBetween: 0,
+      slidesPerView: 3,
+      speed: 1000,
+      centeredSlides: true,
+      slideToClickedSlide: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }
+    });
+    swiperMainSlider.on('slideChange', function (swiper) {
+      var index = swiper.activeIndex;
+      swiperThumbsSlider.slideTo(index);
+      // console.log('slide changed',swiper);
+
+    });
+    swiperThumbsSlider.on('slideChange', function (swiper) {
+      var index = swiper.activeIndex;
+      // var newslideindex = swiper.activeIndex + 1;
+      var newslide = swiper.slides[index]
+      var newslideColor = newslide.querySelector('.product_item').dataset.colorVariable;
+      // console.log('slide changed',swiper);
+      swiperMainSlider.slideTo(index);
+      console.log('slide changed', newslideColor);
+    });
+  }
+});

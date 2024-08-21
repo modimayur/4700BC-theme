@@ -36,7 +36,6 @@
           "type": "text",
           "settings": {
             "heading": "Address",
-            "show_social": false,
             "subtext": "",
             "address": "<p>4th Floor, Plot-88, Sec-44. Gurugram, Haryana 122002<\/p>",
             "contact_number": "+91-9911470022 (Mon-Sat: 9:30 AM - 10:00 AM)",

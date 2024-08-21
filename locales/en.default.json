@@ -525,5 +525,28 @@
       "send_on": "YYYY-MM-DD",
       "send_on_label": "Send on (optional)"
     }
+  },
+  "shopify": {
+    "checkout": {
+      "payment": {
+        "markets_pro_disclaimer_privacy_policy": "Privacy policy 01"
+      },
+      "marketing": {
+        "disclaimer": {
+          "privacy_policy": "Privacy policy 02"
+        },
+        "sms": {
+          "disclaimer": {
+            "privacy_policy": "Privacy policy 03"
+          }
+        }
+      },
+      "shop_policies": {
+        "privacy_policy": "Our Policies",
+        "shipping_policy": "Shipping & Delivery",
+        "terms_of_service": "Privacy Policy",
+        "refund_policy": "Return & Refund Policy"
+      }
+    }
   }
 }

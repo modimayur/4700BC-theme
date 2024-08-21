@@ -101,7 +101,7 @@ slideshow-component .slideshow.banner {
 }
 
 .slideshow__controls {
-  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  border: 0rem solid rgba(var(--color-foreground), 0.08);
 }
 
 .slideshow__controls--top {
@@ -198,4 +198,20 @@ slideshow-component:not(.page-width) .slider-buttons {
   visibility: hidden;
   opacity: 0;
   transform: scale(0.8);
+}
+
+
+.scrollto-next{
+  position: absolute;
+  z-index: 2;
+  width: 32px;
+  height: 74px;
+  font-size: 12px;
+  color: #FBBF2C;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: auto auto 0;
+  inset:  auto 0 122px;
+  cursor: pointer;
 }

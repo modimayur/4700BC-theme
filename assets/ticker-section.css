@@ -1,0 +1,106 @@
+.ticker-section {
+    padding: 2.7rem 0;
+}
+.ticker-section .slider-item {
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    justify-content: center;
+}
+.ticker-section .slick-slide img {
+    display: block;
+    width: 80%;
+    object-fit: cover
+}
+.ticker-section .icon-wrap {
+    max-width: 4rem;
+    flex: 4rem;
+    height: 4rem;
+    margin-right: 0;
+}
+.ticker-section .icon-image {
+    width: 100%;
+}
+.ticker-section .icon-text {
+    font-size: 3.2rem;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
+    color: rgb(var(--color-foreground));
+    line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+div[data-marqy-content] {
+    display: flex;
+    flex: 1 0 auto;
+    -webkit-animation-name: marqueeL;
+    animation-name: marqueeL;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+    will-change: transform;
+}
+[data-marqy-inner] {
+    display: flex;
+}
+.ticker-section .main-container {
+    overflow: hidden;
+}
+@-webkit-keyframes marqueeL {
+    0% {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+@keyframes marqueeL {
+    0% {
+        transform: translateZ(0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .ticker-section .slider-item {
+        padding: 0 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ticker-section .slider-item {
+        padding: 0 0.5rem;
+    }
+    .ticker-section .icon-text {
+        font-size: 1.6rem;
+    }
+    .ticker-section {
+        padding: 0.5rem 0;
+    }
+    .ticker-section .slick-slide img {
+        width: 45%;
+    }
+    .ticker-section .icon-wrap {
+        max-width: 4rem;
+        flex: 4rem;
+        height: 4rem;
+    }
+}
+.ticker-section .slider-item:before {
+  content: "";
+  width: 1rem;
+  flex: 0 0 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background: rgba(var(--color-foreground), 1);
+  display: block;
+  margin-right: 0.5rem;
+}
