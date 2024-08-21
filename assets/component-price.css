@@ -29,6 +29,10 @@
   letter-spacing: 0.16rem;
 }
 
+.price s.price-item{
+  font-weight: 400;
+}
+
 .price__regular .price-item--regular {
   margin-right: 0;
 }
@@ -104,4 +108,11 @@
   margin-top: 0.2rem;
   text-transform: uppercase;
   color: rgba(var(--color-foreground), 0.7);
+}
+
+@media screen and (max-width: 749px) {
+  .price .price-item.price-item--sale{
+    font-size: 32px;
+  }
+
 }

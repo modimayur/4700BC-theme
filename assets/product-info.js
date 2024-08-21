@@ -15,6 +15,25 @@ if (!customElements.get('product-info')) {
         super();
 
         this.quantityInput = this.querySelector('.quantity__input');
+
+        if(window.innerWidth < 750){
+          this.fixedATCContainer();
+        }
+      }
+
+      fixedATCContainer() {
+        document.addEventListener('scroll', function() {
+          const targetDiv = document.querySelector('.product__info-container');
+          const rect = targetDiv.getBoundingClientRect();
+      
+          // Check if the bottom of the div is visible within the viewport
+          console.log(rect.bottom);
+          if (rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+              targetDiv.classList.add('fixed');
+          } else if (rect.top >= (window.innerHeight || document.documentElement.clientHeight)) {
+              targetDiv.classList.remove('fixed');
+          }
+        });
       }
 
       connectedCallback() {

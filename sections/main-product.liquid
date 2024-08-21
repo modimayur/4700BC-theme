@@ -76,7 +76,27 @@
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
+        <div class="product__title medium-hide large-up-hide" {{ block.shopify_attributes }}>
+          <h1>{{ product.title | escape }}</h1>
+          <a href="{{ product.url }}" class="product__title">
+            <h2 class="h1">
+              {{ product.title | escape }}
+            </h2>
+          </a>
+        </div>
+        {% if product.metafields.custom.icon_information.value != blank %}
+          <div class="product-media-icon-wrapper">
+            <div class="product-media-wrapper">
+              {% render 'product-media-gallery', variant_images: variant_images %}
+            </div>
+            <div class="product-icon-info-wrapper">
+              {% render 'product-icon-information', product:product %}
+            </div>
+          </div>
+        {% else %}
+          {% render 'product-media-gallery', variant_images: variant_images %}
+        {% endif %}
+
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -97,7 +117,7 @@
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
-                <div class="product__title" {{ block.shopify_attributes }}>
+                <div class="product__title small-hide" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
@@ -785,37 +805,21 @@
   </div>
 
   <div class="product-details quick-add-hidden">
-    {% liquid
-      capture bg_img
-        echo "data:image/svg+xml;utf8, "
-        render 'bg-description' 
-      endcapture
-    %}
-    <style>
-      .product-description-container:before{
-        content:'';
-        background-image:url({{ bg_img }});
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size:contain;
-        display:block;
-        width:100%;
-        height:100%;
-      }
-    </style>
     {%- if product.description != blank -%}
       <div class="product-description-container">
         <div class="page-width">
-          <h2>Product Description</h2>
+          <h2 class="product__description-heading">Product Description</h2>
           <div class="product__description rte">
             {{ product.description }}
           </div>
         </div>
       </div>
     {%- endif -%}
-    <div class="product-media-information">
-
-    </div>
+    {%- if product.metafields.custom.media_under_description.value != blank -%}
+      <div class="product-media-information page-width">
+        {% render 'product-other-media', product: product %}
+      </div>
+    {%- endif -%}
   </div>
 </product-info>
 
