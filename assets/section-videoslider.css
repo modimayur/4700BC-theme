@@ -1,0 +1,115 @@
+.section-videoslider .full-page-width {
+  margin-left: calc((50vw - (var(--page-width) / 2)));
+}
+.section-videoslider .slider-slide-video {
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+  border: 2px solid #070707;
+  box-sizing: border-box;
+  display: block;
+}
+.section-videoslider .video-title-wrapper {
+    background: #fff;
+    border-width: 0 2px 2px;
+    border-style: solid;
+    border-color: #070707;
+    border-radius:  0 0 16px 16px;
+    margin: 0;
+    padding: 10px 100px;
+    text-align: center;
+}
+.section-videoslider .video-title-wrapper  .h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 auto;
+    color: #070707;
+}
+.section-videoslider .swiper-slide-active .video-title-wrapper  {
+    background: #592C29;
+}
+.section-videoslider .swiper-slide-active .video-title-wrapper  .h1 {
+    color: #fff;
+}
+.section-videoslider .video-wrapper {
+  position: relative;
+}
+.section-videoslider .vss-play-button {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+.section-videoslider .slider-slide-video.playing + .vss-play-button {
+  display: none;
+}
+.section-videoslider video::playing {
+  border: 5px solid green;
+}
+.section-videoslider .swiper-navigation-werapper h2 {
+  margin: 0;
+  font-size: 18rem;
+  text-transform: uppercase;
+}
+.section-videoslider .wrapper {
+  display: flex;
+  gap: 2.7rem;
+  position: relative;
+  z-index: 1;
+}
+.section-videoslider .swiper-navigation-werapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4.4rem;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.section-videoslider .swiper {
+  flex: 1 1 auto;
+  position: static;
+  margin-top: 16.2rem;
+  margin-bottom: -8rem;
+}
+.section-videoslider .swiper-navigation-werapper .swiper-navigation-buttons {
+  display: flex;
+  gap: 4.4rem;
+  align-items: center;
+}
+.section-videoslider .swiper-navigation-buttons {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  gap: 2rem;
+}
+.section-videoslider .swiper-navigation-buttons .swiper-navigation-button {
+    min-width: 0;
+}
+
+.section-videoslider .vectorimage{
+    position: absolute;
+    transform: translate(0, 30rem);
+    left: 0;
+    bottom: 0;
+    top: auto;
+    right: auto;
+}
+
+
+.section-videoslider .section-before-curve {
+  margin-bottom: 7.2rem;
+}
+.section-videoslider .section-before-curve svg{
+  width: 100%;
+  height: auto;
+}

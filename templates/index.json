@@ -350,7 +350,65 @@
         "heading": "Recipes",
         "color_scheme": "scheme-9",
         "button_label": "VIEW MORE RECIPES",
-        "button_link": "shopify:\/\/blogs\/news"
+        "button_link": "shopify:\/\/blogs\/news",
+        "image":"shopify:\/\/shop_images\/image_2385.png"
+      }
+    },
+    "collage_hCUM4P": {
+      "type": "collage",
+      "blocks": {
+        "image_KA8kVk": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/collage_01.png",
+            "heading": "Exclusive Website Products",
+            "link": "shopify:\/\/collections\/all",            
+            "text_position": "left",
+            "image_position": "middleright",
+            "background_color":"#ff0000",
+            "text_color":"#fff"
+          }
+        },
+        "image_TVfcQk": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/collage_02.png",
+            "heading": "Make Your Own Mix",
+            "link": "shopify:\/\/collections\/all",
+            "text_position": "left",
+            "image_position": "bottomright",
+            "background_color":"#DA4F45",
+            "text_color":"#fff"
+          }
+        },
+        "image_KTyQhK": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/collage_03.png",
+            "heading": "Referrals",
+            "link": "shopify:\/\/collections\/all",
+            "text_position": "left",
+            "image_position": "middlecenter",
+            "background_color":"#FCC000",
+            "text_color":"#070707"
+          }
+        }
+      },
+      "block_order": [
+        "image_KA8kVk",
+        "image_TVfcQk",
+        "image_KTyQhK"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "collage_style": "collage-row",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 216,
+        "padding_bottom": 100
       }
     }
   },
@@ -360,6 +418,7 @@
     "ticker-section",
     "sections-product-range",
     "product-search-range",
-    "featuredrecipes"
+    "featuredrecipes",
+    "collage_hCUM4P"
   ]
 }

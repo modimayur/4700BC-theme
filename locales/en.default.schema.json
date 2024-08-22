@@ -564,6 +564,12 @@
           "settings": {
             "image": {
               "label": "Image"
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "text": {
+              "label": "Text"
             }
           }
         },

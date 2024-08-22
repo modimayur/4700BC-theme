@@ -16,74 +16,10 @@
     }
   }
 
-  .section-videoslider .full-page-width{
-    margin-left: calc((50vw - (var(--page-width) / 2 ) ));
-  }
-  .section-videoslider .slider-slide-video {
-    width: 100%;
-    border-radius: 15px;
-    border: 2px solid var(--White, #FFF);
-    box-sizing: border-box;
-  }
-  .section-videoslider .vss-play-button-{{id}} {
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    border: none;
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  .section-videoslider .slider-slide-video.playing + .vss-play-button-{{id}} {
-    display: none;
-  }
-  .section-videoslider  video::playing {
-    border: 5px solid green;
-  }
-  .section-videoslider .swiper-navigation-werapper h2 {
-    margin: 0;
-    font-size: 18rem;
-    text-transform: uppercase;
-}
-.section-videoslider .wrapper{
-    display: flex;
-    gap: 2.7rem;
-    position: relative;
-}
-.section-videoslider .swiper-navigation-werapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4.4rem;
-    white-space: nowrap;
-    flex: 0 0 auto;
-}
-.section-videoslider .swiper{ 
-    flex: 1 1 auto;
-    position: static;
-}
-.section-videoslider .swiper-navigation-werapper .swiper-navigation-buttons{
-    display: flex;
-    gap: 4.4rem;
-    align-items: center;
-}
-.section-videoslider .swiper-navigation-buttons {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    gap: 2rem;
-}
-.section-videoslider .swiper-navigation-buttons .swiper-navigation-button{
-    min-width: 0;
-}
+
 {%- endstyle -%}
 
-{{ 'swiper-bundle.css' | asset_url | stylesheet_tag }}
+{{ 'section-videoslider.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
 
 <div class="sec-{{ id }} section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
@@ -107,8 +43,11 @@
           <a href="{{ section.settings.button_link }}" class="button button-primary">
             {{- section.settings.button_label -}}
           </a>
+          {% if section.settings.image != blank %}
+            {{  section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', class: 'vectorimage' }}
+          {% endif %}
         </div>
-      <div class="swiper video-swiper-{{ id }}">
+      <div class="swiper video-swiper video-swiper-{{ id }}">
         <div class="swiper-navigation-buttons">
           <div id="prev--{{ section.id }}" class="swiper-navigation-button button button-primary swiper-button-prev">
             <span>
@@ -145,7 +84,7 @@
         </div>
         <div class="swiper-wrapper">
           {% for block in section.blocks %}
-            <div class="swiper-slide video-slide-{{ id }}">
+            <div class="swiper-slide video-slide video-slide-{{ id }}">
               {% unless block.settings.video == blank %}
                 <div class="video-wrapper">
                   {{
@@ -159,7 +98,7 @@
                       class: 'slider-slide-video',
                       data-index: forloop.index
                   }}
-                  <div class="vss-play-button-{{id}}">
+                  <div class="vss-play-button vss-play-button-{{id}}">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="24" cy="24.6108" r="24" fill="black" fill-opacity="0.32"/>
                       <path d="M34 24.6108C34.0005 24.8459 33.9451 25.0771 33.8392 25.2819C33.7332 25.4868 33.5804 25.6584 33.3954 25.7799L21.9345 33.4071C21.7413 33.5358 21.52 33.606 21.2935 33.6106C21.0669 33.6152 20.8434 33.5539 20.6459 33.433C20.4503 33.314 20.2874 33.1405 20.1739 32.9304C20.0603 32.7202 20.0003 32.4809 20 32.2371V16.9846C20.0003 16.7408 20.0603 16.5015 20.1739 16.2913C20.2874 16.0811 20.4503 15.9076 20.6459 15.7887C20.8434 15.6678 21.0669 15.6065 21.2935 15.6111C21.52 15.6156 21.7413 15.6859 21.9345 15.8146L33.3954 23.4418C33.5804 23.5633 33.7332 23.7349 33.8392 23.9397C33.9451 24.1446 34.0005 24.3758 34 24.6108Z" fill="white"/>
@@ -168,7 +107,9 @@
                 </div>
               {% endunless %}
               {% if block.settings.video_title != blank %}
+                <div class="video-title-wrapper">
                 <h3 class="h1">{{ block.settings.video_title }}</h3>
+                </div>
               {% endif %}
             </div>
           {% endfor %}
@@ -237,6 +178,7 @@
 {
   "name": "Video Slider",
   "class": "section-videoslider",
+  "tag": "section",
   "settings": [
     {
       "type": "checkbox",
@@ -267,6 +209,11 @@
       "type": "url",
       "id": "button_link",
       "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Vector Image"
     }
   ],
   "blocks": [
