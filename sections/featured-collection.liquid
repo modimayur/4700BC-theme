@@ -68,7 +68,7 @@
   >
     <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
       {%- if section.settings.title != blank -%}
-        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <h2 class="title inline-richtext center {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.title }}
         </h2>
       {%- endif -%}
@@ -112,6 +112,7 @@
               show_vendor: section.settings.show_vendor,
               show_rating: section.settings.show_rating,
               skip_styles: skip_card_product_styles,
+              card_style: section.settings.card_style,
               section_id: section.id,
               quick_add: section.settings.quick_add
             %}
@@ -338,6 +339,22 @@
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "options": [
+        {
+          "value": "standard",
+          "label": "t:settings_schema.cards.settings.style.options__1.label"
+        },
+        {
+          "value": "card",
+          "label": "t:settings_schema.cards.settings.style.options__2.label"
+        }
+      ],
+      "default": "standard",
+      "label": "t:settings_schema.cards.settings.style.label"
     },
     {
       "type": "select",
