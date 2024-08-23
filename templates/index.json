@@ -300,58 +300,17 @@
       }
     },
     "featuredrecipes": {
-      "type": "featured-recipes",
-      "blocks": {
-        "videoblock_dLgcnB": {
-          "type": "videoblock",
-          "settings": {
-            "video": "shopify:\/\/files\/videos\/123.mp4",
-            "video_title":"Vanilla-Caramel Popcorn Cake"
-          }
-        },
-        "videoblock_xcrC7C": {
-          "type": "videoblock",
-          "settings": {
-            "video": "shopify:\/\/files\/videos\/123.mp4",
-            "video_title":"Vanilla-Caramel Popcorn Cake"
-          }
-        },
-        "videoblock_U4BGxg": {
-          "type": "videoblock",
-          "settings": {
-            "video": "shopify:\/\/files\/videos\/123.mp4",
-            "video_title":"Vanilla-Caramel Popcorn Cake"
-          }
-        },
-        "videoblock_NzUbRM": {
-          "type": "videoblock",
-          "settings": {
-            "video": "shopify:\/\/files\/videos\/123.mp4",
-            "video_title":"Vanilla-Caramel Popcorn Cake"
-          }
-        },
-        "videoblock_mQMrqH": {
-          "type": "videoblock",
-          "settings": {
-            "video": "shopify:\/\/files\/videos\/123.mp4",
-            "video_title":"Vanilla-Caramel Popcorn Cake"
-          }
-        }
-      },
-      "block_order": [
-        "videoblock_dLgcnB",
-        "videoblock_xcrC7C",
-        "videoblock_U4BGxg",
-        "videoblock_NzUbRM",
-        "videoblock_mQMrqH"
-      ],
+      "type": "featured-media-blogs",
       "settings": {
         "full_width": false,
         "heading": "Recipes",
         "color_scheme": "scheme-9",
         "button_label": "VIEW MORE RECIPES",
         "button_link": "shopify:\/\/blogs\/news",
-        "image":"shopify:\/\/shop_images\/image_2385.png"
+        "image":"shopify:\/\/shop_images\/image_2385.png",
+        "blog": "recipes",
+        "post_limit": 5
+        
       }
     },
     "collage_hCUM4P": {
@@ -365,7 +324,7 @@
             "link": "shopify:\/\/collections\/all",            
             "text_position": "left",
             "image_position": "middleright",
-            "background_color":"#ff0000",
+            "background_color":"#8C2F28",
             "text_color":"#fff"
           }
         },

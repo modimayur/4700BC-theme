@@ -78,6 +78,15 @@
   background-color: #fff6e0;
   color: #fff6e0;
 }
+.section-collage .collage-row .collage-card.image_with_text .full-unstyled-link:before{
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
 .section-collage .collage-row .collage-card.image_with_text .link .link-wrap{
   background: #fff;
   border-radius: 50%;
@@ -86,7 +95,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #DA4F45;
+  background-color: var(--theme-color);
+  transition: all 0.3s ease-in-out;
+}
+.section-collage .collage-row .collage-card.image_with_text .link .link-wrap .inner-arrow{
+  transition: all 0.3s ease-in-out;
+  transform: rotate(0deg);
+}
+.section-collage .collage-row .collage-card.image_with_text:hover .link .link-wrap {
+  background-color: #000;
+}
+.section-collage .collage-row .collage-card.image_with_text:hover .link .link-wrap .inner-arrow{
+  transform: rotate(-45deg);
 }
 .section-collage .collage-row .collage-card.image_with_text .link svg.inner-arrow path{
   stroke: currentColor;
