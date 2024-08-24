@@ -273,6 +273,10 @@
           "label": "Tumblr",
           "info": "https:\/\/shopify.tumblr.com"
         },
+        "social_linkdin_link": {
+          "label": "Linkdin",
+          "info": "https:\/\/shopify.linkdin.com"
+        },
         "social_snapchat_link": {
           "label": "Snapchat",
           "info": "https:\/\/www.snapchat.com\/add\/shopify"

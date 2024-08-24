@@ -1,0 +1,155 @@
+{{ 'component-jointheteam.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
+  <div class="page-width">
+    <div class="section-title center">
+      {% if section.settings.heading_liquid != blank %}
+        <div class="heading_liquid">{{ section.settings.heading_liquid }}</div>
+      {% else %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+    {% if section.blocks.size > 0 %}
+      <div class="section-content">
+        <ul class="list-unstyled list-social" role="list">
+          {% for block in section.blocks %}
+            <li class="list-social__item">
+              <a href="{{ block.settings.url }}" class="link list-social__link">
+                {%- liquid
+                  case block.settings.socialicons
+                    when 'social_facebook_link'
+                      render 'icon-facebook'
+                    when 'social_twitter_link'
+                      render 'icon-twitter'
+                    when 'social_instagram_link'
+                      render 'icon-instagram'
+                    when 'social_youtube_link'
+                      render 'icon-youtube'
+                    when 'social_tiktok_link'
+                      render 'icon-tiktok'
+                    when 'social_pinterest_link'
+                      render 'icon-pinterest'
+                    when 'social_snapchat_link'
+                      render 'icon-snapchat'
+                    when 'social_tumblr_link'
+                      render 'icon-tumblr'
+                    when 'social_vimeo_link'
+                    render 'icon-vimeo'
+                    when 'social_linkdin_link'
+                    render 'icon-linkdin'
+                  endcase
+                -%}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Join The Team",
+  "class": "section section-jointheteam",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "heading",
+      "default": "Discover the Secret to Perfect Skin"
+    },
+    {
+      "type": "liquid",
+      "id": "heading_liquid",
+      "label": "Heading Liquid",
+      "info": "This will be owerwrite the heading title."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "social-icons",
+      "name": "Add social icon",
+      "settings": [
+        {
+          "type": "select",
+          "id": "socialicons",
+          "label": "Social icon",
+          "options": [
+            {
+              "value": "social_facebook_link",
+              "label": "t:settings_schema.social-media.settings.social_facebook_link.label"
+            },
+            {
+              "value": "social_instagram_link",
+              "label": "t:settings_schema.social-media.settings.social_instagram_link.label"
+            },
+            {
+              "value": "social_youtube_link",
+              "label": "t:settings_schema.social-media.settings.social_youtube_link.label"
+            },
+            {
+              "value": "social_tiktok_link",
+              "label": "t:settings_schema.social-media.settings.social_tiktok_link.label"
+            },
+            {
+              "value": "social_twitter_link",
+              "label": "t:settings_schema.social-media.settings.social_twitter_link.label"
+            },
+            {
+              "value": "social_snapchat_link",
+              "label": "t:settings_schema.social-media.settings.social_snapchat_link.label"
+            },
+            {
+              "value": "social_pinterest_link",
+              "label": "t:settings_schema.social-media.settings.social_pinterest_link.label"
+            },
+            {
+              "value": "social_tumblr_link",
+              "label": "t:settings_schema.social-media.settings.social_tumblr_link.label"
+            },
+            {
+              "value": "social_vimeo_link",
+              "label": "t:settings_schema.social-media.settings.social_vimeo_link.label"
+            },
+            {
+              "value": "social_linkdin_link",
+              "label": "t:settings_schema.social-media.settings.social_linkdin_link.label"
+            }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Social accocunt link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Join The Team"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,11 @@
+.section-jointheteam .heading_liquid svg{
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+.section-jointheteam .section-content ul.list-unstyled.list-social{
+    justify-content: center;
+    position: relative;
+    margin-top: -70px;
+    margin-bottom: 70px;
+}

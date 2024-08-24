@@ -1,35 +1,91 @@
 {{ 'ticker-section.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-<div class='ticker-section color-{{ section.settings.color_scheme }} gradient'>
-  <div class='main-container'>
-    <div class='wrapper' data-marqy-inner>
-      {% for i in (1..3) %}
-        <div class="ticker-slider" data-marqy-content style="animation-duration: 20s;">
-          {% for block in section.blocks %}
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="ticker-section color-{{ section.settings.color_scheme }} gradient  section-{{ section.id }}-padding">
+  <div class="main-container">
+    {% for block in section.blocks %}
+      <div class="wrapper" data-marqy-inner>
+        {% for i in (1..block.settings.copy_count) %}
+          <div
+            class="ticker-slider ticker-scrollto-{{ block.settings.scroll_direction }}"
+            data-marqy-content
+            style="animation-duration: {{- block.settings.scrolll_speed -}}s;"
+          >
             <div class="slider-item" data-marqy-item>
               {% if block.settings.icon != blank %}
-              <div class="icon-wrap">
-                {% render 'responsive--image' with block.settings.icon as image, max_width: 60px, class: 'icon-image' %}
-              </div>
-            {% endif %}
-              <span class='icon-text'>{{ block.settings.icon_text }}</span>
+                <div class="icon-wrap">
+                  {% render 'responsive--image' with block.settings.icon as image, max_width: 60px, class: 'icon-image' %}
+                </div>
+              {% endif %}
+              {% if block.settings.icon_text != blank %}
+                <span class="icon-text">{{ block.settings.icon_text }}</span>
+              {% endif %}
             </div>
-          {% endfor %}
-        </div>
-      {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    {%- if section.settings.image != blank -%}
+      <div class="image-wrapper">
+        {{ section.settings.image | image_url: width: 413 | image_tag: loading: 'lazy', class: 'mobile-size-fix' }}
+        <img class="svg-text" src="{{ 'frame1686567197.svg'| file_url }}" width="198" height="198" alt=""/>
+        <img class="svg-cursor-icon" src="{{ 'frame1686567197-1.svg'| file_url }}" width="215" height="215" alt=""/>
       
-    </div>
+      </div>
+    {% endif -%}
   </div>
 </div>
+
 {% schema %}
 {
   "name": "Ticker Section",
+  "class": "section section-ticker",
   "settings": [
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
     }
   ],
   "blocks": [
@@ -39,8 +95,7 @@
       "settings": [
         {
           "type": "header",
-          "content": "Image",
-          "info": "-------"
+          "content": "Image"
         },
         {
           "type": "image_picker",
@@ -48,14 +103,43 @@
           "label": "Icon Image"
         },
         {
-          "type": "header",
-          "content": "Content",
-          "info": "-------"
-        },
-        {
           "type": "text",
           "id": "icon_text",
           "label": "Icon Text"
+        },
+        {
+          "type": "range",
+          "id": "copy_count",
+          "label": "Copy count",
+          "default": 3,
+          "step": 1,
+          "min": 0,
+          "max": 100
+        },
+        {
+          "type": "range",
+          "id": "scrolll_speed",
+          "label": "Scroll Speed",
+          "default": 20,
+          "step": 1,
+          "min": 5,
+          "max": 100
+        },
+        {
+          "type": "select",
+          "id": "scroll_direction",
+          "label": "Scroll Direction",
+          "default": "rtl",
+          "options": [
+            {
+              "label": "Left to Right",
+              "value": "ltr"
+            },
+            {
+              "label": "Right to Left",
+              "value": "rtl"
+            }
+          ]
         }
       ]
     }
@@ -68,4 +152,3 @@
   ]
 }
 {% endschema %}
-

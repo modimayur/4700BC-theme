@@ -84,3 +84,103 @@
 .rich-text__blocks.right .rich-text__buttons {
   justify-content: flex-end;
 }
+
+.ctawith-image .section-before-curve {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.ctawith-image .section-before-curve svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ctawith-image .section-before-curve.section-before-curve-before {
+  margin-top: -87px;
+}
+.ctawith-image .section-before-curve.section-before-curve-after {
+  margin-top: 0;
+  position: relative;
+  top: 44px;
+  top: 0;
+  background: #fff6e0;
+}
+
+.ctawith-image .rich-text .rich-text__wrapper.rich-text__wrapper--left {
+  align-items: center;
+}
+.section-ticker {
+  position: relative;
+}
+.section-ticker .image-wrapper {
+  position: absolute;
+  inset: 0;
+  width: min-content;
+  height: min-content;
+  margin: auto;
+  z-index: 0;
+  max-width: 75%;
+  aspect-ratio: 1/1;
+}
+.section-ticker .image-wrapper .mobile-size-fix {
+  margin: auto;
+  z-index: 1;
+  display: block;
+  position: relative;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  animation-duration: 30s;
+  -webkit-animation-direction: 30s;
+  animation-direction: 30s;
+  -webkit-animation-name: rotate-to-left;
+  animation-name: rotate-to-left;
+}
+.section-ticker .image-wrapper .svg-text {
+  width: min-content;
+  height: min-content;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  z-index: 2;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+  animation-duration: 10s;
+  -webkit-animation-direction: 10s;
+  animation-direction: 10s;
+  -webkit-animation-name: rotate-to-right;
+  animation-name: rotate-to-right;
+}
+.section-ticker .image-wrapper .svg-cursor-icon {
+  width: min-content;
+  height: min-content;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  z-index: 3;
+}
+@keyframes rotate-to-left {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+@-webkit-keyframes rotate-to-left {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes rotate-to-right {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(-360deg);}
+}
+@keyframes rotate-to-right {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(-360deg);}
+}
