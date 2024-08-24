@@ -167,62 +167,13 @@ section.sections-product-range .shopify-section-bg.gradient:before{
     inset: 0 0 70%;
     height: auto;
 }
-/* 
-*/
- 
-/* 
-section.sections-product-range .gradient.isolate:before{
-    inset: 0 -10px;
-    transform: translate(0px, 20px);
+.section-featuredmedia-blogs .swiper-navigation-button:before{
+    background-color: transparent;
+    border-color: #FFF6E0;
 }
-section.sections-product-range .gradient.isolate:after{
-    inset: 0 -20px;
-    transform: translate(0px, 40px);
-}
-section.sections-product-range .gradient.isolate {
-    border-bottom-right-radius:  50%;
-    border-bottom-left-radius: 50%;
-    margin-bottom: 0px;
-    --border-radius: 0px;
-    --border-radius: 50vw;
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-}
-*/
 
-/* section.sections-product-range .gradient.isolate {
-    position: relative;
-    border-bottom-right-radius:  50%;
-    border-bottom-left-radius: 50%;
-    margin-bottom: 0px;
-    --border-radius: 0px;
-    --border-radius: 50vw;
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-}
-section.sections-product-range .gradient.isolate:after,
-section.sections-product-range .gradient.isolate:before{
-    content: "";
-    position: absolute;
-    border-radius: 0  0 50%  50%;
-    margin: auto;
-    display: block;
-    z-index: 1;
-    background: rgb(var(--color-background));
-    background: var(--gradient-background);
-    background-attachment: fixed;
-    z-index: -3;
-    display: block;
-    opacity: 0.5;
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-}
-section.sections-product-range .gradient.isolate:before{
-    inset: 0 -10px;
-    transform: translate(0px, 20px);
-}
-section.sections-product-range .gradient.isolate:after{
-    inset: 0 -20px;
-    transform: translate(0px, 40px);
-} */
 .smilytext{
     display: flex;
     justify-content: center;
+    color: #592C29;
 }

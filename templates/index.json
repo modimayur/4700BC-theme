@@ -89,8 +89,8 @@
         "color_scheme": "scheme-5",
         "icon_text": "Happiness at its crispiest",
         "background_color": "#ffe11b",
-        "color": "#592C29",
-        "border_color": "#000",
+        "color": "#592c29",
+        "border_color": "#000000",
         "border-width": 5,
         "sectionn_before_color": "#000",
         "sectionn_after_color": "#F2B65E"
@@ -307,10 +307,9 @@
         "color_scheme": "scheme-9",
         "button_label": "VIEW MORE RECIPES",
         "button_link": "shopify:\/\/blogs\/news",
-        "image":"shopify:\/\/shop_images\/image_2385.png",
+        "image": "shopify:\/\/shop_images\/image_2385.png",
         "blog": "recipes",
         "post_limit": 5
-        
       }
     },
     "collage_hCUM4P": {
@@ -321,11 +320,11 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/collage_01.png",
             "heading": "Exclusive Website Products",
-            "link": "shopify:\/\/collections\/all",            
+            "link": "shopify:\/\/collections\/all",
             "text_position": "left",
             "image_position": "middleright",
-            "background_color":"#8C2F28",
-            "text_color":"#fff"
+            "background_color": "#8C2F28",
+            "text_color": "#fff"
           }
         },
         "image_TVfcQk": {
@@ -336,8 +335,8 @@
             "link": "shopify:\/\/collections\/all",
             "text_position": "left",
             "image_position": "bottomright",
-            "background_color":"#DA4F45",
-            "text_color":"#fff"
+            "background_color": "#DA4F45",
+            "text_color": "#fff"
           }
         },
         "image_KTyQhK": {
@@ -348,8 +347,8 @@
             "link": "shopify:\/\/collections\/all",
             "text_position": "left",
             "image_position": "middlecenter",
-            "background_color":"#FCC000",
-            "text_color":"#070707"
+            "background_color": "#FCC000",
+            "text_color": "#070707"
           }
         }
       },
@@ -361,42 +360,40 @@
       "settings": {
         "heading": "",
         "heading_size": "h1",
+        "collage_style": "collage-row",
         "desktop_layout": "left",
         "mobile_layout": "collage",
-        "collage_style": "collage-row",
         "card_styles": "product-card-wrapper",
         "color_scheme": "",
         "padding_top": 216,
         "padding_bottom": 100
       }
     },
-    "featured_collection_LHYBbX": {
-      "type": "featured-collection",
+    "featured_collection_swiperLHYBbX": {
+      "type": "featured-collection-swiper",
       "settings": {
         "title": "CROWD FAVOURITES",
         "heading_size": "hxxl",
-        "card_style": "standard",
         "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "automated-collection",
-        "products_to_show": 12,
-        "columns_desktop": 4,
+        "products_to_show": 10,
+        "columns_desktop": 5,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": true,
-        "color_scheme": "",
+        "color_scheme": "scheme-a193fd5b-e239-48d6-b9c2-7f597611ffcd",
+        "card_style": "standard",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "columns_mobile": "1.5",
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     }
   },
@@ -408,6 +405,6 @@
     "product-search-range",
     "featuredrecipes",
     "collage_hCUM4P",
-    "featured_collection_LHYBbX"
+    "featured_collection_swiperLHYBbX"
   ]
 }

@@ -1,0 +1,14 @@
+.swiper-wrapper.product-grid.contains-card--product .grid_item .card__information{
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    color: #592C29;
+}
+.swiper-wrapper.product-grid.contains-card--product .grid_item.swiper-slide-active  .card__information { 
+    opacity: 1;
+}
+.swiper-wrapper.product-grid.contains-card--product .grid_item.swiper-slide-active  .card__information  .card__heading {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
