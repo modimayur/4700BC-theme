@@ -1,15 +1,21 @@
-{{ 'component-jointheteam.css' | asset_url | stylesheet_tag }}
+{{ 'component-testimonial.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-
+  .section-{{ section.id }}-padding .featured-image {
+    transform: translateY({{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px);
+  }
+  
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .section-{{ section.id }}-padding .featured-image {
+      transform: translateY({{ section.settings.padding_bottom }}px);
     }
   }
 {%- endstyle -%}
@@ -17,14 +23,50 @@
   <div class="page-width">
     <div class="section-title center">
       {% if section.settings.heading != blank %}
-        <h2>{{ section.settings.heading }}</h2>
+        <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </h2>
       {% endif %}
     </div>
+
     <div class="section-content">
-        Hear from Our Customers
+      {% for block in section.blocks %}
+        <div class="test-wrapper">
+          <div class="auther_img_wrap">
+            <div class="auther_img">
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 56, height: 56
+                  | image_tag: loading: 'lazy', class: 'mobile-size-fix'
+                }}
+              {% endif %}
+            </div>
+            {% if block.settings.name %}
+              <h3 class="h3">{{ block.settings.name }}</h3>
+            {% endif %}
+            <div class="stars-review">
+              {% for i in (1..5) %}
+                <div class="star-icon">
+                  {% render 'icon-star' %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          {%- if block.settings.description != blank -%}
+            <div class="rte">
+              {% render 'icon-quote' %}
+              {{ block.settings.description }}</div>
+          {%- endif -%}
+        </div>
+      {% endfor %}
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 413 | image_tag: loading: 'lazy', class: 'featured-image' }}
+      {% endif %}
     </div>
   </div>
 </div>
+
 {% schema %}
 {
   "name": "Testimonial",
@@ -36,6 +78,39 @@
       "id": "heading",
       "label": "heading",
       "default": "Discover the Secret to Perfect Skin"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
     },
     {
       "type": "color_scheme",
@@ -66,6 +141,29 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "t:sections.featured-collection.settings.description.label"
+        }
+      ]
     }
   ],
   "presets": [

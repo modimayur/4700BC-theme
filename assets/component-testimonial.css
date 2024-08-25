@@ -1,0 +1,78 @@
+.section-testimonial h2.related-products__heading.hxxl{
+    font-size: 130px;
+    font-weight: 700;
+    color: #592C29;
+    max-width: 82.3rem;
+    margin: 0 auto -7rem;
+    letter-spacing: 0.06em;
+}
+.section-testimonial .section-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.2rem;
+}
+.section-testimonial .section-content img.featured-image{
+    margin-left: -6.4rem;
+    align-self: flex-end;
+    width: calc(100% + 6.4rem);
+    height: auto;
+}
+
+.section-testimonial .section-content .test-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 24px;
+  gap: 32px;
+  background: #ffffff;
+  border: 1px solid #d2b275;
+  border-radius: 16px;
+  align-self: center;
+}
+.section-testimonial .section-content .test-wrapper .auther_img_wrap {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0 16px;
+  align-items: flex-start;
+}
+.section-testimonial .section-content .test-wrapper .auther_img_wrap .auther_img {
+  /* grid-column: 1 / span 2; */
+  grid-row: span 2;
+}
+.section-testimonial .section-content .test-wrapper .auther_img_wrap .auther_img img {
+  width: 56px;
+  height: 56px;
+  border: 2px solid #e19523;
+  border-radius: 50%;
+}
+.section-testimonial .section-content .test-wrapper .auther_img_wrap h3 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: normal;
+  letter-spacing: 0.03em;
+  color: #070707;
+  margin: 0;
+  text-align: left;
+  display: block;
+}
+.section-testimonial .section-content .test-wrapper .auther_img_wrap .stars-review {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.section-testimonial .section-content .test-wrapper .auther_img_wrap .stars-review svg {
+  display: block;
+}
+.section-testimonial .section-content .test-wrapper .rte {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    gap: 12px;
+}
+.section-testimonial .section-content .test-wrapper .rte p{
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #070707;
+}

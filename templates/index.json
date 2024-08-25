@@ -512,10 +512,35 @@
     "testimonial_V6FjrH": {
       "type": "testimonial",
       "settings": {
-        "heading": "Discover the Secret to Perfect Skin",
-        "heading_liquid": "",
-        "color_scheme": ""
-      }
+        "heading": "HEAR FROM OUR CUSTOMERS",
+        "heading_size": "hxxl",
+        "color_scheme": "",
+        "image": "shopify:\/\/shop_images\/image16041.png",
+        "padding_top": 40,
+        "padding_bottom": 52
+      },
+      "blocks": {
+        "item_4kLHDz": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
+            "name": "Derry Thomas",
+            "description": "<p>I've tried many popcorn brands, but 4700BC stands out with its unique flavors and perfect crunch. The fusion recipes are a delightful twist, and knowing they're gluten-free and calorie-friendly makes them my go-to snack. My movie nights are now incomplete without a bowl of 4700BC popcorn!<\/p>"
+          }
+        },
+        "item_3cL4GE": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
+            "name": "Vinitha Sharma",
+            "description": "<p>Game-changer for snack lovers! The fusion flavours are exciting, and the healthier options are a big plus. Highly recommended!<\/p>"
+          }
+        }
+      },      
+      "block_order": [
+        "item_4kLHDz",
+        "item_3cL4GE"
+      ]
     }
   },
   "order": [
