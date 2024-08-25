@@ -7,6 +7,16 @@
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
 }
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 .product-card-wrapper .card,
 .contains-card--product {
@@ -3696,4 +3706,14 @@ details-disclosure > details {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-family: 'Formula Condensed';
+}
+
+
+
+.sections-product-search-range .smilytext,
+.section-jointheteam .heading_liquid svg,
+section.sections-product-range .shopify-section-inner-bg .wrapper-title{
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
 }

@@ -22,7 +22,7 @@
   style="--main-background-color: {{ section.blocks.first.settings.color_background.red }},{{ section.blocks.first.settings.color_background.green }},{{ section.blocks.first.settings.color_background.blue }};">
     <div class="page-width section-{{ section.id }}-padding">
       {%- if section.settings.heading != blank -%}
-        <h2 class="wrapper-title center inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <h2 class="wrapper-title center inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.heading }}
         </h2>
       {%- endif -%}
