@@ -18,7 +18,7 @@
   {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 {% endif %}
 
-<div
+<announcement-bar
   class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
   {{ block.shopify_attributes }}
 >
@@ -164,7 +164,30 @@
       {%- endif -%}
     </div>
   </div>
-</div>
+</announcement-bar>
+
+{% javascript %}
+  class AnnouncementBar extends HTMLElement {
+    constructor() {
+      super();
+    }
+    connectedCallback() {
+      this.setHeaderHeight();
+      // console.log('announcementBbar',document.querySelector('.utility-bar__grid').clientHeight);
+    }
+    setHeaderHeight() {
+      document.documentElement.style.setProperty('--announcement-bar-height', `${document.querySelector('announcement-bar .utility-bar__grid').offsetHeight}px`);
+      setTimeout(() => {
+        document.documentElement.style.setProperty('--announcement-bar-height', `${document.querySelector('announcement-bar .utility-bar__grid').offsetHeight}px`);
+      // }, 150);
+      }, 50);
+    }
+
+  }
+  
+  customElements.define('announcement-bar', AnnouncementBar);
+
+{% endjavascript %}
 
 {% schema %}
 {

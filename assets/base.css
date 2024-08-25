@@ -2149,7 +2149,9 @@ input[type='checkbox'] {
     margin: auto;
   }
 }
-
+announcement-bar{
+  display: block;
+}
 .announcement-bar,
 .announcement-bar__announcement {
   color: rgb(var(--color-foreground));

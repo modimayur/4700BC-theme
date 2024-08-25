@@ -129,7 +129,7 @@
   assign headermenu = linklists[menu_handle].links  
 -%}
 
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}static-header{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -292,7 +292,7 @@
      
     </div>
   </header>
-</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}static-header{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
@@ -310,7 +310,6 @@
       this.headerBounds = {};
 
       this.setHeaderHeight();
-
       window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
 
       if (this.headerIsAlwaysSticky) {
@@ -406,8 +405,24 @@
       this.searchModal.close(false);
     }
   }
-
   customElements.define('sticky-header', StickyHeader);
+  
+  class NormalHeaderStickyHeader extends HTMLElement {
+    constructor() {
+      super();
+      this.setHeaderHeight();
+    }
+    
+    setHeaderHeight() {
+      this.header = document.querySelector('.section-header');
+      console.log('NormalHeaderStickyHeader',this);
+      document.documentElement.style.setProperty('--header-height', `${this.header.offsetHeight}px`);
+    }
+
+  }
+  
+  customElements.define('static-header', NormalHeaderStickyHeader);
+
 {% endjavascript %}
 
 <script type="application/ld+json">
