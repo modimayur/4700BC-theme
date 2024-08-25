@@ -1387,22 +1387,51 @@ document.addEventListener('DOMContentLoaded', () => {
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-      }
+      },
+      on: {
+        init: function (swiper) {
+          sliderThemeUpdate('init: ', swiper);
+        },
+        slideChange: function (swiper) {
+          sliderThemeUpdate('slideChange: ', swiper);
+          var index = swiper.activeIndex;
+          swiperMainSlider.slideTo(index);
+        }
+      },
     });
+    /* 
+    function sliderThemeUpdate(swiper) {
+      var slides = swiper.slides;
+      for (var i = 0; i < slides.length; i++) {
+        var slide = slides[i];
+        var slideIndex = slide.getAttribute("data-index");
+        var slideNumber = slide.querySelector(".slide-number");
+        var slideNumberText = slideIndex + 1;
+        slideNumber.textContent = slideNumberText;
+      }
+    };
+     */
     swiperMainSlider.on('slideChange', function (swiper) {
       var index = swiper.activeIndex;
       swiperThumbsSlider.slideTo(index);
       // console.log('slide changed',swiper);
 
     });
-    swiperThumbsSlider.on('slideChange', function (swiper) {
+ 
+
+    function sliderThemeUpdate(event, swiper){
       var index = swiper.activeIndex;
       // var newslideindex = swiper.activeIndex + 1;
       var newslide = swiper.slides[index]
-      var newslideColor = newslide.querySelector('.product_item').dataset.colorVariable;
-      // console.log('slide changed',swiper);
-      swiperMainSlider.slideTo(index);
-      console.log('slide changed', newslideColor);
-    });
+      var newslideColor1 = newslide.querySelector('.product_item').dataset.themeColor1;
+      var newslideColor2 = newslide.querySelector('.product_item').dataset.themeColor2;
+      var newslideColor3 = newslide.querySelector('.product_item').dataset.themeColor3;
+
+      productrange.closest('.shopify-section-inner-bg').style.setProperty("--main-background-color", newslideColor1);
+      productrange.closest('.shopify-section-inner-bg').style.setProperty("--main-background2-color", newslideColor2);
+      productrange.closest('.shopify-section-inner-bg').style.setProperty("--main-background3-color", newslideColor3);
+      document.querySelector('#CustomMarquee').style.setProperty("--main-background-color", newslideColor1);
+      console.log('that',productrange);
+    }
   }
 });

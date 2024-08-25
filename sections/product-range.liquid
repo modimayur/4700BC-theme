@@ -18,7 +18,8 @@
 {%- endstyle -%}
 
 <div class="shopify-section-bg color-{{ section.settings.color_scheme }} gradient isolate">
-  <div class="shopify-section-inner-bg">
+  <div class="shopify-section-inner-bg"
+  style="--main-background-color: {{ section.blocks.first.settings.color_background.red }},{{ section.blocks.first.settings.color_background.green }},{{ section.blocks.first.settings.color_background.blue }};">
     <div class="page-width section-{{ section.id }}-padding">
       {%- if section.settings.heading != blank -%}
         <h2 class="wrapper-title center inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
@@ -53,7 +54,10 @@
                 >
                   <div
                     class="product_item"
-                    style="--theme-color:{{ block.settings.color_background.red }},{{ block.settings.color_background.green }},{{ block.settings.color_background.blue }};"
+                    style="--theme-color:{{ block.settings.color_background | color_lighten: 20 }};"
+                    data-theme-color1="{{ block.settings.color_background  }}"
+                    data-theme-color2="{{ block.settings.color_background | color_lighten: 35 }}"
+                    data-theme-color3="{{ block.settings.color_background | color_lighten: 50 }}"
                   >
                     <div class="card">
                       <div
@@ -175,8 +179,22 @@
         </div>
       {% endif %}
     </div>
+    <div class="product-range-vector-bg">
+      <div class="squarebg"></div>
+      <svg width='1440' height='503' viewBox='0 0 1440 503' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <mask id='mask0_33_133' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='1440' height='503'>
+            <rect width='1440' height='503' fill='#D9D9D9' />
+        </mask>
+        <g mask='url(#mask0_33_133)'>
+            <path class="path-01" d='M1440 -340H0V95.496C254.5 677.486 1279.5 595.987 1440 95.496V-340Z' />
+            <path class="path-02" d='M1440 -394H0V41.496C254.5 623.486 1279.5 541.987 1440 41.496V-394Z' />
+            <path class="path-03" d='M1440 0.692017V-624L1160 -573.525L737.5 -454.084L373.5 -561.031L0 -573.525V0.692017C254.5 582.401 1279.5 500.942 1440 0.692017Z' />
+        </g>
+      </svg>
+    </div>
   </div>
 </div>
+
 
 {% schema %}
 {
