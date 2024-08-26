@@ -26,9 +26,52 @@
 
 <div class="page-width section-{{ section.id }}-padding">
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    {{ page.content }}
+    <div class="vertical-container">
+        <div class="tab-anchor">
+          <div class="anchor-container page__column-sticky">
+  
+          </div>
+        </div>
+        <div class="tab-content scroll-trigger animate--slide-in">
+          {{ page.content }}
+        </div>
+    </div>
   </div>
 </div>
+
+{% javascript %} 
+  const tabTitle = document.querySelectorAll('.rte .tab-content h2');
+  const tabTitleContainer = document.querySelector('.anchor-container');
+  const ulElement = document.createElement('ul');
+  tabTitle.forEach((element, index) => {
+    element.setAttribute('id', `content-${index+1}`);
+    element.classList.add('scroll-margin');
+    const liElement = document.createElement('li');
+    
+    const button = document.createElement('button');
+    button.textContent = element.textContent;
+    if(index == 0){
+      button.className = 'tab-link button active';
+    }else{
+      button.className = 'tab-link button';
+    }
+    button.setAttribute('data-content', `content-${index+1}`);
+
+    liElement.appendChild(button);
+    ulElement.appendChild(liElement);
+
+    button.addEventListener('click', () => {
+      tabTitleContainer.querySelectorAll('button').forEach((button) => {
+        button.classList.remove('active');
+      });
+      button.classList.add('active');
+      document.querySelector(`#content-${index+1}`).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+  tabTitleContainer.appendChild(ulElement);
+{% endjavascript %}
 
 {% schema %}
 {

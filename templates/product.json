@@ -1,5 +1,23 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
+    "breadcrumb_RUdGnJ": {
+      "type": "breadcrumb",
+      "settings": {
+        "enable_back_button": true,
+        "color_scheme": "",
+        "padding_top": 24,
+        "padding_bottom": 0
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -11,6 +29,9 @@
         "price": {
           "type": "price",
           "settings": {
+            "show_shipping_msg": false,
+            "show_installment_msg": false,
+            "show_quantity": true
           }
         },
         "variant_picker": {
@@ -18,11 +39,6 @@
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {
           }
         },
         "buy_buttons": {
@@ -37,23 +53,22 @@
         "title",
         "price",
         "variant_picker",
-        "quantity_selector",
         "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "medium",
-        "constrain_to_viewport": true,
+        "media_size": "large",
+        "constrain_to_viewport": false,
         "media_fit": "contain",
-        "gallery_layout": "thumbnail_slider",
+        "gallery_layout": "thumbnail",
         "media_position": "left",
         "image_zoom": "none",
         "mobile_thumbnails": "hide",
-        "hide_variants": true,
+        "hide_variants": false,
         "enable_video_looping": true,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 40,
+        "padding_bottom": 80
       }
     },
     "related-products": {
@@ -76,6 +91,7 @@
     }
   },
   "order": [
+    "breadcrumb_RUdGnJ",
     "main",
     "related-products"
   ]

@@ -82,10 +82,11 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
     var parantelement = summary.closest('.mega-menu__list');
     if (parantelement) {
       parantelement.querySelectorAll('summary').forEach((summarys) => {
+        console.log(summarys.id);
+        console.log(summarys.closest('details'));
         if (summary.id !== summarys.id) {
-          console.log('summarys:');
-          // console.log(summary.id);
-          details.open = false;
+          summarys.closest('details').removeAttribute('open');
+          // details.open = false;
           // console.log(document.querySelector(summarys.closest('details')));
           // document.querySelector(summarys.id).open = false;
         }

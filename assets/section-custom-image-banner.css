@@ -1,0 +1,44 @@
+.page-banner{
+
+}
+
+.banner__content{
+
+}
+
+.banner__content .content-container{
+
+}
+
+.banner__content .content-container .banner__heading, .banner__content .content-container .banner__text{
+    color:#fff;
+}
+
+.banner__content .content-container .banner__heading {
+    text-transform: uppercase;
+    font-size: 70px;
+}
+
+.banner__content .content-container .banner__text p{
+    font-size: 24px;
+}
+
+@media screen and (max-width: 749px) {
+    .page-banner .banner__content .content-container .banner__heading{
+        font-size: 40px;
+        margin: 0 auto;
+    }
+    .page-banner .banner__content .content-container .banner__text p{
+        font-size: 14px;
+    }
+    .page-banner .banner__media{
+        position: absolute;
+    }
+    .page-banner .banner{
+        min-height: 160px;
+    }
+    .page-banner .banner__content{
+        justify-content: flex-start;
+        margin: 0 25px;
+    }
+}

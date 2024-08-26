@@ -1,0 +1,90 @@
+{% liquid
+    assign tab_1_active = ''
+    assign tab_1_content_active = ''
+    assign tab_2_content_active = ''
+
+    assign has_flavour = false
+    assign other_products = ''
+    for flavour in shop.metaobjects.flavours.values
+        for other_product in flavour.products.value
+            if other_product.handle == product.handle
+                assign has_flavour = true
+                assign other_products = flavour.products.value
+                assign tab_1_active = 'active'
+                assign tab_1_content_active = 'active'
+                break
+            endif
+        endfor
+        if has_flavour == true
+            break
+        endif
+    endfor
+
+    assign has_combo = false
+    echo product.metafields.custom.combo_packs.list?
+    assign combo_products = product.metafields.custom.combo_packs.value
+    if combo_products != blank
+        assign has_combo = true
+        if has_flavour == false
+            assign tab_2_content_active = 'active'
+        endif
+    endif
+
+    if has_combo == false
+        assign tab_1_active = ''
+    endif
+%}
+{%- if has_combo == true or has_flavour == true -%}
+{{ 'component-tab.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'tab.js' | asset_url }}" defer="defer"></script>
+<tab-content>
+    <div class="tab-container quick-add-hidden scroll-trigger animate--slide-in">
+        <ul class="tabs">
+            {%- if has_flavour == true -%}
+                <li>
+                    <button class="button tab-button {{ tab_1_active }}" data-tab="tab_1">Other Flavours</button>
+                </li>
+            {%- endif -%}
+            {%- if has_combo == true -%}
+                <li>
+                    <button class="button tab-button" data-tab="tab_2">Combo Packs</button>
+                </li>
+            {%- endif -%}
+        </ul>
+        <div class="tab-content">
+            {%- if has_flavour == true -%}
+                <div class="tab-data-content scroll-trigger animate--slide-in {{ tab_1_content_active }}" id="tab_1">
+                    <div class="product-list grid">
+                        {%- for flavour_product in other_products -%}
+                            {%- if flavour_product.handle != product.handle -%}
+                            <div class="grid__item product-block center">
+                                <div class="product-img">
+                                    {{ flavour_product.featured_image |  image_url: width:70 |  image_tag  }}
+                                </div>
+                                <h4>{{ flavour_product.title }}</h4>
+                            </div>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </div>
+                </div>
+            {%- endif -%}
+            {%- if has_combo == true -%}
+                <div class="tab-data-content scroll-trigger animate--slide-in {{ tab_2_content_active }}" id="tab_2">
+                    <div class="product-list grid">
+                        {%- for flavour_product in combo_products -%}
+                            {%- if flavour_product.handle != product.handle -%}
+                            <div class="grid__item product-block center">
+                                <div class="product-img">
+                                    {{ flavour_product.featured_image |  image_url: width:70 |  image_tag  }}
+                                </div>
+                                <h4>{{ flavour_product.title }}</h4>
+                            </div>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </div>
+                </div>
+            {%- endif -%}
+        </div>
+    </div>
+</tab-content>
+{%- endif -%}

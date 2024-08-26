@@ -1,0 +1,8 @@
+<ul class="icon-info-list list-unstyled">
+    {%- for info in product.metafields.custom.icon_information.value -%}
+        <li>
+            {{ info.icon.value |  image_url: width:48 |  image_tag: class: 'icon-img' }}
+            <h4>{{info.info.value}}</h4>
+        </li>
+    {%- endfor -%}
+</ul>

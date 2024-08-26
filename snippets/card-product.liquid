@@ -86,24 +86,24 @@
               >
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
-              {%- if card_product.media[1] != null and show_secondary_image -%}
+              {%- if card_product.media[2] != null and show_secondary_image -%}
                 <img
                   srcset="
-                    {%- if card_product.media[1].width >= 165 -%}{{ card_product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
-                    {%- if card_product.media[1].width >= 360 -%}{{ card_product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}
-                    {%- if card_product.media[1].width >= 533 -%}{{ card_product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
-                    {%- if card_product.media[1].width >= 720 -%}{{ card_product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
-                    {%- if card_product.media[1].width >= 940 -%}{{ card_product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
-                    {%- if card_product.media[1].width >= 1066 -%}{{ card_product.media[1] | image_url: width: 1066 }} 1066w,{%- endif -%}
-                    {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
+                    {%- if card_product.media[2].width >= 165 -%}{{ card_product.media[2] | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if card_product.media[2].width >= 360 -%}{{ card_product.media[2] | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if card_product.media[2].width >= 533 -%}{{ card_product.media[2] | image_url: width: 533 }} 533w,{%- endif -%}
+                    {%- if card_product.media[2].width >= 720 -%}{{ card_product.media[2] | image_url: width: 720 }} 720w,{%- endif -%}
+                    {%- if card_product.media[2].width >= 940 -%}{{ card_product.media[2] | image_url: width: 940 }} 940w,{%- endif -%}
+                    {%- if card_product.media[2].width >= 1066 -%}{{ card_product.media[2] | image_url: width: 1066 }} 1066w,{%- endif -%}
+                    {{ card_product.media[2] | image_url }} {{ card_product.media[2].width }}w
                   "
-                  src="{{ card_product.media[1] | image_url: width: 533 }}"
+                  src="{{ card_product.media[2] | image_url: width: 533 }}"
                   sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                   alt=""
                   class="motion-reduce"
                   loading="lazy"
-                  width="{{ card_product.media[1].width }}"
-                  height="{{ card_product.media[1].height }}"
+                  width="{{ card_product.media[2].width }}"
+                  height="{{ card_product.media[2].height }}"
                 >
               {%- endif -%}
             </div>
@@ -118,7 +118,7 @@
               {% endif %}
             >
               <a
-                href="{{ card_product.url }}"
+                href="{{ card_product.url | within: collection }}"
                 id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
                 class="full-unstyled-link"
                 aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
@@ -155,7 +155,7 @@
             {% endif %}
           >
             <a
-              href="{{ card_product.url }}"
+              href="{{ card_product.url | within: collection }}"
               id="CardLink-{{ section_id }}-{{ card_product.id }}"
               class="full-unstyled-link"
               aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
@@ -309,7 +309,7 @@
                   class="quick-add__submit button button--full-width button--secondary{% if horizontal_quick_add %} card--horizontal__quick-add animate-arrow{% endif %}"
                   aria-haspopup="dialog"
                   aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
-                  data-product-url="{{ card_product.url }}"
+                  data-product-url="{{ card_product.url | within: collection }}"
                 >
                   {{ 'products.product.choose_options' | t }}
                   {%- if horizontal_quick_add -%}
@@ -438,7 +438,7 @@
                   class="quick-add__submit button button--full-width button--secondary"
                   aria-haspopup="dialog"
                   aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
-                  data-product-url="{{ card_product.url }}"
+                  data-product-url="{{ card_product.url | within: collection }}"
                 >
                   {{ 'products.product.choose_options' | t }}
                   {%- render 'loading-spinner' -%}
@@ -503,7 +503,7 @@
                           {% if card_product == blank %}
                             role="link" aria-disabled="true"
                           {% else %}
-                            href="{{ card_product.url }}"
+                            href="{{ card_product.url |  within: collection }}"
                           {% endif %}
                           class="link product__view-details animate-arrow small-hide medium-hide"
                         >
@@ -512,7 +512,7 @@
                         </a>
                       </div>
                       <div class="quick-add-modal__content-info--bulk-details large-up-hide">
-                        <a href="{{ card_product.url }}" class="full-unstyled-link">
+                        <a href="{{ card_product.url | within: collection }}" class="full-unstyled-link">
                           <h3>{{ card_product.title | escape }}</h3>
                         </a>
                         {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
@@ -525,7 +525,7 @@
                     </div>
                     <div>
                       <div class="quick-add-modal__content-info--bulk-details small-hide medium-hide">
-                        <a href="{{ card_product.url }}" class="full-unstyled-link">
+                        <a href="{{ card_product.url | within: collection }}" class="full-unstyled-link">
                           <h3 class="h2">
                             {{ card_product.title | escape }}
                           </h3>
@@ -539,7 +539,7 @@
                       </div>
                       <bulk-modal
                         id="QuickBulkModal-{{ card_product.id }}-{{ section_id }}"
-                        data-url="{{ card_product.url }}"
+                        data-url="{{ card_product.url | within: collection }}"
                         data-section-id="{{ section_id }}"
                         data-product-id="{{ card_product.id }}"
                       >

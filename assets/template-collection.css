@@ -97,3 +97,15 @@
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }
+
+.collection__title{
+  font-size: 40px;
+  text-transform: uppercase;
+  margin: 40px auto 30px;
+}
+
+@media screen and (max-width: 749px) {
+  .collection__title{
+    font-size: 32px;
+  }
+}
