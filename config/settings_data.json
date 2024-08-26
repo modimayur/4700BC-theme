@@ -244,6 +244,17 @@
           "secondary_button_label": "#070707",
           "shadow": "#121212"
         }
+      },
+      "scheme-10": {
+        "settings": {
+          "background": "#F3D9B5",
+          "background_gradient": "",
+          "text": "#592C29",
+          "button": "#070707",
+          "button_label": "#fff",
+          "secondary_button_label": "#070707",
+          "shadow": "#121212"
+        }
       }
     }
   },

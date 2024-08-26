@@ -65,9 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     const resultsMarkup = new DOMParser().parseFromString(text, 'text/html');
                     const resultsMarkupHTML = resultsMarkup.querySelector('#search-results').innerHTML
                     this.resultsContainer.innerHTML = resultsMarkupHTML;
+                    /* 
                     if (this.resultsContainer.querySelector('.view-product-button')) {
                         this.resultsContainer.querySelector('.view-product-button').setAttribute('href', `/search?q=${searchTerm}`);
                     }
+                     */
                     this.getSearchResultsSuggestions(searchTerm);
                     // console.log('resultsMarkup',resultsMarkupHTML);
                 })

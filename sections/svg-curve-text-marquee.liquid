@@ -22,7 +22,7 @@
       c19.26,6.1,38.63,11.77,58.13,17.01c74.71,20.08,151.03,33.85,227.87,42.62c155.28,17.72,312.18,15.15,467.87,4.55
       c109.68-7.46,219.04-19.01,328.32-30.86c368.74-39.97,750.92-79.36,1103.24,35.76"></path>
       <text>
-        <textPath xlink:href="#svg-path" side="left" startOffset="0">{%- for i in (1..42) %} {{ section.settings.icon_text }}.{% endfor -%}
+        <textPath xlink:href="#svg-path" side="left" startOffset="0">{%- for i in (1..42) %} {{ section.settings.icon_text | upcase }}.{% endfor -%}
           <animate attributeName="startOffset" from="-400%" to="-1200%" begin="0s" dur="80s" repeatCount="indefinite"></animate>
         </textPath>
       </text>
@@ -38,6 +38,9 @@
     margin-bottom: -25px;
     z-index: 1;
   }
+  .shopify-section.sections-curve-text-Marquee{
+    margin-top:var(--halfHeight);
+  }
   #CustomMarquee {
     --pt: px;
     --pb: px;
@@ -51,6 +54,7 @@
     position: absolute;
     inset: 0 0 50%;
     background: {{ section.settings.sectionn_before_color}};
+    background: transparent;
     display: block;
     z-index: 0;
   }
@@ -63,6 +67,7 @@
     background: var(--main-background-color);
     display: block;
     z-index: 0;
+    transition: all 0.3s ease-in-out;
   }
   .wrapper--full {
     width: 100%;
@@ -111,6 +116,7 @@
     fill: {{  section.settings.color}};
   }
 
+
   @media (min-width: 480px) {
     .ts-homepage-marquee.homepage-marquee {
       margin-top: -100px;
@@ -123,6 +129,7 @@
 {
   "name": "Svg Curve Text Marquee",
   "tag": "section",
+  "class": "sections-curve-text-Marquee",
   "settings": [
     {
       "type": "color_scheme",

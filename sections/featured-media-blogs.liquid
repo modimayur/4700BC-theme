@@ -90,7 +90,7 @@
                 <div class="video-wrapper">
                   {% case media_file.media_type %}
                     {% when 'image' %}
-                      {{ media_file | image_url: width: 285 | image_tag: class: 'slider-slide-video' }}
+                      {{ media_file | image_url: width: 285 | image_tag: class: 'slider-slide-image' }}
                     {% when 'video' %}
                       {{
                         media_file
@@ -154,10 +154,10 @@
       spaceBetween: 16,
       breakpoints: {
         640: {
-          slidesPerView: 2,
+          slidesPerView: 2.5,
         },
         1024: {
-          slidesPerView: 3,
+          slidesPerView: 2.5,
         },
       },
       navigation: {

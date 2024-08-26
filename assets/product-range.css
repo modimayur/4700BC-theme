@@ -45,7 +45,7 @@
     width: auto;
     box-sizing: border-box;
     transition: all 0.9s ease-in-out;
-    transform: scale(0.75);
+    transform: scale(0.7);
 }
 .sections-product-range .product-range-wrapper .swiper-slide.swiper-slide-active .product_item .card .card__inner{
     transform: scale(1);
@@ -54,7 +54,9 @@
     transition: all 0.9s ease-in-out;
     opacity: 0;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 24px;
+    font-size: 32px;
+    text-transform: uppercase;
 }
 .sections-product-range .product-range-wrapper .swiper-slide.swiper-slide-active .product_item .card .producttitle{
     opacity: 1;
@@ -186,7 +188,8 @@ section.sections-product-range .shopify-section-bg.gradient .shopify-section-inn
 section.sections-product-range .shopify-section-bg.gradient .shopify-section-inner-bg .wrapper-title {
     --color-foreground: 255,255,255
 }
-section.sections-product-range .shopify-section-bg.gradient .shopify-section-inner-bg .card .card__inner .card__media{
+
+section.sections-product-range .shopify-section-bg.gradient .shopify-section-inner-bg .card-wrapper:not(.swiper-slide-active) .card .card__inner .card__media{
     inset: -40px;
     width: auto;
 }

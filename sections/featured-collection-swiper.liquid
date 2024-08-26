@@ -174,7 +174,7 @@
          centeredSlides: true,
          breakpoints: {
            1024: {
-             slidesPerView: {{ section.settings.columns_desktop }},
+             slidesPerView: {{ section.settings.columns_desktop | plus: 0.5 }},
            },
          }
        });
@@ -185,7 +185,7 @@
 {
   "name": "t:sections.featured-collection-swiper.name",
   "tag": "section",
-  "class": "section",
+  "class": "section featured-collection-swiper",
   "disabled_on": {
     "groups": ["header", "footer"]
   },

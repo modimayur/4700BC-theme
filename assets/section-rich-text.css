@@ -110,6 +110,11 @@
 .ctawith-image .rich-text .rich-text__wrapper.rich-text__wrapper--left {
   align-items: center;
 }
+.ctawith-image .rich-text .rich-text__wrapper.rich-text__wrapper--left .hxxl {
+  font-size: clamp(calc(var(--font-heading-scale) * 5.6rem), 14vw, calc(var(--font-heading-scale) * 8rem));
+  font-weight: 700;
+}
+
 .section-ticker {
   position: relative;
 }

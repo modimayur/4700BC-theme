@@ -258,7 +258,9 @@
         ],
         "color_scheme": "",
         "padding_top": 36,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "button_link": "shopify:\/\/collections\/all",
+        "button_label": " VIEW PRODUCT"        
       }
     },
     "featuredrecipes": {
@@ -281,7 +283,7 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/collage_01.png",
-            "heading": "Exclusive Website Products",
+            "heading": "EXCLUSIVE WEBSITE PRODUCTS",
             "link": "shopify:\/\/collections\/all",
             "text_position": "left",
             "image_position": "middleright",
@@ -293,7 +295,7 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/collage_02.png",
-            "heading": "Make Your Own Mix",
+            "heading": "MAKE YOUR OWN MIX",
             "link": "shopify:\/\/collections\/all",
             "text_position": "left",
             "image_position": "bottomright",
@@ -305,7 +307,7 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify:\/\/shop_images\/collage_03.png",
-            "heading": "Referrals",
+            "heading": "REFERRALS",
             "link": "shopify:\/\/collections\/all",
             "text_position": "left",
             "image_position": "middlecenter",
@@ -342,10 +344,10 @@
         "collection": "automated-collection",
         "products_to_show": 10,
         "columns_desktop": 5,
-        "full_width": false,
+        "full_width": true,
         "show_view_all": true,
         "view_all_style": "solid",
-        "color_scheme": "scheme-a193fd5b-e239-48d6-b9c2-7f597611ffcd",
+        "color_scheme": "scheme-10",
         "card_style": "standard",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -423,8 +425,8 @@
       "settings": {
         "color_scheme": "",
         "image": "shopify:\/\/shop_images\/frame1686567197.png",
-        "padding_top": 84,
-        "padding_bottom": 84
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "join_the_team_taqHnw": {

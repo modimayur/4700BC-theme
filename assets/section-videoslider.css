@@ -2,6 +2,7 @@
 .section-videoslider .full-page-width {
   margin-left: calc((50vw - (var(--page-width) / 2)));
 }
+.section-featuredmedia-blogs .slider-slide-image,
 .section-featuredmedia-blogs .slider-slide-video,
 .section-videoslider .slider-slide-video {
   width: 100%;
@@ -77,6 +78,8 @@
 .section-videoslider .swiper-navigation-werapper h2 {
   margin: 0;
   font-size: 18rem;
+  line-height: 120%;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .section-featuredmedia-blogs .wrapper,
@@ -100,7 +103,7 @@
   flex: 1 1 auto;
   position: static;
   margin-top: 16.2rem;
-  margin-bottom: -8rem;
+  margin-bottom: -10.2rem;
 }
 .section-featuredmedia-blogs
   .swiper-navigation-werapper
@@ -113,7 +116,7 @@
 .section-featuredmedia-blogs .swiper-navigation-buttons,
 .section-videoslider .swiper-navigation-buttons {
   position: absolute;
-  inset: 0;
+  inset: 50% 0 auto;
   display: flex;
   gap: 2rem;
 }

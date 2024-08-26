@@ -1287,8 +1287,21 @@ if (!customElements.get('bulk-add')) {
   customElements.define('bulk-add', BulkAdd);
 }
 
+function updateCustomMarqueeSpace() {
+  var customMarquee =  document.querySelector('#CustomMarquee');
+  var customMarqueeHalfheight =  customMarquee.offsetHeight / 2;
+  customMarquee.closest('.shopify-section').style.setProperty("--halfHeight", '-'+customMarqueeHalfheight+'px');
+  console.log('updateCustomMarqueeSpace', customMarqueeHalfheight);
 
+};
+
+
+window.addEventListener('resize', () => {
+  updateCustomMarqueeSpace();
+});
 document.addEventListener('DOMContentLoaded', () => {
+  updateCustomMarqueeSpace();
+
   const button = document.getElementById('scrollto-next');
   const sections = Array.from(document.querySelectorAll('.shopify-section.section'));
   if (button) {
@@ -1335,8 +1348,6 @@ document.addEventListener('DOMContentLoaded', () => {
         : -1 + (4 - 2 * t) * t;
     }
   }
-
-
 
   // Add event listener to close button
   var announcementlosebtn = document.querySelector('.announcement-bar__close-btn');
@@ -1432,7 +1443,7 @@ document.addEventListener('DOMContentLoaded', () => {
       productrange.closest('.shopify-section-inner-bg').style.setProperty("--main-background2-color", newslideColor2);
       productrange.closest('.shopify-section-inner-bg').style.setProperty("--main-background3-color", newslideColor3);
       document.querySelector('#CustomMarquee').style.setProperty("--main-background-color", newslideColor1);
-      console.log('that',productrange);
+      // console.log('that',productrange);
     }
   }
 });
