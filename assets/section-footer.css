@@ -18,7 +18,7 @@
 
   .footer-block.grid__item {
     padding: 0;
-    margin: 0rem 0;
+    margin: 0rem 0 2.5rem;
     width: 100%;
   }
   .footer-block.grid__item:first-child {
@@ -146,6 +146,7 @@
 
 .footer-block__heading {
   margin-bottom: 1.2rem;
+  text-transform: uppercase;
   margin-top: 0;
   font-size: calc(var(--font-heading-scale) * 1.6rem);
 }
@@ -154,6 +155,9 @@
   .footer-block__heading {
     font-size: calc(var(--font-heading-scale) * 2rem);
     margin-bottom: 1.6rem;
+    letter-spacing: 0.18rem;
+    font-weight: 700;
+    text-transform: uppercase;
   }
 }
 
@@ -334,9 +338,22 @@
   }
 }
 
+.rte p,
 .footer-block__details-content .list-menu__item--link,
 .copyright__content a {
-  color: rgba(var(--color-foreground), 0.75);
+  /* color: rgba(var(--color-foreground), 0.75); */
+  color: #fff;
+}
+
+.footer-block__newsletter{
+
+}
+
+.footer__blocks-wrapper.footer_custom_layout .footer-block__brand-info .footer-block__newsletter .footer-block__heading{
+  font-family: var(--font-body-family);
+  font-size: 16px;
+  text-transform: unset;
+  letter-spacing: 0;
 }
 
 .footer-block__details-content .list-menu__item--active {
@@ -556,7 +573,7 @@
 }
 .footer__icon-links h2.footer-block__heading {
   margin-top: 2.8rem;
-  margin-bottom: 0;
+  margin-bottom: 0;  
 }
 .footer__icon-links .icon-link {
   display: flex;
@@ -583,7 +600,7 @@
 }
 .footer-block__newsletter .footer__newsletter .newsletter-form__field-wrapper .field .field__input{
   border-radius: 32px;
-  background: #fff;
+  background: #E7E7E7;
   color: #000;
   height: 48px;
   font-size: 14px;
@@ -593,8 +610,8 @@
 }
 .footer-block__newsletter .footer__newsletter .newsletter-form__field-wrapper .field .field__button {
   width: auto;
-  padding: 8px 32px;
-  font-family: var(--font-heading-scale);
+  padding: 10px 25px 6px;
+  /* font-family: var(--font-heading-scale); */
   font-size: 1.6rem;
   font-weight: 700;
   border-radius: 32px;
@@ -602,6 +619,8 @@
   line-height: 24px;
   top: 5px;
   right: 5px;
+  font-family: var(--font-heading-family);
+  letter-spacing: 1px;
 }
 .footer-block__newsletter .footer__newsletter .newsletter-form__field-wrapper .field .field__button:not(:focus-visible):not(.focused) {
   background-color: #000;
@@ -787,5 +806,15 @@
   }
   .footer__icon-links h2.footer-block__heading {
     margin-top: 1.2rem;
+  }
+  .copyright__content,
+  .policies li a{
+    font-size: 14px;
+  }
+  .footer__blocks-wrapper.footer_custom_layout .footer-block.grid__item:last-of-type{
+    margin-bottom: 0;
+  }
+  .footer-block__heading{
+    letter-spacing: 0.12rem;
   }
 }

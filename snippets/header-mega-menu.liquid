@@ -76,9 +76,15 @@
                                     {% endif %}
                                   >
                                     {% if grandchildlink.type == 'collection_link' %}
-                                      {% assign linkCollection = grandchildlink.object %}
-                                      <div class="nav-collection_image">
-                                        {{ linkCollection.image | image_url: width: 100 | image_tag: class: 'nav-collection_image' }}
+                                      {% liquid
+                                        assign link_collection = grandchildlink.object
+                                        assign collection_image = nil | default: link_collection.featured_image
+                                        if link_collection.metafields.custom.menu_featured_image != blank
+                                          assign collection_image = link_collection.metafields.custom.menu_featured_image
+                                        endif
+                                      %}
+                                      <div class="nav-collection_image_container">
+                                        {{ collection_image | image_url: width: 60 | image_tag: class: 'nav-collection_image' }}
                                       </div>
                                     {% endif %}
                                     <span>{{ grandchildlink.title | escape }}</span>
