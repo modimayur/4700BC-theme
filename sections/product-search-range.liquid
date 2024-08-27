@@ -68,14 +68,14 @@
         </form>
       </div>
       <div class="tegsuggestions hidden"></div>
-      <div id="search-results" class="center swiper">
-        <div class="swiper-wrapper">
+      <div id="search-results" class="center">
+        <div class="product-list-wrapper grid grid--5-col-tablet">
           {% if template.suffix == 'product-search-range' %}
             {% if search.results.size > 0 %}              
                 {%- for item in search.results -%}
                   {% if item.object_type == 'product' and forloop.index < 6 %}
                     {% assign product = item %}
-                    <div class="swiper-slide  product-iteam grid__item {% if forloop.index < 6 %}hide{% endif %}">
+                    <div class="product-iteam grid__item {% if forloop.index < 6 %}hide{% endif %}">
                       <a href="{{ product.url }}">
                         <div class="product-image">
                           {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
@@ -88,7 +88,7 @@
             {% endif %}
           {% else %}
               {% for product in section.settings.product_list %}
-                <div class="swiper-slide product-iteam grid__item">
+                <div class="product-iteam grid__item">
                   <a href="{{ product.url }}">
                     <div class="product-image">
                       {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
@@ -102,7 +102,7 @@
       </div>
 
       {% if section.settings.button_link != blank and section.settings.button_label != blank -%}
-        <div class="center">
+        <div class="search-collection-link-wrapper center">
           <a href="{{ section.settings.button_link }}" class="button button--primary view-product-button"
             ><span>{{ section.settings.button_label }}</span></a
           >

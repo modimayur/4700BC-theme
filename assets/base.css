@@ -943,6 +943,10 @@ summary::-webkit-details-marker {
     width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
+  .grid--5-col-tablet .grid__item {
+    width: calc(20% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
+  }
+
   .grid--4-col-tablet .grid__item {
     width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
   }
@@ -1245,7 +1249,9 @@ button.shopify-payment-button__button--unbranded,
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   text-transform:uppercase;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
+  letter-spacing: 0.18rem;
+  font-weight: 700;
   font-size: 16px;
 }
 

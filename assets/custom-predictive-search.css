@@ -1,3 +1,7 @@
+.sections-product-range + .sections-product-search-range{
+    margin-top: -75px;
+}
+
 main#MainContent {
     overflow: clip;
 }
@@ -14,7 +18,7 @@ main#MainContent {
     content: "";
     background-color: #FEEEC7;
     position: absolute;
-    inset: 65% 0 0;
+    inset: 64% 0 0;
     display: block;
     z-index: -1;
 }
@@ -80,6 +84,10 @@ main#MainContent {
     padding: 0.25rem 1rem;
 }
 
+.search-collection-link-wrapper{
+    padding-top: 30px;
+}
+
 .sections-product-search-range #search-results .product-iteam a{
     text-decoration: none;
 }
@@ -95,6 +103,7 @@ main#MainContent {
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
     opacity: 0;
+    letter-spacing: 0.15rem;
 }
 .sections-product-search-range #search-results .product-iteam.swiper-slide-active .product-title,
 .sections-product-search-range #search-results .product-iteam:hover .product-title{
@@ -140,11 +149,19 @@ main#MainContent {
         background-size: contain;
     }
     .sections-product-search-range #search-results{
+        margin-left: -1.5rem;
         margin-right: -1.5rem;
-        max-width: calc(100% - 1.5rem);
+        /* max-width: calc(100% - 1.5rem); */
     }
     .section-collage .collage-row .collage-card.image_with_text.image-position-middlecenter .collage-row-inner .collage-caption{
         padding-bottom: 0;
         margin-bottom: -2rem;
+    }
+    .sections-product-search-range #search-results .product-iteam .product-title{
+        font-size:16px;
+        letter-spacing: .08rem;
+    }
+    .search-collection-link-wrapper .view-product-button{
+        font-size: 1.4rem;
     }
   }

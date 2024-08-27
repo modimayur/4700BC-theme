@@ -76,6 +76,7 @@
   font-weight: 700;
   font-size: 48px;
   line-height: 130%;
+  letter-spacing: 0.3rem;
 }
 .section-collage .collage-row .collage-card.image_with_text .link{
   position: absolute;

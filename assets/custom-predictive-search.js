@@ -14,7 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.onChange(event);
                 }, 300).bind(this)
             );
-            this.sliderInit();
+
+            if (window.innerWidth < 990) {
+                this.resultsContainer.classList.add('swiper');
+                this.resultsContainer.querySelector(`.product-list-wrapper`).classList.remove('grid');
+                this.resultsContainer.querySelector(`.product-list-wrapper`).classList.add('swiper-wrapper');
+                this.resultsContainer.querySelectorAll('.product-iteam').forEach((item) => item.classList.add('swiper-slide'));
+                this.sliderInit();
+            }
+
         }
         
         sliderInit() {
@@ -26,7 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
               spaceBetween: 8,
               slidesPerView: 2,
               breakpoints: {
-                1024: {
+                580: {
+                    slidesPerView: 2,
+                    spaceBetween: 8,
+                },
+                749: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                990: {
                   slidesPerView: 5,
                   spaceBetween: 20,
                 },
@@ -61,8 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then((text) => {
                     const resultsMarkup = new DOMParser().parseFromString(text, 'text/html');
                     const resultsMarkupHTML = resultsMarkup.querySelector('#search-results').innerHTML;
-                    this.resultsContainer.innerHTML = resultsMarkupHTML;
-                    this.updateSlider(); // Update the slider after new slides are loaded
+
+                    if (window.innerWidth < 990) {
+                        this.resultsContainer.classList.add('swiper');
+                        resultsMarkup.querySelector(`.product-list-wrapper`).classList.remove('grid');
+                        resultsMarkup.querySelector(`.product-list-wrapper`).classList.add('swiper-wrapper');
+                        resultsMarkup.querySelectorAll('.product-iteam').forEach((item) => item.classList.add('swiper-slide'));
+                        const newResultsMarkupHTML = resultsMarkup.querySelector('#search-results').innerHTML;
+                        this.resultsContainer.innerHTML = newResultsMarkupHTML;
+                    }else{
+                        this.resultsContainer.innerHTML = resultsMarkupHTML;
+                    }
+                    if (window.innerWidth < 990) {
+                        this.updateSlider(); // Update the slider after new slides are loaded
+                    }
                     this.getSearchResultsSuggestions(searchTerm);
                 })
                 .catch((error) => {

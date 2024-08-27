@@ -34,7 +34,7 @@
   font-size: 2rem;
   font-weight: 700;
   line-height: 2.9rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0 auto;
   color: #070707;
@@ -205,9 +205,10 @@
     min-height: 5.8rem;
   }
   .section-featuredmedia-blogs .video-title-wrapper .h1, .section-videoslider .video-title-wrapper .h1{
-    font-size: 1.2rem;
-    max-width: 9.3rem;
+    font-size: 1.6rem;
+    max-width: 12rem;
     margin-inline: auto;
+    letter-spacing: 0.12rem;
   }
   .section-featuredmedia-blogs .swiper,
   .section-videoslider .swiper{
