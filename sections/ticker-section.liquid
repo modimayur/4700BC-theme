@@ -37,12 +37,20 @@
       </div>
     {% endfor %}
     {%- if section.settings.image != blank -%}
-      <div class="image-wrapper">
-        {{ section.settings.image | image_url: width: 413 | image_tag: loading: 'lazy', class: 'mobile-size-fix' }}
-        <img class="svg-text" src="{{ 'frame1686567197.svg'| file_url }}" width="198" height="198" alt=""/>
-        <img class="svg-cursor-icon" src="{{ 'frame1686567197-1.svg'| file_url }}" width="215" height="215" alt=""/>
-      
-      </div>
+      {% capture sectionimg %}
+      {{ section.settings.image | image_url: width: 413 | image_tag: loading: 'lazy', class: 'mobile-size-fix' }}
+      <img class="svg-text" src="{{ 'frame1686567197.svg'| file_url }}" width="198" height="198" alt=""/>
+      <img class="svg-cursor-icon" src="{{ 'frame1686567197-1.svg'| file_url }}" width="215" height="215" alt=""/>
+      {% endcapture %}
+      {% if section.settings.link != blank %}
+        <a class="image-wrapper" href="{{ section.settings.link }}">
+          {{ sectionimg }}
+        </a>
+        {% else %}
+        <div class="image-wrapper">
+          {{ sectionimg }}
+        </div>
+      {% endif %}
     {% endif -%}
   </div>
 </div>
@@ -62,6 +70,11 @@
       "type": "image_picker",
       "id": "image",
       "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
     },
     {
       "type": "header",

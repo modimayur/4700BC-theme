@@ -21,6 +21,8 @@
     box-sizing: border-box;
     border: 2px solid rgba(var(--theme-color), 1);
     background-color: rgba(var(--theme-color), 0.3);
+    aspect-ratio: 1/1;
+    height: auto;
 }
 .sections-product-range .product-range-wrapper .swiper.thumbsSlider .swiper-slide.swiper-slide-active{
     border-color: #070707;
@@ -143,10 +145,11 @@
 }
 section.sections-product-range .shopify-section-bg.gradient {
     position: relative;
+    z-index: inherit;
     padding-bottom: 200px;
 }
 section.sections-product-range .shopify-section-bg.gradient .product-range-vector-bg{
-    z-index: 0;
+    z-index: inherit;
     inset: 0 -1% 0px;    
     position: absolute;
     margin: auto;
@@ -158,6 +161,8 @@ section.sections-product-range .shopify-section-bg.gradient .product-range-vecto
     height: auto;
     object-fit: contain;
     object-position: bottom center;
+    z-index: 2;
+    position: relative;
 }
 section.sections-product-range .shopify-section-bg.gradient .product-range-vector-bg svg .path-03{
     fill: var(--main-background-color);
@@ -197,7 +202,7 @@ section.sections-product-range .shopify-section-bg.gradient .shopify-section-inn
 
 section.sections-product-range .shopify-section-bg.gradient .shopify-section-inner-bg > .page-width{
     position: relative;
-    z-index: 1;
+    z-index: 3;
 }
 
 .section-featuredmedia-blogs .swiper-navigation-button:before{
@@ -211,4 +216,35 @@ section.sections-product-range .shopify-section-bg.gradient .shopify-section-inn
     display: flex;
     justify-content: center;
     color: #592C29;
+}
+
+@media (max-width: 1148px){
+    .shopify-section-inner-bg{
+        padding-top: 6rem;
+    }
+    section.sections-product-range .shopify-section-bg.gradient .shopify-section-inner-bg > .page-width{
+        padding-inline: 0;
+    }
+}
+@media screen and (max-width: 749px) {
+    .sections-product-range .hxxl{
+        padding-top: 0rem;
+        font-size: 4.8rem;
+    }
+    section.sections-product-range .shopify-section-bg.gradient{
+        padding-bottom: 150px;
+    }
+    section.sections-product-range .shopify-section-bg.gradient .shopify-section-inner-bg > .page-width {
+        z-index: 3;
+    }
+    section.sections-product-range .shopify-section-bg.gradient .product-range-vector-bg svg {
+        width: 160%;
+        position: absolute;
+        inset: auto 50% 0;
+        transform: translate(-50%, 0px);
+        z-index: 2;
+    }
+    .sections-product-range .product-range-wrapper .mainSlider .swiper-navigation-button{
+        display: none;
+    }
 }

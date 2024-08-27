@@ -68,43 +68,40 @@
         </form>
       </div>
       <div class="tegsuggestions hidden"></div>
-      <div id="search-results" class="center">
-        {% if template.suffix == 'product-search-range' %}
-          {% if search.results.size > 0 %}
-            <ul class="grid grid--2-col-mobile grid--3-col-tablet grid--5-col-desktop ">
-              {%- for item in search.results -%}
-                {% if item.object_type == 'product' and forloop.index < 6 %}
-                  {% assign product = item %}
-                  <li class="product-iteam grid__item {% if forloop.index < 6 %}hide{% endif %}">
-                    <a href="{{ product.url }}">
-                      <div class="product-image">
-                        {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
-                      </div>
-                      <h6 class="product-title">{{ product.title }}</h6>
-                    </a>
-                  </li>
-                {% endif %}
+      <div id="search-results" class="center swiper">
+        <div class="swiper-wrapper">
+          {% if template.suffix == 'product-search-range' %}
+            {% if search.results.size > 0 %}              
+                {%- for item in search.results -%}
+                  {% if item.object_type == 'product' and forloop.index < 6 %}
+                    {% assign product = item %}
+                    <div class="swiper-slide  product-iteam grid__item {% if forloop.index < 6 %}hide{% endif %}">
+                      <a href="{{ product.url }}">
+                        <div class="product-image">
+                          {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
+                        </div>
+                        <h6 class="product-title">{{ product.title }}</h6>
+                      </a>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+            {% endif %}
+          {% else %}
+              {% for product in section.settings.product_list %}
+                <div class="swiper-slide product-iteam grid__item">
+                  <a href="{{ product.url }}">
+                    <div class="product-image">
+                      {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
+                    </div>
+                    <h6 class="product-title">{{ product.title }}</h6>
+                  </a>
+                </div>
               {% endfor %}
-            </ul>
           {% endif %}
-        {% else %}
-          <ul class="grid grid--2-col-mobile grid--3-col-tablet grid--5-col-desktop center">
-            {% for product in section.settings.product_list %}
-              <li class="product-iteam grid__item">
-                <a href="{{ product.url }}">
-                  <div class="product-image">
-                    {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
-                  </div>
-                  <h6 class="product-title">{{ product.title }}</h6>
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+        </div>
       </div>
 
       {% if section.settings.button_link != blank and section.settings.button_label != blank -%}
-        }
         <div class="center">
           <a href="{{ section.settings.button_link }}" class="button button--primary view-product-button"
             ><span>{{ section.settings.button_label }}</span></a

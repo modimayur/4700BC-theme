@@ -2,6 +2,8 @@
     max-width: 100%;
     display: block;
     margin: auto;
+    aspect-ratio: 1236/372;
+    height: auto;
 }
 .section-jointheteam .section-content ul.list-unstyled.list-social{
     justify-content: center;
@@ -12,4 +14,18 @@
 .section-jointheteam .section-content ul.list-unstyled.list-social svg{
     height: 4.4rem;
     width: 4.4rem;
+}
+
+@media screen and (max-width: 749px) {
+    .section-jointheteam .section-content ul.list-unstyled.list-social{
+        column-gap: 1.2rem;
+        margin-block: -1rem 1.5rem;
+    }
+    .section-jointheteam .section-content ul.list-unstyled.list-social a{
+        padding: 0;
+    }
+    .section-jointheteam .section-content ul.list-unstyled.list-social svg{
+        width: 2.4rem;
+        height: 2.4rem;
+    }
 }

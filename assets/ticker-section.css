@@ -81,6 +81,24 @@ div[data-marqy-content].ticker-scrollto-ltr {
     .ticker-section .slider-item {
         padding: 0 0.5rem;
     }
+    .ticker-section .icon-text {
+        font-size: 12rem;
+    }
+    .section-ticker .image-wrapper{
+        max-width: 34rem;
+    }
+    .section-ticker .image-wrapper .svg-text{
+        width: auto;
+        height: auto;
+        max-width: 16rem;
+
+    }
+    .section-ticker .image-wrapper .mobile-size-fix{
+        max-width: 34rem;
+        height: auto;
+        aspect-ratio: 1/1;
+        margin: auto;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -88,19 +106,25 @@ div[data-marqy-content].ticker-scrollto-ltr {
         padding: 0 0.5rem;
     }
     .ticker-section .icon-text {
-        font-size: 1.6rem;
+        font-size: 6rem;
     }
     .ticker-section {
         padding: 0.5rem 0;
     }
-    .ticker-section .slick-slide img {
-        width: 45%;
+    .section-ticker .image-wrapper{
+        max-width: 180px;
     }
-    .ticker-section .icon-wrap {
-        max-width: 4rem;
-        flex: 4rem;
-        height: 4rem;
+    .section-ticker .image-wrapper .svg-text{
+        width: 82px;
     }
+    .section-ticker .image-wrapper .mobile-size-fix{
+        max-width: 180px;
+    }
+    .section-ticker .image-wrapper .svg-cursor-icon{
+        width: 10rem;
+        height: auto;
+    }
+    
 }
 /* 
 .ticker-section .slider-item:before {

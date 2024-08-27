@@ -147,3 +147,70 @@
   height: auto;
   background: #feeec7;
 }
+
+@media (max-width: 1600px){
+  .section-featuredmedia-blogs .full-page-width,
+  .section-videoslider .full-page-width {
+    padding-inline: 1.5rem 0;
+    margin-left: 0;
+  }
+  .section-featuredmedia-blogs .swiper-navigation-werapper,
+  .section-videoslider .swiper-navigation-werapper{
+    --section-width: 40%;
+    max-width: var(--section-width);
+    flex: 0 0 var(--section-width)
+  }
+  .section-featuredmedia-blogs .swiper-navigation-werapper h2, .section-videoslider .swiper-navigation-werapper h2{
+    font-size: 14rem;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .section-featuredmedia-blogs .wrapper,
+  .section-videoslider .wrapper {
+    display: block;
+  }
+  .section-featuredmedia-blogs .swiper-navigation-werapper, .section-videoslider .swiper-navigation-werapper{
+    align-items: center;
+  }
+  .section-featuredmedia-blogs .swiper-navigation-werapper,
+  .section-videoslider .swiper-navigation-werapper{
+    --section-width: 100%;
+    max-width: var(--section-width);
+    flex: 0 0 var(--section-width)
+  }
+  .section-featuredmedia-blogs .swiper,
+  .section-videoslider .swiper{
+    margin-top: 5rem;
+  }
+  .shopify-section.section-featuredmedia-blogs .vectorimage, .section-featuredmedia-blogs .vectorimag,
+  .section-featuredmedia-blogs .swiper-navigation-buttons, .section-videoslider .swiper-navigation-buttons{
+    display: none;
+  }
+  
+}
+@media screen and (max-width: 749px) {
+  .section-featuredmedia-blogs .section-before-curve, .section-videoslider .section-before-curve{
+    margin-bottom: 3rem;
+  }
+  .section-featuredmedia-blogs .swiper-navigation-werapper,
+  .section-videoslider .swiper-navigation-werapper{
+    gap: 2rem 0 ;
+  }
+  .section-featuredmedia-blogs .swiper-navigation-werapper h2, .section-videoslider .swiper-navigation-werapper h2{
+    font-size: 4.8rem;
+  }
+  .section-featuredmedia-blogs .video-title-wrapper,
+  .section-videoslider .video-title-wrapper{
+    padding: 1rem 2rem;
+    min-height: 5.8rem;
+  }
+  .section-featuredmedia-blogs .video-title-wrapper .h1, .section-videoslider .video-title-wrapper .h1{
+    font-size: 1.2rem;
+    max-width: 9.3rem;
+    margin-inline: auto;
+  }
+  .section-featuredmedia-blogs .swiper,
+  .section-videoslider .swiper{
+    margin-bottom: -8rem;
+  }
+}

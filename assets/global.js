@@ -1291,7 +1291,7 @@ function updateCustomMarqueeSpace() {
   var customMarquee =  document.querySelector('#CustomMarquee');
   var customMarqueeHalfheight =  customMarquee.offsetHeight / 2;
   customMarquee.closest('.shopify-section').style.setProperty("--halfHeight", '-'+customMarqueeHalfheight+'px');
-  console.log('updateCustomMarqueeSpace', customMarqueeHalfheight);
+  // console.log('updateCustomMarqueeSpace', customMarqueeHalfheight);
 
 };
 
@@ -1382,20 +1382,31 @@ document.addEventListener('DOMContentLoaded', () => {
     var mainSlider = productrange.querySelector('.mainSlider');
     var swiperMainSlider = new Swiper(thumbsSlider, {
       loop: false,
-      spaceBetween: 20,
       slideToClickedSlide: true,
-      slidesPerView: 6,
       speed: 1000,
-      centeredSlides: true
+      centeredSlides: true,
+      spaceBetween: 8,
+      slidesPerView: 5.5,
+      breakpoints: {
+        1024: {
+          slidesPerView: 6,
+          spaceBetween: 20,
+        },
+      },
       // watchSlidesProgress: true,
     });
     var swiperThumbsSlider = new Swiper(mainSlider, {
       loop: false,
       spaceBetween: 0,
-      slidesPerView: 3,
+      slidesPerView: 2,
       speed: 1000,
       centeredSlides: true,
       slideToClickedSlide: true,
+      breakpoints: {
+        1024: {
+          slidesPerView: 3,
+        },
+      },
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",

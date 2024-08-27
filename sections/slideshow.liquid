@@ -23,8 +23,17 @@
       }
     }
   {%- endstyle -%}
+{%- elsif section.settings.slide_height == '100vh' and section.blocks.first.settings.image != blank -%}
+  {%- style -%}
+    slideshow-component .slider.slider--everywhere .slider__slide:nth-of-type(1){
+      aspect-ratio: {{ section.blocks.first.settings.image.width }}/{{ section.blocks.first.settings.image.height }};
+      height: auto;
+    }
+  {%- endstyle -%}
 {%- endif -%}
 
+{%- style -%}
+{%- endstyle -%}
 <slideshow-component
   class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
   role="region"
@@ -150,34 +159,39 @@
             {%- endif -%}
           {%- endif -%}
         </div>
-        <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
-          <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
-            {%- if block.settings.heading != blank -%}
-              <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
-                {{ block.settings.heading }}
-              </h2>
-            {%- endif -%}
-            {%- if block.settings.subheading != blank -%}
-              <div class="banner__text rte" {{ block.shopify_attributes }}>
-                <p>{{ block.settings.subheading }}</p>
-              </div>
-            {%- endif -%}
-            {%- if block.settings.button_label != blank -%}
-              <div class="banner__buttons">
-                <a
-                  {% if block.settings.link %}
-                    href="{{ block.settings.link }}"
-                  {% else %}
-                    role="link" aria-disabled="true"
-                  {% endif %}
-                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
-                >
-                  {{- block.settings.button_label | escape -}}
-                </a>
-              </div>
-            {%- endif -%}
+        {%- if block.settings.heading != blank
+          and block.settings.subheading != blank
+          and block.settings.button_label != blank
+        -%}
+          <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
+            <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
+              {%- if block.settings.heading != blank -%}
+                <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
+                  {{ block.settings.heading }}
+                </h2>
+              {%- endif -%}
+              {%- if block.settings.subheading != blank -%}
+                <div class="banner__text rte" {{ block.shopify_attributes }}>
+                  <p>{{ block.settings.subheading }}</p>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.button_label != blank -%}
+                <div class="banner__buttons">
+                  <a
+                    {% if block.settings.link %}
+                      href="{{ block.settings.link }}"
+                    {% else %}
+                      role="link" aria-disabled="true"
+                    {% endif %}
+                    class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
+                  >
+                    {{- block.settings.button_label | escape -}}
+                  </a>
+                </div>
+              {%- endif -%}
+            </div>
           </div>
-        </div>
+        {%- endif -%}
       </div>
     {%- endfor -%}
   </div>
@@ -227,7 +241,7 @@
         >
           {% render 'icon-caret' %}
         </button>
-  
+
         {%- if section.settings.auto_rotate -%}
           <button
             type="button"
@@ -238,14 +252,24 @@
             {%- render 'icon-play' -%}
           </button>
         {%- endif -%}
-        </div>
-        <button type="button" class="scrollto-next" id="scrollto-next">
-          <svg width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0.5" y="0.5" width="31" height="55" rx="15.5" stroke="#FBBF2C"/>
-            <circle cx="16.5" cy="44.5" r="3.5" fill="#FBBF2C"/>
-          </svg>
-          <span>Scroll</span>            
-        </button>
+      </div>
+      <button type="button" class="scrollto-next" id="scrollto-next">
+        <svg width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.5" y="0.5" width="31" height="55" rx="15.5" stroke="#FBBF2C"/>
+          <circle cx="16.5" cy="44.5" r="3.5" fill="#FBBF2C"/>
+        </svg>
+        <span>Scroll</span>
+      </button>
+    </div>
+    {%- else -%}
+    <div class="slideshow__controls slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
+      <button type="button" class="scrollto-next" id="scrollto-next">
+        <svg width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.5" y="0.5" width="31" height="55" rx="15.5" stroke="#FBBF2C"/>
+          <circle cx="16.5" cy="44.5" r="3.5" fill="#FBBF2C"/>
+        </svg>
+        <span>Scroll</span>
+      </button>
     </div>
   {%- endif -%}
 </slideshow-component>

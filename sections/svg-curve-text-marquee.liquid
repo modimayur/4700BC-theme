@@ -13,17 +13,38 @@
       viewBox="0 0 2200 311.56"
       style="enable-background:new 0 0 2200 311.56;"
       xml:space="preserve"
+      class="marquee-wave-desktop small-hide"
     >
       <path class="st0" d="M2200.91,122.36c-3.87-1.51-9.16-2.86-16.42-5.16c-19.25-6.1-38.63-11.77-58.13-17.02
       c-74.71-20.08-151.03-33.85-227.87-42.62c-155.28-17.72-312.18-15.14-467.87-4.55c-109.69,7.46-219.04,19.01-328.32,30.86
       C733.58,123.86,351.39,163.25-0.92,48.12v141.43c4.02,2.48,8.72,4.05,13.27,5.49c351.39,110.76,730.19,70.47,1096.48,30.73
       c365.11-39.62,743.68-76.26,1092.1,39.45L2200.91,122.36C2200.92,122.36,2200.92,122.36,2200.91,122.36z"></path>
-      <path id="svg-path" class="st1" d="M-0.93,138.83C-0.92,138.83-0.92,138.83-0.93,138.83c3.87,1.51,9.17,2.86,16.42,5.16
+      <path id="svg-path1" class="st1" d="M-0.93,138.83C-0.92,138.83-0.92,138.83-0.93,138.83c3.87,1.51,9.17,2.86,16.42,5.16
       c19.26,6.1,38.63,11.77,58.13,17.01c74.71,20.08,151.03,33.85,227.87,42.62c155.28,17.72,312.18,15.15,467.87,4.55
       c109.68-7.46,219.04-19.01,328.32-30.86c368.74-39.97,750.92-79.36,1103.24,35.76"></path>
       <text>
-        <textPath xlink:href="#svg-path" side="left" startOffset="0">{%- for i in (1..42) %} {{ section.settings.icon_text | upcase }}.{% endfor -%}
+        <textPath xlink:href="#svg-path1" side="left" startOffset="0">{%- for i in (1..42) %} {{ section.settings.icon_text | upcase }}.{% endfor -%}
           <animate attributeName="startOffset" from="-400%" to="-1200%" begin="0s" dur="80s" repeatCount="indefinite"></animate>
+        </textPath>
+      </text>
+    </svg>
+    <svg
+      version="1.1"
+      id="Layer_1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      viewBox="0 0 2200 300"
+      style="enable-background:new 0 0 2200 300;"
+      xml:space="preserve"
+      class="marquee-wave-mobile medium-hide large-up-hide"
+    >
+      <path class="st0" d="M2200.91 100.093C2197.04 98.1548 2191.75 96.4216 2184.49 93.4687C2165.24 85.6372 2145.86 78.3577 2126.36 71.6174C2051.65 45.8374 1975.33 28.1587 1898.49 16.8992C1743.21 -5.85083 1586.31 -2.53847 1430.62 11.0576C1320.93 20.6352 1211.58 35.4638 1102.3 50.6776C733.58 102.019 351.39 152.591 -0.919983 4.77954V186.356C3.10002 189.54 7.80002 191.556 12.35 193.404C363.74 335.605 742.54 283.878 1108.83 232.858C1473.94 181.991 1852.51 134.95 2200.93 283.506L2200.91 100.093C2200.92 100.093 2200.92 100.093 2200.91 100.093Z"></path>
+      <path id="svg-path2" class="st1" d="M-0.930176 132.238C-0.920176 132.238 -0.920176 132.238 -0.930176 132.238C2.93983 134.176 8.23983 135.909 15.4898 138.862C34.7498 146.694 54.1198 153.973 73.6198 160.701C148.33 186.481 224.65 204.159 301.49 215.419C456.77 238.169 613.67 234.869 769.36 221.26C879.04 211.683 988.4 196.854 1097.68 181.64C1466.42 130.325 1848.6 79.7532 2200.92 227.551"></path>
+      <text>
+        <textPath xlink:href="#svg-path2" side="left" startOffset="0">{%- for i in (1..20) %} {{ section.settings.icon_text | upcase }}.{% endfor -%}
+          <animate attributeName="startOffset" from="100%" to="-1200%" begin="0s" dur="80s" repeatCount="indefinite"></animate>
         </textPath>
       </text>
     </svg>
@@ -122,6 +143,12 @@
       margin-top: -100px;
       margin-bottom: -100px;
       z-index: 1;
+    }
+  }
+  @media screen and (max-width: 749px) {
+    .marquee-wave, .marquee-wave text, .marquee-wave textpath {
+      font-size: 10.6rem;
+      letter-spacing: calc(var(--font-heading-scale) * 0.5rem);
     }
   }
 </style>
