@@ -23,6 +23,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.sliderInit();
             }
 
+            window.addEventListener('scroll', function() {
+                const div = document.querySelector('.sections-product-search-range .section-heading text');
+                const rect = div.getBoundingClientRect();
+                const windowHeight = window.innerHeight - 100;
+
+                // Check if the div is in the viewport
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    // Calculate visibility percentage
+                    const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+                    const visibilityPercentage = visibleHeight / rect.height;
+
+                    const scaledValue = 120 - (120 - 68) * visibilityPercentage;
+
+                    // Apply styles based on visibility percentage
+                    div.querySelector('textPath').setAttribute('startOffset', scaledValue+'%'); // Example: Change background color
+                } else {
+                    // Reset or apply default styles when the div is not in the viewport
+                    // div.querySelector('textPath').setAttribute('startOffset', '68%'); // Reset background color
+                }
+            });
+
         }
         
         sliderInit() {

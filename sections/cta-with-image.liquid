@@ -14,113 +14,117 @@
   }
 {%- endstyle -%}
 
+<script src="{{ 'cta-with-image.js' | asset_url }}" defer="defer"></script>
+
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="section-before-curve section-before-curve-before">
-    <svg width="1440" height="66" viewBox="0 0 1440 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <mask id="mask0_56_136" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="66">
-      <rect width="1440" height="66" fill="white"/>
-      </mask>
-      <g mask="url(#mask0_56_136)">
-      <path d="M57.5 49.5062L0 52.0513V440.2L79 431.721L162 425.909L235 418.159L315 427.846L375 418.159L432.5 424.456L480 427.846L547.5 424.456L609.5 418.159H670L726 409.68L781 418.159L833.5 426.138H883.5L935.5 432.123L981.5 426.138L1037 432.123L1090 426.138H1141.5L1202.5 432.123L1249.5 426.138L1312 418.159H1375.5L1440 426.138V8.19554L1406.5 21.5957L1348.5 17.0756L1302.5 0L1247.5 8.1956H1202.5L1127 30.4757L1081 39.5166L1029 45.8132H933.5L873 52.0513L781 39.5166H693H640.5L562 56.9973H480L386.5 63.1914L284.5 57.9966L190 63.1914L133.5 57.9966L94.5 49.5062H57.5Z" fill="#5C0124"/>
-      </g>
-    </svg>
-  </div>
-  <div class="isolate">
-    <div class="{% unless section.settings.full_width %} page-width{% endunless %}">
-      <div class="rich-text content-container {% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
-        <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
-          <div class="rich-text__blocks {{ section.settings.content_alignment }}">
-            {%- for block in section.blocks -%}
-              {%- case block.type -%}
-                {%- when 'heading' -%}
-                  <h2
-                    class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                    {{ block.shopify_attributes }}
-                    {% if settings.animations_reveal_on_scroll %}
-                      data-cascade
-                      style="--animation-order: {{ forloop.index }};"
-                    {% endif %}
-                  >
-                    {{ block.settings.heading }}
-                  </h2>
-                {%- when 'caption' -%}
-                  <p
-                    class="rich-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                    {{ block.shopify_attributes }}
-                    {% if settings.animations_reveal_on_scroll %}
-                      data-cascade
-                      style="--animation-order: {{ forloop.index }};"
-                    {% endif %}
-                  >
-                    {{ block.settings.caption | escape }}
-                  </p>
-                {%- when 'text' -%}
-                  <div
-                    class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                    {{ block.shopify_attributes }}
-                    {% if settings.animations_reveal_on_scroll %}
-                      data-cascade
-                      style="--animation-order: {{ forloop.index }};"
-                    {% endif %}
-                  >
-                    {{ block.settings.text }}
-                  </div>
-                {%- when 'button' -%}
-                  <div
-                    class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                    {{ block.shopify_attributes }}
-                    {% if settings.animations_reveal_on_scroll %}
-                      data-cascade
-                      style="--animation-order: {{ forloop.index }};"
-                    {% endif %}
-                  >
-                    {%- if block.settings.button_label != blank -%}
-                      <a
-                        {% if block.settings.button_link == blank %}
-                          role="link" aria-disabled="true"
-                        {% else %}
-                          href="{{ block.settings.button_link }}"
-                        {% endif %}
-                        class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
-                      >
-                        <span>{{- block.settings.button_label | escape -}}</span>
-                      </a>
-                    {%- endif -%}
-                    {%- if block.settings.button_label_2 != blank -%}
-                      <a
-                        {% if block.settings.button_link_2 == blank %}
-                          role="link" aria-disabled="true"
-                        {% else %}
-                          href="{{ block.settings.button_link_2 }}"
-                        {% endif %}
-                        class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
-                      >
-                        <span>{{- block.settings.button_label_2 | escape -}}</span>
-                      </a>
-                    {%- endif -%}
-                  </div>
-              {%- endcase -%}
-            {%- endfor -%}
-          </div>
-          {%- if section.settings.image != blank -%}
-            <div class="image-wrapper">
-            {{ section.settings.image | image_url: width: 500 | image_tag: loading: 'lazy' }}
+  <cta-with-image>
+    <div class="section-before-curve section-before-curve-before">
+      <svg width="1440" height="66" viewBox="0 0 1440 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <mask id="mask0_56_136" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="66">
+        <rect width="1440" height="66" fill="white"/>
+        </mask>
+        <g mask="url(#mask0_56_136)">
+        <path d="M57.5 49.5062L0 52.0513V440.2L79 431.721L162 425.909L235 418.159L315 427.846L375 418.159L432.5 424.456L480 427.846L547.5 424.456L609.5 418.159H670L726 409.68L781 418.159L833.5 426.138H883.5L935.5 432.123L981.5 426.138L1037 432.123L1090 426.138H1141.5L1202.5 432.123L1249.5 426.138L1312 418.159H1375.5L1440 426.138V8.19554L1406.5 21.5957L1348.5 17.0756L1302.5 0L1247.5 8.1956H1202.5L1127 30.4757L1081 39.5166L1029 45.8132H933.5L873 52.0513L781 39.5166H693H640.5L562 56.9973H480L386.5 63.1914L284.5 57.9966L190 63.1914L133.5 57.9966L94.5 49.5062H57.5Z" fill="#5C0124"/>
+        </g>
+      </svg>
+    </div>
+    <div class="isolate">
+      <div class="{% unless section.settings.full_width %} page-width{% endunless %}">
+        <div class="rich-text content-container {% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
+          <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
+            <div class="rich-text__blocks {{ section.settings.content_alignment }}">
+              {%- for block in section.blocks -%}
+                {%- case block.type -%}
+                  {%- when 'heading' -%}
+                    <h2
+                      class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                      {{ block.shopify_attributes }}
+                      {% if settings.animations_reveal_on_scroll %}
+                        data-cascade
+                        style="--animation-order: {{ forloop.index }};"
+                      {% endif %}
+                    >
+                      {{ block.settings.heading }}
+                    </h2>
+                  {%- when 'caption' -%}
+                    <p
+                      class="rich-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                      {{ block.shopify_attributes }}
+                      {% if settings.animations_reveal_on_scroll %}
+                        data-cascade
+                        style="--animation-order: {{ forloop.index }};"
+                      {% endif %}
+                    >
+                      {{ block.settings.caption | escape }}
+                    </p>
+                  {%- when 'text' -%}
+                    <div
+                      class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                      {{ block.shopify_attributes }}
+                      {% if settings.animations_reveal_on_scroll %}
+                        data-cascade
+                        style="--animation-order: {{ forloop.index }};"
+                      {% endif %}
+                    >
+                      {{ block.settings.text }}
+                    </div>
+                  {%- when 'button' -%}
+                    <div
+                      class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                      {{ block.shopify_attributes }}
+                      {% if settings.animations_reveal_on_scroll %}
+                        data-cascade
+                        style="--animation-order: {{ forloop.index }};"
+                      {% endif %}
+                    >
+                      {%- if block.settings.button_label != blank -%}
+                        <a
+                          {% if block.settings.button_link == blank %}
+                            role="link" aria-disabled="true"
+                          {% else %}
+                            href="{{ block.settings.button_link }}"
+                          {% endif %}
+                          class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                        >
+                          <span>{{- block.settings.button_label | escape -}}</span>
+                        </a>
+                      {%- endif -%}
+                      {%- if block.settings.button_label_2 != blank -%}
+                        <a
+                          {% if block.settings.button_link_2 == blank %}
+                            role="link" aria-disabled="true"
+                          {% else %}
+                            href="{{ block.settings.button_link_2 }}"
+                          {% endif %}
+                          class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
+                        >
+                          <span>{{- block.settings.button_label_2 | escape -}}</span>
+                        </a>
+                      {%- endif -%}
+                    </div>
+                {%- endcase -%}
+              {%- endfor -%}
             </div>
-          {% endif -%}
+            {%- if section.settings.image != blank -%}
+              <div class="image-wrapper">
+              {{ section.settings.image | image_url: width: 500 | image_tag: loading: 'lazy' }}
+              </div>
+            {% endif -%}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="section-before-curve section-before-curve-after">
-    <svg width="1440" height="34" viewBox="0 0 1440 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <mask id="mask0_60_137" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="-407" width="1440" height="441">
-      <path d="M57.5 -357.494L0 -354.949V33.1999L79 24.7213L162 18.9092L235 11.1586L315 20.8465L375 11.1586L432.5 17.456L480 20.8465L547.5 17.456L609.5 11.1586H670L726 2.67996L781 11.1586L833.5 19.1384H883.5L935.5 25.1233L981.5 19.1384L1037 25.1233L1090 19.1384H1141.5L1202.5 25.1233L1249.5 19.1384L1312 11.1586H1375.5L1440 19.1384V-398.804L1406.5 -385.404L1348.5 -389.924L1302.5 -407L1247.5 -398.804H1202.5L1127 -376.524L1081 -367.483L1029 -361.187H933.5L873 -354.949L781 -367.483H693H640.5L562 -350.003H480L386.5 -343.809L284.5 -349.003L190 -343.809L133.5 -349.003L94.5 -357.494H57.5Z" fill="#5C0124"/>
-      </mask>
-      <g mask="url(#mask0_60_137)">
-      <rect width="1440" height="43" fill="#5C0124"/>
-      </g>
-    </svg>
-  </div>
+    <div class="section-before-curve section-before-curve-after">
+      <svg width="1440" height="34" viewBox="0 0 1440 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <mask id="mask0_60_137" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="-407" width="1440" height="441">
+        <path d="M57.5 -357.494L0 -354.949V33.1999L79 24.7213L162 18.9092L235 11.1586L315 20.8465L375 11.1586L432.5 17.456L480 20.8465L547.5 17.456L609.5 11.1586H670L726 2.67996L781 11.1586L833.5 19.1384H883.5L935.5 25.1233L981.5 19.1384L1037 25.1233L1090 19.1384H1141.5L1202.5 25.1233L1249.5 19.1384L1312 11.1586H1375.5L1440 19.1384V-398.804L1406.5 -385.404L1348.5 -389.924L1302.5 -407L1247.5 -398.804H1202.5L1127 -376.524L1081 -367.483L1029 -361.187H933.5L873 -354.949L781 -367.483H693H640.5L562 -350.003H480L386.5 -343.809L284.5 -349.003L190 -343.809L133.5 -349.003L94.5 -357.494H57.5Z" fill="#5C0124"/>
+        </mask>
+        <g mask="url(#mask0_60_137)">
+        <rect width="1440" height="43" fill="#5C0124"/>
+        </g>
+      </svg>
+    </div>
+  </cta-with-image>
 </div>
 {% schema %}
 {

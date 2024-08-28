@@ -15,6 +15,22 @@
 
 <script src="{{ 'custom-predictive-search.js' | asset_url }}" defer="defer"></script>
 <div class="custom-predictive-search-bg color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="section-heading" id="section-heading">
+    <svg width='1440' height='450' viewBox='0 360 1440 70' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <mask id='mask0_33_1332' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='1440' height='503'>
+          <rect width='1440' height='503' fill='#D9D9D9' />
+      </mask>
+      <g mask='url(#mask0_33_1332)'>
+          <path class="path-01" id="path01" d='M1440 -340H0V95.496C254.5 677.486 1279.5 595.987 1440 95.496V-340Z' />
+      </g>
+      <text>
+          <textPath href="#path01" fill="#592C29" startOffset="68%" text-anchor="middle" dominant-baseline="middle">
+            WHAT ARE YOU CRAVING TODAY?
+          </textPath>
+      </text>
+    </svg>
+  </div>
+  {% comment %} 
   <div class="smilytext">
     <svg width="1294" height="340" viewBox="0 0 1294 340" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M132.881 49.8808L149.445 61.7897L79.9353 130.051L54.7982 111.978L95.7948 54.9924L47.1011 106.443L21.964 88.3701L78.0279 10.4416L92.6424 20.9494L48.282 82.6103L100.047 26.2733L125.477 44.5569L81.1161 106.218L132.881 49.8808Z" fill="currentColor"/>
@@ -42,6 +58,7 @@
       <path d="M1205.78 37.962C1203.58 39.6209 1203.2 42.909 1208.83 50.388L1194.44 61.207C1182.1 44.8109 1182.88 32.6674 1194.96 23.5794C1207.04 14.4915 1218.16 17.6912 1226.17 28.3343C1237.72 43.6757 1224.87 55.7403 1239.01 74.5336L1226.54 83.9101C1209.3 60.9938 1220.3 50.4676 1213.23 41.071C1210.49 37.4274 1207.99 36.3031 1205.78 37.962ZM1239.99 88.8102C1244.21 85.6366 1249.9 86.0125 1253.51 90.8066C1256.97 95.4091 1255.76 100.978 1251.54 104.152C1247.32 107.325 1241.63 106.949 1238.17 102.347C1234.56 97.5528 1235.77 91.9838 1239.99 88.8102Z" fill="currentColor"/>
     </svg>
   </div>
+  {% endcomment %}
 
   <div class="page-width section-{{ section.id }}-padding">
     {%- if section.settings.heading != blank -%}
@@ -121,7 +138,7 @@
   },
   "settings": [
     {
-      "type": "inline_richtext",
+      "type": "text",
       "id": "heading",
       "default": "Our Range",
       "label": "t:sections.collage.settings.heading.label"
