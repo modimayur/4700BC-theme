@@ -1569,7 +1569,7 @@ a.product__text {
 
 .product-description-container{
   background:#FBEACA;
-  padding:30px 0 60px;
+  padding: 0px 0 60px;
 }
 
 .product__description-heading{
@@ -1577,6 +1577,7 @@ a.product__text {
   text-transform: uppercase;
   color: #070707;
   letter-spacing: 0.15rem;
+  margin-block-start: 0;
 }
 
 .rte, .rte p, .rte span, .rte a{
@@ -1673,4 +1674,11 @@ a.product__text {
   .icon-info-list{
     gap: 10px;
   }
+}
+
+.product-details.quick-add-hidden svg.before-svg-path {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1440/71;
+  height: auto;
 }
