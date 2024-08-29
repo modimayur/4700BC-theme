@@ -160,8 +160,8 @@
           {%- endif -%}
         </div>
         {%- if block.settings.heading != blank
-          and block.settings.subheading != blank
-          and block.settings.button_label != blank
+          or block.settings.subheading != blank
+          or block.settings.button_label != blank
         -%}
           <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
             <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
@@ -253,15 +253,17 @@
           </button>
         {%- endif -%}
       </div>
-      <button type="button" class="scrollto-next" id="scrollto-next">
-        <svg width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0.5" y="0.5" width="31" height="55" rx="15.5" stroke="#FBBF2C"/>
-          <circle cx="16.5" cy="44.5" r="3.5" fill="#FBBF2C"/>
-        </svg>
-        <span>Scroll</span>
-      </button>
+      {% if template == 'index' %}
+        <button type="button" class="scrollto-next" id="scrollto-next">
+          <svg width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.5" y="0.5" width="31" height="55" rx="15.5" stroke="#FBBF2C"/>
+            <circle cx="16.5" cy="44.5" r="3.5" fill="#FBBF2C"/>
+          </svg>
+          <span>Scroll</span>
+        </button>
+      {% endif %}
     </div>
-    {%- else -%}
+    {%- elsif template == 'index' -%}
     <div class="slideshow__controls slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
       <button type="button" class="scrollto-next" id="scrollto-next">
         <svg width="32" height="56" viewBox="0 0 32 56" fill="none" xmlns="http://www.w3.org/2000/svg">

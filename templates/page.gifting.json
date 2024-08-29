@@ -1,14 +1,230 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "slideshow_hjUd6h": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_T4mihm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_01.jpg",
+            "heading": "GIFT THE JOY OF <strong>GOURMET<\/strong> POPCORN",
+            "heading_size": "hxxl",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-4",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_bfWWeD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_01.jpg",
+            "heading": "GIFT THE JOY OF <strong>GOURMET<\/strong> POPCORN",
+            "heading_size": "hxxl",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-4",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_T4mihm",
+        "slide_bfWWeD"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "100vh",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "findtheperfectgift": {
+      "type": "find-the-perfect-gift",
+      "settings": {
+      }
+    },
+    "multicolumn_TjD6BG": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_emdBxn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_02.png",
+            "title": "Gift Boxes",
+            "text": "",
+            "link_label": "VIEW CATEGORY",
+            "link": "shopify:\/\/collections\/all"
+          }
+        },
+        "column_qfQ3DY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_03.png",
+            "title": "Tins",
+            "text": "",
+            "link_label": "VIEW CATEGORY",
+            "link": "shopify:\/\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "column_emdBxn",
+        "column_qfQ3DY"
+      ],
+      "settings": {
+        "title": "OUR RANGE <strong>BRINGS JOY<\/strong>",
+        "heading_size": "hxxl",
+        "image_width": "half",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custome_class":"ourrange-bringsjoy"
+      }
+    },
+    "image_with_text_yAxDQx": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_VpgAMy": {
+          "type": "caption",
+          "settings": {
+            "caption": "Your Gift, Your Way!",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_yjiUfV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Crafted with Love, Just for You",
+            "heading_size": "hxxl"
+          }
+        },
+        "button_LPkCaT": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start Customising",
+            "button_link": "shopify:\/\/collections\/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_VpgAMy",
+        "heading_yjiUfV",
+        "button_LPkCaT"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/gifting_banner_02.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-9",
+        "color_scheme": "scheme-9",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_x3xjbK": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_aLY8D8": {
+          "type": "heading",
+          "settings": {
+            "heading": "Corporate Gifting",
+            "heading_size": "hxxl"
+          }
+        },
+        "text_W3wwFL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Make a lasting impression on clients and colleagues with our exquisite gourmet popcorn gifts, perfect for every professional occasion.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_6xXXPY": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify:\/\/collections\/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_aLY8D8",
+        "text_W3wwFL",
+        "button_6xXXPY"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/gifting_banner_09.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "slideshow_hjUd6h",
+    "findtheperfectgift",
+    "multicolumn_TjD6BG",
+    "image_with_text_yAxDQx",
+    "image_with_text_x3xjbK"
   ]
 }
