@@ -75,6 +75,8 @@
     "findtheperfectgift": {
       "type": "find-the-perfect-gift",
       "settings": {
+        "heading": "FIND THE PERFECT GIFT",
+        "heading_size": "hxl"
       }
     },
     "multicolumn_TjD6BG": {
@@ -96,7 +98,7 @@
             "image": "shopify:\/\/shop_images\/gifting_banner_03.png",
             "title": "Tins",
             "text": "",
-            "link_label": "VIEW CATEGORY",
+            "link_label": "",
             "link": "shopify:\/\/collections\/all"
           }
         }
@@ -112,15 +114,60 @@
         "image_ratio": "adapt",
         "columns_desktop": 2,
         "column_alignment": "center",
+        "button_style": "primary",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
         "color_scheme": "",
+        "full_width": true,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 0,
         "padding_bottom": 0,
-        "custome_class":"ourrange-bringsjoy"
+        "custome_class": "ourrange-bringsjoy"
+      }
+    },
+    "text_ticker_section_UEpH3P": {
+      "type": "text-ticker-section",
+      "blocks": {
+        "icon_with_text_behFh6": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Gift Deliciousness."
+          }
+        },
+        "icon_with_text_RayFPA": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Gift 4700BC."
+          }
+        },
+        "icon_with_text_CCDYzW": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Gift Happiness,"
+          }
+        },
+        "icon_with_text_mgNWUn": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Gift 4700 BC"
+          }
+        }
+      },
+      "block_order": [
+        "icon_with_text_behFh6",
+        "icon_with_text_RayFPA",
+        "icon_with_text_CCDYzW",
+        "icon_with_text_mgNWUn"
+      ],
+      "settings": {
+        "color_scheme": "scheme-8",
+        "copy_count": 10,
+        "scrolll_speed": 10,
+        "scroll_direction": "rtl",
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     },
     "image_with_text_yAxDQx": {
@@ -137,14 +184,14 @@
         "heading_yjiUfV": {
           "type": "heading",
           "settings": {
-            "heading": "Crafted with Love, Just for You",
+            "heading": "CRAFTED WITH LOVE, JUST FOR YOU",
             "heading_size": "hxxl"
           }
         },
         "button_LPkCaT": {
           "type": "button",
           "settings": {
-            "button_label": "Start Customising",
+            "button_label": "START CUSTOMISING",
             "button_link": "shopify:\/\/collections\/all",
             "button_style_secondary": false
           }
@@ -156,7 +203,7 @@
         "button_LPkCaT"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/gifting_banner_02.png",
+        "image": "shopify:\/\/shop_images\/gifting_banner_05-1.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -165,10 +212,61 @@
         "content_layout": "no-overlap",
         "section_color_scheme": "scheme-9",
         "color_scheme": "scheme-9",
+        "full_width": true,
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custome_class": "craftedwithlove"
+      }
+    },
+    "vertical_accordion_HkRria": {
+      "type": "vertical-accordion",
+      "blocks": {
+        "vertical_accordion_item_01": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_06.jpg",
+            "name": "THOUGHTFULLY CURATED",
+            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.</p>",
+            "blockcolor": "#F2B65E",
+            "textcolor": "#212121"
+          }
+        },
+        "vertical_accordion_item_02": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_07.jpg",
+            "name": "SUSTAINABLY CRAFTED",
+            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.</p>",
+            "blockcolor": "#5C0124",
+            "textcolor": "#ffffff"
+          }
+        },
+        "vertical_accordion_item_03": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_08.jpg",
+            "name": "PERFECTLY PERSONALISED",
+            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.</p>",
+            "blockcolor": "#592C29",
+            "textcolor": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "vertical_accordion_item_01",
+        "vertical_accordion_item_02",
+        "vertical_accordion_item_03"
+      ],
+      "settings": {
+        "heading": "EXQUISITE GIFTING EXPERIENCES, PERFECTLY POPPED",
+        "subheading": "Why choose 4700 BC",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "image": "shopify:\/\/shop_images\/gifting_banner_10.png",
+        "padding_top": 100,
+        "padding_bottom": 48
       }
     },
     "image_with_text_x3xjbK": {
@@ -177,14 +275,14 @@
         "heading_aLY8D8": {
           "type": "heading",
           "settings": {
-            "heading": "Corporate Gifting",
+            "heading": "CORPORATE GIFTING",
             "heading_size": "hxxl"
           }
         },
         "text_W3wwFL": {
           "type": "text",
           "settings": {
-            "text": "<p>Make a lasting impression on clients and colleagues with our exquisite gourmet popcorn gifts, perfect for every professional occasion.<\/p>",
+            "text": "<p>Make a lasting impression on clients and colleagues with our exquisite gourmet popcorn gifts, perfect for every professional occasion.s<\/p>",
             "text_style": "body"
           }
         },
@@ -212,10 +310,12 @@
         "content_layout": "no-overlap",
         "section_color_scheme": "scheme-1",
         "color_scheme": "scheme-1",
+        "full_width": false,
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custome_class": "corporategifting"
       }
     }
   },
@@ -224,7 +324,9 @@
     "slideshow_hjUd6h",
     "findtheperfectgift",
     "multicolumn_TjD6BG",
+    "text_ticker_section_UEpH3P",
     "image_with_text_yAxDQx",
+    "vertical_accordion_HkRria",
     "image_with_text_x3xjbK"
   ]
 }

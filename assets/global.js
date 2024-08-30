@@ -1289,10 +1289,11 @@ if (!customElements.get('bulk-add')) {
 
 function updateCustomMarqueeSpace() {
   var customMarquee =  document.querySelector('#CustomMarquee');
-  var customMarqueeHalfheight =  customMarquee.offsetHeight / 2;
-  customMarquee.closest('.shopify-section').style.setProperty("--halfHeight", '-'+customMarqueeHalfheight+'px');
-  // console.log('updateCustomMarqueeSpace', customMarqueeHalfheight);
-
+  if(customMarquee){
+    var customMarqueeHalfheight =  customMarquee.offsetHeight / 2;
+    customMarquee.closest('.shopify-section').style.setProperty("--halfHeight", '-'+customMarqueeHalfheight+'px');
+    // console.log('updateCustomMarqueeSpace', customMarqueeHalfheight);
+  }
 };
 
 

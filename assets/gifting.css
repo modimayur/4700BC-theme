@@ -83,3 +83,78 @@ body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item{
 body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item:first-of-type{
     background: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/gifting_banner_04.jpg?v=1724950693);
 }
+
+body.page-gifting .gradient.craftedwithlove{
+    --color-background: 112, 1, 43;
+    --gradient-background:rgba(var(--color-background));
+    z-index: 1;
+    position: relative;
+}
+
+body.page-gifting .gradient.craftedwithlove .image-with-text.image-with-text--no-overlap .image-with-text__media.media {
+    border-width: 0;
+}
+body.page-gifting .gradient.craftedwithlove .image-with-text__content{
+    padding-inline: 11.8rem;
+}
+body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-with-text__text--caption{
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 130%;
+    color: #FCC000;
+}
+body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-with-text__heading.inline-richtext.hxxl{
+    max-width: 539px;
+    font-size: 80px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+
+
+.corporategifting.gradient{
+    background: transparent;
+    --page-width: 130rem;
+}
+
+
+.corporategifting.gradient .image-with-text__media-item.image-with-text__media-item--medium.grid__item{
+    max-width: 53.8rem;
+}
+
+.corporategifting.gradient .image-with-text__media.background-transparent {
+    background-image: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/corporate-bg-1.png?v=1725045706);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0;
+}
+.corporategifting.gradient .image-with-text.image-with-text--no-overlap{
+    /* background-image: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/corporate-bg-2.png?v=1725045710); */
+    background-image: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/gifting_banner_11.jpg?v=1725046293);
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 0;
+    border-radius: 12px;
+    overflow: clip;
+    position: relative;
+    z-index: 0;
+}
+.corporategifting.gradient .image-with-text.image-with-text--no-overlap::before{
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg width='962' height='450' viewBox='0 0 962 450' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect y='5' width='956' height='2' fill='%2370012B'/%3E%3Crect x='955' y='445' width='440' height='2' transform='rotate(-90 955 445)' fill='%2370012B'/%3E%3Crect y='443' width='956' height='2' fill='%2370012B'/%3E%3Crect x='950' y='443.656' width='8' height='8' transform='rotate(-45 950 443.656)' fill='%2370012B'/%3E%3Crect x='950' y='5.65625' width='8' height='8' transform='rotate(-45 950 5.65625)' fill='%2370012B'/%3E%3C/svg%3E%0A");
+    background-position: center right 20px;
+    background-repeat: no-repeat;
+    background-size: auto calc(100% - 40px);
+    inset: 0;
+    position: absolute;
+    display: block;
+    margin: 0;    
+}
+.corporategifting.gradient .image-with-text.image-with-text--no-overlap .rte p{
+    color:#393939;
+}
+.corporategifting.gradient .image-with-text.image-with-text--no-overlap .button{
+    padding-inline: 4.6rem;
+}

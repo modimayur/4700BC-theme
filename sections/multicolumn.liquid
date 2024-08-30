@@ -125,7 +125,7 @@
                 {%- if block.settings.text != blank -%}
                   <div class="rte">{{ block.settings.text }}</div>
                 {%- endif -%}
-                {%- if block.settings.link_label != blank -%}
+                {%- if block.settings.link_label != blank and block.settings.link != blank -%}
                   <a
                     class="{% if section.settings.button_style != 'link' %}button button--{{ section.settings.button_style }}{% else %}link animate-arrow{% endif %}"
                     {% if block.settings.link == blank %}
@@ -140,6 +140,11 @@
                     {%  endif %}</a
                   >
                 {%- endif -%}
+
+                {%  if block.settings.link_label == blank and block.settings.link != blank -%}
+                    <a href="{{ block.settings.button_link }}" class="full-unstyled-link">{{ block.settings.image.alt }}</a>
+                {%- endif -%}
+
               </div>
             </div>
           </li>

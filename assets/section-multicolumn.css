@@ -231,3 +231,20 @@
     display: list-item;
   }
 }
+
+.background-none .multicolumn-card.content-container:has(.full-unstyled-link){
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-none .multicolumn-card__info:has(.full-unstyled-link) {
+  position: static;
+}
+.background-none .multicolumn-card__info .full-unstyled-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+}

@@ -1,0 +1,123 @@
+{{ 'text-ticker-section.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="ticker-section color-{{ section.settings.color_scheme }} gradient  section-{{ section.id }}-padding">
+  <div class="main-container">
+    <div class="wrapper" data-marqy-inner>
+      {% for i in (1..section.settings.copy_count) %}
+        <div
+          class="ticker-slider ticker-scrollto-{{ section.settings.scroll_direction }}"
+          data-marqy-content
+          style="animation-duration: {{- section.settings.scrolll_speed -}}s;"
+        >
+          {% for block in section.blocks %}
+            <div class="slider-item" data-marqy-item>
+              <span class="icon-text">{{ block.settings.icon_text }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Text Ticker",
+  "class": "section-text-ticker",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "copy_count",
+      "label": "Copy count",
+      "default": 3,
+      "step": 1,
+      "min": 0,
+      "max": 100
+    },
+    {
+      "type": "range",
+      "id": "scrolll_speed",
+      "label": "Scroll Speed",
+      "default": 20,
+      "step": 1,
+      "min": 5,
+      "max": 100
+    },
+    {
+      "type": "select",
+      "id": "scroll_direction",
+      "label": "Scroll Direction",
+      "default": "rtl",
+      "options": [
+        {
+          "label": "Left to Right",
+          "value": "ltr"
+        },
+        {
+          "label": "Right to Left",
+          "value": "rtl"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Icon With Text",
+      "type": "icon_with_text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_text",
+          "label": "Icon Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Ticker"
+    }
+  ]
+}
+{% endschema %}

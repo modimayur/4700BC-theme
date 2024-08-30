@@ -1,12 +1,3 @@
-/*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
 {
   "sections": {
     "slideshow_JLnqx7": {
@@ -257,10 +248,10 @@
           "crunchy-corn-hawaiian-bbq-pouch-pack-of-8-40g"
         ],
         "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 80,
+        "button_label": " VIEW PRODUCT",
         "button_link": "shopify:\/\/collections\/all",
-        "button_label": " VIEW PRODUCT"        
+        "padding_top": 36,
+        "padding_bottom": 80
       }
     },
     "featuredrecipes": {
@@ -404,8 +395,8 @@
           "settings": {
             "icon_text": "YOUR A SNACK.",
             "copy_count": 20,
-            "scrolll_speed" : 14,
-            "scroll_direction":"rtl"
+            "scrolll_speed": 14,
+            "scroll_direction": "rtl"
           }
         },
         "icon_with_text_Nqcmcw": {
@@ -413,8 +404,8 @@
           "settings": {
             "icon_text": "YOUR A SNACK.",
             "copy_count": 20,
-            "scrolll_speed" : 14,
-            "scroll_direction":"ltr"
+            "scrolll_speed": 14,
+            "scroll_direction": "ltr"
           }
         }
       },
@@ -476,14 +467,6 @@
     },
     "testimonial_V6FjrH": {
       "type": "testimonial",
-      "settings": {
-        "heading": "HEAR FROM OUR CUSTOMERS",
-        "heading_size": "hxxl",
-        "color_scheme": "",
-        "image": "shopify:\/\/shop_images\/image16041.png",
-        "padding_top": 40,
-        "padding_bottom": 52
-      },
       "blocks": {
         "item_4kLHDz": {
           "type": "item",
@@ -501,11 +484,19 @@
             "description": "<p>Game-changer for snack lovers! The fusion flavours are exciting, and the healthier options are a big plus. Highly recommended!<\/p>"
           }
         }
-      },      
+      },
       "block_order": [
         "item_4kLHDz",
         "item_3cL4GE"
-      ]
+      ],
+      "settings": {
+        "heading": "HEAR FROM OUR CUSTOMERS",
+        "heading_size": "hxxl",
+        "image": "shopify:\/\/shop_images\/image16041.png",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
