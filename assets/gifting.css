@@ -59,20 +59,35 @@ body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title{
     inset: 160px 0 auto;
     z-index: 1;
     color: #070707;
+    display: flex;
+    flex-direction: column;
 }
 body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title .title.hxxl{
     font-size: 48px;
     text-align: center;
 }
-body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title strong{
+body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title .verticle-ticker{
+    display: block;
+    font-size: 6.4rem;
+    position:relative;
+    margin: 0;
+    width: fit-content;
+    height: 7.7rem;
+    overflow:hidden;
+    line-height: 100%;
+}
+
+body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title .verticle-ticker .motiv{
+    position:relative;
+    /*width: 16rem;*/
+    height: 7.7rem; 
     background: linear-gradient(91.28deg, #991B2C -1.74%, #FFBE35 93.97%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: block;
-    font-size: 6.4rem;
 }
-
-
+body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title .verticle-ticker .motiv span{
+    margin:0;
+}
 body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item{
     /* padding-block: 150px; */
     aspect-ratio: 1/1;
@@ -82,6 +97,16 @@ body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item{
 }
 body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item:first-of-type{
     background: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/gifting_banner_04.jpg?v=1724950693);
+    background-attachment: fixed;
+}
+body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item:first-of-type .media {
+    /* background: url('//4700bc-development.myshopify.com/cdn/shop/files/gifting_banner_02.png?v=1724950692&width=3200'); */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item:first-of-type .media img{
+    /* opacity: 0;/ */
 }
 
 body.page-gifting .gradient.craftedwithlove{

@@ -108,7 +108,8 @@
         "column_qfQ3DY"
       ],
       "settings": {
-        "title": "OUR RANGE <strong>BRINGS JOY<\/strong>",
+        "title": "OUR RANGE ",
+        "ticertext": "BRINGS JOY 01~BRINGS JOY 02~BRINGS JOY 03~BRINGS JOY 04",
         "heading_size": "hxxl",
         "image_width": "half",
         "image_ratio": "adapt",
@@ -314,8 +315,42 @@
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 52,
-        "padding_bottom": 52,
+        "padding_bottom": 0,
         "custome_class": "corporategifting"
+      }
+    },
+    "sectionfloatingimgs":{
+      "type": "floating-imgs",
+      "blocks": {
+        "sectionfloatingimgs_item_01": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-1.png"}},
+        "sectionfloatingimgs_item_02": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-2.png"}},
+        "sectionfloatingimgs_item_03": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-3.png"}},
+        "sectionfloatingimgs_item_04": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-4.png"}},
+        "sectionfloatingimgs_item_05": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-5.png"}},
+        "sectionfloatingimgs_item_06": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-6.png"}},
+        "sectionfloatingimgs_item_07": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-7.png"}},
+        "icon_with_text_GdQAzm": {"type": "icon_with_text","settings": {"icon_text": "WHAT ARE YOUR","copy_count": 20,"scrolll_speed": 30,"scroll_direction": "rtl"}},
+        "icon_with_text_Nqcmcw": {"type": "icon_with_text","settings": {"icon_text": "CRAVING TODAY?","copy_count": 20,"scrolll_speed": 30,"scroll_direction": "ltr"}}
+      },
+      "block_order": [
+        "sectionfloatingimgs_item_01",
+        "sectionfloatingimgs_item_02",
+        "sectionfloatingimgs_item_03",
+        "sectionfloatingimgs_item_04",
+        "sectionfloatingimgs_item_05",
+        "sectionfloatingimgs_item_06",
+        "sectionfloatingimgs_item_07",
+        "icon_with_text_GdQAzm",
+        "icon_with_text_Nqcmcw"
+      ],
+      "settings": {
+        "heading":"HAPPINESS AT ITS CRISPIEST",
+        "heading_size": "h1",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "button_label": "CHECK OUT SNACKING",
+        "button_link": "shopify:\/\/collections\/all"
       }
     }
   },
@@ -327,6 +362,7 @@
     "text_ticker_section_UEpH3P",
     "image_with_text_yAxDQx",
     "vertical_accordion_HkRria",
-    "image_with_text_x3xjbK"
+    "image_with_text_x3xjbK",
+    "sectionfloatingimgs"
   ]
 }

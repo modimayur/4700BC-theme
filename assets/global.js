@@ -846,7 +846,9 @@ class SlideshowComponent extends SliderComponent {
     if (!this.sliderControlWrapper) return;
 
     this.sliderFirstItemNode = this.slider.querySelector('.slideshow__slide');
-    if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
+    if(this.sliderItemsToShow){
+      if (this.sliderItemsToShow.length > 0) this.currentPage = 1;
+    }
 
     this.announcementBarSlider = this.querySelector('.announcement-bar-slider');
     // Value below should match --duration-announcement-bar CSS value
@@ -855,7 +857,9 @@ class SlideshowComponent extends SliderComponent {
     this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
     this.sliderControlLinksArray.forEach((link) => link.addEventListener('click', this.linkToSlide.bind(this)));
     this.slider.addEventListener('scroll', this.setSlideVisibility.bind(this));
-    this.setSlideVisibility();
+    if(this.sliderItemsToShow){
+      this.setSlideVisibility();
+    }
 
     if (this.announcementBarSlider) {
       this.announcementBarArrowButtonWasClicked = false;
@@ -1288,10 +1292,10 @@ if (!customElements.get('bulk-add')) {
 }
 
 function updateCustomMarqueeSpace() {
-  var customMarquee =  document.querySelector('#CustomMarquee');
-  if(customMarquee){
-    var customMarqueeHalfheight =  customMarquee.offsetHeight / 2;
-    customMarquee.closest('.shopify-section').style.setProperty("--halfHeight", '-'+customMarqueeHalfheight+'px');
+  var customMarquee = document.querySelector('#CustomMarquee');
+  if (customMarquee) {
+    var customMarqueeHalfheight = customMarquee.offsetHeight / 2;
+    customMarquee.closest('.shopify-section').style.setProperty("--halfHeight", '-' + customMarqueeHalfheight + 'px');
     // console.log('updateCustomMarqueeSpace', customMarqueeHalfheight);
   }
 };
@@ -1365,18 +1369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   }
-  /* 
-  var curvemarquee = document.querySelector('.curve-marquee');
-  if(curvemarquee){
-    var marquee = new Marquee(document.querySelector(curvemarquee), {
-      speed: 10000,
-      gap: 20,
-      delayBeforeStart: 1000,
-      direction: 'left',
-      postAnimationPause: 0
-      });
-      }
-      */
+
   var productrange = document.querySelector('.product-range-wrapper');
   if (productrange) {
     var thumbsSlider = productrange.querySelector('.thumbsSlider');
@@ -1441,9 +1434,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // console.log('slide changed',swiper);
 
     });
- 
 
-    function sliderThemeUpdate(event, swiper){
+
+    function sliderThemeUpdate(event, swiper) {
       var index = swiper.activeIndex;
       // var newslideindex = swiper.activeIndex + 1;
       var newslide = swiper.slides[index]
@@ -1457,5 +1450,29 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('#CustomMarquee').style.setProperty("--main-background-color", newslideColor1);
       // console.log('that',productrange);
     }
+  }
+
+
+
+
+
+
+  var movetoVerticle = gsap.utils.toArray(".motiv");
+  if(movetoVerticle.length > 0){
+    console.log('movetoVerticle: ',movetoVerticle.length);
+    var next = 1.2; // time to change
+    function crossfade() {
+      var minheight = movetoVerticle[0].offsetHeight;
+      var maxHeight = minheight * movetoVerticle.length;
+      // console.log('movetoVerticle',minheight,);
+      var action = gsap.timeline()
+        .to(movetoVerticle, { y: `-=${minheight}`, duration: 1, ease: "expo.inOut" })
+        .to(movetoVerticle[0], { y: `+=${maxHeight}`, duration: 0, ease: "expo.inOut" })
+      movetoVerticle.push(movetoVerticle.shift());
+      // start endless run
+      gsap.delayedCall(next, crossfade);
+    }
+    // start the crossfade after next = 3 sec
+    gsap.delayedCall(next, crossfade);
   }
 });

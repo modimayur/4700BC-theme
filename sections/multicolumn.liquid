@@ -35,6 +35,14 @@
         <h2 class="title inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.title }}
         </h2>
+        {% if section.settings.ticertext != blank %}
+          {% assign textarray = section.settings.ticertext | split: '~' %}
+          <div class="verticle-ticker h1 hxxl">
+            {% for text in  textarray -%}
+              <div class="motiv motiv01"><span>{{ text }}</span></div>
+            {% endfor %}
+          </div>
+        {% endif %}
         {%- if section.settings.button_label != blank and show_mobile_slider -%}
           <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide">
             {{- section.settings.button_label | escape -}}
@@ -237,6 +245,13 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "textarea",
+      "id": "ticertext",
+      "label": "Add Verticle sliding text",
+      "default": "Ticker Text 01~Ticker Text 02~Ticker Text 03",
+      "info": "Add text to be displayed in vertical sliding text with '~' as a seperator"
     },
     {
       "type": "select",

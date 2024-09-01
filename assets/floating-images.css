@@ -1,0 +1,91 @@
+.section.gifts {
+    width: 100%;
+    min-height: 300vh;
+}
+.sticky-wrapper {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    position: sticky;
+    top: 0;
+    overflow-x: clip;
+}
+.sticky-wrapper .ticker-section{
+    position: relative;
+    z-index: -1;
+}
+.gifts-inner {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.gifts-inner .page-padding {
+    position: absolute;
+}
+
+.gifts-content {
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.gifts-content .headline-large{
+    font-family: 'Formula Condensed';
+    font-weight: 700;
+    color: #592C29;
+    text-transform: uppercase;
+    font-size: 80px;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    position: relative;
+    margin: 0 auto 3rem;
+    max-width: 475px;
+}
+.gifts.floating-images .sticky-wrapper .ticker-section .slider-item {
+    -webkit-text-fill-color: #FFF0CC;
+    -webkit-text-stroke: 1px;
+    color: #FFE4A3;
+}
+.gifts.floating-images .sticky-wrapper .ticker-section .slider-item span.icon-text{
+    font-size: 26rem;
+}
+.gifts-imgs-wrapper {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+  z-index: -1;
+}
+.floating-images .floating-img-el{
+    position: absolute;
+}
+.floating-images .floating-img-el{transform: scale(1) translate(var(--translate-to))}
+.floating-images .floating-img-el:nth-of-type(1){--translate-to:-38vw, -6vh;}
+.floating-images .floating-img-el:nth-of-type(2){--translate-to: -20vw, 36vh;}
+.floating-images .floating-img-el:nth-of-type(3){--translate-to: -13vw, -33vh;}
+.floating-images .floating-img-el:nth-of-type(4){--translate-to: 20vw, -30vh;}
+.floating-images .floating-img-el:nth-of-type(5){--translate-to: 28vw, 3vh;}
+.floating-images .floating-img-el:nth-of-type(6){--translate-to: 36vw, 25vh;}
+.floating-images .floating-img-el:nth-of-type(7){--translate-to: 44vw, -15vh;}
+
+
+@keyframes appearTranslatRotate {
+    0% {
+      opacity: 0;
+      transform: scale(0) translateX(0)
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translate(var(--translate-to))
+    }
+  }
+  .floating-images .floating-img-el{
+    animation: appearTranslatRotate linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
