@@ -348,10 +348,95 @@
         "heading_size": "h1",
         "full_width": false,
         "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_bottom": 80,
         "button_label": "CHECK OUT SNACKING",
         "button_link": "shopify:\/\/collections\/all"
       }
+    },
+    "logo_slider_6mcFra": {
+      "type": "logo-slider",
+      "blocks": {
+        "logo_XaFDkQ": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_01.png"
+          }
+        },
+        "logo_zaxrwD": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_02.png"
+          }
+        },
+        "logo_jE6HB3": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_03.png"
+          }
+        },
+        "logo_dEXazt": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_04.png"
+          }
+        },
+        "logo_GJHxqy": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_05.png"
+          }
+        },
+        "logo_QkAk9r": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_06.png"
+          }
+        },
+        "logo_UJmFit": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_07.png"
+          }
+        },
+        "logo_Ew6L4i": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_08.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_XaFDkQ",
+        "logo_zaxrwD",
+        "logo_jE6HB3",
+        "logo_dEXazt",
+        "logo_GJHxqy",
+        "logo_QkAk9r",
+        "logo_UJmFit",
+        "logo_Ew6L4i"
+      ],
+      "settings": {
+        "title": "OUR CUSTOMERS",
+        "heading_size": "hxxl",
+        "logo_width": 100,
+        "color_scheme": "scheme-9",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custome_class": "ourcustomers-brands",
+        "brand_heading_size": "h4"
+      }
+    },
+    "exclusivessection": {
+      "type": "exclusives"
     }
   },
   "order": [
@@ -363,6 +448,8 @@
     "image_with_text_yAxDQx",
     "vertical_accordion_HkRria",
     "image_with_text_x3xjbK",
-    "sectionfloatingimgs"
+    "sectionfloatingimgs",
+    "logo_slider_6mcFra",
+    "exclusivessection"
   ]
 }
