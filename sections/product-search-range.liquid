@@ -93,11 +93,12 @@
                   {% if item.object_type == 'product' and forloop.index < 6 %}
                     {% assign product = item %}
                     <div class="product-iteam grid__item {% if forloop.index < 6 %}hide{% endif %}">
-                      <a href="{{ product.url }}">
-                        <div class="product-image">
-                          {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
-                        </div>
-                        <h6 class="product-title">{{ product.title }}</h6>
+                      <div class="product-image">
+                        {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
+                      </div>
+                      <h6 class="product-title">{{ product.title }}</h6>
+                      <a href="{{ product.url }}" class="button button--primary view-product-button">
+                        View Product
                       </a>
                     </div>
                   {% endif %}
@@ -106,11 +107,12 @@
           {% else %}
               {% for product in section.settings.product_list %}
                 <div class="product-iteam grid__item">
-                  <a href="{{ product.url }}">
-                    <div class="product-image">
-                      {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
-                    </div>
-                    <h6 class="product-title">{{ product.title }}</h6>
+                  <div class="product-image">
+                    {{ product.featured_media | image_url: height: 255 | image_tag: class: 'product-range-thumb' }}
+                  </div>
+                  <h6 class="product-title">{{ product.title }}</h6>
+                  <a href="{{ product.url }}" class="button button--primary view-product-button">
+                    View Product
                   </a>
                 </div>
               {% endfor %}

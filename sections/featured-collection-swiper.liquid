@@ -163,22 +163,23 @@
     
  %}
 
- <script>
-     document.addEventListener('DOMContentLoaded', function () {
-       new Swiper('#shopify-section-{{ section.id }} .swiperslider', {
-         slidesPerView: {{ mobilecolumn }},
-         spaceBetween: 16,
-         loop: true,
-         slideToClickedSlide: true,
-         speed: 1000,
-         centeredSlides: true,
-         breakpoints: {
-           1024: {
-             slidesPerView: {{ section.settings.columns_desktop | plus: 0.5 }},
-           },
-         }
-       });
-     });
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('#shopify-section-{{ section.id }} .swiperslider', {
+      slidesPerView: {{ mobilecolumn }},
+      spaceBetween: 16,
+      loop: true,
+      //  autoplay:true,
+      slideToClickedSlide: true,
+      speed: 1000,
+      centeredSlides: true,
+      breakpoints: {
+        1024: {
+          slidesPerView: {{ section.settings.columns_desktop | plus: 0.5 }},
+        },
+      }
+    });
+  });
 </script>
   
 {% schema %}

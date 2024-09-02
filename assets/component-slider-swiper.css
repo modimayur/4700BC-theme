@@ -22,16 +22,15 @@
     color: #592C29;
 }
 .swiper-wrapper.product-grid.contains-card--product .grid_item  .card__information  .card__heading {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-family: var(--font-body-family);
+    /* overflow: hidden; */
     font-style: normal;
     font-weight: 700;
-    font-size: 32px;
-    line-height: 150%;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 0;
+}
+.card-wrapper.product-card-wrapper:hover a{
+    text-decoration: none;
 }
 .swiper-wrapper.product-grid.contains-card--product .grid_item.swiper-slide-active  .card__information { 
     opacity: 1;
