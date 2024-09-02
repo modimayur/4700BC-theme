@@ -352,6 +352,208 @@
         "button_label": "CHECK OUT SNACKING",
         "button_link": "shopify:\/\/collections\/all"
       }
+    },
+    "logo_slider_6mcFra": {
+      "type": "logo-slider",
+      "blocks": {
+        "logo_XaFDkQ": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_01.png"
+          }
+        },
+        "logo_zaxrwD": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_02.png"
+          }
+        },
+        "logo_jE6HB3": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_03.png"
+          }
+        },
+        "logo_dEXazt": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_04.png"
+          }
+        },
+        "logo_GJHxqy": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_05.png"
+          }
+        },
+        "logo_QkAk9r": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_06.png"
+          }
+        },
+        "logo_UJmFit": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_07.png"
+          }
+        },
+        "logo_Ew6L4i": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_08.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_XaFDkQ",
+        "logo_zaxrwD",
+        "logo_jE6HB3",
+        "logo_dEXazt",
+        "logo_GJHxqy",
+        "logo_QkAk9r",
+        "logo_UJmFit",
+        "logo_Ew6L4i"
+      ],
+      "settings": {
+        "title": "OUR CUSTOMERS",
+        "heading_size": "hxxl",
+        "logo_width": 100,
+        "color_scheme": "scheme-9",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custome_class": "ourcustomers-brands",
+        "brand_heading_size": "h4"
+      }
+    },
+    "exclusivessection": {
+      "type": "exclusives",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "brand_heading_size": "h4",
+        "logo_width": 100,
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custome_class": ""
+      }
+    },
+    "testimonial_slider_2_kemn3Y": {
+      "type": "testimonial-slider-2",
+      "blocks": {
+        "blockquote_xYe9Mw": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-01.jpg",
+            "name": "Derry Thomas",
+            "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
+            "ratting": 5
+          }
+        },
+        "blockquote_P4UA6V": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-02.jpg",
+            "video": "shopify:\/\/files\/videos\/123.mp4",
+            "name": "Vinitha Sharma",
+            "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
+            "ratting": 4
+          }
+        },
+        "blockquote_8XD6eL": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-03.jpg",
+            "name": "Tanisha Verma",
+            "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
+            "ratting": 3
+          }
+        },
+        "blockquote_mcdiXB": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-04.jpg",
+            "name": "Manish Reddy",
+            "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
+            "ratting": 2
+          }
+        },
+        "blockquote_BQpfGe": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-01.jpg",
+            "name": "Derry Thomas",
+            "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
+            "ratting": 5
+          }
+        },
+        "blockquote_nDzBBa": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-02.jpg",
+            "name": "Vinitha Sharma",
+            "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
+            "ratting": 5
+          }
+        },
+        "blockquote_7tRgjD": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-03.jpg",
+            "name": "Tanisha Verma",
+            "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
+            "ratting": 5
+          }
+        },
+        "blockquote_Dcr4N6": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-04.jpg",
+            "name": "Manish Reddy",
+            "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
+            "ratting": 5
+          }
+        }
+      },
+      "block_order": [
+        "blockquote_xYe9Mw",
+        "blockquote_P4UA6V",
+        "blockquote_8XD6eL",
+        "blockquote_mcdiXB",
+        "blockquote_BQpfGe",
+        "blockquote_nDzBBa",
+        "blockquote_7tRgjD",
+        "blockquote_Dcr4N6"
+      ],
+      "settings": {
+        "full_width": false,
+        "heading": "HEAR FROM OUR CUSTOMERS",
+        "text": "Your Thoughts, Our Pride",
+        "color_scheme": "",
+        "button_label": "Button label",
+        "button_link": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+      }
     }
   },
   "order": [
@@ -363,6 +565,9 @@
     "image_with_text_yAxDQx",
     "vertical_accordion_HkRria",
     "image_with_text_x3xjbK",
-    "sectionfloatingimgs"
+    "sectionfloatingimgs",
+    "logo_slider_6mcFra",
+    "exclusivessection",
+    "testimonial_slider_2_kemn3Y"
   ]
 }
