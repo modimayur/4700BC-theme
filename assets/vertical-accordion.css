@@ -1,0 +1,134 @@
+.section-vertical-accordion  {
+    /* overflow: clip; */
+    position: relative;
+    --page-width: 130rem;
+}
+    
+.section-vertical-accordion  .section-title .subheading{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 130%;
+    text-align: center;
+    color: #070707;
+    margin: 0 0 2.4rem;
+}
+.section-vertical-accordion  .section-title .h1{
+    max-width: 907px;
+    font-family: 'Formula Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 120%;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #70012B;
+    margin: 0 auto 5rem;
+}
+.section-vertical-accordion  .vector-img{
+    position: absolute;
+    inset: 0 auto auto 0;
+    transform: translate(-60%, -10%);
+    z-index: 0;
+}
+.section-vertical-accordion .vertical-accordion {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  min-height: 50vh;
+  width: 100%;
+  margin-inline: auto;
+  gap: 2.4rem;
+  z-index: 1;
+  /* opacity: 0; */
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam {
+    border-radius: 8px;
+    background-color: rgba(var(--theme-color), 0.6);
+    transition: all 200ms ease-in-out 50ms;
+    font-family: Helvetica, Arial, Sans-Serif;
+    font-weight: 500;
+    cursor: pointer;
+    height: 37.2rem;
+    width: min-content;
+    color: var(--theme-text-color);
+    overflow: hidden;
+    position: relative;
+    transition: all 200ms ease-in-out 50ms;
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam:not(.expand) {
+    flex-grow: 0;
+    width: 15.2rem;
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam.expand {
+    flex-grow: 1;
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-title {
+    position: absolute;
+    z-index: 1;
+    white-space: nowrap;
+    width: auto;
+    color: #fff;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    left: 0;
+    bottom: 0;
+    margin: 0 63px 0;
+    display: block;
+    padding: 0;
+    font-size: 3.2rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 200ms ease-in-out 50ms;
+    opacity: 1;
+}
+
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam.expand .vertical-title {
+    opacity: 0;
+}
+
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content {
+    background-color: rgba(var(--theme-color), 1);
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content img{
+    transition: all 0.3s ease-in-out;
+    opacity: 0.6;
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam.expand .vertical-accordion-content img{
+    opacity: 1;
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner{
+    padding: 4.8rem;
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner .h3{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 150%;
+    align-items: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--theme-text-color);
+    margin: 0;
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner .rte{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--theme-text-color);
+}
+.section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner .rte p{
+    color: var(--theme-text-color);
+}

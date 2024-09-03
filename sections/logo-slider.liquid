@@ -1,0 +1,228 @@
+{{ 'logo-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="section-{{ section.id }}-padding">
+  <div class="section-curve section-curve-before"><svg width="1440" height="33" viewBox="0 0 1440 33" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_107_3599" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="1" width="1440" height="32"><rect y="1" width="1440" height="32" fill="#D9D9D9" /></mask><g mask="url(#mask0_107_3599)"><path d="M1382.5 391.494L1440 388.949V0.80011L1361 9.27872L1278 15.0908L1205 22.8414L1125 13.1535L1065 22.8414L1007.5 16.544L960 13.1535L892.5 16.544L830.5 22.8414H770L714 31.32L659 22.8414L606.5 14.8616H556.5L504.5 8.87671L458.5 14.8616L403 8.87671L350 14.8616H298.5L237.5 8.87671L190.5 14.8616L128 22.8414H64.5L0 14.8616V432.804L33.5 419.404L91.5 423.924L137.5 441L192.5 432.804H237.5L313 410.524L359 401.483L411 395.187H506.5L567 388.949L659 401.483H747H799.5L878 384.003H960L1053.5 377.809L1155.5 383.003L1250 377.809L1306.5 383.003L1345.5 391.494H1382.5Z" fill="currentColor" /></g></svg></div>
+  <div class="gradient color-{{ section.settings.color_scheme }}">
+    <div
+      class="{% unless section.settings.full_width %} page-width{% endunless %} section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      {% if settings.animations_reveal_on_scroll %}
+        data-cascade
+      {% endif %}
+    >
+      {%- unless section.settings.title == blank -%}
+        <div class="title-wrapper--no-top-margin center{% if section.settings.full_width %} page-width{% endif %}">
+          <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+            {{ section.settings.title }}
+          </h2>
+        </div>
+      {% endunless %}
+
+
+
+      <div class="swiper logo-slider-swiper">
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+            <div class="brand-item swiper-slide">
+              <{% if block.settings.brand_link %}a href="{{ block.settings.brand_link }}"{% else %}div{% endif %} class="brand-item--link" >
+                {% if block.settings.brand_image != blank %}
+                  <div class="brand-item__image">
+                    {{ block.settings.brand_image | image_url: width: block.settings.brand_image.width | image_tag: loading: 'lazy', class: 'logo-image' }}
+                  </div>
+                {% endif %}            
+                {% if block.settings.brand_name %}
+                  <h4 class="brand--subheading {{ block.settings.brand_heading_size }}">{{ block.settings.brand_name }}</h4>
+                {% endif %}            
+              </{% if block.settings.brand_link %}a{% else %}div{% endif %}>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="section-curve section-curve-after">
+    <svg width="1601" height="67" viewBox="0 0 1601 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1536.76 16.6969L1600.6 14.1518V0.0639038L0.601685 0.0647278V58.0076L38.9083 44.6075L103.308 49.1275L154.384 66.2031L215.452 58.0075H265.418L349.248 35.7274L400.324 26.6865L458.062 20.39H564.099L631.275 14.1518L733.426 26.6865H831.136H889.429L976.59 9.2058H1067.64L1171.46 3.01176L1284.71 8.2065L1389.64 3.01176L1452.37 8.2065L1495.67 16.6969H1536.76Z" fill="currentColor"/>
+      </svg>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('#shopify-section-{{ section.id }} .logo-slider-swiper', {
+      slidesPerView: 1.5,
+      spaceBetween: 16,
+      loop: true,
+      breakpoints: {
+        640: {
+          slidesPerView: 2.5,
+        },
+        1024: {
+          spaceBetween: 20,
+          slidesPerView: 4.5,
+        },
+        1600: {
+          spaceBetween: 32,
+          slidesPerView: 'auto',
+        },
+      }
+    });
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Logo Slider",
+  "class": "section section-logoslider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "t:sections.multicolumn.settings.title.default",
+      "label": "t:sections.multicolumn.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+        "type": "select",
+        "id": "brand_heading_size",
+        "options": [
+          {
+            "value": "h4",
+            "label": "Small"
+          },
+          {
+            "value": "h3",
+            "label": "Medium"
+          },
+          {
+            "value": "h2",
+            "label": "Large"
+          }
+        ],
+        "default": "h4",
+        "label": "Brand Heading Size"
+      },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Width",
+      "default": 100
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:sections.rich-text.settings.full_width.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "label": "Custome Class",
+      "id": "custome_class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Add Logo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand Name"
+        },
+        {
+          "type": "url",
+          "id": "brand_link",
+          "label": "Brand Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "brand_image",
+          "label": "Brand Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Slider"
+    }
+  ]
+}
+{% endschema %}

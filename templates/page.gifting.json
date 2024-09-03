@@ -1,14 +1,573 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "slideshow_hjUd6h": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_T4mihm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_01.jpg",
+            "heading": "GIFT THE JOY OF <strong>GOURMET<\/strong> POPCORN",
+            "heading_size": "hxxl",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-4",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_bfWWeD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_01.jpg",
+            "heading": "GIFT THE JOY OF <strong>GOURMET<\/strong> POPCORN",
+            "heading_size": "hxxl",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-4",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_T4mihm",
+        "slide_bfWWeD"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "100vh",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "findtheperfectgift": {
+      "type": "find-the-perfect-gift",
+      "settings": {
+        "heading": "FIND THE PERFECT GIFT",
+        "heading_size": "hxl"
+      }
+    },
+    "multicolumn_TjD6BG": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_emdBxn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_02.png",
+            "title": "Gift Boxes",
+            "text": "",
+            "link_label": "VIEW CATEGORY",
+            "link": "shopify:\/\/collections\/all"
+          }
+        },
+        "column_qfQ3DY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_03.png",
+            "title": "Tins",
+            "text": "",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "column_emdBxn",
+        "column_qfQ3DY"
+      ],
+      "settings": {
+        "title": "OUR RANGE ",
+        "ticertext": "BRINGS JOY 01~BRINGS JOY 02~BRINGS JOY 03~BRINGS JOY 04",
+        "heading_size": "hxxl",
+        "image_width": "half",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "button_style": "primary",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "full_width": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custome_class": "ourrange-bringsjoy"
+      }
+    },
+    "text_ticker_section_UEpH3P": {
+      "type": "text-ticker-section",
+      "blocks": {
+        "icon_with_text_behFh6": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Gift Deliciousness."
+          }
+        },
+        "icon_with_text_RayFPA": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Gift 4700BC."
+          }
+        },
+        "icon_with_text_CCDYzW": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Gift Happiness,"
+          }
+        },
+        "icon_with_text_mgNWUn": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "Gift 4700 BC"
+          }
+        }
+      },
+      "block_order": [
+        "icon_with_text_behFh6",
+        "icon_with_text_RayFPA",
+        "icon_with_text_CCDYzW",
+        "icon_with_text_mgNWUn"
+      ],
+      "settings": {
+        "color_scheme": "scheme-8",
+        "copy_count": 10,
+        "scrolll_speed": 10,
+        "scroll_direction": "rtl",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "image_with_text_yAxDQx": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_VpgAMy": {
+          "type": "caption",
+          "settings": {
+            "caption": "Your Gift, Your Way!",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_yjiUfV": {
+          "type": "heading",
+          "settings": {
+            "heading": "CRAFTED WITH LOVE, JUST FOR YOU",
+            "heading_size": "hxxl"
+          }
+        },
+        "button_LPkCaT": {
+          "type": "button",
+          "settings": {
+            "button_label": "START CUSTOMISING",
+            "button_link": "shopify:\/\/collections\/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_VpgAMy",
+        "heading_yjiUfV",
+        "button_LPkCaT"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/gifting_banner_05-1.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-9",
+        "color_scheme": "scheme-9",
+        "full_width": true,
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custome_class": "craftedwithlove"
+      }
+    },
+    "vertical_accordion_HkRria": {
+      "type": "vertical-accordion",
+      "blocks": {
+        "vertical_accordion_item_01": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_06.jpg",
+            "name": "THOUGHTFULLY CURATED",
+            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.</p>",
+            "blockcolor": "#F2B65E",
+            "textcolor": "#212121"
+          }
+        },
+        "vertical_accordion_item_02": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_07.jpg",
+            "name": "SUSTAINABLY CRAFTED",
+            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.</p>",
+            "blockcolor": "#5C0124",
+            "textcolor": "#ffffff"
+          }
+        },
+        "vertical_accordion_item_03": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/gifting_banner_08.jpg",
+            "name": "PERFECTLY PERSONALISED",
+            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.</p>",
+            "blockcolor": "#592C29",
+            "textcolor": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "vertical_accordion_item_01",
+        "vertical_accordion_item_02",
+        "vertical_accordion_item_03"
+      ],
+      "settings": {
+        "heading": "EXQUISITE GIFTING EXPERIENCES, PERFECTLY POPPED",
+        "subheading": "Why choose 4700 BC",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "image": "shopify:\/\/shop_images\/gifting_banner_10.png",
+        "padding_top": 100,
+        "padding_bottom": 48
+      }
+    },
+    "image_with_text_x3xjbK": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_aLY8D8": {
+          "type": "heading",
+          "settings": {
+            "heading": "CORPORATE GIFTING",
+            "heading_size": "hxxl"
+          }
+        },
+        "text_W3wwFL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Make a lasting impression on clients and colleagues with our exquisite gourmet popcorn gifts, perfect for every professional occasion.s<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_6xXXPY": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify:\/\/collections\/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_aLY8D8",
+        "text_W3wwFL",
+        "button_6xXXPY"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/gifting_banner_09.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 52,
+        "padding_bottom": 0,
+        "custome_class": "corporategifting"
+      }
+    },
+    "sectionfloatingimgs":{
+      "type": "floating-imgs",
+      "blocks": {
+        "sectionfloatingimgs_item_01": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-1.png"}},
+        "sectionfloatingimgs_item_02": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-2.png"}},
+        "sectionfloatingimgs_item_03": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-3.png"}},
+        "sectionfloatingimgs_item_04": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-4.png"}},
+        "sectionfloatingimgs_item_05": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-5.png"}},
+        "sectionfloatingimgs_item_06": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-6.png"}},
+        "sectionfloatingimgs_item_07": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-7.png"}},
+        "icon_with_text_GdQAzm": {"type": "icon_with_text","settings": {"icon_text": "WHAT ARE YOUR","copy_count": 20,"scrolll_speed": 30,"scroll_direction": "rtl"}},
+        "icon_with_text_Nqcmcw": {"type": "icon_with_text","settings": {"icon_text": "CRAVING TODAY?","copy_count": 20,"scrolll_speed": 30,"scroll_direction": "ltr"}}
+      },
+      "block_order": [
+        "sectionfloatingimgs_item_01",
+        "sectionfloatingimgs_item_02",
+        "sectionfloatingimgs_item_03",
+        "sectionfloatingimgs_item_04",
+        "sectionfloatingimgs_item_05",
+        "sectionfloatingimgs_item_06",
+        "sectionfloatingimgs_item_07",
+        "icon_with_text_GdQAzm",
+        "icon_with_text_Nqcmcw"
+      ],
+      "settings": {
+        "heading":"HAPPINESS AT ITS CRISPIEST",
+        "heading_size": "h1",
+        "full_width": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "button_label": "CHECK OUT SNACKING",
+        "button_link": "shopify:\/\/collections\/all"
+      }
+    },
+    "logo_slider_6mcFra": {
+      "type": "logo-slider",
+      "blocks": {
+        "logo_XaFDkQ": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_01.png"
+          }
+        },
+        "logo_zaxrwD": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_02.png"
+          }
+        },
+        "logo_jE6HB3": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_03.png"
+          }
+        },
+        "logo_dEXazt": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_04.png"
+          }
+        },
+        "logo_GJHxqy": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_05.png"
+          }
+        },
+        "logo_QkAk9r": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_06.png"
+          }
+        },
+        "logo_UJmFit": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_07.png"
+          }
+        },
+        "logo_Ew6L4i": {
+          "type": "logo",
+          "settings": {
+            "brand_link": "shopify:\/\/collections\/all",
+            "brand_image": "shopify:\/\/shop_images\/brand_logo_08.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_XaFDkQ",
+        "logo_zaxrwD",
+        "logo_jE6HB3",
+        "logo_dEXazt",
+        "logo_GJHxqy",
+        "logo_QkAk9r",
+        "logo_UJmFit",
+        "logo_Ew6L4i"
+      ],
+      "settings": {
+        "title": "OUR CUSTOMERS",
+        "heading_size": "hxxl",
+        "logo_width": 100,
+        "color_scheme": "scheme-9",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custome_class": "ourcustomers-brands",
+        "brand_heading_size": "h4"
+      }
+    },
+    "exclusivessection": {
+      "type": "exclusives",
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "brand_heading_size": "h4",
+        "logo_width": 100,
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custome_class": ""
+      }
+    },
+    "testimonial_slider_2_kemn3Y": {
+      "type": "testimonial-slider-2",
+      "blocks": {
+        "blockquote_xYe9Mw": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-01.jpg",
+            "name": "Derry Thomas",
+            "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
+            "ratting": 5
+          }
+        },
+        "blockquote_P4UA6V": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-02.jpg",
+            "video": "shopify:\/\/files\/videos\/123.mp4",
+            "name": "Vinitha Sharma",
+            "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
+            "ratting": 4
+          }
+        },
+        "blockquote_8XD6eL": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-03.jpg",
+            "name": "Tanisha Verma",
+            "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
+            "ratting": 3
+          }
+        },
+        "blockquote_mcdiXB": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-04.jpg",
+            "name": "Manish Reddy",
+            "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
+            "ratting": 2
+          }
+        },
+        "blockquote_BQpfGe": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-01.jpg",
+            "name": "Derry Thomas",
+            "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
+            "ratting": 5
+          }
+        },
+        "blockquote_nDzBBa": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-02.jpg",
+            "name": "Vinitha Sharma",
+            "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
+            "ratting": 5
+          }
+        },
+        "blockquote_7tRgjD": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-03.jpg",
+            "name": "Tanisha Verma",
+            "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
+            "ratting": 5
+          }
+        },
+        "blockquote_Dcr4N6": {
+          "type": "blockquote",
+          "settings": {
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-04.jpg",
+            "name": "Manish Reddy",
+            "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
+            "ratting": 5
+          }
+        }
+      },
+      "block_order": [
+        "blockquote_xYe9Mw",
+        "blockquote_P4UA6V",
+        "blockquote_8XD6eL",
+        "blockquote_mcdiXB",
+        "blockquote_BQpfGe",
+        "blockquote_nDzBBa",
+        "blockquote_7tRgjD",
+        "blockquote_Dcr4N6"
+      ],
+      "settings": {
+        "full_width": false,
+        "heading": "HEAR FROM OUR CUSTOMERS",
+        "text": "Your Thoughts, Our Pride",
+        "color_scheme": "",
+        "button_label": "Button label",
+        "button_link": "",
+        "padding_top": 120,
+        "padding_bottom": 120,
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "slideshow_hjUd6h",
+    "findtheperfectgift",
+    "multicolumn_TjD6BG",
+    "text_ticker_section_UEpH3P",
+    "image_with_text_yAxDQx",
+    "vertical_accordion_HkRria",
+    "image_with_text_x3xjbK",
+    "sectionfloatingimgs",
+    "logo_slider_6mcFra",
+    "exclusivessection",
+    "testimonial_slider_2_kemn3Y"
   ]
 }

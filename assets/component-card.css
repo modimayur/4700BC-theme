@@ -619,3 +619,51 @@
   min-width: unset;
   display: block;
 }
+
+
+
+.card-wrapper.product-card-wrapper .card.card--card.card--media {
+  position: relative;
+  overflow: clip;
+}
+.card-wrapper.product-card-wrapper .card.card--card.card--media > .card__content-wrapper {
+  inset: auto 0 0;
+  position: absolute;
+  z-index: 1;
+  overflow: clip;
+  --caption-bg-color:transparent;
+  --caption-bg-color:#FFBE35;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(100%);
+}
+.card-wrapper.product-card-wrapper:hover .card.card--card.card--media > .card__content-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card-wrapper.product-card-wrapper .card.card--card.card--media > .card__content-wrapper .before-shap{
+  display: block;
+  height: auto;
+  width: 100%;
+  /* aspect-ratio: 387/27; */
+  margin-bottom: -1px;
+}
+.card-wrapper.product-card-wrapper .card.card--card.card--media > .card__content-wrapper >.card__content {
+  background-color: var(--caption-bg-color);
+
+  transition: all 0.3s ease-in-out;
+  /* aspect-ratio: 1/1; */
+  transition: all 0.3s linear;
+  padding-block: 3rem;
+}
+.card-wrapper.product-card-wrapper:hover .card.card--card.card--media > .card__content-wrapper >.card__content {
+  /* aspect-ratio: 387/184; */
+}
+.card-wrapper.product-card-wrapper .card.card--card.card--media > .card__content-wrapper >.card__content .card__badge {
+  display: none;
+}
+.card-wrapper.product-card-wrapper .card.card--card.card--media > .card__content-wrapper >.card__content  button.shopify-payment-button__button--unbranded{
+  background-color: #FFF6E0;
+  color: #070707;
+  border: 1px solid currentColor;
+}

@@ -15,6 +15,7 @@ if (!customElements.get('product-form')) {
         if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
 
         this.hideErrors = this.dataset.hideErrors === 'true';
+        this.acceleratedCheckout();
       }
 
       onSubmitHandler(evt) {
@@ -127,6 +128,15 @@ if (!customElements.get('product-form')) {
 
       get variantIdInput() {
         return this.form.querySelector('[name=id]');
+      }
+      
+      acceleratedCheckout() {
+        var buybutton = this.querySelector('shopify-accelerated-checkout .shopify-payment-button__button');
+        var buybuttontext =  buybutton.innerText;
+        const span = document.createElement("span");
+        span.innerText = buybuttontext
+        buybutton.innerHTML = '';
+        buybutton.append(span)
       }
     }
   );
