@@ -32,6 +32,11 @@
     inset: 0 auto auto 0;
     transform: translate(-60%, -10%);
     z-index: 0;
+    pointer-events: none;
+}
+.section-vertical-accordion  .page-width{
+    position: relative;
+    z-index: 1;
 }
 .section-vertical-accordion .vertical-accordion {
   display: flex;
@@ -131,4 +136,72 @@
 }
 .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner .rte p{
     color: var(--theme-text-color);
+}
+@media (max-width: 1148px){
+    .section-vertical-accordion {
+        overflow: clip;
+    }
+    .section-vertical-accordion .vertical-accordion{
+        max-width: none;
+        width: auto;
+        overflow: auto;
+        justify-content: flex-start;
+        margin-left: -3.4rem;
+        margin-right: -5rem;
+        padding-right: 1.6rem;
+    }
+    .section-vertical-accordion  .section-title .subheading {
+        font-size: 26px;
+    }
+    .section-vertical-accordion  .section-title .h1 {
+        font-size: 6rem;
+        max-width: 490px;
+        margin-bottom: 0;
+    }
+    .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-title{
+        display: none;
+    }
+    .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content{
+        flex-direction: column;
+    }
+    .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam{
+        height: auto;
+        flex: 0 0 60vw;
+        height: 100%;
+    }
+    .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content img{
+        width: 100%;
+        height: auto;
+    }
+    .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner .h3 {
+        font-size: 35px;
+    }
+}
+@media screen and (max-width: 749px) {
+    .section-vertical-accordion .vertical-accordion{
+        margin-left: -1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        margin-right: -1.5rem;
+    }
+    .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam{
+        flex: 0 0 80vw;
+    }
+    .section-vertical-accordion  .section-title .subheading {
+        font-size: 1.6rem;
+        margin-bottom: 1.6rem;
+    }
+    .section-vertical-accordion .section-title .h1{
+        font-size: 3.2rem;
+        margin-bottom: 2rem;
+    }
+    .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner{
+        padding: 16px 12px;
+    }
+    .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner .h3 {
+        font-size: 24px;
+    }
+    .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner .rte p{
+        font-size: 14px;
+    }
 }

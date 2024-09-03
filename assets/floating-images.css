@@ -60,6 +60,7 @@
   position: absolute;
   inset: 0%;
   z-index: -1;
+  pointer-events: none;
 }
 .floating-images .floating-img-el{
     position: absolute;
@@ -89,3 +90,19 @@
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
   }
+
+
+@media (max-width: 1148px){
+    .gifts-content .headline-large{
+        font-size: 60px;
+    }
+}
+@media screen and (max-width: 749px) {
+    .gifts-content .headline-large{
+        font-size: 3.2rem;
+        max-width: 24rem;
+    }
+    .gifts.floating-images .sticky-wrapper .ticker-section .slider-item span.icon-text{
+        font-size: 7rem;
+    }
+}

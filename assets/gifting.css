@@ -183,3 +183,109 @@ body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-wit
 .corporategifting.gradient .image-with-text.image-with-text--no-overlap .button{
     padding-inline: 4.6rem;
 }
+
+@media (max-width: 1148px){
+    body.page-gifting slideshow-component .slider.slider--everywhere .slider__slide:nth-of-type(1){
+        min-height: 660px;
+    }
+    body.page-gifting slideshow-component .slider .slider__slide .banner__heading.hxxl{
+        font-size: 10rem;
+    }
+    .section + .section.sections-find-the-perfect-gift{
+        margin: -93px 1.6rem -248px;
+        
+    }
+    body.page-gifting .custom-search-wrap .search.search-form{
+        flex-direction: column;
+    }
+    body.page-gifting .multicolumn-list:not(.slider){
+        padding-inline: 0;
+    }
+    body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item{
+        padding-block: 350px 100px;
+    }
+    body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title{
+        top: 270px;
+        align-items: center;
+    }
+    body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title .title.hxxl {
+        font-size: 3.2rem;
+    }
+    body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title .verticle-ticker {
+        font-size: 4rem;
+    }
+    body.page-gifting .ticker-section{
+        padding: 1.5rem 0;
+    }
+    body.page-gifting .section-text-ticker .slider-item .icon-text {
+        font-size: 4.8rem;
+    }
+    body.page-gifting .gradient.craftedwithlove .image-with-text__content{
+        padding: 1.6rem;
+    }
+    body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-with-text__text--caption{
+        font-size: 1.6rem;
+    }
+    body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-with-text__heading.inline-richtext.hxxl {
+        font-size: 4.4rem;
+        font-weight: 700;
+        line-height: 120%;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin-top: 1.6rem;
+    }
+    body.page-gifting .gifts-inner{
+        flex-direction: column;
+    }
+
+    .corporategifting.gradient .image-with-text__grid.grid .image-with-text__text-item.grid__item .image-with-text__heading {
+        font-size: 4rem;
+    }
+    .corporategifting.gradient .image-with-text.image-with-text--no-overlap {
+        background-size: cover;
+    }
+}
+@media screen and (max-width: 749px) {
+    body.page-gifting slideshow-component .slider.slider--everywhere .slider__slide:nth-of-type(1){
+        min-height: 422px;
+    }
+    body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-with-text__heading.inline-richtext.hxxl {
+        font-size: 2.4rem;
+    }
+    .floating-images .floating-img-el img{
+        max-width: 100px;
+        height: auto;
+    }
+    .corporategifting.gradient .image-with-text__grid.grid .image-with-text__text-item.grid__item .image-with-text__heading {
+        font-size: 3.2rem;
+    }
+    .corporategifting.gradient .image-with-text.image-with-text--no-overlap .rte p {
+        font-size: 16px;
+        line-height: 160%;
+    }
+    .corporategifting.gradient .image-with-text.image-with-text--no-overlap .button{
+        margin-top: 2rem;
+    }
+    body.page-gifting slideshow-component .slider .slider__slide .banner__heading.hxxl {
+        font-size: 5.4rem;
+    }
+    body.page-gifting .sections-find-the-perfect-gift .wrapper-title{
+        font-size: 3.2rem;
+    }
+    body.page-gifting .shopify-section.section-text-ticker{
+        padding-block: 0;
+    }
+    body.page-gifting .section-text-ticker .slider-item .icon-text{
+        font-size: 3.2rem;
+    }
+    body.page-gifting .gradient.craftedwithlove{
+        padding-bottom: 3rem;
+    }
+
+    .corporategifting.gradient .image-with-text.image-with-text--no-overlap::before{
+        background-image: url("data:image/svg+xml,%3Csvg width='310' height='290' viewBox='0 0 310 290' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_119_3525)'%3E%3Cpath d='M307.25 287V0L305.25 0V287H307.25Z' fill='%2370012B'/%3E%3Cpath d='M303.844 285H6.16016V287H303.844V285Z' fill='%2370012B'/%3E%3Cpath d='M5.25 287L5.25 0L3.25002 0L3.25002 287H5.25Z' fill='%2370012B'/%3E%3Cpath d='M7.89944 285.827L4.07227 282L0.245089 285.827L4.07226 289.654L7.89944 285.827Z' fill='%2370012B'/%3E%3Cpath d='M309.897 285.827L306.07 282L302.243 285.827L306.07 289.654L309.897 285.827Z' fill='%2370012B'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_119_3525'%3E%3Crect width='310' height='290' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+        background-position: center bottom 7px;
+        inset: 0;
+        background-size: calc(100% - 20px) auto;
+    }
+}

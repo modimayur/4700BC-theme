@@ -2,8 +2,8 @@
 
 {%- style -%}
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
@@ -31,8 +31,31 @@
       <div class="swiper">
         <div class="swiper-wrapper">
           {% for block in section.blocks %}
-            <div class="swiper-slide blockquote-slide">
-              {% if block.settings.image != blank %}
+            <div class="swiper-slide blockquote-slide {% if block.settings.video != blank %} video-slide video-slide-{{ section.id }}{% endif %}">
+              {% if block.settings.video != blank %}
+                <div class="blockquote-wrapper">
+                  {% assign poster = block.settings.image | image_url: width: section.settings.image.width %}
+
+                  {{
+                    block.settings.video
+                    | video_tag:
+                      image_size: 285,
+                      autoplay: false,
+                      loop: true,
+                      muted: false,
+                      controls: false,
+                      class: 'slider-slide-video',
+                      data-index: forloop.index,
+                      poster: poster
+                  }}
+                  <div class="vss-play-button vss-play-button-{{ section.id }}">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24.6108" r="24" fill="black" fill-opacity="0.32"/>
+                      <path d="M34 24.6108C34.0005 24.8459 33.9451 25.0771 33.8392 25.2819C33.7332 25.4868 33.5804 25.6584 33.3954 25.7799L21.9345 33.4071C21.7413 33.5358 21.52 33.606 21.2935 33.6106C21.0669 33.6152 20.8434 33.5539 20.6459 33.433C20.4503 33.314 20.2874 33.1405 20.1739 32.9304C20.0603 32.7202 20.0003 32.4809 20 32.2371V16.9846C20.0003 16.7408 20.0603 16.5015 20.1739 16.2913C20.2874 16.0811 20.4503 15.9076 20.6459 15.7887C20.8434 15.6678 21.0669 15.6065 21.2935 15.6111C21.52 15.6156 21.7413 15.6859 21.9345 15.8146L33.3954 23.4418C33.5804 23.5633 33.7332 23.7349 33.8392 23.9397C33.9451 24.1446 34.0005 24.3758 34 24.6108Z" fill="white"/>
+                    </svg>
+                  </div>
+                </div>
+              {% elsif block.settings.image != blank %}
                 <div class="blockquote-wrapper">
                   {{
                     block.settings.image
@@ -136,6 +159,40 @@
         prevEl: '.section-testimonial-mediaslider .swiper-button-prev',
       },
     });
+
+    if (document.querySelectorAll('.vss-play-button-{{ section.id }}')) {
+      document.querySelectorAll('.vss-play-button-{{ section.id }}').forEach((button) => {
+        button.addEventListener('click', (e) => {
+          let video = button.closest('.swiper-slide').querySelector('video');
+          videoControl(video);
+        });
+      });
+    }
+
+    if (document.querySelectorAll('.video-slide-{{ section.id }} .slider-slide-video')) {
+      document.querySelectorAll('.video-slide-{{ section.id }} .slider-slide-video').forEach((video) => {
+        video.addEventListener('click', (e) => {
+          videoControl(video);
+        });
+      });
+    }
+
+    function videoControl(video) {
+      document.querySelectorAll('.video-slide-{{ section.id }} .slider-slide-video').forEach((v) => {
+        if (v.dataset.index === video.dataset.index) {
+          if (v.paused) {
+            v.play();
+            v.classList.add('playing');
+          } else {
+            v.pause();
+            v.classList.remove('playing');
+          }
+        } else {
+          v.pause();
+          v.classList.remove('playing');
+        }
+      });
+    }
   });
 </script>
 {% schema %}
@@ -215,14 +272,19 @@
       "name": "Blockquote",
       "settings": [
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "type": "header",
+          "content": "Media",
+          "info": "Both images and videos can be added here, but video will take precedence."
         },
         {
           "type": "video",
           "id": "video",
           "label": "Video"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         },
         {
           "type": "image_picker",

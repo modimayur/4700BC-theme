@@ -60,4 +60,36 @@
     line-height: 72.8px;
     letter-spacing: 0.06em;
 }
+@media (max-width: 1148px){
+    .section-exclusives .exclusives-container .arc-title, .section-exclusives .exclusives-container{
+        padding-inline: 1.6rem;
+    }
+    .section-exclusives .exclusives-container .exclusives-row .exclusives-column {
+        padding: 8.8rem 3rem 0.8rem;
+        max-width: 590px;
+        background-size: auto 100%;
+    }
+    .section-exclusives .exclusives-container .exclusives-row .exclusives-column h3 {
+        font-size: 4rem;
+        line-height: 130%;
+    }
+}
+@media screen and (max-width: 749px) {
+    .section-exclusives .exclusives-container .exclusives-row .exclusives-column {
+        padding: 4rem 0.8rem 0.8rem;
+        min-height: 300px;
+    }
+    .section-exclusives .exclusives-container .exclusives-row .exclusives-column span{
+        font-size: 1.4rem;
+        line-height: 160%;
+    }
+    .section-exclusives .exclusives-container .exclusives-row .exclusives-column h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.6rem;
+    }
+    .section-exclusives .exclusives-container .exclusives-row .exclusives-column .button {
+        font-size: 14px;
+        padding: 13px 18px;
+    }
+}
 /*----- exclusives section css end -----*/
