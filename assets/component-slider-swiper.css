@@ -28,6 +28,7 @@
     font-weight: 700;
     font-size: 22px;
     letter-spacing: 0;
+    margin: 0 auto 3rem;
 }
 .card-wrapper.product-card-wrapper:hover a{
     text-decoration: none;

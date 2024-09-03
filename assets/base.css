@@ -3767,7 +3767,7 @@ details-disclosure > details {
   font-weight: 700;
   font-size: 20px;
   line-height: 150%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   font-family: 'Formula Condensed';
 }

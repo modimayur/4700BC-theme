@@ -14,22 +14,26 @@
 {{ 'custom-predictive-search.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'custom-predictive-search.js' | asset_url }}" defer="defer"></script>
+
 <div class="custom-predictive-search-bg color-{{ section.settings.color_scheme }} gradient isolate">
-  <div class="section-heading" id="section-heading">
-    <svg width='1440' height='450' viewBox='0 360 1440 70' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <mask id='mask0_33_1332' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='1440' height='503'>
-          <rect width='1440' height='503' fill='#D9D9D9' />
-      </mask>
-      <g mask='url(#mask0_33_1332)'>
-          <path class="path-01" id="path01" d='M1440 -340H0V95.496C254.5 677.486 1279.5 595.987 1440 95.496V-340Z' />
-      </g>
-      <text>
-          <textPath href="#path01" fill="#592C29" startOffset="68%" text-anchor="middle" dominant-baseline="middle">
-            WHAT ARE YOU CRAVING TODAY?
-          </textPath>
-      </text>
-    </svg>
-  </div>
+
+  {% if section.settings.heading != blank %}
+    <div class="section-heading" id="section-heading-123">
+      <svg width='1440' height='450' viewBox='0 360 1440 70' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <mask id='mask0_33_1332' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='1440' height='503'>
+            <rect width='1440' height='503' fill='#D9D9D9' />
+        </mask>
+        <g mask='url(#mask0_33_1332)'>
+            <path class="path-01" id="path01" d='M1440 -340H0V95.496C254.5 677.486 1279.5 595.987 1440 95.496V-340Z' />
+        </g>
+        <text>
+            <textPath href="#path01" fill="#592C29" startOffset="120%" text-anchor="middle" dominant-baseline="middle">
+              {{ section.settings.heading }}
+            </textPath>
+        </text>
+      </svg>
+    </div>
+  {% endif %}
   {% comment %} 
   <div class="smilytext">
     <svg width="1294" height="340" viewBox="0 0 1294 340" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +65,7 @@
   {% endcomment %}
 
   <div class="page-width section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
+    {%- if section.settings.heading != blank and false -%}
       <h2 class="wrapper-title center inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}
       </h2>

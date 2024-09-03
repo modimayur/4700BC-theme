@@ -110,6 +110,7 @@ main#MainContent {
   letter-spacing: .15em;
 }
 
+.sections-product-search-range #search-results .product-iteam.swiper-slide-active  .view-product-button,
 .sections-product-search-range #search-results .product-iteam:hover .view-product-button,
 .sections-product-search-range #search-results .product-iteam.swiper-slide-active .product-title,
 .sections-product-search-range #search-results .product-iteam:hover .product-title{
@@ -132,6 +133,9 @@ main#MainContent {
 @media screen and (max-width: 989px) {
     .sections-product-search-range .custom-predictive-search-bg::before{
         inset: 56% 0 0;
+    }
+    #search-results .product-iteam{
+      padding-bottom: 9px;
     }
 }
 @media screen and (max-width: 749px) {
@@ -232,4 +236,8 @@ main#MainContent {
   .custom-predictive-search-bg .section-heading svg textPath{
     font-size: 82px;
   }
+}
+
+.section-heading  textPath {
+  transition: startOffset 1s ease;
 }
