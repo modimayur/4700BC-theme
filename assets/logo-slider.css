@@ -43,3 +43,25 @@
     text-align: center;
     margin-block: 1.6rem 0;
 }
+
+
+
+@media (max-width: 1148px){
+    .section-logoslider .logo-slider-swiper .brand-item .brand-item__image{
+        max-width: 220px;
+    }
+    .section-logoslider .logo-slider-swiper .brand-item .brand-item__image img{
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .section-logoslider .logo-slider-swiper .brand-item .brand-item__image{
+        max-width: 70px;
+    }
+    .section-logoslider .logo-slider-swiper .brand-item .brand-item__image img{
+        max-width: 100%;
+        height: auto;
+    }
+}

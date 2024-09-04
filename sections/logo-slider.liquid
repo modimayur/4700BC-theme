@@ -63,20 +63,15 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     new Swiper('#shopify-section-{{ section.id }} .logo-slider-swiper', {
-      slidesPerView: 1.5,
+      slidesPerView: 'auto',
       spaceBetween: 16,
       loop: true,
       breakpoints: {
-        640: {
-          slidesPerView: 2.5,
-        },
         1024: {
-          spaceBetween: 20,
-          slidesPerView: 4.5,
+          spaceBetween: 20
         },
         1600: {
-          spaceBetween: 32,
-          slidesPerView: 'auto',
+          spaceBetween: 32
         },
       }
     });
