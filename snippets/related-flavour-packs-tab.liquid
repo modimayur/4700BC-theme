@@ -21,7 +21,6 @@
     endfor
 
     assign has_combo = false
-    echo product.metafields.custom.combo_packs.list?
     assign combo_products = product.metafields.custom.combo_packs.value
     if combo_products != blank
         assign has_combo = true
@@ -58,10 +57,12 @@
                         {%- for flavour_product in other_products -%}
                             {%- if flavour_product.handle != product.handle -%}
                             <div class="grid__item product-block center">
-                                <div class="product-img">
-                                    {{ flavour_product.featured_image |  image_url: width:70 |  image_tag  }}
-                                </div>
-                                <h4>{{ flavour_product.title }}</h4>
+                                <a href="{{ flavour_product.url }}">
+                                    <div class="product-img">
+                                        {{ flavour_product.featured_image |  image_url: width:120 |  image_tag  }}
+                                    </div>
+                                    <h4>{{ flavour_product.title }}</h4>
+                                </a>
                             </div>
                             {%- endif -%}
                         {%- endfor -%}
@@ -71,13 +72,15 @@
             {%- if has_combo == true -%}
                 <div class="tab-data-content scroll-trigger animate--slide-in {{ tab_2_content_active }}" id="tab_2">
                     <div class="product-list grid">
-                        {%- for flavour_product in combo_products -%}
-                            {%- if flavour_product.handle != product.handle -%}
+                        {%- for combo_product in combo_products -%}
+                            {%- if combo_product.handle != product.handle -%}
                             <div class="grid__item product-block center">
-                                <div class="product-img">
-                                    {{ flavour_product.featured_image |  image_url: width:70 |  image_tag  }}
-                                </div>
-                                <h4>{{ flavour_product.title }}</h4>
+                                <a href="{{ combo_product.url }}">
+                                    <div class="product-img">
+                                        {{ combo_product.featured_image |  image_url: width:120 |  image_tag  }}
+                                    </div>
+                                    <h4>{{ combo_product.title }}</h4>
+                                </a>
                             </div>
                             {%- endif -%}
                         {%- endfor -%}

@@ -1676,9 +1676,35 @@ a.product__text {
   }
 }
 
+button.shopify-payment-button__button--unbranded, .shopify-payment-button__button{
+  min-height: calc(5.5rem + var(--buttons-border-width)* 2);
+
+}
+
+button.shopify-payment-button__button--unbranded span, .shopify-payment-button__button span{
+  font-size: 18px;
+  letter-spacing: 0.12rem;
+}
+
 .product-details.quick-add-hidden svg.before-svg-path {
   display: block;
   width: 100%;
   aspect-ratio: 1440/71;
   height: auto;
+}
+
+.product-form__buttons .product-form__submit,
+.product-form__buttons .shopify-payment-button__button{
+  line-height: unset;
+  letter-spacing: unset;
+}
+
+.product-form__buttons .shopify-payment-button__button--unbranded:before{
+  border: var(--buttons-border-width) solid rgba(var(--color-button), 1);
+}
+
+.product-form__buttons .shopify-payment-button__button.shopify-payment-button__button--unbranded{
+  background: #FFF6E0;
+  color: #000;
+  border: var(--buttons-border-width) solid rgba(var(--color-button), 1);
 }

@@ -11,7 +11,11 @@ if (!customElements.get('tab-content')) {
 
         this.tab.forEach((t) => {
           t.addEventListener('click', this.handleTabClick.bind(this));
-        })
+        });
+
+        if (window.innerWidth < 749) {
+          document.querySelector('.mobile-related-product-tab').appendChild(this);
+        }
       }
 
       handleTabClick(event){
