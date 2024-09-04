@@ -1291,7 +1291,7 @@ button.shopify-payment-button__button--unbranded,
   transition: box-shadow var(--duration-short) ease;
   border: var(--buttons-border-width) solid rgba(var(--color-button),1);
   transform: translate(5px, 5px);
-
+  z-index: -1;
 }
 
 .button:not([disabled]):hover::after,

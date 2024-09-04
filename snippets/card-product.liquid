@@ -62,7 +62,7 @@
       >
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
-            <div class="media media--transparent media--hover-effect">
+            <div class="media media--transparent media--hover-effect primary-img">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
                 srcset="
@@ -85,31 +85,56 @@
                 height="{{ card_product.featured_media.height }}"
               >
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
-
+            </div>
+            <div class="card__content-top">
               {%- if card_product.media[2] != null and show_secondary_image -%}
-                <img
-                  srcset="
-                    {%- if card_product.media[2].width >= 165 -%}{{ card_product.media[2] | image_url: width: 165 }} 165w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 360 -%}{{ card_product.media[2] | image_url: width: 360 }} 360w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 533 -%}{{ card_product.media[2] | image_url: width: 533 }} 533w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 720 -%}{{ card_product.media[2] | image_url: width: 720 }} 720w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 940 -%}{{ card_product.media[2] | image_url: width: 940 }} 940w,{%- endif -%}
-                    {%- if card_product.media[2].width >= 1066 -%}{{ card_product.media[2] | image_url: width: 1066 }} 1066w,{%- endif -%}
-                    {{ card_product.media[2] | image_url }} {{ card_product.media[2].width }}w
-                  "
-                  src="{{ card_product.media[2] | image_url: width: 533 }}"
-                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                  alt=""
-                  class="motion-reduce"
-                  loading="lazy"
-                  width="{{ card_product.media[2].width }}"
-                  height="{{ card_product.media[2].height }}"
-                >
+                <div class="media media--transparent media--hover-effect secondary-img">
+                  <img
+                    srcset="
+                      {%- if card_product.media[2].width >= 165 -%}{{ card_product.media[2] | image_url: width: 165 }} 165w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 360 -%}{{ card_product.media[2] | image_url: width: 360 }} 360w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 533 -%}{{ card_product.media[2] | image_url: width: 533 }} 533w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 720 -%}{{ card_product.media[2] | image_url: width: 720 }} 720w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 940 -%}{{ card_product.media[2] | image_url: width: 940 }} 940w,{%- endif -%}
+                      {%- if card_product.media[2].width >= 1066 -%}{{ card_product.media[2] | image_url: width: 1066 }} 1066w,{%- endif -%}
+                      {{ card_product.media[2] | image_url }} {{ card_product.media[2].width }}w
+                    "
+                    src="{{ card_product.media[2] | image_url: width: 533 }}"
+                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                    alt=""
+                    class="motion-reduce"
+                    loading="lazy"
+                    width="{{ card_product.media[2].width }}"
+                    height="{{ card_product.media[2].height }}"
+                  >
+                </div>
               {%- endif -%}
+              <div class="card__content-top-shap">
+                <svg
+                  class="before-shap"
+                  width="387"
+                  height="27"
+                  viewBox="0 0 387 27"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <mask id="mask0_123_105" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="387" height="27">
+                    <rect width="387" height="27" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_123_105)">
+                    <path
+                      d="M0 20.3115C0 9.95916 9.68224 2.33214 19.7467 4.75635L105.576 25.4298C108.152 26.0502 110.841 26.0213 113.403 25.3456L193.831 4.13264C195.922 3.58119 198.103 3.45926 200.242 3.77422L298.609 18.2566C300.52 18.5381 302.467 18.4709 304.355 18.0585L367.584 4.24241C377.562 2.06231 387 9.66088 387 19.8736V195C387 203.837 379.837 211 371 211H16C7.16345 211 0 203.837 0 195V20.3115Z"
+                      fill="var(--caption-bg-color)" />
+                  </g>
+                </svg>
+              </div>
+
+
             </div>
           </div>
         {%- endif -%}
       </div>
+ 
       <div class="card__content">
         <div class="card__information">
           <h3
@@ -146,15 +171,8 @@
           {%- endif -%}
         </div>
       </div>
+
       <div class="card__content-wrapper">
-        <svg class="before-shap" width="387" height="27" viewBox="0 0 387 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <mask id="mask0_123_105" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="387" height="27">
-          <rect width="387" height="27" fill="#D9D9D9"/>
-          </mask>
-          <g mask="url(#mask0_123_105)">
-          <path d="M0 20.3115C0 9.95916 9.68224 2.33214 19.7467 4.75635L105.576 25.4298C108.152 26.0502 110.841 26.0213 113.403 25.3456L193.831 4.13264C195.922 3.58119 198.103 3.45926 200.242 3.77422L298.609 18.2566C300.52 18.5381 302.467 18.4709 304.355 18.0585L367.584 4.24241C377.562 2.06231 387 9.66088 387 19.8736V195C387 203.837 379.837 211 371 211H16C7.16345 211 0 203.837 0 195V20.3115Z" fill="var(--caption-bg-color)"/>
-          </g>
-          </svg>
         <div class="card__content">
           <div class="card__information">
             <h3
