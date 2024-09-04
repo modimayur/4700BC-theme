@@ -92,19 +92,26 @@ main#MainContent {
     text-decoration: none;
 }
 .sections-product-search-range #search-results .product-iteam .product-title{
-    font-family: var(--font-heading-family);
+    /* font-family: var(--font-heading-family); */
+    font-family: var(--font-body-family);
     font-style: normal;
-    font-weight: 700;
-    font-size: 1.6rem;
-    font-size: 32px;
-    line-height: 150%;
+    font-weight: 800;
+    font-size: 18px;
     color: #592C29;
-    margin: 0.5rem 0 0;
-    text-transform: uppercase;
+    margin: .5rem 0 2rem;
     transition: all 0.3s ease-in-out;
     opacity: 0;
-    letter-spacing: 0.15rem;
 }
+
+.sections-product-search-range #search-results .product-iteam .view-product-button{
+  opacity: 0;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: .15em;
+}
+
+.sections-product-search-range #search-results .product-iteam.swiper-slide-active  .view-product-button,
+.sections-product-search-range #search-results .product-iteam:hover .view-product-button,
 .sections-product-search-range #search-results .product-iteam.swiper-slide-active .product-title,
 .sections-product-search-range #search-results .product-iteam:hover .product-title{
     opacity: 1;
@@ -126,6 +133,9 @@ main#MainContent {
 @media screen and (max-width: 989px) {
     .sections-product-search-range .custom-predictive-search-bg::before{
         inset: 56% 0 0;
+    }
+    #search-results .product-iteam{
+      padding-bottom: 9px;
     }
 }
 @media screen and (max-width: 749px) {
@@ -226,4 +236,8 @@ main#MainContent {
   .custom-predictive-search-bg .section-heading svg textPath{
     font-size: 82px;
   }
+}
+
+.section-heading  textPath {
+  transition: startOffset 1s ease;
 }

@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "slideshow_JLnqx7": {
@@ -55,31 +64,46 @@
         "icon_with_text_TdGXmK": {
           "type": "icon_with_text",
           "settings": {
-            "icon_text": "Happiness at its crispiest"
+            "icon_text": "Happiness at its crispiest",
+            "copy_count": 3,
+            "scrolll_speed": 20,
+            "scroll_direction": "rtl"
           }
         },
         "icon_with_text_dFJhyr": {
           "type": "icon_with_text",
           "settings": {
-            "icon_text": "Happiness at its crispiest"
+            "icon_text": "Happiness at its crispiest",
+            "copy_count": 3,
+            "scrolll_speed": 20,
+            "scroll_direction": "rtl"
           }
         },
         "icon_with_text_KdNMqj": {
           "type": "icon_with_text",
           "settings": {
-            "icon_text": "Happiness at its crispiest"
+            "icon_text": "Happiness at its crispiest",
+            "copy_count": 3,
+            "scrolll_speed": 20,
+            "scroll_direction": "rtl"
           }
         },
         "icon_with_text_96CmVE": {
           "type": "icon_with_text",
           "settings": {
-            "icon_text": "Happiness at its crispiest"
+            "icon_text": "Happiness at its crispiest",
+            "copy_count": 3,
+            "scrolll_speed": 20,
+            "scroll_direction": "rtl"
           }
         },
         "icon_with_text_GCbmQ8": {
           "type": "icon_with_text",
           "settings": {
-            "icon_text": "Happiness at its crispiest"
+            "icon_text": "Happiness at its crispiest",
+            "copy_count": 3,
+            "scrolll_speed": 20,
+            "scroll_direction": "rtl"
           }
         }
       },
@@ -92,7 +116,10 @@
       ],
       "disabled": true,
       "settings": {
-        "color_scheme": "scheme-5"
+        "color_scheme": "scheme-5",
+        "link": "",
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "sections-product-range": {
@@ -112,7 +139,7 @@
           "settings": {
             "product": "sundried-tomato-corn-chips-pack-of-6-55g",
             "color_background": "#2a314b",
-            "custom_image": "shopify:\/\/shop_images\/product-image-02.png",
+            "custom_image": "shopify:\/\/shop_images\/product-image-02_15875d1c-a5b3-478e-b974-79af95e615d5.png",
             "title": "Himalayan Salt Caramel Popcorn"
           }
         },
@@ -238,8 +265,8 @@
     "product-search-range": {
       "type": "product-search-range",
       "settings": {
-        "heading": "",
-        "heading_size": "hxl",
+        "heading": "WHAT ARE YOU CRAVING TODAY?",
+        "heading_size": "hxxl",
         "product_list": [
           "cheese-and-herbs-corn-chips-pack-of-6-55g",
           "hawaiian-barbeque-corn-chips-pack-of-6-55g",
@@ -248,10 +275,10 @@
           "crunchy-corn-hawaiian-bbq-pouch-pack-of-8-40g"
         ],
         "color_scheme": "",
-        "button_label": " VIEW PRODUCT",
-        "button_link": "shopify:\/\/collections\/all",
+        "button_label": "",
+        "button_link": "",
         "padding_top": 36,
-        "padding_bottom": 80
+        "padding_bottom": 12
       }
     },
     "featuredrecipes": {
@@ -336,8 +363,8 @@
         "products_to_show": 10,
         "columns_desktop": 5,
         "full_width": true,
-        "show_view_all": true,
-        "view_all_style": "solid",
+        "show_view_all": false,
+        "view_all_style": "outline",
         "color_scheme": "scheme-10",
         "card_style": "standard",
         "image_ratio": "adapt",
