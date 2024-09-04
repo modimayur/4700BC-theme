@@ -3783,7 +3783,8 @@ details-disclosure > details {
   }
 }
 
-
+.section-exclusives .exclusives-container .arc-title svg,
+.section-jointheteam .heading_liquid svg,
 .section-jointheteam .heading_liquid svg,
 section.sections-product-range .shopify-section-inner-bg .wrapper-title{
   animation: appear linear;

@@ -65,7 +65,9 @@
     new Swiper('#shopify-section-{{ section.id }} .logo-slider-swiper', {
       slidesPerView: 'auto',
       spaceBetween: 16,
-      loop: true,
+      loop: false,
+      //centeredSlides: true,
+      slidesOffsetBefore: 120,
       breakpoints: {
         1024: {
           spaceBetween: 20

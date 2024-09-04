@@ -21,7 +21,8 @@
 }
 
 .section-logoslider .logo-slider-swiper {
-    margin-left: calc((50vw - (var(--page-width) / 2 ) ) - 10px);
+    /* margin-left: calc((50vw - (var(--page-width) / 2 ) ) - 10px); */
+    --margin-left: calc((50vw - (var(--page-width) / 2 ) ) - 10px);
 }
 
 .section-logoslider .logo-slider-swiper .brand-item {
