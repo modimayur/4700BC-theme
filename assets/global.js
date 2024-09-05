@@ -1301,6 +1301,38 @@ function updateCustomMarqueeSpace() {
 };
 
 
+
+// Function to check if an element is in view
+function isInView(element) {
+  const rect = element.getBoundingClientRect();
+  return (rect.top < window.innerHeight && rect.bottom > 0);
+}
+
+// Function to add or remove the animation class based on scroll position
+function idomAnimationInit() {
+  const sections = document.querySelectorAll('.animate-idom'); // All sections with class 'animate-section'
+  
+  sections.forEach(section => {
+    var animationNameClass = document.querySelectorAll('.animate-idom')[0].dataset.animationName;
+    if (isInView(section)) {
+      section.classList.add('animate'); // Add animation class when section is in view
+      section.classList.add(animationNameClass ? animationNameClass : '');
+    } else {
+      section.classList.remove('animate'); // Remove animation class when section is out of view
+      section.classList.remove(animationNameClass ? animationNameClass : '');
+    }
+  });
+}
+
+// Listen to scroll events
+window.addEventListener('scroll', idomAnimationInit);
+
+// Run the function on page load to apply animations immediately if sections are already in view
+document.addEventListener('DOMContentLoaded', idomAnimationInit);
+
+
+
+
 window.addEventListener('resize', () => {
   updateCustomMarqueeSpace();
 });
@@ -1451,12 +1483,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // console.log('that',productrange);
     }
   }
-
-
-
-
-
-
   var movetoVerticle = gsap.utils.toArray(".motiv");
   if(movetoVerticle.length > 0){
     console.log('movetoVerticle: ',movetoVerticle.length);
