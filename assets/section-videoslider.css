@@ -146,7 +146,8 @@
 .section-videoslider .section-before-curve svg {
   width: 100%;
   height: auto;
-  background: #feeec7;
+  fill: #feeec7;
+  margin-top: -1px;
 }
 
 @media (max-width: 1600px){

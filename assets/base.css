@@ -2454,8 +2454,13 @@ announcement-bar{
     'giftingbtn heading snackingbtn'
     'navigation navigation icons';
     row-gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    row-gap: 15px
   }
-
+  .header.header--top-center > a.header-btn{
+    padding: 12px 60px 8px;
+  }
   .header--top-center.drawer-menu {
     grid-template-areas: 'left-icons heading icons';
     grid-template-columns: 1fr auto 1fr;
@@ -3782,7 +3787,6 @@ details-disclosure > details {
     transform: scale(1);
   }
 }
-
 .section-exclusives .exclusives-container .arc-title svg,
 .section-jointheteam .heading_liquid svg,
 .section-jointheteam .heading_liquid svg,
@@ -3819,5 +3823,25 @@ section.sections-product-range .shopify-section-inner-bg .wrapper-title{
 @media screen and (max-width: 749px) {
   .sections-product-search-range .smilytext{
     margin-bottom: -10rem;
+  }
+}
+
+
+
+.custom-predictive-search-bg .section-heading svg{
+  animation: appearRotat90deg linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+  transform-origin: top center;
+}
+
+@keyframes appearRotat90deg {
+  from {
+    opacity: 0;
+    transform: scale(0) translate(0, 100vh);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
   }
 }
