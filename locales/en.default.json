@@ -384,6 +384,7 @@
     "country_results_count": "{{ count }} countries\/regions found"
   },
   "customer": {
+    "info":"By creating an account with our store, you will be able to move through the checkout process faster, view and track your orders in your account and more.",
     "account": {
       "title": "Account",
       "details": "Account details",
@@ -426,14 +427,16 @@
     "log_out": "Log out",
     "login_page": {
       "cancel": "Cancel",
-      "create_account": "Create account",
-      "email": "Email",
-      "forgot_password": "Forgot your password?",
+      "create_account_heading":"Need an Account?",
+      "create_account": "Create an account",
+      "email": "Email ID",
+      "forgot_password": "Forgot password?",
       "guest_continue": "Continue",
       "guest_title": "Continue as a guest",
       "password": "Password",
       "title": "Login",
-      "sign_in": "Sign in",
+      "sign_in": "Login",
+      "return_store":"Return To Store",
       "submit": "Submit",
       "alternate_provider_separator": "or"
     },
@@ -479,12 +482,15 @@
       "success": "We've sent you an email with a link to update your password."
     },
     "register": {
-      "title": "Create account",
+      "title": "Create an account",
       "first_name": "First name",
       "last_name": "Last name",
-      "email": "Email",
+      "email": "Email ID",
       "password": "Password",
-      "submit": "Create"
+      "submit": "Register",
+      "return_store":"Return To Store",
+      "login_heading":"Already have an account?",
+      "login": "Sign In"
     },
     "reset_password": {
       "title": "Reset account password",
