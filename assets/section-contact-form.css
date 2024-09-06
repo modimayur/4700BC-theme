@@ -107,6 +107,10 @@
   background: #fff;
 }
 
+#ContactForm .field .field__input:focus{
+  padding: 1.5rem;
+}
+
 #ContactForm .field .field__label{
   position: relative;
   left: auto;

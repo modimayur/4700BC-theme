@@ -14,24 +14,165 @@
 
 .customer .grid{
   column-gap: 6rem;
+  align-items: center;
 }
 
 .customer .grid .grid-item{
 
 }
 
-.form-detail-container{
-  max-width: 60rem;
+.form-detail-container h1{
+  font-size: 80px;
+  color: #070707;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 5.5rem;
+  margin-top:0;
+  letter-spacing: 0.18rem;
+}
+.form-detail-container .field{
+  flex-direction: column-reverse;
+}
+.form-detail-container .field::before, .form-detail-container .field:after{
+  display: none;
+}
+.form-detail-container .field label{
+  position: static;
+  width: auto;
+  line-height: unset;
+  letter-spacing: 0;
+  color: #0A090A;
+  font-size: 14px;
+  font-weight: 600;
+}
+.form-detail-container .field input{
+  border: 1px solid #FCDB8B;
+  border-radius: 6px;
+  background: #fff;
+}
+.field__input:focus~.field__label, .field__input:not(:placeholder-shown)~.field__label, .field__input:-webkit-autofill~.field__label, .customer .field input:focus~label, .customer .field input:not(:placeholder-shown)~label, .customer .field input:-webkit-autofill~label{
+  font-size: 14px;
+  letter-spacing: 0;
+}
+.customer .field input:not(:placeholder-shown), .customer .field input:-webkit-autofill,
+.customer .form-detail-container .field input:focus{
+  padding: 1.5rem;
 }
 
-.customer .grid .grid-item.left-image{
-  width: calc(40% - 60px / 2);
-  max-width: calc(40% - 60px / 2);
+.form-detail-container .field span{
+  color:#FF0000;
 }
 
-.customer .grid .grid-item.right-content{
-  width: calc(60% - 60px / 2);
-  max-width: calc(60% - 60px / 2);
+.form-detail-container .field ::placeholder {
+  color: #81858D;
+  font-size: 16px;
+  opacity: 1; /* Firefox */
+}
+
+.form-detail-container .field ::-ms-input-placeholder { /* Edge 12 -18 */
+  color: #81858D;
+  font-size: 16px;
+}
+
+.form-detail-container .field+a:not(.button){
+  text-align: right;
+  margin-top: 2rem;
+  color: #070707;
+  font-weight: 500;
+  font-size: 18px;
+  width: unset;
+}
+
+.form-detail-container .button-groups{
+  margin-top: 32px;
+  padding-bottom: 5px;
+}
+.form-detail-container .button-groups button{
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1400px) {
+  .form-detail-container{
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width: 990px) and (max-width: 1399px) {
+  .form-detail-container{
+    max-width: 90%;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .inline-field{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .customer .inline-field .field{
+    margin: 0 auto;
+  }
+
+  .customer .grid .grid-item.left-image{
+    width: calc(40% - 60px / 2);
+    max-width: calc(40% - 60px / 2);
+  }
+
+  .customer .grid .grid-item.right-content{
+    width: calc(60% - 60px / 2);
+    max-width: calc(60% - 60px / 2);
+  }
+}
+
+@media screen and (min-width: 990px) and (max-width: 1600px){
+  .customer .left-image .image-with-text__media,
+  .customer .left-image .image-with-text__media img{
+    height: 100vh;
+  }
+}
+@media screen and (min-width: 990px) and (max-width: 1200px){
+  .form-detail-container h1{
+    margin-bottom: 3rem;
+    font-size: 65px;
+  }
+  .customer .form-detail-container form{
+    margin-top: 3.2rem;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .customer .grid .grid-item.left-image,
+  .customer .grid .grid-item.right-content{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .form-detail-container{
+    padding: 0 4rem;
+  }
+  .form-detail-container h1{
+    font-size: 55px;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .customer .left-image .image-with-text__media{
+    height: 180px;
+    overflow: hidden;
+    padding-bottom: unset !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .form-detail-container{
+    padding: 0 25px;
+  }
+  .customer .form-detail-container form{
+    margin-top: 3.2rem;
+  }
+  .form-detail-container h1{
+    font-size: 40px;
+  }
 }
 
 .customer > h1,
@@ -774,4 +915,71 @@ li[data-address] > h2 {
 .addresses form > div:nth-of-type(7),
 .addresses form > div:nth-of-type(7) + div[id] {
   margin-top: 1.5rem;
+}
+
+.login-register-info p{
+  font-size: 16px;
+  color: #4f4f4f;
+  font-weight: 500;
+  margin: 32px auto 40px;
+}
+
+.button-groups{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+.button-groups .button{
+  width:100%;
+}
+
+.separator {
+  margin: 20px auto 24px;
+  position: relative;
+}
+.separator::before{
+  content: '';
+  display: block;
+  background: radial-gradient(circle at 100% 100%, #ffffff 0, #ffffff 7px, transparent 7px) 0% 0%/8px 8px no-repeat,
+            radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 7px, transparent 7px) 100% 0%/8px 8px no-repeat,
+            radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 7px, transparent 7px) 0% 100%/8px 8px no-repeat,
+            radial-gradient(circle at 0 0, #ffffff 0, #ffffff 7px, transparent 7px) 100% 100%/8px 8px no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 2px) calc(100% - 16px) no-repeat,
+            linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 16px) calc(100% - 2px) no-repeat,
+            linear-gradient(90deg, transparent 0%, #fbac24 50%, transparent 100%);
+  box-sizing: border-box;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: calc(50% + 1px);
+  z-index: 0;
+}
+
+.separator span{
+  color: #070707;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px 10px;
+  background: #fff6e0;
+  position: relative;
+}
+
+.bottom-container{
+  background: #FEE9B7;
+  border-radius: 12px;
+  padding:20px;
+}
+
+.bottom-container h3{
+  font-size: 20px;
+  color: #070707;
+  font-weight: 500;
+  font-family: var(--font-body-family);
+  text-align: center;
+}
+
+.bottom-container .button{
+  
 }

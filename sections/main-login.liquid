@@ -67,7 +67,7 @@
               placeholder="{{ 'customer.login_page.email' | t }}"
             >
             <label for="RecoverEmail">
-              {{ 'customer.login_page.email' | t }}
+              {{ 'customer.login_page.email' | t }}<span aria-hidden="true">*</span>
             </label>
           </div>
           {%- if form.errors -%}
@@ -147,7 +147,7 @@
               placeholder="{{ 'customer.login_page.email' | t }}"
             >
             <label for="CustomerEmail">
-              {{ 'customer.login_page.email' | t }}
+              {{ 'customer.login_page.email' | t }}<span aria-hidden="true">*</span>
             </label>
           </div>
 
@@ -165,7 +165,7 @@
                 placeholder="{{ 'customer.login_page.password' | t }}"
               >
               <label for="CustomerPassword">
-                {{ 'customer.login_page.password' | t }}
+                {{ 'customer.login_page.password' | t }}<span aria-hidden="true">*</span>
               </label>
             </div>
 
@@ -179,7 +179,7 @@
             </button>
             <a href="/" class="button button--secondary ">
               <span>
-                {{ 'customer.register.return_store' | t }}
+                {{ 'customer.login_page.return_store' | t }}
               </span>
             </a>
           </div>
@@ -209,7 +209,7 @@
 
       <div class="bottom-container center">
         <h3>{{ 'customer.login_page.create_account_heading' | t }}</h3>
-        <a href="{{ routes.account_login_url }}" class="button button--secondary">
+        <a href="{{ routes.account_register_url }}" class="button button--secondary">
           {{ 'customer.login_page.create_account' | t }}
         </a>
       </div>

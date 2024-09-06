@@ -70,35 +70,37 @@
             {%- endfor -%}
           </ul>
         {%- endif -%}
-        <div class="field">
-          <input
-            type="text"
-            name="customer[first_name]"
-            id="RegisterForm-FirstName"
-            {% if form.first_name %}
-              value="{{ form.first_name }}"
-            {% endif %}
-            autocomplete="given-name"
-            placeholder="{{ 'customer.register.first_name' | t }}"
-          >
-          <label for="RegisterForm-FirstName">
-            {{ 'customer.register.first_name' | t }}
-          </label>
-        </div>
-        <div class="field">
-          <input
-            type="text"
-            name="customer[last_name]"
-            id="RegisterForm-LastName"
-            {% if form.last_name %}
-              value="{{ form.last_name }}"
-            {% endif %}
-            autocomplete="family-name"
-            placeholder="{{ 'customer.register.last_name' | t }}"
-          >
-          <label for="RegisterForm-LastName">
-            {{ 'customer.register.last_name' | t }}
-          </label>
+        <div class="inline-field">
+          <div class="field">
+            <input
+              type="text"
+              name="customer[first_name]"
+              id="RegisterForm-FirstName"
+              {% if form.first_name %}
+                value="{{ form.first_name }}"
+              {% endif %}
+              autocomplete="given-name"
+              placeholder="Enter {{ 'customer.register.first_name' | t }}"
+            >
+            <label for="RegisterForm-FirstName">
+              {{ 'customer.register.first_name' | t }}<span aria-hidden="true">*</span>
+            </label>
+          </div>
+          <div class="field">
+            <input
+              type="text"
+              name="customer[last_name]"
+              id="RegisterForm-LastName"
+              {% if form.last_name %}
+                value="{{ form.last_name }}"
+              {% endif %}
+              autocomplete="family-name"
+              placeholder="Enter {{ 'customer.register.last_name' | t }}"
+            >
+            <label for="RegisterForm-LastName">
+              {{ 'customer.register.last_name' | t }}<span aria-hidden="true">*</span>
+            </label>
+          </div>
         </div>
         <div class="field">
           <input
@@ -116,10 +118,10 @@
               aria-invalid="true"
               aria-describedby="RegisterForm-email-error"
             {% endif %}
-            placeholder="{{ 'customer.register.email' | t }}"
+            placeholder="Enter {{ 'customer.register.email' | t }}"
           >
           <label for="RegisterForm-email">
-            {{ 'customer.register.email' | t }}
+            {{ 'customer.register.email' | t }}<span aria-hidden="true">*</span>
           </label>
         </div>
         {%- if form.errors contains 'email' -%}
@@ -141,10 +143,10 @@
               aria-invalid="true"
               aria-describedby="RegisterForm-password-error"
             {% endif %}
-            placeholder="{{ 'customer.register.password' | t }}"
+            placeholder="Enter {{ 'customer.register.password' | t }}"
           >
           <label for="RegisterForm-password">
-            {{ 'customer.register.password' | t }}
+            {{ 'customer.register.password' | t }}<span aria-hidden="true">*</span>
           </label>
         </div>
         {%- if form.errors contains 'password' -%}
