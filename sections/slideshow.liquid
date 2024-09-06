@@ -26,8 +26,8 @@
 {%- elsif section.settings.slide_height == '100vh' and section.blocks.first.settings.image != blank -%}
   {%- style -%}
     slideshow-component .slider.slider--everywhere .slider__slide:nth-of-type(1){
-      aspect-ratio: {{ section.blocks.first.settings.image.width }}/{{ section.blocks.first.settings.image.height }};
-      height: auto;
+      /* aspect-ratio: {{ section.blocks.first.settings.image.width }}/{{ section.blocks.first.settings.image.height }}; */
+      /* height: auto; */
     }
   {%- endstyle -%}
 {%- endif -%}

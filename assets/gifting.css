@@ -75,7 +75,11 @@ body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title .verticle-
     height: 7.7rem;
     overflow:hidden;
     line-height: 100%;
-}
+    font-family: "Playfair Display", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
 
 body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title .verticle-ticker .motiv{
     position:relative;
@@ -94,10 +98,18 @@ body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item{
     justify-content: center;
     display: flex;
     flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 1000vh;
+}
+body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item:hover{
+    background-position: center 0;
 }
 body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item:first-of-type{
-    background: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/gifting_banner_04.jpg?v=1724950693);
-    background-attachment: fixed;
+    background-image: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/gifting_banner_04.jpg?v=1724950693);
+}
+body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item:last-of-type{
+    background-image: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/gifting_banner_04-2.jpg?v=1725475106);
 }
 body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item:first-of-type .media {
     /* background: url('//4700bc-development.myshopify.com/cdn/shop/files/gifting_banner_02.png?v=1724950692&width=3200'); */
@@ -154,19 +166,22 @@ body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-wit
     background-size: cover;
     border: 0;
 }
-.corporategifting.gradient .image-with-text.image-with-text--no-overlap{
+.corporategifting.gradient .image-with-text.image-with-text--no-overlap {
+    border-radius: 12px;
+    overflow: clip;
+    position: relative;
+}
+.corporategifting.gradient .image-with-text.image-with-text--no-overlap .image-with-text__text-item.grid__item{
     /* background-image: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/corporate-bg-2.png?v=1725045710); */
     background-image: url(https://cdn.shopify.com/s/files/1/0705/5065/1093/files/gifting_banner_11.jpg?v=1725046293);
     background-position: center right;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     border: 0;
-    border-radius: 12px;
-    overflow: clip;
     position: relative;
     z-index: 0;
 }
-.corporategifting.gradient .image-with-text.image-with-text--no-overlap::before{
+.corporategifting.gradient .image-with-text.image-with-text--no-overlap .image-with-text__text-item.grid__item:before{
     content: "";
     background-image: url("data:image/svg+xml,%3Csvg width='962' height='450' viewBox='0 0 962 450' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect y='5' width='956' height='2' fill='%2370012B'/%3E%3Crect x='955' y='445' width='440' height='2' transform='rotate(-90 955 445)' fill='%2370012B'/%3E%3Crect y='443' width='956' height='2' fill='%2370012B'/%3E%3Crect x='950' y='443.656' width='8' height='8' transform='rotate(-45 950 443.656)' fill='%2370012B'/%3E%3Crect x='950' y='5.65625' width='8' height='8' transform='rotate(-45 950 5.65625)' fill='%2370012B'/%3E%3C/svg%3E%0A");
     background-position: center right 20px;
@@ -289,3 +304,44 @@ body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-wit
         background-size: calc(100% - 20px) auto;
     }
 }
+
+
+
+
+.corporategifting.gradient .grid .grid__item{
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    animation-timing-function: linear;
+}
+.corporategifting.gradient .grid .grid__item:first-of-type{
+    animation-name: translatFromLeft;    
+}
+.corporategifting.gradient .grid .grid__item:last-of-type{
+    animation-name: translatFromRight;
+}
+@keyframes translatFromLeft {
+    0% {
+      opacity: 0;
+      transform: translate(-200%, 0)
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0)
+    }
+  }
+@keyframes translatFromRight {
+    0% {
+      opacity: 0;
+      transform: translate(200%, 0)
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0)
+    }
+  }
