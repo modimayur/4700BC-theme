@@ -175,7 +175,7 @@
           {%- endif -%}
           <div class="button-groups">
             <button class="button">
-              {{ 'customer.login_page.sign_in' | t }}
+              <span>{{ 'customer.login_page.sign_in' | t }}</span>
             </button>
             <a href="/" class="button button--secondary ">
               <span>
@@ -197,7 +197,7 @@
 
           {%- form 'guest_login' -%}
             <button>
-              {{ 'customer.login_page.guest_continue' | t }}
+              <span>{{ 'customer.login_page.guest_continue' | t }}</span>
             </button>
           {%- endform -%}
         </div>
@@ -210,7 +210,7 @@
       <div class="bottom-container center">
         <h3>{{ 'customer.login_page.create_account_heading' | t }}</h3>
         <a href="{{ routes.account_register_url }}" class="button button--secondary">
-          {{ 'customer.login_page.create_account' | t }}
+          <span>{{ 'customer.login_page.create_account' | t }}</span>
         </a>
       </div>
 

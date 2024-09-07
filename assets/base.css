@@ -495,8 +495,8 @@ h6:empty {
   display: none;
 }
 
-.link,
-.customer a {
+/* .customer a */
+.link {
   cursor: pointer;
   display: inline-block;
   border: none;

@@ -1,0 +1,33 @@
+.blog-filter-container{
+    margin: 40px auto;
+}
+
+.blog-filter-container .blog-filter-tags{
+    display: flex;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    gap:20px;
+}
+
+.blog-filter-container .blog-filter-tags li.tag-filters__item a{
+    font-size: 18px;
+    text-decoration: none;
+    border: 1px solid #FCDB8B;
+    background: #fff;
+    padding: 10px 25px;
+    min-width: 125px;
+    display: block;
+    border-radius: 32px;
+    text-align: center;
+    font-weight: 600;
+    color: #0A090A;
+}
+
+.blog-filter-container .blog-filter-tags li.active a{
+    background: #FFBE35;
+}
+
+.article-card-wrapper .card.article-card .card__inner{
+    min-height: 480px;
+}

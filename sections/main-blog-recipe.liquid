@@ -1,6 +1,11 @@
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog-recipes.css' | asset_url | stylesheet_tag }}
+
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -19,10 +24,31 @@
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
+      {% if section.settings.heading != blank %}
+        {{ section.settings.heading }}
+      {% else %}
+        {{ blog.title | escape }}
+      {% endif %}
     </h1>
 
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+    {% if section.settings.show_filter %}
+      <div class="blog-filter-container">
+        <ul class="blog-filter-tags">
+          <li class="tag-filters__item {% unless current_tags.size > 0 %}active{% endunless %}">
+            <a href="{{ blog.url }}">All</a>
+          </li>
+          {% for tag in blog.all_tags %}
+            {% if current_tags contains tag %}
+              <li class="tag-filters__item active">{{ tag | link_to_remove_tag: tag }}</li>
+            {% else %}
+              <li class="tag-filters__item">{{ tag | link_to_tag: tag }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <div class="blog-articles recipes {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -31,7 +57,7 @@
             style="--animation-order: {{ forloop.index }};"
           {% endif %}
         >
-          {%- render 'article-card',
+          {%- render 'article-card-recipe',
             article: article,
             media_height: section.settings.image_height,
             media_aspect_ratio: article.image.aspect_ratio,
@@ -56,6 +82,17 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter",
+      "label": "Show Filter",
+      "default":true
+    },
     {
       "type": "header",
       "content": "t:sections.main-blog.settings.header.content"

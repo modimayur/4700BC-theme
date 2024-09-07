@@ -6,6 +6,13 @@
   text-align: center; */
 }
 
+.button--secondary{
+  --color-button: 7,7,7;
+  --color-button-text: 7,7,7;
+  background-color: rgba(255,246,224,1);
+  border: var(--buttons-border-width) solid rgba(var(--color-button), 1);
+}
+
 @media screen and (min-width: 750px) {
   .customer:not(.account):not(.order) {
     /* max-width: 47.8rem; */
@@ -14,6 +21,11 @@
 
 .customer .grid{
   column-gap: 6rem;
+  align-items: center;
+}
+
+.customer.login .grid{
+  column-gap: 10rem;
   align-items: center;
 }
 
@@ -26,7 +38,7 @@
   color: #070707;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 5.5rem;
+  margin-bottom: 4rem;
   margin-top:0;
   letter-spacing: 0.18rem;
 }
@@ -93,7 +105,7 @@
 
 @media screen and (min-width: 1400px) {
   .form-detail-container{
-    max-width: 70%;
+    max-width: 680px;
   }
 }
 
@@ -122,6 +134,16 @@
   .customer .grid .grid-item.right-content{
     width: calc(60% - 60px / 2);
     max-width: calc(60% - 60px / 2);
+  }
+
+  .customer.login .grid .grid-item.left-image{
+    width: calc(40% - 100px / 2);
+    max-width: calc(40% - 100px / 2);
+  }
+
+  .customer.login .grid .grid-item.right-content{
+    width: calc(60% - 100px / 2);
+    max-width: calc(60% - 100px / 2);
   }
 }
 
@@ -978,8 +1000,13 @@ li[data-address] > h2 {
   font-weight: 500;
   font-family: var(--font-body-family);
   text-align: center;
+  margin: 1rem auto 2.4rem;
 }
 
 .bottom-container .button{
-  
+  min-width: 25rem;
+}
+
+.customer .button span{
+  padding-top: 6px;
 }
