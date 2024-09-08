@@ -22,6 +22,7 @@
       if media_aspect_ratio != null
         assign ratio = media_aspect_ratio
       endif
+      assign recipe_details = article.metafields.custom.recipe_detail.value
     -%}
     <div class="article-card-wrapper card-wrapper underline-links-hover">
       {% comment %} <article aria-labelledby="Article-{{ article.id }}"> {% endcomment %}
@@ -51,6 +52,14 @@
                     style="padding-bottom: {{ 1 | divided_by: article_media.aspect_ratio | times: 100 }}%;"
                   {% endif %}
                 >
+                  <div class="badges">
+                    {% if recipe_details != blank %}
+                      <div class="timer">
+                        <span>{{ 'timer.svg' | inline_asset_content }}<span>{{ recipe_details.duration }}</span></span>
+                      </div>
+                    {% endif %}
+                    <a class="bookmark-btn">{{ 'bookmark_outline.svg' | inline_asset_content }}</a>
+                  </div>
                   {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
                   <img
                     srcset="
