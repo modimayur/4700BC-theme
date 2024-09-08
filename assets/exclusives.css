@@ -42,6 +42,7 @@
     text-align: left;
 }
 
+
 .section-exclusives .exclusives-container .exclusives-row .exclusives-column span{
     font-family: "Manrope", sans-serif;
     font-weight: 600;
@@ -75,7 +76,12 @@
     }
 }
 @media screen and (max-width: 749px) {
+    .section-exclusives .exclusives-container .exclusives-row{
+        gap: 1.7rem;
+    }
     .section-exclusives .exclusives-container .exclusives-row .exclusives-column {
+        border-radius: 0 0 2.5rem 2.5rem;
+        overflow: clip;
         padding: 4rem 0.8rem 0.8rem;
         min-height: 300px;
     }

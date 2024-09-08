@@ -106,8 +106,6 @@ main#MainContent {
 .sections-product-search-range #search-results .product-iteam .view-product-button{
   opacity: 0;
   font-weight: 700;
-  font-size: 18px;
-  letter-spacing: .15em;
 }
 
 .sections-product-search-range #search-results .product-iteam.swiper-slide-active  .view-product-button,

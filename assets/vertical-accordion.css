@@ -173,6 +173,7 @@
     .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content img{
         width: 100%;
         height: auto;
+        opacity: 1;
     }
     .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner .h3 {
         font-size: 35px;
@@ -204,5 +205,11 @@
     }
     .section-vertical-accordion .vertical-accordion .vertical-accordion-iteam .vertical-accordion-content .vertical-accordion-content-inner .rte p{
         font-size: 14px;
+    }
+    .section.section-vertical-accordion .gradient{
+        padding-block: 48px 32px;
+    }
+    .section.section-vertical-accordion .gradient .section-title.center {
+        padding-inline: 3rem;
     }
 }

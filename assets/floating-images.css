@@ -91,22 +91,49 @@
 .floating-images .floating-img-el:nth-of-type(7) {
   --translate-to: 44vw, -15vh;
 }
-.floating-images .floating-img-el.animate-idom{
-    transition: all 0.5s linear 0.2s;
-    opacity: 0;
-    transform: scale(0) translateX(0)
+.floating-images .floating-img-el.animate-idom {
+  transition: all 0.5s linear 0.2s;
+  opacity: 0;
+  transform: scale(0) translateX(0);
 }
 .floating-images .floating-img-el.animate-idom.animate {
-    opacity: 1;
-    transform: scale(1) translate(var(--translate-to));
-    transition-delay: 0s;
- }
+  opacity: 1;
+  transform: scale(1) translate(var(--translate-to));
+  transition-delay: 0s;
+}
 @media (max-width: 1148px) {
   .gifts-content .headline-large {
     font-size: 60px;
   }
 }
 @media screen and (max-width: 749px) {
+  .backgroup-text {
+    font-family: 'Formula Condensed';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #FFF0CC;
+    padding: 22px;
+    -webkit-text-stroke: FFE4A3;
+    -webkit-text-stroke-width: 1px;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    letter-spacing: 0.03em;    
+  }
+  body.page-gifting .gifts-inner,
+  .section.gifts .sticky-wrapper,
+  .section.gifts {
+    min-height: 50vh;
+    height: 50vh;
+  }
   .gifts-content .headline-large {
     font-size: 3.2rem;
     max-width: 24rem;
@@ -117,5 +144,34 @@
     .slider-item
     span.icon-text {
     font-size: 7rem;
+  }
+  .floating-images .floating-img-el:nth-of-type(6),
+  .floating-images .floating-img-el:nth-of-type(7),
+  .floating-images .floating-img-el:nth-child(1) {
+    display: none;
+  }
+  .floating-images .floating-img-el:nth-of-type(2) {
+    --translate-to: -33vw, -13vh;
+  }
+  .floating-images .floating-img-el:nth-of-type(2) img {
+    width: 8rem;
+  }
+  .floating-images .floating-img-el:nth-of-type(3) {
+    --translate-to: -33vw, -39vh;
+  }
+  .floating-images .floating-img-el:nth-of-type(3) img {
+    width: 7.6rem;
+  }
+  .floating-images .floating-img-el:nth-of-type(4) {
+    --translate-to: 24vw, -37vh;
+  }
+  .floating-images .floating-img-el:nth-of-type(4) img {
+    width: 6.2rem;
+  }
+  .floating-images .floating-img-el:nth-of-type(5) {
+    --translate-to: 45vw, -24vh;
+  }
+  .floating-images .floating-img-el:nth-of-type(5) img {
+    width: 6.4rem;
   }
 }

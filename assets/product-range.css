@@ -239,8 +239,25 @@ section.sections-product-range .shopify-section-bg.gradient .shopify-section-inn
         font-size: 4.8rem;
         margin-bottom:2.8rem;
     }
+    .sections-product-range .product-range-wrapper .mainSlider .card-wrapper .product_item .card .card__inner {
+        transform: scale(0.8);
+        margin: 30px;
+    }
+    .sections-product-range .product-range-wrapper .mainSlider .card-wrapper .product_item .card .card__inner .card__media {
+        inset: 0px;
+        width: auto;
+    }
+    .sections-product-range .product-range-wrapper .mainSlider .card-wrapper .product_item .card .card__inner::before{
+        inset: -15px;
+    }
+    .sections-product-range .product-range-wrapper .mainSlider .card-wrapper .product_item .card .card__inner:after{
+        inset: -30px;
+    }
+    .sections-product-range .product-range-wrapper .swiper-slide.swiper-slide-active .product_item .card .card__inner {
+        transform: scale(1);
+    }
     section.sections-product-range .shopify-section-bg.gradient{
-        padding-bottom: 150px;
+        padding-bottom: 130px;
     }
     section.sections-product-range .shopify-section-bg.gradient .shopify-section-inner-bg > .page-width {
         z-index: 3;
@@ -249,10 +266,15 @@ section.sections-product-range .shopify-section-bg.gradient .shopify-section-inn
         width: 160%;
         position: absolute;
         inset: auto 50% 0;
-        transform: translate(-50%, 0px);
+        transform: translate(-50%, -20px);
         z-index: 2;
     }
     .sections-product-range .product-range-wrapper .mainSlider .swiper-navigation-button{
         display: none;
+    }
+    .sections-product-range .product-range-wrapper .swiper-slide .product_item .card .producttitle{
+        font-size: 2rem;
+        margin-top: 1.6rem;
+        margin-bottom: 0;
     }
 }

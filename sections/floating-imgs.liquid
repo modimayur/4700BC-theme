@@ -28,8 +28,10 @@
         {%- endif -%}
       </div>
     </div>
-
-    <div class="ticker-section ">
+    {% if section.settings.backgrouptext != blank %}
+      <div class="backgroup-text medium-hide large-up-hide">{{ section.settings.backgrouptext }}</div>
+    {% endif %}
+    <div class="ticker-section  {% if section.settings.backgrouptext != blank %} small-hide{% endif %}">
       <div class="main-container">
         {% for block in section.blocks %}
           {% if block.type == 'icon_with_text' %}
@@ -158,6 +160,17 @@
       "type": "url",
       "id": "button_link",
       "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Mobile backgroup text",
+    },
+
+    {
+      "type": "text",
+      "id": "backgrouptext",
+      "label": "Backgroup text",
+      "default": "WHAT ARE YOUR CRAVING TODAY?"
     },
     {
       "type": "header",
