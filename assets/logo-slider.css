@@ -59,10 +59,14 @@
 
 @media screen and (max-width: 749px) {
     .section-logoslider .logo-slider-swiper .brand-item .brand-item__image{
-        max-width: 70px;
+        max-width: 100px;
+        padding: 0;
     }
     .section-logoslider .logo-slider-swiper .brand-item .brand-item__image img{
         max-width: 100%;
         height: auto;
+    }
+    body.page-gifting  .section-logoslider > [class*="-padding"]{
+        padding-block: 0px;
     }
 }

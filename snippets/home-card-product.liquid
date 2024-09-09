@@ -156,15 +156,8 @@
             >
               {{ card_product.title | escape }}
             </h3>
-            <a
-              href="{{ card_product.url | within: collection }}"
-              id="CardLink-{{ section_id }}-{{ card_product.id }}"
-              class="button"
-              aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
-            >
-            View Product
-            </a>
-            <div class="card-information hidden">
+           
+            <div class="card-information">
               {%- if show_vendor -%}
                 <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
                 <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
@@ -291,6 +284,14 @@
                 {% endif %}
               {%- endif -%}
             </div>
+            <a
+              href="{{ card_product.url | within: collection }}"
+              id="CardLink-{{ section_id }}-{{ card_product.id }}"
+              class="button"
+              aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+            >
+            View Product
+            </a>
           </div>
           {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
           {% if quick_add == 'standard' %}

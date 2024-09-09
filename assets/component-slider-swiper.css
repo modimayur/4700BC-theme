@@ -21,6 +21,12 @@
     opacity: 0;
     color: #592C29;
 }
+.swiper-wrapper.product-grid.contains-card--product .grid_item .card__information .price .price-item{
+    font-size: 2.6rem;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    margin-bottom: 1rem;
+}
 .swiper-wrapper.product-grid.contains-card--product .grid_item  .card__information  .card__heading {
     font-family: var(--font-body-family);
     /* overflow: hidden; */
@@ -35,6 +41,9 @@
 }
 .swiper-wrapper.product-grid.contains-card--product .grid_item.swiper-slide-active  .card__information { 
     opacity: 1;
+}
+.swiper-wrapper.product-grid.contains-card--product .grid_item.swiper-slide-active  .card__information .price .price-item{
+opacity: 1;
 }
 .swiper-wrapper.product-grid.contains-card--product .grid_item.swiper-slide-active .card__inner.ratio{
     transform: scale(1);

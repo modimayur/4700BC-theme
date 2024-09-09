@@ -28,8 +28,10 @@
         {%- endif -%}
       </div>
     </div>
-
-    <div class="ticker-section ">
+    {% if section.settings.backgrouptext != blank %}
+      <div class="backgroup-text medium-hide large-up-hide">{{ section.settings.backgrouptext }}</div>
+    {% endif %}
+    <div class="ticker-section  {% if section.settings.backgrouptext != blank %} small-hide{% endif %}">
       <div class="main-container">
         {% for block in section.blocks %}
           {% if block.type == 'icon_with_text' %}
@@ -77,7 +79,7 @@
   <div class="gifts-imgs-wrapper pointer-events-none">
     {%- for block in section.blocks -%}
       {% if block.type == 'image' %}
-        <div class="floating-img-el home-0{{ forloop.index }} pointer-events-auto animate-idom" data-animation-name="floating-img">
+        <div class="floating-img-el home-0{{ forloop.index }} pointer-events-auto">
           <div class="floating-img-parallax fast">
             <div class="floating-img-inner">
               {% if block.settings.image != blank %}
@@ -158,6 +160,17 @@
       "type": "url",
       "id": "button_link",
       "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Mobile backgroup text",
+    },
+
+    {
+      "type": "text",
+      "id": "backgrouptext",
+      "label": "Backgroup text",
+      "default": "WHAT ARE YOUR CRAVING TODAY?"
     },
     {
       "type": "header",

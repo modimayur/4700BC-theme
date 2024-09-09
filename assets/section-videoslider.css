@@ -29,6 +29,17 @@
   justify-content: center;
   align-items: flex-start;
 }
+.section-featuredmedia-blogs .video-title-wrapper .h1 a.full-unstyled-link:after {
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  outline-offset: .3rem;
+}
+
 .section-featuredmedia-blogs .video-title-wrapper .h1,
 .section-videoslider .video-title-wrapper .h1 {
   font-size: 2.2rem;
@@ -66,6 +77,7 @@
   margin: 0;
   overflow: hidden;
   cursor: pointer;
+  z-index: 2;
 }
 .section-featuredmedia-blogs .slider-slide-video.playing + .vss-play-button,
 .section-videoslider .slider-slide-video.playing + .vss-play-button {
