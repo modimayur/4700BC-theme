@@ -37,13 +37,15 @@
 }
 
 .article-card-wrapper .card.article-card .card__inner{
-    min-height: 480px;
+    height: 480px;
+    overflow: hidden;
 }
 
-.article-card__image .badges{
+
+.article-card-wrapper .card__inner .badges{
     z-index: 1;
 }
-.article-card__image .badges .timer{
+.article-card-wrapper .card__inner .badges .timer{
     background: #070707;
     color: #fff;
     border-radius: 24px;
@@ -53,14 +55,14 @@
     left: 16px;
     position: absolute;
 }
-.article-card__image .badges .timer > span{
+.article-card-wrapper .card__inner .badges .timer > span{
     display: flex;
     align-items: center;
 }
-.article-card__image .badges .timer span span{
+.article-card-wrapper .card__inner .badges .timer span span{
     margin-left: 8px;
 }
-.article-card__image .badges .bookmark-btn{
+.article-card-wrapper .card__inner .badges .bookmark-btn{
     top: 16px;
     right: 16px;
     position: absolute;
@@ -69,7 +71,7 @@
     background: #070707;
     z-index: 99;
 }
-.article-card__image .badges .bookmark-btn svg{
+.article-card-wrapper .card__inner .badges .bookmark-btn svg{
     position: absolute;
     top: 8px;
     left: 8px;
@@ -89,4 +91,45 @@
     .blog-filter-container{
         margin: 20px auto 30px;
     }
+    .blog-articles{
+        gap: 2.4rem;
+    }
 }
+
+.blog-articles.recipes .blog-articles__article{
+    border: 1px solid #FCDB8B;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.blog-articles.recipes .card__content .card__information{
+    background: #fff;
+    text-align: center;
+    padding: 22px 20px;
+    border-top: 1px solid #FCDB8B;
+}
+.blog-articles.recipes .card__information a{
+    text-decoration: none;
+}
+.blog-articles.recipes .card__information .card__heading {
+    font-family: var(--font-body-family);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0;
+    margin: 0 auto;
+    max-width: 220px;
+}
+.blog-articles.recipes .card--media .video-section{
+    width: 100%;
+}
+.blog-articles.recipes .card--media .video-section + .card__content{
+    display: none;
+} 
+
+.blog-articles.recipes .blog-articles__article:hover{
+    border-color: #FFBE35;
+}
+.blog-articles.recipes .blog-articles__article:hover .card__information{
+    background: #FFBE35;
+    border-color: #FFBE35;
+}
+

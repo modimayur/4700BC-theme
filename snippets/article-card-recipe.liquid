@@ -22,7 +22,7 @@
       if media_aspect_ratio != null
         assign ratio = media_aspect_ratio
       endif
-      assign recipe_details = article.metafields.custom.recipe_detail.value
+      assign recipe_details = article.metafields.custom.recipe_detail.value | default: null
     -%}
     <div class="article-card-wrapper card-wrapper underline-links-hover">
       {% comment %} <article aria-labelledby="Article-{{ article.id }}"> {% endcomment %}
@@ -53,7 +53,7 @@
                   {% endif %}
                 >
                   <div class="badges">
-                    {% if recipe_details != blank %}
+                    {% if recipe_details != null %}
                       <div class="timer">
                         <span>{{ 'timer.svg' | inline_asset_content }}<span>{{ recipe_details.duration }}</span></span>
                       </div>
@@ -86,9 +86,22 @@
               </div>
             {%- endif -%}
           {% else %}
-            <div class="video-section">
+            {% assign poster = article_media.preview_image %}
+            <div class="video-section isolate">
+              <div class="badges">
+                {% if recipe_details != blank %}
+                  <div class="timer">
+                    <span>{{ 'timer.svg' | inline_asset_content }}<span>{{ recipe_details.duration }}</span></span>
+                  </div>
+                {% endif %}
+                <a class="bookmark-btn">{{ 'bookmark_outline.svg' | inline_asset_content }}</a>
+              </div>
               <deferred-media
-                class="video-section__media deferred-media gradient global-media-settings" >
+                class="video-section__media deferred-media gradient global-media-settings" 
+                {% if poster != null %}
+                  style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
+                {% endif %}
+                >
                 <button
                   id="Deferred-Poster-Modal-{{ video_id }}"
                   class="video-section__poster media deferred-media__poster media--landscape"
@@ -163,12 +176,12 @@
         </div>
         <div class="card__content">
           <div class="card__information">
-            <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
-              <a href="{{ article.url }}" class="full-unstyled-link">
+            <a href="{{ article.url }}">
+              <h3 class="card__heading{% if show_excerpt %} h2{% endif %}">
                 {{ article.title | truncate: 50 | escape }}
-              </a>
-            </h3>
-            <div class="article-card__info caption-with-letter-spacing h5">
+              </h3>
+            </a>
+            <div class="article-card__info caption-with-letter-spacing h5 hidden">
               {%- if show_date -%}
                 <span class="circle-divider">{{ article.published_at | time_tag: format: 'date' }}</span>
               {%- endif -%}

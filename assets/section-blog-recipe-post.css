@@ -1,0 +1,4 @@
+.article-template.recipe-template
+.article-template.recipe-template .article-template__hero-container{
+    max-width: unset;
+}

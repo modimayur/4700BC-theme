@@ -1,6 +1,68 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{{ 'section-blog-recipe-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template">
+<article class="article-template recipe-template">
+  {%  liquid
+    assign article_details = article.metafields.custom.recipe_detail.value
+  %}
+
+  {%- if article.image -%}
+    <div
+      class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+    >
+      <div
+        class="article-template__hero-adapt media"
+        {% if article.image %}
+          style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
+        {% endif %}
+      >
+        <img
+          srcset="
+            {% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+            {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+            {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+            {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+            {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+            {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+            {{ article.image | image_url }} {{ article.image.width }}w
+          "
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+          src="{{ article.image | image_url: width: 1100 }}"
+          loading="eager"
+          fetchpriority="high"
+          width="{{ article.image.width }}"
+          height="{{ article.image.height }}"
+          alt="{{ article.image.alt | escape }}"
+        >
+      </div>
+      <div>
+        <h2 class="image-with-text__heading inline-richtext" >
+          {{ article.title }}
+        </h2>
+        <div class="info">
+          <p>{{ article_details.subtitle }}</p>
+        </div>
+        {% if article_details.video != blank %}
+          <button class="video-btn">
+            Watch Recipe Video
+          </button>
+        {% endif %}
+        <div class="action-links">
+          <a href="{{ article_details.pdf }}" target="_blank" class="download-link">
+            <span class="icon">{{ 'download.svg' | inline_asset_content }}</span>
+            <span class="link-label">Download PDF</span>
+          </a>
+          {% if article_details.pdf != blank %}
+          {% endif %}
+          <a class="bookmark-link">
+            <span class="icon">{{ 'bookmark_page.svg' | inline_asset_content }}</span>
+            <span class="link-label">Save to My Recipes</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -82,12 +144,93 @@
     {%- endcase -%}
   {%- endfor -%}
 
-  <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
-      <span class="icon-wrap">{% render 'icon-arrow' %}</span>
-      {{ 'blogs.article.back_to_blog' | t: title: blog.title | escape }}
-    </a>
+  <div class="recipe-detail-container page-width">
+    <div class="grid grid-1-2-column">
+      <div class="grid__item">
+        <div class="left-sidebar">
+          {% if article_details.ingredient_list != blank %}
+            <div class="accordian-wrapper ingredient-list">
+              <accordian-block>
+                <button class="accordian-heading">
+                  Ingredient List
+                </button>
+                <div class="accordian-content">
+                  <ul>
+                    {% for ingredient in article_details.ingredient_list.value %}
+                      <li><p>{{ ingredient }}</p></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </accordian-block>
+            </div>
+          {% endif %}
+          {% if article_details.nutrition_information != blank %}
+            <div class="accordian-wrapper nutrition-info">
+              <accordian-block>
+                <button class="accordian-heading">
+                  Nutrition Information
+                </button>
+                <div class="accordian-content">
+                  <ul>
+                    {% for nutrition in article_details.nutrition_information.value %}
+                      <li><p>{{ nutrition }}</p></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </accordian-block>
+            </div>
+          {% endif %}
+          {% if article_details.recipe_tips != blank %}
+            <div class="accordian-wrapper recipe-tips">
+              <accordian-block>
+                <button class="accordian-heading">
+                  Recipe Tips
+                </button>
+                <div class="accordian-content">
+                  <ul>
+                    {% for tip in article_details.recipe_tips.value %}
+                      <li><p>{{ tip }}</p></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </accordian-block>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="grid__item">
+        <div class="instruction-list-container">
+          <div class="instruction-list">
+            {% for instruction in article_details.instructions.value %}
+              <div class="instruction-block">
+                <div class="step">
+                  <span>{{ forloop.index }}</span>
+                </div>
+                <div class="instruction-text">
+                  <p>{{ instruction }}</p>
+                </div>
+                <div class="action">
+                  <button class="action-btn" data-incomplete-text="Mark as Complete" data-complete-text="Completed">
+                    <span>{{ 'prepare.svg' | inline_asset_content }}</span>
+                    <span>Mark as Complete</span>
+                  </button>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  {% comment %}
+    <div class="article-template__back element-margin-top center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
+        <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+        {{ 'blogs.article.back_to_blog' | t: title: blog.title | escape }}
+      </a>
+    </div>
+  {% endcomment %}
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div
