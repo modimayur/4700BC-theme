@@ -79,7 +79,7 @@
   <div class="gifts-imgs-wrapper pointer-events-none">
     {%- for block in section.blocks -%}
       {% if block.type == 'image' %}
-        <div class="floating-img-el home-0{{ forloop.index }} pointer-events-auto animate-idom" data-animation-name="floating-img">
+        <div class="floating-img-el home-0{{ forloop.index }} pointer-events-auto">
           <div class="floating-img-parallax fast">
             <div class="floating-img-inner">
               {% if block.settings.image != blank %}

@@ -60,6 +60,7 @@
                     data-theme-color3="{{ block.settings.color_background | color_lighten: 50 }}"
                   >
                     <div class="card">
+                      <a href="{{ block.settings.product }}"class="full-unstyled-link">
                       <div
                         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
                         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
@@ -116,8 +117,8 @@
                           </div>
                         {% endif %}
                       </div>
-
-                      <h2 class="producttitle">{{ producttitle }}</h2>
+                      </a>
+                      <h2 class="producttitle"><a href="{{ product.url }}"class="full-unstyled-link">{{ producttitle }}</a></h2>
                     </div>
                   </div>
                 </div>
@@ -277,17 +278,6 @@
       "name": "t:sections.collage.blocks.product.name",
       "settings": [
         {
-          "type": "product",
-          "id": "product",
-          "label": "t:sections.collage.blocks.product.settings.product.label"
-        },
-        {
-          "type": "color",
-          "id": "color_background",
-          "default": "#2A314B",
-          "label": "Background color"
-        },
-        {
           "type": "image_picker",
           "id": "custom_image",
           "label": "Cusome Image"
@@ -296,6 +286,17 @@
           "type": "inline_richtext",
           "id": "title",
           "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "product",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "color_background",
+          "default": "#2A314B",
+          "label": "Background color"
         }
       ]
     }

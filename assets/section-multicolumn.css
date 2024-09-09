@@ -173,8 +173,8 @@
 }
 
 .background-none .multicolumn-list:not(.slider) .center .multicolumn-card__info {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 @media screen and (max-width: 749px) {

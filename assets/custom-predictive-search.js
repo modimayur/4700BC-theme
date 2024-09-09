@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         getSearchResults(searchTerm) {
-            this.resultsContainer.innerHTML = 'Loading...';
+            //this.resultsContainer.innerHTML = 'Loading...';
             fetch(`/search?q=${searchTerm}&section_id=product-search-range&view=product-search-range`).then((response) => {
                 if (!response.ok) {
                     var error = new Error(response.status);

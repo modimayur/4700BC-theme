@@ -128,7 +128,7 @@
         "productrange-001": {
           "type": "product",
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/sundried-tomato-corn-chips-pack-of-6-55g",
             "color_background": "#bd4b0f",
             "custom_image": "shopify:\/\/shop_images\/product-image-01.png",
             "title": "Chips +"
@@ -137,7 +137,7 @@
         "productrange-002": {
           "type": "product",
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/salt-and-truffle-corn-chips-pack-of-6-55g",
             "color_background": "#2a314b",
             "custom_image": "shopify:\/\/shop_images\/product-image-02_15875d1c-a5b3-478e-b974-79af95e615d5.png",
             "title": "Himalayan Salt Caramel Popcorn"
@@ -146,7 +146,7 @@
         "productrange-003": {
           "type": "product",
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/sundried-tomato-corn-chips-pack-of-6-55g",
             "color_background": "#01867f",
             "custom_image": "shopify:\/\/shop_images\/product-image-03.png",
             "title": "Crunchy Corn"
@@ -155,7 +155,7 @@
         "productrange-004": {
           "type": "product",
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/salt-and-truffle-corn-chips-pack-of-6-55g",
             "color_background": "#c83204",
             "custom_image": "shopify:\/\/shop_images\/product-image-04.png",
             "title": "Protein Pops"
@@ -164,7 +164,7 @@
         "productrange-005": {
           "type": "product",
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/sundried-tomato-corn-chips-pack-of-6-55g",
             "color_background": "#d69819",
             "custom_image": "shopify:\/\/shop_images\/product-image-05.png",
             "title": "Cheese"
@@ -173,7 +173,7 @@
         "productrange-006": {
           "type": "product",
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/salt-and-truffle-corn-chips-pack-of-6-55g",
             "color_background": "#738e3a",
             "custom_image": "shopify:\/\/shop_images\/product-image-06.png",
             "title": "Sweet Corn"
@@ -183,7 +183,7 @@
           "type": "product",
           "disabled": true,
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/sundried-tomato-corn-chips-pack-of-6-55g",
             "color_background": "#2a314b",
             "custom_image": "shopify:\/\/shop_images\/product-image-01.png",
             "title": ""
@@ -193,7 +193,7 @@
           "type": "product",
           "disabled": true,
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/salt-and-truffle-corn-chips-pack-of-6-55g",
             "color_background": "#2a314b",
             "custom_image": "shopify:\/\/shop_images\/product-image-02.png",
             "title": ""
@@ -203,7 +203,7 @@
           "type": "product",
           "disabled": true,
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/sundried-tomato-corn-chips-pack-of-6-55g",
             "color_background": "#00a4b1",
             "custom_image": "shopify:\/\/shop_images\/product-image-03.png",
             "title": ""
@@ -213,7 +213,7 @@
           "type": "product",
           "disabled": true,
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/salt-and-truffle-corn-chips-pack-of-6-55g",
             "color_background": "#c83204",
             "custom_image": "shopify:\/\/shop_images\/product-image-04.png",
             "title": ""
@@ -223,7 +223,7 @@
           "type": "product",
           "disabled": true,
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/sundried-tomato-corn-chips-pack-of-6-55g",
             "color_background": "#d69819",
             "custom_image": "shopify:\/\/shop_images\/product-image-05.png",
             "title": ""
@@ -233,7 +233,7 @@
           "type": "product",
           "disabled": true,
           "settings": {
-            "product": "sundried-tomato-corn-chips-pack-of-6-55g",
+            "product": "shopify:\/\/products\/salt-and-truffle-corn-chips-pack-of-6-55g",
             "color_background": "#738e3a",
             "custom_image": "shopify:\/\/shop_images\/product-image-06.png",
             "title": ""

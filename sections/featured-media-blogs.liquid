@@ -133,7 +133,7 @@
               {% endunless %}
               {% if block.title != blank %}
                 <div class="video-title-wrapper">
-                  <h3 class="h1">{{ block.title }}</h3>
+                  <h3 class="h1"><a href="{{ block.url }}" class="full-unstyled-link">{{ block.title }}</a></h3>
                 </div>
               {% endif %}
             </div>

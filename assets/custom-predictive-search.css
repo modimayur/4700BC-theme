@@ -101,13 +101,20 @@ main#MainContent {
     margin: .5rem 0 2rem;
     transition: all 0.3s ease-in-out;
     opacity: 0;
+  }
+  .sections-product-search-range #search-results .product-iteam .price .price-item{
+    font-size: 2.6rem;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    margin-bottom: 1rem;
 }
 
 .sections-product-search-range #search-results .product-iteam .view-product-button{
   opacity: 0;
   font-weight: 700;
 }
-
+.sections-product-search-range #search-results .product-iteam:hover .price .price-item,
+.sections-product-search-range #search-results .product-iteam.swiper-slide-active .price .price-item,
 .sections-product-search-range #search-results .product-iteam.swiper-slide-active  .view-product-button,
 .sections-product-search-range #search-results .product-iteam:hover .view-product-button,
 .sections-product-search-range #search-results .product-iteam.swiper-slide-active .product-title,
