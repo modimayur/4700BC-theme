@@ -1,0 +1,113 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "careerbanner": {
+      "type": "career-banner",
+      "blocks": {
+        "member-001": {
+          "type": "member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/career-team-members-01.jpg"
+          }
+        },
+        "member-002": {
+          "type": "member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/career-team-members-02.jpg"
+          }
+        },
+        "member-003": {
+          "type": "member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/career-team-members-03.jpg"
+          }
+        },
+        "member-004": {
+          "type": "member",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/career-team-members-04.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "member-001",
+        "member-002",
+        "member-003",
+        "member-004"
+      ],
+      "settings": {
+        "heading": "Join The 4700BC",
+        "text": "Are you the Next?",
+        "color_scheme": "",
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "careerroles": {
+      "type": "career-roles",
+      "blocks": {
+        "roles_g7J8jK": {
+          "type": "roles",
+          "settings": {
+            "title": "Sales Agent",
+            "location": "Mumbai",
+            "workplacetype": "On-site",
+            "jobtype": "Full-time"
+          }
+        },
+        "roles_p9tzJk": {
+          "type": "roles",
+          "settings": {
+            "title": "Manager",
+            "location": "Mumbai",
+            "workplacetype": "On-site",
+            "jobtype": "Full-time"
+          }
+        },
+        "roles_R4pFGy": {
+          "type": "roles",
+          "settings": {
+            "title": "Web Designer",
+            "location": "Mumbai",
+            "workplacetype": "On-site",
+            "jobtype": "Full-time"
+          }
+        },
+        "roles_mgjD9A": {
+          "type": "roles",
+          "settings": {
+            "title": "Sales Manager",
+            "location": "Mumbai",
+            "workplacetype": "On-site",
+            "jobtype": "Full-time"
+          }
+        }
+      },
+      "block_order": [
+        "roles_g7J8jK",
+        "roles_p9tzJk",
+        "roles_R4pFGy",
+        "roles_mgjD9A"
+      ],
+      "settings": {
+        "heading": "EXPLORE LIFE AT 4700BC",
+        "subtitle": "WHY JOIN US",
+        "text": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s<\/p>",
+        "image": "shopify:\/\/shop_images\/career-team-members-05.png",
+        "color_scheme": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "careerbanner",
+    "careerroles"
+  ]
+}

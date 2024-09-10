@@ -1,0 +1,46 @@
+.shopify-section.section-career .gradient{
+    background: linear-gradient(90deg, #094B84 0%, #0B1632 100%);
+    overflow: clip;
+}
+.shopify-section.section-career .full-page-width{
+    padding-inline: 8.8rem 0;
+    text-transform: uppercase;
+}
+.shopify-section.section-career .section-career-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.shopify-section.section-career .section-career-inner .team-members{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.4rem;
+    margin-right: -5rem;
+}
+.shopify-section.section-career .section-career-inner .team-members img{
+    border-radius: 2rem;
+}
+.shopify-section.section-career .title-wrapper {
+    margin: 0;
+}
+.shopify-section.section-career .title-wrapper .inline-richtext {
+    margin-block: 0 1.6rem;
+    font-family: 'Formula Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 6rem;
+    line-height: 100%;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+.shopify-section.section-career .title-wrapper p {
+    margin-block: 0;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 130%;
+    color: #FFFFFF;
+}
