@@ -7,6 +7,30 @@
   %}
 
   {%- if article.image -%}
+    {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+    {{ 'section-custom-image-banner.css' | asset_url | stylesheet_tag }}
+
+    {%- style -%}
+      @media screen and (max-width: 749px) {
+        #Banner-{{ section.id }}::before,
+        #Banner-{{ section.id }} .banner__media::before,
+        #Banner-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+          padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;
+          content: '';
+          display: block;
+        }
+      }
+
+      @media screen and (min-width: 750px) {
+        #Banner-{{ section.id }}::before,
+        #Banner-{{ section.id }} .banner__media::before {
+          padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;
+          content: '';
+          display: block;
+        }
+      }
+    {%- endstyle -%}
+    {% comment %}
     <div
       class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
     >
@@ -35,30 +59,85 @@
           alt="{{ article.image.alt | escape }}"
         >
       </div>
-      <div>
-        <h2 class="image-with-text__heading inline-richtext" >
-          {{ article.title }}
-        </h2>
-        <div class="info">
-          <p>{{ article_details.subtitle }}</p>
-        </div>
-        {% if article_details.video != blank %}
-          <button class="video-btn">
-            Watch Recipe Video
-          </button>
-        {% endif %}
-        <div class="action-links">
-          <a href="{{ article_details.pdf }}" target="_blank" class="download-link">
-            <span class="icon">{{ 'download.svg' | inline_asset_content }}</span>
-            <span class="link-label">Download PDF</span>
-          </a>
-          {% if article_details.pdf != blank %}
-          {% endif %}
-          <a class="bookmark-link">
-            <span class="icon">{{ 'bookmark_page.svg' | inline_asset_content }}</span>
-            <span class="link-label">Save to My Recipes</span>
-          </a>
-        </div>
+    </div>
+    {% endcomment %}
+    
+    {%- liquid
+      assign full_width = '100vw'
+      assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+    
+      assign half_width = '60vw'
+      assign full_width = '120vw'
+      assign stacked_sizes = '(min-width: 750px) 60vw, 120vw'
+      assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
+      assign fetch_priority = 'auto'
+  
+      if section.index == 1
+        assign fetch_priority = 'high'
+      endif
+    -%}
+
+    <div class="recipe-page-banner">
+      <div id="Banner-{{ section.id }}" class="banner banner--content-align-left banner--content-align-mobile-center banner--adapt banner--mobile-bottom scroll-trigger animate--fade-in scroll-trigger--design-mode"
+      >
+        {%- if article.image != blank -%}
+          <div class="banner__media media animate--fixed scroll-trigger animate--fade-in" style="background-color:#000;">
+            {%- liquid
+              assign image_height = article.image.width | divided_by: article.image.aspect_ratio
+              if section.settings.image_2 != blank
+                assign image_class = 'banner__media-image-half'
+              endif
+              if section.settings.image_2 != blank and section.settings.stack_images_on_mobile
+                assign sizes = stacked_sizes
+              elsif section.settings.image_2 != blank
+                assign sizes = half_width
+              else
+                assign sizes = full_width
+              endif
+            -%}
+            {{
+              article.image
+              | image_url: width: 3840
+              | image_tag:
+                width: article.image.width,
+                height: image_height,
+                class: image_class,
+                sizes: sizes,
+                widths: widths,
+                fetchpriority: fetch_priority
+            }}
+          </div>
+        {%- endif -%}
+        <div class="top-breadcrumb page-width">{% render 'breadcrumbs' %}</div>
+          <div class="banner__content banner__content--middle-left page-width scroll-trigger animate--slide-in">
+            <div class="content-container content-container--full-width-mobile">
+              <h2 class="banner__heading inline-richtext h1">
+                {{ article.title }}
+              </h2>
+              {% if article_details.subtitle != blank %}
+                <div class="banner__text rte body">
+                  <p>{{ article_details.subtitle }}</p>
+                </div>
+              {% endif %}
+              {% if article_details.video != blank %}
+                <button class="video-btn button">
+                  Watch Recipe Video
+                </button>
+              {% endif %}
+              <div class="action-links">
+                <a href="{{ article_details.pdf }}" target="_blank" class="download-link article-btn-link">
+                  <span class="icon">{{ 'download.svg' | inline_asset_content }}</span>
+                  <span class="link-label">Download PDF</span>
+                </a>
+                {% if article_details.pdf != blank %}
+                {% endif %}
+                <a class="bookmark-link article-btn-link" href="" target="_blank">
+                  <span class="icon">{{ 'bookmark_page.svg' | inline_asset_content }}</span>
+                  <span class="link-label">Save to My Recipes</span>
+                </a>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   {%- endif -%}
@@ -144,9 +223,51 @@
     {%- endcase -%}
   {%- endfor -%}
 
+  {% if article_details.servings != blank or article_details.duration != blank or article_details.difficulty_level != blank %}
+    <div class="article-specification-container">
+      <div class="page-width">
+        <div class="article-specification">
+          {% if article_details.servings != blank %}
+            <div class="article-specification__item">
+              <span class="icon">
+                {{ 'serving.svg' | inline_asset_content }}
+              </span>
+              <p>
+                <span class="article-specification__label">Servings:</span>
+                <span class="article-specification__value">{{ article_details.servings }}</span>
+              </p>
+            </div>
+          {% endif %}
+          {% if article_details.duration != blank %}
+            <div class="article-specification__item">
+              <span class="icon">
+                {{ 'duration.svg' | inline_asset_content }}
+              </span>
+              <p>
+                <span class="article-specification__label">Duration:</span>
+                <span class="article-specification__value">{{ article_details.duration }}</span>
+              </p>
+            </div>
+          {% endif %}
+          {% if article_details.difficulty_level != blank %}
+            <div class="article-specification__item">
+              <span class="icon">
+                {{ 'level.svg' | inline_asset_content }}
+              </span>
+              <p>
+                <span class="article-specification__label">Difficulty Level:</span>
+                <span class="article-specification__value">{{ article_details.difficulty_level }}</span>
+              </p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
   <div class="recipe-detail-container page-width">
-    <div class="grid grid-1-2-column">
-      <div class="grid__item">
+    <div class="grid">
+      <div class="grid__item sidebar">
         <div class="left-sidebar">
           {% if article_details.ingredient_list != blank %}
             <div class="accordian-wrapper ingredient-list">
@@ -157,7 +278,10 @@
                 <div class="accordian-content">
                   <ul>
                     {% for ingredient in article_details.ingredient_list.value %}
-                      <li><p>{{ ingredient }}</p></li>
+                      <li><span>
+                        <input type="checkbox" name="ingredients" value="{{ ingredient }}" id="ingredient-{{ forloop.index }}">
+                        <label for="ingredient-{{ forloop.index }}">{{ ingredient }}</label>
+                      </span></li>
                     {% endfor %}
                   </ul>
                 </div>
@@ -173,7 +297,7 @@
                 <div class="accordian-content">
                   <ul>
                     {% for nutrition in article_details.nutrition_information.value %}
-                      <li><p>{{ nutrition }}</p></li>
+                      <li><span>{{ nutrition }}</span></li>
                     {% endfor %}
                   </ul>
                 </div>
@@ -189,7 +313,7 @@
                 <div class="accordian-content">
                   <ul>
                     {% for tip in article_details.recipe_tips.value %}
-                      <li><p>{{ tip }}</p></li>
+                      <li><span>{{ tip }}</span></li>
                     {% endfor %}
                   </ul>
                 </div>
@@ -198,8 +322,11 @@
           {% endif %}
         </div>
       </div>
-      <div class="grid__item">
+      <div class="grid__item main-block">
         <div class="instruction-list-container">
+          <div class="instruction-list-heading">
+            <h2>Instructions</h2>
+          </div>
           <div class="instruction-list">
             {% for instruction in article_details.instructions.value %}
               <div class="instruction-block">
