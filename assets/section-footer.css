@@ -1,11 +1,7 @@
 .footer {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
-footer.footer.gradient{
-  background-image: url('https://cdn.shopify.com/s/files/1/0705/5065/1093/files/footer-img.png?v=1725988003');
-  background-repeat: no-repeat;
-  background-position: 65% bottom;
-}
+
 .footer:not(.color-scheme-1) {
   border-top: none;
 }
@@ -156,6 +152,11 @@ footer.footer.gradient{
 }
 
 @media screen and (min-width: 990px) {
+  footer.footer.gradient{
+    background-image: url('https://cdn.shopify.com/s/files/1/0705/5065/1093/files/footer-img.png?v=1725988003');
+    background-repeat: no-repeat;
+    background-position: 65% bottom;
+  }
   .footer-block__heading {
     font-size: calc(var(--font-heading-scale) * 2rem);
     margin-bottom: 1.6rem;
