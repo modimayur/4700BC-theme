@@ -270,36 +270,42 @@
       <div class="grid__item sidebar">
         <div class="left-sidebar">
           {% if article_details.ingredient_list != blank %}
-            <div class="accordian-wrapper ingredient-list">
+            <div class="accordian-wrapper ingredient-list open">
               <accordian-block>
                 <button class="accordian-heading">
-                  Ingredient List
+                  <span>Ingredient List</span>
+                  <span class="icon">{{ 'caret.svg' | inline_asset_content }}</span>
                 </button>
                 <div class="accordian-content">
-                  <ul>
-                    {% for ingredient in article_details.ingredient_list.value %}
-                      <li><span>
-                        <input type="checkbox" name="ingredients" value="{{ ingredient }}" id="ingredient-{{ forloop.index }}">
-                        <label for="ingredient-{{ forloop.index }}">{{ ingredient }}</label>
-                      </span></li>
-                    {% endfor %}
-                  </ul>
+                  <div class="accordian-content-area">
+                    <ul>
+                      {% for ingredient in article_details.ingredient_list.value %}
+                        <li><span>
+                          <input type="checkbox" name="ingredients" value="{{ ingredient }}" id="ingredient-{{ forloop.index }}">
+                          <label for="ingredient-{{ forloop.index }}">{{ ingredient }}</label>
+                        </span></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
                 </div>
               </accordian-block>
             </div>
           {% endif %}
           {% if article_details.nutrition_information != blank %}
-            <div class="accordian-wrapper nutrition-info">
+            <div class="accordian-wrapper nutrition-info open">
               <accordian-block>
                 <button class="accordian-heading">
-                  Nutrition Information
+                  <span>Nutrition Information</span>
+                  <span class="icon">{{ 'caret.svg' | inline_asset_content }}</span>
                 </button>
                 <div class="accordian-content">
-                  <ul>
-                    {% for nutrition in article_details.nutrition_information.value %}
-                      <li><span>{{ nutrition }}</span></li>
-                    {% endfor %}
-                  </ul>
+                  <div class="accordian-content-area">
+                    <ul>
+                      {% for nutrition in article_details.nutrition_information.value %}
+                        <li><span>{{ nutrition }}</span></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
                 </div>
               </accordian-block>
             </div>
@@ -308,14 +314,17 @@
             <div class="accordian-wrapper recipe-tips">
               <accordian-block>
                 <button class="accordian-heading">
-                  Recipe Tips
+                  <span>Recipe Tips</span>
+                  <span class="icon">{{ 'caret.svg' | inline_asset_content }}</span>
                 </button>
                 <div class="accordian-content">
-                  <ul>
-                    {% for tip in article_details.recipe_tips.value %}
-                      <li><span>{{ tip }}</span></li>
-                    {% endfor %}
-                  </ul>
+                  <div class="accordian-content-area">
+                    <ul>
+                      {% for tip in article_details.recipe_tips.value %}
+                        <li><span>{{ tip }}</span></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
                 </div>
               </accordian-block>
             </div>
@@ -338,8 +347,8 @@
                 </div>
                 <div class="action">
                   <button class="action-btn" data-incomplete-text="Mark as Complete" data-complete-text="Completed">
-                    <span>{{ 'prepare.svg' | inline_asset_content }}</span>
-                    <span>Mark as Complete</span>
+                    <span class="icon">{{ 'prepare.svg' | inline_asset_content }}</span>
+                    <span class="label">Mark as Complete</span>
                   </button>
                 </div>
               </div>
@@ -543,6 +552,38 @@
     </div>
   {%- endif -%}
 </article>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.action-btn');
+    buttons.forEach((button) => {
+      button.addEventListener('click', function(){
+        button.classList.add('completed');
+        button.querySelector('.label').innerText = button.dataset.completeText;
+      });
+    });
+
+    const allAccordianButtons = document.querySelectorAll('.accordian-heading');
+    allAccordianButtons.forEach((button) => {
+      const content = button.nextElementSibling;
+      if(button.closest('.accordian-wrapper').classList.contains('open')){
+      content.style.maxHeight = content.scrollHeight + 'px';
+      }
+      button.addEventListener('click', function(){
+        console.log(content);
+        if(this.closest('.accordian-wrapper').classList.contains('open')){
+          content.style.maxHeight = '0';
+          this.closest('.accordian-wrapper').classList.remove('open');
+        }else{
+          content.style.maxHeight = content.scrollHeight + 'px';
+          this.closest('.accordian-wrapper').classList.add('open');
+        }
+
+        //this.closest('.accordian-content').
+      });
+    });
+  });
+</script>
 
 <script type="application/ld+json">
   {{ article | structured_data }}

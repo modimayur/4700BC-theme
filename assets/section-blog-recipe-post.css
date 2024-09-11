@@ -1,4 +1,6 @@
-.article-template.recipe-template
+.article-template.recipe-template{
+  padding-bottom: 40px;
+}
 .article-template.recipe-template .article-template__hero-container{
   max-width: unset;
 }
@@ -144,11 +146,15 @@
   margin-bottom: 16px;
 }
 
+.accordian-wrapper{
+
+}
+
 .instruction-list-container .instruction-list-heading h2,
 .accordian-wrapper .accordian-heading{
   border:1px solid #FCDB8B;
   background: #fff;
-  padding: 24px;
+  padding: 24px 24px 20px;
   color:#070707;
   font-family: var(--font-heading-family);
   text-transform: uppercase;
@@ -159,14 +165,51 @@
   letter-spacing: 0.18rem;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+
+.accordian-wrapper:not(.open) .accordian-heading{
+  border-radius: 12px;
+  /* transition: all 0.2s ease-in-out; */
+}
+
+.accordian-wrapper .accordian-heading .icon{
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  margin-top: 6px;
+}
+
+.accordian-wrapper .accordian-heading .icon svg{
+  transform: rotate(180deg);
+  transition: 0.2s all ease-in-out;
+}
+
+.accordian-wrapper.open .accordian-heading .icon svg{
+  transform: rotate(0deg);
 }
 
 .accordian-wrapper .accordian-content{
-  border:1px solid #FCDB8B;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.accordian-wrapper .accordian-content-area{  
   background: #fff;
-  padding: 20px 22px;
+  border:1px solid #FCDB8B;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+  padding: 20px 22px;
+  border-top: none;
+}
+
+.accordian-wrapper.open .accordian-content{
+  max-height: unset;
+  transition: max-height 0.5s ease-in-out;
 }
 
 .accordian-wrapper .accordian-content ul{
@@ -176,6 +219,11 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.accordian-wrapper.nutrition-info ul{
+  list-style-type: disc;
+  padding-left: 25px;
 }
 
 .accordian-wrapper .accordian-content ul li{
@@ -192,20 +240,34 @@
 
 }
 
-.recipe-detail-container .grid .grid__item.sidebar{
-  width: calc(33.33% - var(--grid-desktop-horizontal-spacing));
-  max-width: calc(33.33% - var(--grid-desktop-horizontal-spacing));
+@media screen and (min-width: 990px) {
+  .recipe-detail-container .grid .grid__item.sidebar{
+    width: calc(33.33% - var(--grid-desktop-horizontal-spacing));
+    max-width: calc(33.33% - var(--grid-desktop-horizontal-spacing));
+  }
+  
+  .recipe-detail-container .grid .grid__item.main-block{
+    width: calc(66.66% - var(--grid-desktop-horizontal-spacing));
+    max-width: calc(66.66% - var(--grid-desktop-horizontal-spacing));
+  }
 }
 
-.recipe-detail-container .grid .grid__item.main-block{
-  width: calc(66.66% - var(--grid-desktop-horizontal-spacing));
-  max-width: calc(66.66% - var(--grid-desktop-horizontal-spacing));
+@media screen and (min-width: 1400px) {
+  .recipe-detail-container .grid .grid__item.sidebar{
+    width: calc(30% - var(--grid-desktop-horizontal-spacing));
+    max-width: calc(30% - var(--grid-desktop-horizontal-spacing));
+  }
+  
+  .recipe-detail-container .grid .grid__item.main-block{
+    width: calc(70% - var(--grid-desktop-horizontal-spacing));
+    max-width: calc(70% - var(--grid-desktop-horizontal-spacing));
+  }
 }
+
 
 .instruction-list-container {
 
 }
-
 
 .instruction-list-container .instruction-list-heading h2{
   margin: 0 auto;
@@ -217,6 +279,9 @@
   background: #FDEBBE;
   border: 1px solid #FCDB8B;
   padding: 32px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top: none;
 }
 
 .instruction-list-container .instruction-list .instruction-block{
@@ -225,10 +290,21 @@
   align-items: center;
   flex-direction: row;
   gap: 30px;
+  padding: 20px 0;
+  border-bottom:1px dashed #D2B275;
+}
+
+.instruction-list-container .instruction-list .instruction-block:first-child{
+  padding-top: 0;
+}
+
+.instruction-list-container .instruction-list .instruction-block:last-child{
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .instruction-list-container .instruction-list .instruction-block .step {
-
+  width: 20px;
 }
 .instruction-list-container .instruction-list .instruction-block .step span{
   color: #0A090A;
@@ -236,7 +312,7 @@
   font-weight: 700;
 }
 .instruction-list-container .instruction-list .instruction-block .instruction-text{
-
+  width: calc(100% - 160px);
 }
 .instruction-list-container .instruction-list .instruction-block .instruction-text p{
   color: #0A090A;
@@ -244,5 +320,40 @@
   font-weight: 600;
 }
 .instruction-list-container .instruction-list .instruction-block .action{
+  min-width: 140px;
+}
 
+.instruction-list-container .instruction-list .instruction-block .action .action-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: 0.5s all ease-in-out;
+}
+
+.instruction-list-container .instruction-list .instruction-block .action .action-btn span.icon{
+  display: block;
+  padding: 0.55rem 0.64rem 0.46rem;
+  background: #FFF9F2;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.instruction-list-container .instruction-list .instruction-block .action .action-btn span.label{
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-body-family);
+}
+
+.instruction-list-container .instruction-list .instruction-block .action .action-btn.completed .icon{
+  border-color: rgba(202, 149, 9, 0.6);
+  background: #0A090A;
+}
+
+.instruction-list-container .instruction-list .instruction-block .action .action-btn.completed .icon path{
+  stroke: rgb(255,255,255);
 }

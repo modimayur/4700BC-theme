@@ -52,7 +52,17 @@
                         <a class="breadcrumbs__link" href="{{ blog.url }}" aria-current="page">{{ blog.title }}</a>
                     </li>
                 {%- endif -%}
-            {%- when 'article' or template contains 'article' -%}
+                {%- when 'article' -%}
+                    <li class="breadcrumbs__item">
+                        {{ blog.title | link_to: blog.url }}
+                    </li>
+                    <li><span class="separator">
+                        {% render 'icon-caret-arrow' %}
+                    </span></li>
+                    <li class="breadcrumbs__item">
+                        <a class="breadcrumbs__link" href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
+                    </li>
+            {%- when 'article.recipe' -%}
                 <li class="breadcrumbs__item">
                     {{ blog.title | link_to: blog.url }}
                 </li>
@@ -61,7 +71,7 @@
                 </span></li>
                 <li class="breadcrumbs__item">
                     <a class="breadcrumbs__link" href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
-                </li>
+                </li>    
             {%- else -%}
                 <li class="breadcrumbs__item">
                     <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
