@@ -1675,10 +1675,9 @@ a.product__text {
     gap: 10px;
   }
 }
-
+.product-form__buttons .product-form__submit,
 button.shopify-payment-button__button--unbranded, .shopify-payment-button__button{
   min-height: calc(5.5rem + var(--buttons-border-width)* 2);
-
 }
 
 button.shopify-payment-button__button--unbranded span, .shopify-payment-button__button span{
