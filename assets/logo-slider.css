@@ -20,6 +20,10 @@
     margin: 0 -1px 0;
 }
 
+.section-logoslider .title{
+    letter-spacing: .03em;
+}
+
 .section-logoslider .logo-slider-swiper {
     /* margin-left: calc((50vw - (var(--page-width) / 2 ) ) - 10px); */
     --margin-left: calc((50vw - (var(--page-width) / 2 ) ) - 10px);

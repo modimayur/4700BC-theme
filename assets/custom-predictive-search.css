@@ -18,13 +18,13 @@ main#MainContent {
     content: "";
     background-color: #FEEEC7;
     position: absolute;
-    inset: 64% 0 0;
+    inset: 62% 0 0;
     display: block;
     z-index: -1;
 }
 
 .sections-product-search-range .custom-predictive-search {
-    margin-bottom: 12rem;
+    margin-bottom: 10rem;
 }
 .sections-product-search-range .custom-predictive-search #custom-search-form{
     max-width: 658px;
@@ -90,6 +90,7 @@ main#MainContent {
 
 .sections-product-search-range #search-results .product-iteam a{
     text-decoration: none;
+    font-size: 1.6rem;
 }
 .sections-product-search-range #search-results .product-iteam .product-title{
     /* font-family: var(--font-heading-family); */
@@ -98,12 +99,12 @@ main#MainContent {
     font-weight: 800;
     font-size: 18px;
     color: #592C29;
-    margin: .5rem 0 2rem;
+    margin: .5rem 0 1rem;
     transition: all 0.3s ease-in-out;
     opacity: 0;
   }
   .sections-product-search-range #search-results .product-iteam .price .price-item{
-    font-size: 2.6rem;
+    font-size: 2rem;
     transition: all 0.3s ease-in-out;
     opacity: 0;
     margin-bottom: 1rem;
@@ -174,7 +175,7 @@ main#MainContent {
     }
     .sections-product-search-range #search-results .product-iteam .product-title{
         font-size:16px;
-        letter-spacing: .08rem;
+        /* letter-spacing: .08rem; */
     }
     .search-collection-link-wrapper .view-product-button{
         font-size: 1.4rem;
@@ -245,4 +246,32 @@ main#MainContent {
 
 .section-heading  textPath {
   transition: startOffset 1s ease;
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .sections-product-search-range .custom-predictive-search #custom-search-form #search-input{
+    padding-left: 5.2rem;
+    height: 5.4rem;
+    font-size: 4.0rem;
+  }
+  .sections-product-search-range .custom-predictive-search #custom-search-form:before{
+    width: 4.5rem;
+    height: 4.5rem;
+    background-size: contain;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .custom-predictive-search-bg .section-heading{
+    margin-bottom: -140px;
+  }
+  .sections-product-search-range .custom-predictive-search{
+    margin-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .custom-predictive-search-bg .section-heading{
+    margin-bottom: -175px;
+  }
 }

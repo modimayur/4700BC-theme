@@ -94,6 +94,28 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .header-btn{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .header-btn .icon{
+    margin-top: -8px;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .header-btn .icon svg{
+    display: block;
+  }
+  .header-btn .label{
+    display:inline-block;
+  }
+  .header-btn.active .icon{
+    visibility: visible;
+    opacity: 1;
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -143,7 +165,10 @@
     endif
   -%}
   <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} {% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
-    <a class="header-btn gifting-btn{% if template contains 'gifting' %} active{% endif %}" href="/pages/gifting">GIFTING</a>
+    <a class="header-btn gifting-btn{% if template contains 'gifting' %} active{% endif %}" href="/pages/gifting">
+      <span class="icon">{{ 'gift.svg' | inline_asset_content }}</span>
+      <span class="label">GIFTING</span>
+    </a>
 
     {%- if section.settings.logo_position != 'middle-center' -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset header__heading-logo-link">
@@ -168,7 +193,10 @@
             {%- endif -%}
           </a>
     {%- endif -%}
-    <a class="header-btn snacking-btn{% unless template contains 'gifting' %} active{% endunless %}" href="/">SNACKING</a>
+    <a class="header-btn snacking-btn{% unless template contains 'gifting' %} active{% endunless %}" href="/">
+      <span class="icon">{{ 'snacking.svg' | inline_asset_content }}</span>
+      <span class="label">SNACKING</span>
+    </a>
 
     {%- liquid
       if section.settings.menu != blank

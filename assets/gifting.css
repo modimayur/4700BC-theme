@@ -95,6 +95,7 @@ body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn__title .verticle-
 }
 body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item{
     /* padding-block: 150px; */
+    max-width: unset;
     aspect-ratio: 1/1;
     justify-content: center;
     display: flex;
@@ -140,6 +141,7 @@ body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-wit
     font-size: 32px;
     line-height: 130%;
     color: #FCC000;
+    margin-bottom: 20px;
 }
 body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-with-text__heading.inline-richtext.hxxl{
     max-width: 539px;

@@ -3,41 +3,51 @@
     <h2 class="wrapper-title center inline-richtext {{ section.settings.heading_size }}">
       {{ section.settings.heading }}
     </h2>
-{%- endif -%}
-
-
+  {%- endif -%}
   <div class="custom-search-wrap">
-    <form id="custom-search-form" class="search search-form" action="/search" method="get" role="search">
-      <input type="hidden" name="type" value="product">
-      {% comment %} <input class="field_input" type="search" name="type" value="" placeholder="Select Occasion"> {% endcomment %}
-      <select class="field_input">
-        <option>Select Price Range</option>
-        <option value="500">500</option>
-        <option value="1000">1000</option>
-        <option value="2500">2500</option>
-        <option value="3000">3000</option>
-        <option value="3500">3500</option>
-        <option value="4000">4000</option>
-        <option value="4500">4500</option>
-        <option value="5000">5000</option>
-        <option value="5500">5500</option>
-        <option value="6000">6000</option>
-        <option value="6500">6500</option>
-        <option value="7000">7000</option>
-        <option value="7500">7500</option>
-        <option value="8000">8000</option>
-        <option value="8500">8500</option>
-        <option value="9000">9000</option>
-        <option value="9500">9500</option>
-        <option value="10000">10000</option>
-    </select>
-    <button type="submit" class="button">
-        <span>FIND A GIFT</span>
-    </button>
-     
-    </form>
+    <find-gift>
+      <div class="error-container"></div>
+      {% liquid
+        assign filter_collection = section.settings.collection
+      %}
+      <form id="custom-search-form" class="search search-form" action="{{ filter_collection.url }}" method="get" role="search">
+        {% assign occasion_filter = null %}
+        {% assign price_filter = null %}
+        {% for filter in filter_collection.filters %}
+          {% comment %} {{ filter.type }} - {{ filter.label }} - {{ filter.param_name }} {% endcomment %}
+          {% if filter.param_name == 'filter.p.m.custom.celebration_type' %}
+            {% assign occasion_filter = filter %}
+          {% endif %}
+          {% if filter.param_name == 'filter.v.price' %}
+            {% assign price_filter = filter %}
+          {% endif %}
+        {% endfor %}
+        <select class="field_input occasion-filter" name="{{ occasion_filter.param_name }}" required>
+          <option value=''>Select Occasion</option>
+          {% for filter_val in occasion_filter.values %}
+          <option value="{{ filter_val.value }}">{{ filter_val.label }}</option>
+          {% endfor %}          
+        </select>
+        {% comment %} <input class="field_input" type="search" name="type" value="" placeholder="Select Occasion"> {% endcomment %}
+        {% if section.settings.price_range != blank %}
+        <select class="field_input price-filter" name="{{ price_filter.param_name }}" required>
+          <option value=''>Select Price Range</option>
+          {% assign price_range = section.settings.price_range | split:',' %}
+          {% for range in price_range %}
+            <option value="{{ range }}">{{ range }}</option>
+          {% endfor %}
+        </select>
+      {% endif %}
+        <button type="submit" class="button">
+          <span>FIND A GIFT</span>
+        </button>
+      </form>
+    </find-gift>
   </div>
 </div>
+
+<script src="{{ 'find-gift-form.js' | asset_url }}" defer="defer"></script>
+{% comment %} filter.v.price.gte=&filter.v.price.lte=&filter.p.m.custom.celebration_type=Diwali {% endcomment %}
 
 {% schema %}
 {
@@ -81,6 +91,20 @@
       ],
       "default": "hxl",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "header",
+      "content": "Filters"
+    },
+    {
+      "type":"collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "textarea",
+      "id": "price_range",
+      "label": "Price Range"
     }
   ],
   "presets": [

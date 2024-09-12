@@ -43,6 +43,10 @@
   margin: 0 auto 3rem;
   max-width: 475px;
 }
+.gifts-content .button{
+  position: relative;
+  z-index: 1;
+}
 .gifts.floating-images .sticky-wrapper .ticker-section .slider-item {
   -webkit-text-fill-color: #FFF0CC;
   -webkit-text-stroke: 1px;

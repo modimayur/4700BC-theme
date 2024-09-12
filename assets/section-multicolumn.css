@@ -99,12 +99,30 @@
 
 .multicolumn-list__item.center .media--adapt,
 .multicolumn-list__item .media--adapt .multicolumn-card__image {
-  width: auto;
+  /* width: auto; */
 }
 
 .multicolumn-list__item.center .media--adapt img {
   left: 50%;
   transform: translateX(-50%);
+}
+
+.multicolumn-card__info .h1{
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.multicolumn-card__info .button{
+  position: relative;
+  z-index: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.multicolumn-list__item:hover .multicolumn-card__info .button{
+  visibility: visible;
+  opacity: 1;
 }
 
 @media screen and (max-width: 749px) {
