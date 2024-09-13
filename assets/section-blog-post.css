@@ -2,36 +2,6 @@
   margin-top: 5rem;
 }
 
-.article-template{
-  padding-bottom: 60px;
-}
-
-.article-template__content h2{
-  color: #000;
-  font-size: 3.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18rem;
-  margin-bottom: 15px;
-  margin-top: 35px;
-}
-
-.article-template__content p, .article-template__content li, .article-template__content.rte p{
-  font-size: 18px;
-  font-weight: 500;
-  color: #000;
-  letter-spacing: 0;
-  margin: 0 auto;
-  line-height: 30px;
-}
-.article-template__content img{
-  margin: 3.2rem auto 1.5rem;
-  width: 100%;
-}
-.article-template__content h3{
-  font-size: 22px;
-  letter-spacing: 0.25rem;
-}
-
 @media screen and (min-width: 750px) {
   .article-template > *:first-child:not(.article-template__hero-container) {
     margin-top: calc(5rem + var(--page-width-margin));

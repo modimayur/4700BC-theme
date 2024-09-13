@@ -1,4 +1,5 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{{ 'section-article-post.css' | asset_url | stylesheet_tag }}
 
 <article class="article-template">
   {%- for block in section.blocks -%}
@@ -40,6 +41,68 @@
             </div>
           </div>
         {%- endif -%}
+      
+      {%- when 'featured_information' -%}
+        <div class="article_information page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+          <div class="grid">
+            <div class="grid__item featured_image">
+              {% if article.image %}
+                <div
+                  class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  <div
+                    class="article-template__hero-adapt media" style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
+                  >
+                    <img
+                      srcset="
+                        {% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                        {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+                        {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+                        {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+                        {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+                        {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+                        {{ article.image | image_url }} {{ article.image.width }}w
+                      "
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                      src="{{ article.image | image_url: width: 1100 }}"
+                      loading="eager"
+                      fetchpriority="high"
+                      width="{{ article.image.width }}"
+                      height="{{ article.image.height }}"
+                      alt="{{ article.image.alt | escape }}"
+                    >
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+            <div class="grid__item article__info">
+              <div class="article__info-container">
+                {% assign number_of_words = article.content | split:' ' %}
+                {% assign average_wpm = 260 %}
+                {% assign time = number_of_words.size | divided_by: average_wpm %}
+                <p class="subline-text reading-time">{{ time }} minute read</p>
+                <h1
+                  class="article-template__title"
+                >
+                  {{ article.title | escape }}
+                </h1>
+                <p class="subline-text article_date_author_info">
+                  {%- if block.settings.blog_show_date -%}
+                    <span class="date">
+                      {{- article.published_at | time_tag: format: 'date' -}}
+                    </span>
+                  {%- endif -%}
+                  {%- if block.settings.blog_show_author -%}
+                    <span class="author">
+                      <span>{{ article.author }}</span>
+                    </span>
+                  {%- endif -%}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
       {%- when 'title' -%}
         <header
@@ -344,6 +407,24 @@
       "type": "content",
       "name": "t:sections.main-article.blocks.content.name",
       "limit": 1
+    },
+    {
+      "type": "featured_information",
+      "name":"Featured Information",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        }
+      ]
     },
     {
       "type": "share",

@@ -7,8 +7,6 @@
 {{ 'video-section.css' | asset_url | stylesheet_tag }}
 {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 
-<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -23,8 +21,8 @@
   }
 {%- endstyle -%}
 
-<div class="featured-recipes-container page-width">
-  <div class="isolate section-{{ section.id }}-padding">
+<div class="section-{{ section.id }}-padding">
+  <div class="featured-recipes-container page-width">
     <h2
         class="inline-richtext heading center {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         {{ section.shopify_attributes }}
@@ -37,54 +35,63 @@
     </h2>
 
     <div class="featured-recipes-slider-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide featured-recipes-slider">
+      <slick-slider>
+        <div class="featured-recipes-slider slick-slider" id="slider-{{ section.id }}" data-slide="{{ section.settings.slide_per_row }}">
           {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
               {% assign article = block.settings.article %}
-              <div
-                class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
-                {%- render 'article-card-recipe',
-                  article: article,
-                  media_height: section.settings.image_height,
-                  media_aspect_ratio: article.image.aspect_ratio,
-                  show_image: section.settings.show_image,
-                  show_date: section.settings.show_date,
-                  show_author: section.settings.show_author,
-                  show_excerpt: true
-                -%}
+              <div class="slide">
+                <div
+                  class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  {% if settings.animations_reveal_on_scroll %}
+                    data-cascade
+                    style="--animation-order: {{ forloop.index }};"
+                  {% endif %}
+                >
+                  {%- render 'article-card-recipe',
+                    article: article,
+                    media_height: section.settings.image_height,
+                    media_aspect_ratio: article.image.aspect_ratio,
+                    show_image: section.settings.show_image,
+                    show_date: section.settings.show_date,
+                    show_author: section.settings.show_author,
+                    show_excerpt: true
+                  -%}
+                </div>
               </div>
             {% endfor %}
           {% else %}
-            
+            {% for block_article in section.settings.recipe.articles | limit: 10 %}
+              {% unless article.handle == block_article.handle %}
+                <div class="slide">
+                  <div
+                    class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                    {% if settings.animations_reveal_on_scroll %}
+                      data-cascade
+                      style="--animation-order: {{ forloop.index }};"
+                    {% endif %}
+                  >
+                    {%- render 'article-card-recipe',
+                      article: block_article,
+                      media_height: section.settings.image_height,
+                      media_aspect_ratio: article.image.aspect_ratio,
+                      show_image: section.settings.show_image,
+                      show_date: section.settings.show_date,
+                      show_author: section.settings.show_author,
+                      show_excerpt: true
+                    -%}
+                  </div>
+                </div>
+              {% endunless %}
+            {% endfor %}
           {% endif %}
         </div>
-      </div>
+      </slick-slider>
     </div>
   </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.featured-recipes-slider', {
-      slidesPerView: 3,
-      spaceBetween: 56,
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-        },
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-    });
-  });
-</script>
+<script src="{{ 'featured-recipe-slider.js' | asset_url }}" defer="defer"></script>
 
 {% schema  %}
   {
@@ -158,6 +165,23 @@
         "default": "medium",
         "label": "t:sections.main-blog.settings.image_height.label",
         "info": "t:sections.main-blog.settings.image_height.info"
+      },
+      {
+        "type": "blog",
+        "id": "recipe",
+        "label": "Recipe"
+      },
+      {
+        "type": "range",
+        "id": "slide_per_row",
+        "label": "Slide to show",
+        "max": 4,
+        "min": 2,
+        "default":3
+      },
+      {
+        "type": "header",
+        "content": "Padding"
       },
       {
           "type": "range",

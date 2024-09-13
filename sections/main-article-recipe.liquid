@@ -109,35 +109,35 @@
           </div>
         {%- endif -%}
         <div class="top-breadcrumb page-width">{% render 'breadcrumbs' %}</div>
-          <div class="banner__content banner__content--middle-left page-width scroll-trigger animate--slide-in">
-            <div class="content-container content-container--full-width-mobile">
-              <h2 class="banner__heading inline-richtext h1">
-                {{ article.title }}
-              </h2>
-              {% if article_details.subtitle != blank %}
-                <div class="banner__text rte body">
-                  <p>{{ article_details.subtitle }}</p>
-                </div>
-              {% endif %}
-              {% if article_details.video != blank %}
-                <button class="video-btn button">
-                  Watch Recipe Video
-                </button>
-              {% endif %}
-              <div class="action-links">
-                <a href="{{ article_details.pdf }}" target="_blank" class="download-link article-btn-link">
-                  <span class="icon">{{ 'download.svg' | inline_asset_content }}</span>
-                  <span class="link-label">Download PDF</span>
-                </a>
-                {% if article_details.pdf != blank %}
-                {% endif %}
-                <a class="bookmark-link article-btn-link" href="" target="_blank">
-                  <span class="icon">{{ 'bookmark_page.svg' | inline_asset_content }}</span>
-                  <span class="link-label">Save to My Recipes</span>
-                </a>
+        <div class="banner__content page-width banner__content--middle-left page-width scroll-trigger animate--slide-in">
+          <div class="content-container content-container--full-width-mobile">
+            <h2 class="banner__heading inline-richtext h1">
+              {{ article.title }}
+            </h2>
+            {% if article_details.subtitle != blank %}
+              <div class="banner__text rte body">
+                <p>{{ article_details.subtitle }}</p>
               </div>
+            {% endif %}
+            {% if article_details.video != blank %}
+              <button class="video-btn button">
+                Watch Recipe Video
+              </button>
+            {% endif %}
+            <div class="action-links">
+              <a href="{{ article_details.pdf }}" target="_blank" class="download-link article-btn-link">
+                <span class="icon">{{ 'download.svg' | inline_asset_content }}</span>
+                <span class="link-label">Download PDF</span>
+              </a>
+              {% if article_details.pdf != blank %}
+              {% endif %}
+              <a class="bookmark-link article-btn-link" href="" target="_blank">
+                <span class="icon">{{ 'bookmark_page.svg' | inline_asset_content }}</span>
+                <span class="link-label">Save to My Recipes</span>
+              </a>
             </div>
           </div>
+        </div>
       </div>
     </div>
   {%- endif -%}

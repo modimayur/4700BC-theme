@@ -1,0 +1,82 @@
+.featured-recipes-slider .slide{
+    padding: 0 10px;
+}
+
+.featured-recipes-slider .article-card-wrapper .card__content .card__information,
+.featured-recipes-slider .blog-articles__article, .featured-recipes-slider .card__information{
+    border-color:#000000;
+}
+
+.featured-recipes-container .heading{
+    margin-top: 0;
+    color: #070707;
+    text-transform: uppercase;
+    letter-spacing: 0.18rem;
+}
+
+.featured-recipes-slider:not(.slick-initialized){
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.featured-recipes-slider:not(.slick-initialized) .slide:nth-child(n+4) {
+    display: none;
+}
+.featured-recipes-slider:not(.slick-initialized) .slide{
+    width: 100%;
+}
+
+.featured-recipes-slider .slick-arrow{
+    height: 48px;
+    width: 48px;
+    background: #FDEBBE;
+    border: 1px solid #FCDB8B;
+    z-index: 9;
+    border-radius: 16px;
+}
+.featured-recipes-slider .slick-arrow:before{
+    content: '';
+    background: url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M9%2018L15%2012L9%206%22%20stroke%3D%22%23070707%22%20stroke-width%3D%222.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A') no-repeat center center;
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+.featured-recipes-slider .slick-arrow.slick-prev{
+    left: -5px;
+}
+.featured-recipes-slider .slick-arrow.slick-next{
+    right: -5px;
+}
+.featured-recipes-slider .slick-arrow.slick-prev:before{
+    transform: rotate(180deg);    
+}
+
+@media screen and (min-width: 1400px) {
+    .featured-recipes-slider .slide{
+        padding: 0 28px;
+    }
+}
+
+@media screen and (min-width: 990px) {
+    .featured-recipes-slider .slide{
+        padding: 0 20px;
+    }
+}
+@media screen and (max-width: 749px) {
+    .featured-recipes-slider .slick-arrow{
+        height: 40px;
+        width: 40px;
+    }
+    .featured-recipes-slider:not(.slick-initialized) .slide:nth-child(n+3) {
+        display: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    .featured-recipes-slider .slide{
+        padding: 0 5px;
+    }
+    .featured-recipes-slider:not(.slick-initialized) .slide:nth-child(n+1) {
+        display: none;
+    }
+}

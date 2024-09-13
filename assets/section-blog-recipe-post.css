@@ -240,7 +240,7 @@
 
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1200px) {
   .recipe-detail-container .grid .grid__item.sidebar{
     width: calc(33.33% - var(--grid-desktop-horizontal-spacing));
     max-width: calc(33.33% - var(--grid-desktop-horizontal-spacing));
@@ -358,14 +358,206 @@
   stroke: rgb(255,255,255);
 }
 
-@media screen and (min-width: 1200px) {
-  
+@media screen and (min-width: 990px) and (max-width: 1199px) {
+  .recipe-detail-container .sidebar{
+    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+    max-width: calc(35% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  .recipe-detail-container .main-block{
+    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+    max-width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  .instruction-list-container .instruction-list{
+    padding: 25px;
+  }
+  .instruction-list-container .instruction-list .instruction-block{
+    gap:25px;
+  }
 }
 
-@media screen and (min-width: 750px) and (max-width: 1199px) {
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .recipe-detail-container .sidebar{
+    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+    max-width: calc(40% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  .recipe-detail-container .main-block{
+    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+    max-width: calc(60% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  .instruction-list-container .instruction-list-heading h2, .accordian-wrapper .accordian-heading{
+    font-size: 22px;
+  }
+  .instruction-list-container .instruction-list{
+    padding: 22px;
+  }
+  .instruction-list-container .instruction-list .instruction-block{
+    gap:20px;
+  }
+  .article-specification .article-specification__item{
+    min-width: 250px;
+  }
+  .article-recipe .recipe-page-banner .content-container .banner__heading{
+    font-size: 42px;
+  }
+  .article-recipe .recipe-page-banner .content-container .banner__text{
+    margin-bottom: 25px;
+  }
+  .article-recipe .recipe-page-banner .content-container .banner__text p{
+    font-size: 18px;
+  }
+  .article-recipe .recipe-page-banner .content-container .action-links{
+    margin-top: 30px;
+  }
+  .article-recipe .recipe-page-banner .top-breadcrumb{
+    top: 18px;
+  }
+}
 
+@media screen and (min-width: 750px) and (max-width: 1199px){
+  .accordian-wrapper .accordian-content li span,
+  .instruction-list-container .instruction-list .instruction-block .instruction-text p{
+    font-size: 16px;
+  }
+  .accordian-wrapper .accordian-content-area{
+    padding: 18px 20px;
+  }
+  .instruction-list-container .instruction-list .instruction-block .step span{
+    font-size: 32px;
+  }
+  .instruction-list-container .instruction-list .instruction-block .action .action-btn span.icon svg{
+    width: 28px;
+    height: 28px;
+  }
+  .instruction-list-container .instruction-list .instruction-block .instruction-text p{
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 750px){
+  .recipe-page-banner .banner__content{
+    padding-top: 80px;
+  }
 }
 
 @media screen and (max-width: 749px) {
+  .recipe-detail-container .sidebar, .recipe-detail-container .main-block{
+    width: 100%;
+    max-width: 100%;
+  }
+  .instruction-list-container .instruction-list{
+    padding: 20px 16px;
+  }
+  .instruction-list-container .instruction-list .instruction-block{
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .instruction-list-container .instruction-list .instruction-block .step span{
+    font-size: 24px;
+  }
+  .instruction-list-container .instruction-list .instruction-block .action{
+    width: 100%;
+    min-width: unset;
+  }
+  .instruction-list-container .instruction-list .instruction-block .action .action-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap:12px;
+    margin: 0;
+  }
+  .instruction-list-container .instruction-list .instruction-block .action .action-btn span.icon{
+    margin-bottom:0;
+    border-width: 2px;
+  }
+  .instruction-list-container .instruction-list .instruction-block .action .action-btn span.icon svg{
+    height: 18px;
+    width: 18px;
+  }
+  .instruction-list-container .instruction-list .instruction-block .instruction-text{
+    width: calc(100% - 32px);
+  }
+  .instruction-list-container .instruction-list .instruction-block .instruction-text p{
+    font-size: 15px;
+    margin: 0 auto;
+  }
+  .article-specification-container .article-specification{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .article-specification .article-specification__item{
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid #828282;
+    border-right: none;
+    padding: 15px 0;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  .article-specification .article-specification__item:first-child{
+    padding-top: 0;
+  }
+  .article-specification .article-specification__item:last-child{
+    padding-bottom: 0;
+  }
+  .article-specification .article-specification__item .icon svg{
+    padding-top: 7px;
+  }
+  .article-specification p{
+    font-size: 15px;
+    margin: 0;
+  }
+  .recipe-page-banner .banner__content{
+    padding: 100px 20px 35px;
+  }
+  .article-recipe .recipe-page-banner .content-container .banner__heading{
+    font-size: 40px;
+  }
+  .article-recipe .recipe-page-banner .content-container .banner__text p{
+    font-size: 15px;
+  }
+  .article-recipe .recipe-page-banner .top-breadcrumb{
+    top: 16px;
+  }
+  .article-recipe .recipe-page-banner .content-container .banner__text{
+    margin-bottom: 20px;
+  }
+  .article-recipe .recipe-page-banner .content-container .action-links{
+    margin-top: 28px;
+    gap: 15px;
+  }
+  .article-recipe .recipe-page-banner .content-container .video-btn{
+    font-size: 16px;
+  }
+  .recipe-page-banner .banner .banner__media {
+    position: absolute;
+  }
+  .recipe-detail-container{
+    padding-top: 24px;
+  }
+}
 
+@media screen and (max-width: 480px) {
+  .accordian-wrapper .accordian-content li span{
+    font-size: 14px;
+  }
+  .accordian-wrapper .accordian-content ul{
+    gap: 10px;
+  }
+  .accordian-wrapper .accordian-content-area{
+    padding: 16px;
+  }
+  .instruction-list-container .instruction-list-heading h2, .accordian-wrapper .accordian-heading{
+    padding: 20px 16px 16px;
+    font-size: 20px;
+  }
+  .instruction-list-container .instruction-list .instruction-block{
+    gap: 12px;
+  }
+  .article-recipe .recipe-page-banner .content-container .banner__text p{
+    font-size: 14px;
+  }
+  .article-recipe .recipe-page-banner .content-container .action-links{
+    flex-wrap: wrap;
+  }
 }

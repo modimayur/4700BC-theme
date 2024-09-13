@@ -1,0 +1,169 @@
+.article-template{
+  padding-bottom: 60px;
+}
+
+.article-template__content h2{
+  color: #000;
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  margin-bottom: 15px;
+  margin-top: 35px;
+}
+
+.article-template__content p, .article-template__content li, .article-template__content.rte p{
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  letter-spacing: 0;
+  margin: 0 auto;
+  line-height: 30px;
+}
+.article-template__content img{
+  margin: 3.2rem auto 1.5rem;
+  width: 100%;
+}
+.article-template__content h3{
+  font-size: 22px;
+  letter-spacing: 0.25rem;
+}
+.article-template__content strong{
+  font-weight: 800;
+}
+.article-template__content ul, .article-template__content ol{
+  list-style-position: unset;
+  padding-left: 15px;
+}
+
+
+.article_information .grid{
+  --grid-desktop-horizontal-spacing: 40px;
+  align-items: center;
+  background: #F2B65E;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.article_information .grid__item.featured_image{
+  width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+  max-width: calc(25% - var(--grid-desktop-horizontal-spacing) / 2);
+}
+
+.article_information .grid__item.article__info{
+  width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+  max-width: calc(75% - var(--grid-desktop-horizontal-spacing) / 2);
+}
+
+.article_information .article__info .subline-text{
+  font-size: 20px;
+  font-weight: 500;
+  color: #070707;
+  margin: 0 auto;
+}
+.article-template__title{
+  text-transform: uppercase;
+  font-size: 56px;
+  margin: 0 auto;
+}
+
+.article__info-container{
+  padding-right: 55px;
+}
+
+.article__info-container{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-right: 45px;
+}
+
+@media screen and (min-width: 750px) {{
+  .article_date_author_info .date{
+    border-right: 1px solid #070707;
+    padding-right: 12px;
+    margin-right: 8px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .article-template__content p, .article-template__content li, .article-template__content.rte p{
+    line-height: 28px;
+    font-size: 16px;
+  }
+  .article-template__content h2{
+    font-size: 3.0rem;
+  }
+  .article-template__content .article-template__content{
+    padding-top: 5.6rem;
+  }
+  .article-template__title{
+    font-size: 48px;
+  }
+  .article_information .article__info .subline-text{
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .article_information .grid{
+
+  }
+  .article_information .grid{
+    --grid-desktop-horizontal-spacing: 32px;
+  }
+  .article_information .grid__item.featured_image{
+    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+    max-width: calc(40% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  
+  .article_information .grid__item.article__info{
+    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+    max-width: calc(60% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  .article__info-container{
+    padding-right: 32px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .article-template__title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .article-template__content h2 {
+    font-size: 2.4rem;
+  }
+  .article_information .grid{
+    --grid-desktop-horizontal-spacing: 18px;
+  }
+  .article-template__content p, .article-template__content li, .article-template__content.rte p{
+    line-height: 26px;
+    font-size: 14px;
+  }
+  .article_information .grid__item.featured_image{
+    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  
+  .article_information .grid__item.article__info{
+    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
+    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  .article-template__title {
+    font-size: 28px;
+  }
+  .article_date_author_info .date{
+    margin-right: 15px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .article__info-container{
+    padding-right: 18px;
+  }
+  .article-template__title{
+    font-size: 20px;
+  }
+  .article_information .article__info .subline-text{
+    font-size: 14px;
+  }
+}

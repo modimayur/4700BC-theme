@@ -29,6 +29,7 @@
 
     {% render 'meta-tags' %}
 
+    <script src="{{ 'vendor.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'gsap.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
@@ -299,6 +300,7 @@
     {% endstyle %}
 
     {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'slick.min.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {% if template contains 'gifting' %}
     {{ 'gifting.css' | asset_url | stylesheet_tag }}

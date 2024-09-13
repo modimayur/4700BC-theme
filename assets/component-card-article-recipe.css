@@ -46,6 +46,41 @@
     display: block;
 }
 
+.article-card-wrapper .card__inner .badges{
+    z-index: 1;
+}
+.article-card-wrapper .card__inner .badges .timer{
+    background: #070707;
+    color: #fff;
+    border-radius: 24px;
+    padding: 6px 22px;
+    width: fit-content;
+    top: 16px;
+    left: 16px;
+    position: absolute;
+}
+.article-card-wrapper .card__inner .badges .timer > span{
+    display: flex;
+    align-items: center;
+}
+.article-card-wrapper .card__inner .badges .timer span span{
+    margin-left: 8px;
+}
+.article-card-wrapper .card__inner .badges .bookmark-btn{
+    top: 16px;
+    right: 16px;
+    position: absolute;
+    border-radius: 24px;
+    padding: 20px 20px;
+    background: #070707;
+    z-index: 99;
+}
+.article-card-wrapper .card__inner .badges .bookmark-btn svg{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+
 @media screen and (max-width: 1199px) {
     .article-card-wrapper .card.article-card .card__inner{
         height: 380px;
