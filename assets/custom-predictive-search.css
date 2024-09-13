@@ -234,11 +234,11 @@ main#MainContent {
     margin-top: -230px;
     margin-bottom: -100px;
   }
-  .custom-predictive-search-bg .section-heading svg{
+  /* .custom-predictive-search-bg .section-heading svg{
     width: 140%;
     inset: auto 50% 0;
     transform: translate(-50%);
-  }
+  } */
   .custom-predictive-search-bg .section-heading svg textPath{
     font-size: 82px;
   }

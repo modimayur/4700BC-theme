@@ -2561,6 +2561,28 @@ announcement-bar{
   justify-self: center;
 }
 
+.header-btn{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.header-btn .icon{
+  margin-top: -8px;
+  visibility: hidden;
+  opacity: 0;
+}
+.header-btn .icon svg{
+  display: block;
+}
+.header-btn .label{
+  display:inline-block;
+}
+.header-btn.active .icon{
+  visibility: visible;
+  opacity: 1;
+}
+
 .header__heading-link {
   display: inline-block;
   padding: 0.75rem;
@@ -2660,20 +2682,43 @@ announcement-bar{
     border-radius: 18px 0px 0px 18px;
     border: 3px solid #FFF6E0;
   }
+  .header > a.header-btn{
+    font-size: 2.2rem;
+    padding: 9px 15px 5px;
+  }
+  .header-btn .icon{
+    margin-top: -5px;
+  }
+  .header-btn .icon svg{
+    width: 28px;
+    height: 28px;
+  }
+  .header > .header__heading-link{
+    max-width: 6.2rem;
+  }
 }
 
 @media screen and (max-width: 749px) {
   .header > a.header-btn.snacking-btn{
     border-radius: 0 6px 6px 0;
     border: 2px solid #FFF6E0;
+    gap: 5px;
   }
   .header > a.header-btn.gifting-btn {
     border-radius: 6px 0px 0px 6px;
     border: 2px solid #FFF6E0;
+    gap: 5px;
   }
   .header > .header__heading-link.header__heading-logo-link{
     max-width: 7rem;
     margin-top: -6px;
+  }
+  .header-btn .icon{
+    margin-top: -3px;
+  }
+  .header-btn .icon svg{
+    width: 16px;
+    height: 16px;
   }
 }
 

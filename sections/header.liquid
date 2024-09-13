@@ -93,29 +93,7 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-  }
-
-  .header-btn{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .header-btn .icon{
-    margin-top: -8px;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .header-btn .icon svg{
-    display: block;
-  }
-  .header-btn .label{
-    display:inline-block;
-  }
-  .header-btn.active .icon{
-    visibility: visible;
-    opacity: 1;
-  }
+  }  
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>

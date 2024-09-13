@@ -252,6 +252,7 @@ body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-wit
     }
     body.page-gifting .gradient.craftedwithlove .image-with-text__content{
         padding: 1.6rem;
+        margin: 0 auto;
     }
     body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-with-text__text--caption{
         font-size: 1.6rem;
@@ -281,6 +282,7 @@ body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-wit
     }
     body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-with-text__heading.inline-richtext.hxxl {
         font-size: 2.4rem;
+        letter-spacing: 0.18rem;
     }
     .floating-images .floating-img-el img{
         max-width: 100px;
@@ -351,9 +353,11 @@ body.page-gifting .gradient.craftedwithlove .image-with-text__content .image-wit
     body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item .multicolumn-card__image-wrapper.multicolumn-card__image-wrapper--half-width{
         width: calc(100% - 2rem);
     }
-    
-
-
+}
+@media screen and (max-width: 520px) {
+    body.page-gifting .multicolumn.ourrange-bringsjoy .multicolumn-list__item{
+        padding-block: 350px 40px;
+    }
 }
 
 
