@@ -594,7 +594,7 @@
   }
 }
 
-.card__content .card__information .card__heading{
+.product-card-wrapper .card__content .card__information .card__heading{
   font-size: 24px;
   text-transform: uppercase;
   letter-spacing: 0.1rem;

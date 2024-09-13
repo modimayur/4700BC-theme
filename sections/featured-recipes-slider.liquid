@@ -1,4 +1,13 @@
-{{ 'component-social-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card-article-recipe.css' | asset_url | stylesheet_tag }}
+
+{{ 'section-recipe-slider.css' | asset_url | stylesheet_tag }}
+
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -17,7 +26,7 @@
 <div class="featured-recipes-container page-width">
   <div class="isolate section-{{ section.id }}-padding">
     <h2
-        class="inline-richtext heading {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        class="inline-richtext heading center {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         {{ section.shopify_attributes }}
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
@@ -27,36 +36,55 @@
         {{ section.settings.heading }}
     </h2>
 
-    <div class="blog-articles recipes featured-recipes-slider-container">
-      <div class="featured-recipes-slider">
-        {% if section.blocks.size > 0 %}
-          {% for block in section.blocks %}
-            {% assign article = block.settings.article %}
-            <div
-              class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-              {% if settings.animations_reveal_on_scroll %}
-                data-cascade
-                style="--animation-order: {{ forloop.index }};"
-              {% endif %}
-            >
-              {%- render 'article-card-recipe',
-                article: article,
-                media_height: section.settings.image_height,
-                media_aspect_ratio: article.image.aspect_ratio,
-                show_image: section.settings.show_image,
-                show_date: section.settings.show_date,
-                show_author: section.settings.show_author,
-                show_excerpt: true
-              -%}
-            </div>
-          {% endfor %}
-        {% else %}
-          
-        {% endif %}
+    <div class="featured-recipes-slider-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide featured-recipes-slider">
+          {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+              {% assign article = block.settings.article %}
+              <div
+                class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {%- render 'article-card-recipe',
+                  article: article,
+                  media_height: section.settings.image_height,
+                  media_aspect_ratio: article.image.aspect_ratio,
+                  show_image: section.settings.show_image,
+                  show_date: section.settings.show_date,
+                  show_author: section.settings.show_author,
+                  show_excerpt: true
+                -%}
+              </div>
+            {% endfor %}
+          {% else %}
+            
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.featured-recipes-slider', {
+      slidesPerView: 3,
+      spaceBetween: 56,
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  });
+</script>
 
 {% schema  %}
   {
@@ -64,41 +92,72 @@
     "class": "shopify-section",
     "settings": [
       {
-          "type": "richtext",
-          "id": "heading",
-          "label": "Heading"
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
       },
       {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-              {
-              "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
-              },
-              {
-              "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
-              },
-              {
-              "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
-              },
-              {
-              "value": "hxl",
-              "label": "t:sections.all.heading_size.options__4.label"
-              },
-              {
-              "value": "hxxl",
-              "label": "t:sections.all.heading_size.options__5.label"
-              },
-              {
-                  "value": "custom",
-                  "label": "Custom"
-              }
-          ],
-          "default": "h1",
-          "label": "t:sections.all.heading_size.label"
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+            {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+            "value": "h0",
+            "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+            "value": "hxl",
+            "label": "t:sections.all.heading_size.options__4.label"
+            },
+            {
+            "value": "hxxl",
+            "label": "t:sections.all.heading_size.options__5.label"
+            },
+            {
+                "value": "custom",
+                "label": "Custom"
+            }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_image",
+        "default": true,
+        "label": "t:sections.main-blog.settings.show_image.label"
+      },
+      {
+        "type": "select",
+        "id": "image_height",
+        "options": [
+          {
+            "value": "adapt",
+            "label": "t:sections.main-blog.settings.image_height.options__1.label"
+          },
+          {
+            "value": "small",
+            "label": "t:sections.main-blog.settings.image_height.options__2.label"
+          },
+          {
+            "value": "medium",
+            "label": "t:sections.main-blog.settings.image_height.options__3.label"
+          },
+          {
+            "value": "large",
+            "label": "t:sections.main-blog.settings.image_height.options__4.label"
+          }
+        ],
+        "default": "medium",
+        "label": "t:sections.main-blog.settings.image_height.label",
+        "info": "t:sections.main-blog.settings.image_height.info"
       },
       {
           "type": "range",

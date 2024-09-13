@@ -357,3 +357,15 @@
 .instruction-list-container .instruction-list .instruction-block .action .action-btn.completed .icon path{
   stroke: rgb(255,255,255);
 }
+
+@media screen and (min-width: 1200px) {
+  
+}
+
+@media screen and (min-width: 750px) and (max-width: 1199px) {
+
+}
+
+@media screen and (max-width: 749px) {
+
+}

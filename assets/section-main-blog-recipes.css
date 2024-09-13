@@ -7,6 +7,7 @@
     list-style-type: none;
     margin: 0 auto;
     padding: 0;
+    flex-wrap: wrap;
     gap:20px;
     justify-content: center;
 }
@@ -103,12 +104,14 @@
 }
 .blog-articles.recipes .card__content .card__information{
     background: #fff;
+    padding:0;
     text-align: center;
-    padding: 22px 20px;
     border-top: 1px solid #FCDB8B;
 }
 .blog-articles.recipes .card__information a{
+    padding: 22px 20px;
     text-decoration: none;
+    display: block;
 }
 .blog-articles.recipes .card__information .card__heading {
     font-family: var(--font-body-family);
@@ -133,3 +136,82 @@
     border-color: #FFBE35;
 }
 
+.article-card-wrapper .card.article-card .card__inner .video-section__media{
+    height: 100%;
+}
+
+.blog-recipe .title--primary{
+    margin-top: 0;
+}
+
+@media screen and (max-width: 1199px) {
+    .blog-recipe .title--primary{
+        margin-bottom: 25px;
+    }
+    .blog-filter-container .blog-filter-tags{
+        gap: 15px;
+    }
+    .article-card-wrapper .card.article-card .card__inner{
+        height: 380px;
+    }
+    .blog-articles.recipes{
+        column-gap: 2.5rem;
+        row-gap: 2.5rem;
+    }
+    .blog-filter-container .blog-filter-tags li.tag-filters__item a{
+        padding: 8px 22px;
+        font-size: 16px;
+    }
+    .blog-filter-container{
+        margin: 28px auto 40px;
+    }
+}
+@media screen and (min-width: 951px) and (max-width: 1199px) {
+    .blog-articles.recipes .card__information .card__heading{
+        font-size: 18px;
+        max-width: unset;
+    }
+    .blog-articles.recipes .card__information a{
+        padding: 16px 18px;
+    }
+}
+@media screen and (min-width: 750px) and (max-width: 950px) {
+    .blog-articles.recipes{
+        grid-template-columns: 1fr 1fr;
+    }
+    .blog-recipe .title--primary{
+        margin-bottom: 15px;
+    }
+    .blog-articles.recipes .card__information a{
+        padding: 20px 18px;
+    }
+    .blog-articles.recipes .card__information .card__heading{
+        font-size: 18px;
+        max-width: unset;
+    }
+
+}
+@media screen and (min-width: 481px) and (max-width: 749px) {
+    .blog-articles.recipes{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: 749px) {
+    .blog-articles.recipes .card__information .card__heading{
+        font-size: 15px;
+        max-width: unset;
+    }
+    .blog-articles.recipes .card__information a{
+        padding: 16px 18px 18px;
+    }
+    .blog-filter-container .blog-filter-tags li.tag-filters__item a{
+        padding: 2px 18px;
+        min-width: 90px;
+    }
+    .blog-filter-container{
+        margin: 24px auto;
+    }
+    .blog-recipe .title--primary {
+        margin-bottom: 25px;
+    }
+}
