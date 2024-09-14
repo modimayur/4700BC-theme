@@ -79,6 +79,10 @@
                         <li class="breadcrumbs__item">
                             <a class="breadcrumbs__link" href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
                         </li>
+                    {%- when 'cart' -%}
+                        <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">Your Cart</a>
+                        </li>
                     {%- else -%}
                         <li class="breadcrumbs__item">
                             <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>

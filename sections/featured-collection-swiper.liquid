@@ -90,18 +90,33 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                {% render 'home-card-product',
-                  card_product: product,
-                  media_aspect_ratio: section.settings.image_ratio,
-                  image_shape: section.settings.image_shape,
-                  show_secondary_image: section.settings.show_secondary_image,
-                  show_vendor: section.settings.show_vendor,
-                  show_rating: section.settings.show_rating,
-                  skip_styles: skip_card_product_styles,
-                  card_style: section.settings.card_style,
-                  section_id: section.id,
-                  quick_add: section.settings.quick_add
-                %}
+                {% if template contains 'cart' %}
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    skip_styles: skip_card_product_styles,
+                    card_style: section.settings.card_style,
+                    section_id: section.id,
+                    quick_add: section.settings.quick_add
+                  %}
+                  {% else %}
+                  {% render 'home-card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    skip_styles: skip_card_product_styles,
+                    card_style: section.settings.card_style,
+                    section_id: section.id,
+                    quick_add: section.settings.quick_add
+                  %}
+                {% endif %}
             </div>
               {%- assign skip_card_product_styles = true -%}
             {%- else -%}

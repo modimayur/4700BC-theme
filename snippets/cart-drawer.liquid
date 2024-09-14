@@ -461,6 +461,7 @@
       {%- if settings.cart_drawer_collection != blank -%}
         <div class="cart-drawer__upsell_products">
           {% assign cart_drawer_collection = settings.cart_drawer_collection.products %}
+          <h3>Recommended for You</h3>
           <div class="grid">
             {%- for product in cart_drawer_collection limit: 2 -%}
               <li class="grid__item">
