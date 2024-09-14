@@ -1,6 +1,7 @@
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog-news.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -21,9 +22,23 @@
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>
+    {% assign offset = 0 %}
+    {% if paginate.current_page == 1 %}
+      {% assign offset = 3 %}
+      <script src="{{ 'featured-sliders.js' | asset_url }}" defer="defer"></script>
+      <div class="featured-blogs-slider slick-custom-slider" id="slick-custom-slider-{{ section.id }}" data-slide="1">
+        {% for article in blog.articles, limit:3 %}
+          <div class="slide-item">
+            <div class="article_information">
+              {% render 'article-featured-information', article: article, read_more: true %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      {%- for article in blog.articles -%}
+      {%- for article in blog.articles, offset: offset -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {% if settings.animations_reveal_on_scroll %}
