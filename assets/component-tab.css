@@ -55,9 +55,10 @@
     column-gap: 12px;
     row-gap: 12px;
 }
-
-.tab-container .tab-content .product-list .grid__item{
-    width: calc(33.33% - 8px);
+@media screen and (min-width: 1200px){
+    .tab-container .tab-content .product-list .grid__item{
+        width: calc(33.33% - 8px);
+    }
 }
 
 .tab-data-content .product-block{
@@ -87,8 +88,4 @@
     /* letter-spacing: 0.1rem; */
     margin: 12px auto 0;
     font-family: var(--font-body-family);
-}
-
-{
-    
 }

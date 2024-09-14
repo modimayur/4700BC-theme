@@ -1631,50 +1631,7 @@ a.product__text {
   text-transform: uppercase;
 }
 
-@media screen and (min-width: 750px) {
-  
-}
 
-@media screen and (max-width: 749px) {
-  .product__title h1{
-    letter-spacing: 0.08rem;
-  }
-  .product {
-    padding-bottom: 40px;
-  }
-  .product-description-container{
-    padding: 40px 0;
-  }
-  .product__description-heading{
-    margin: 0 auto 20px;
-    font-size: 24px;
-    letter-spacing: 0.1rem;
-  }
-  .rte, .rte p, .rte span, .rte a{
-    font-size: 16px;
-  }
-  .media-block{
-    margin: 35px auto;
-  }
-  .media-block:last-child{
-    margin: 0 auto;
-  }
-  .product-media-wrapper{
-    width: calc(100% - 65px);
-  }
-  
-  .product-icon-info-wrapper{
-    min-width: 65px;
-  }
-  .icon-info-list h4{
-    margin: 8px auto;
-    font-size: 14px;
-    letter-spacing: .08rem;
-  }
-  .icon-info-list{
-    gap: 10px;
-  }
-}
 .product-form__buttons .product-form__submit,
 button.shopify-payment-button__button--unbranded, .shopify-payment-button__button{
   min-height: calc(5.5rem + var(--buttons-border-width)* 2);
@@ -1719,9 +1676,9 @@ button.shopify-payment-button__button--unbranded span, .shopify-payment-button__
 .product__media-list .slick-arrow{
   background: transparent;
   z-index: 9;
-  bottom: -30px;
+  /* bottom: -30px;
   top: auto;
-  transform: translate(0);
+  transform: translate(0); */
   height: auto;
 }
 .product__media-list .slick-arrow:before{
@@ -1732,12 +1689,145 @@ button.shopify-payment-button__button--unbranded span, .shopify-payment-button__
   height: 30px;
 }
 
-.product__media-list .slick-arrow.slick-prev{
+/* .product__media-list .slick-arrow.slick-prev{
   left: 40%;
 }
 .product__media-list .slick-arrow.slick-next{
   right: 40%;
-}
+} */
 .product__media-list .slick-arrow.slick-prev:before{
   transform: rotate(180deg);    
+}
+
+
+@media screen and (min-width: 750px) {
+  
+}
+
+@media screen and (max-width: 1199px){
+  .product-icon-info-wrapper{
+    min-width: auto;
+  }
+  .tab-data-content .product-block{
+    max-width: 50%;
+    width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+}
+
+@media screen and (min-width: 990px) and (max-width: 1199px){
+  .product__title h1{
+    font-size: 30px;
+  }
+  
+  .price-quantity-container{
+    align-items: center;
+  }
+  .product-form__buttons .product-form__submit span,
+  .product-form__buttons .product-form__submit, .product-form__buttons .shopify-payment-button__button{
+    padding: 0;
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 749px) and (max-width: 989px){
+  .product__title h1{
+    font-size: 30px;
+  }
+  
+  .price-quantity-container{
+    align-items: center;
+  }
+  .product-form__buttons .product-form__submit span,
+  .product-form__buttons .product-form__submit, .product-form__buttons .shopify-payment-button__button{
+    padding: 0;
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+
+}
+
+@media screen and (max-width: 749px) {
+  .product__title h1{
+    letter-spacing: 0.08rem;
+    font-size: 22px;
+  }
+  .product {
+    padding-bottom: 40px;
+  }
+  .product-description-container{
+    padding: 40px 0;
+  }
+  .product__description-heading{
+    margin: 0 auto 20px;
+    font-size: 24px;
+    letter-spacing: 0.1rem;
+  }
+  .rte, .rte p, .rte span, .rte a{
+    font-size: 16px;
+  }
+  .media-block{
+    margin: 35px auto;
+  }
+  .media-block:last-child{
+    margin: 0 auto;
+  }
+  .product-media-wrapper{
+    width: calc(100% - 100px);
+  }
+  .product__media-wrapper slider-component {
+    margin: 0 auto !important;
+  }
+  .product-icon-info-wrapper{
+    min-width: 80px;
+  }
+  .icon-info-list h4{
+    margin: 8px auto;
+    font-size: 14px;
+    letter-spacing: .08rem;
+  }
+  .icon-info-list{
+    gap: 10px;
+  }
+  .product-media-wrapper .product__media-list{
+    margin: 0 auto;
+    width: auto;
+  }
+  .product-media-icon-wrapper{
+    margin-bottom: 65px;
+  }
+  .product-form__buttons{
+    position: relative;
+    z-index: 1;
+  }
+  .price-quantity-container{
+    align-items: center;
+  }
+  
+}
+
+@media screen and (max-width: 520px) {
+  .product-media-icon-wrapper{
+    gap: 50px;
+    flex-direction: column;
+  }
+  .product-icon-info-wrapper{
+    width: 100%;
+    min-width: unset;
+  }
+  .icon-info-list{
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-evenly;
+  }
+  .icon-info-list h4{
+    letter-spacing: .14rem;
+  }
+  .product-media-icon-wrapper {
+    margin-bottom: 40px;
+  }
+  .product-media-wrapper {
+    width: calc(100% - 40px);
+  }
 }

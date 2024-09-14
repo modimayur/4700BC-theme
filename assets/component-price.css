@@ -116,3 +116,19 @@
   }
 
 }
+@media screen and (min-width: 990px) and (max-width: 1199px){
+  .price .price-item{
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px){
+  .price .price-item{
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 749px){
+  .price .price-item{
+    font-size: 22px;
+  }
+}
