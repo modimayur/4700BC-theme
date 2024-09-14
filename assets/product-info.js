@@ -433,3 +433,13 @@ if (!customElements.get('product-info')) {
     }
   );
 }
+
+$(document).ready(function(){
+  $('.product__media-list').slick({
+    arrows:true,
+    dots:true,
+    slidesToShow:1,
+    slidesToScroll:1,
+    infinite:false
+  })
+});

@@ -1800,8 +1800,8 @@ details[open] > .share-button__fallback {
 .customer .field input:focus,
 .customer .field input:not(:placeholder-shown),
 .customer .field input:-webkit-autofill {
-  padding: 2.2rem 1.5rem 0.8rem 2rem;
-  margin: var(--inputs-border-width);
+  /* padding: 2.2rem 1.5rem 0.8rem 2rem; */
+  /* margin: var(--inputs-border-width); */
 }
 
 .field__input::-webkit-search-cancel-button,
@@ -1811,7 +1811,7 @@ details[open] > .share-button__fallback {
 
 .field__input::placeholder,
 .customer .field input::placeholder {
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .field__button {

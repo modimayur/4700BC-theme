@@ -21,21 +21,51 @@
     "main": {
       "type": "main-article",
       "blocks": {
+        "featured_information_e6RBTP": {
+          "type": "featured_information",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": true
+          }
+        },
         "content": {
           "type": "content",
           "settings": {
           }
+        },
+        "share_Ypjxh6": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
         }
       },
       "block_order": [
-        "content"
+        "featured_information_e6RBTP",
+        "content",
+        "share_Ypjxh6"
       ],
       "settings": {
+      }
+    },
+    "related_article_HUxXVK": {
+      "type": "related-article",
+      "settings": {
+        "heading": "Related Articles",
+        "heading_size": "h1",
+        "show_image": true,
+        "image_height": "medium",
+        "show_read_time": true,
+        "show_date": false,
+        "show_author": false,
+        "padding_top": 0,
+        "padding_bottom": 60
       }
     }
   },
   "order": [
     "breadcrumb_qCD6zW",
-    "main"
+    "main",
+    "related_article_HUxXVK"
   ]
 }

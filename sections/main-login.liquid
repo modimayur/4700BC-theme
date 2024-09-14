@@ -209,9 +209,11 @@
 
       <div class="bottom-container center">
         <h3>{{ 'customer.login_page.create_account_heading' | t }}</h3>
-        <a href="{{ routes.account_register_url }}" class="button button--secondary">
-          <span>{{ 'customer.login_page.create_account' | t }}</span>
-        </a>
+        <div class="btn-group">
+          <a href="{{ routes.account_register_url }}" class="button button--secondary">
+            <span>{{ 'customer.login_page.create_account' | t }}</span>
+          </a>
+        </div>
       </div>
 
       <div class="login-register-info center">

@@ -17,12 +17,24 @@
         "image_height": "medium",
         "show_date": true,
         "show_author": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "newsletter_signup_section_QKx6gL": {
+      "type": "newsletter-signup-section",
+      "settings": {
+        "color_scheme": "scheme-ba9869b8-bd86-4274-b479-c70724c872d5",
+        "heading": "Stay in the Loop with 4700BC!",
+        "heading_size": "h0",
+        "text": "<p>Subscribe now to receive the latest updates, exclusive offers, and delicious snacking inspiration straight to your inbox.<\/p>",
+        "padding_top": 88,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "newsletter_signup_section_QKx6gL"
   ]
 }

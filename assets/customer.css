@@ -1007,6 +1007,11 @@ li[data-address] > h2 {
   min-width: 25rem;
 }
 
+.bottom-container .btn-group{
+  position: relative;
+  z-index: 1;
+}
+
 .customer .button span{
   padding-top: 6px;
 }
