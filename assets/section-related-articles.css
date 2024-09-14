@@ -1,0 +1,29 @@
+.blog-articles__article .article-card-wrapper .card__content .card__information{
+  background: #fff;
+}
+
+.related-article-section h2.inline-richtext{
+  font-size: 40px;
+  margin: 0 auto 32px;
+  text-transform: uppercase;    
+}
+
+@media screen and (min-width: 990px) {
+  .blog-articles{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 581px) and (max-width: 860px) {
+  .blog-articles{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 749px) {
+  .related-article-section h2.inline-richtext{
+    margin: 0 auto 20px;
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 580px){
+
+}

@@ -1,7 +1,8 @@
 $(document).ready(function(){
   let slide = $('.slick-custom-slider').data('slide');
   let slider = $('.slick-custom-slider').attr('id');
-  console.log('dd');
+  let fade = $('.slick-custom-slider').data('fade');
+  console.log(fade);
   let responsive = []
   if(slide > 1){
     responsive = [
@@ -32,6 +33,7 @@ $(document).ready(function(){
     arrows: true,
     dots:false,
     infinite: false,
+    fade:fade == 1 ? true: false,
     slidesToShow: slide,
     slidesToScroll: 1,
     adaptiveHeight: true,

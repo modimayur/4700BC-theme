@@ -1,5 +1,6 @@
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-article-card-custom.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog-news.css' | asset_url | stylesheet_tag }}
 
@@ -18,15 +19,23 @@
 {%- endstyle -%}
 
 {%- paginate blog.articles by 9 -%}
+  {% assign bg_img = 'blog_bg.png' | asset_url %}
+  <div class="blog-heading" style="background-image:url({{ bg_img }})">
+    <div class="page-width">
+      {% render 'breadcrumbs'  %}
+      <h1 class="title--primary center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+        {{ blog.title | escape }}
+      </h1>
+    </div>
+  </div>
+
   <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
-    </h1>
     {% assign offset = 0 %}
     {% if paginate.current_page == 1 %}
       {% assign offset = 3 %}
+      {{ 'section-article-featured-info.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'featured-sliders.js' | asset_url }}" defer="defer"></script>
-      <div class="featured-blogs-slider slick-custom-slider" id="slick-custom-slider-{{ section.id }}" data-slide="1">
+      <div class="featured-blogs-slider slick-custom-slider" data-fade="1" id="slick-custom-slider-{{ section.id }}" data-slide="1">
         {% for article in blog.articles, limit:3 %}
           <div class="slide-item">
             <div class="article_information">
@@ -53,7 +62,7 @@
             show_image: section.settings.show_image,
             show_date: section.settings.show_date,
             show_author: section.settings.show_author,
-            show_excerpt: true
+            show_excerpt: false
           -%}
         </div>
       {%- endfor -%}

@@ -1,5 +1,3 @@
-{{ 'section-article-featured-info.css' | asset_url | stylesheet_tag }}
-
 <div class="grid">
   <div class="grid__item featured_image">
     {% if article.image %}
@@ -36,7 +34,13 @@
       {% assign number_of_words = article.content | split:' ' %}
       {% assign average_wpm = 260 %}
       {% assign time = number_of_words.size | divided_by: average_wpm %}
-      <p class="subline-text reading-time">{{ time }} minute read</p>
+      <p class="subline-text reading-time">
+        {% if time < 60 %}
+          {{ time }} minute read
+        {% else %}
+          {{ time | divided_by: 60 | round }} hour read
+        {% endif %}
+      </p>
       <h1
         class="article-template__title"
       >

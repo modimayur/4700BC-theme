@@ -61,7 +61,7 @@
               </div>
             {% endfor %}
           {% else %}
-            {% for block_article in section.settings.recipe.articles | limit: 10 %}
+            {% for block_article in section.settings.recipe.articles, limit: 10 %}
               {% unless article.handle == block_article.handle %}
                 <div class="slide">
                   <div

@@ -26,11 +26,22 @@
   text-transform: uppercase;
   font-size: 56px;
   margin: 0 auto;
-  line-height: normal;
+  line-height: normal;  
+  letter-spacing: 0.15rem;
+}
+
+.article_information .button{
+  position: relative;
+  background: #FFF6E0;
+  color: #070707;
+  margin-top: 18px;
+  border: 1px solid #070707;
 }
 
 .article__info-container{
   padding-right: 55px;
+  z-index: 0;
+  position: relative;
 }
 
 .article__info-container{
@@ -112,16 +123,16 @@
 @media screen and (max-width: 749px) {
   
   .article_information .grid{
-    --grid-desktop-horizontal-spacing: 18px;
+    --grid-mobile-horizontal-spacing: 18px;
   }
   .article_information .grid__item.featured_image{
-    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
-    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    width: calc(25% - var(--grid-mobile-horizontal-spacing)* 3 / 4);
+    max-width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2);
   }
   
   .article_information .grid__item.article__info{
-    width: calc(25% - var(--grid-desktop-horizontal-spacing)* 3 / 4);
-    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    width: calc(25% - var(--grid-mobile-horizontal-spacing)* 3 / 4);
+    max-width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2);
   }
   .article_information .article-template__title {
     font-size: 28px;
@@ -133,6 +144,9 @@
     padding-right: 8px;
     padding-top: 18px;
     padding-bottom: 18px;
+  }
+  .article_information .button{
+    margin-top: 12px;
   }
 }
 
@@ -148,5 +162,21 @@
   }
   .article_information .article__info .subline-text span{
     display: block;
+  }
+}
+@media screen and (max-width: 480px) {
+  .article_information .grid__item.featured_image, .article_information .grid__item.article__info{
+    width: 100%;
+    max-width: 100%;
+  }
+  .article_information .grid__item.featured_image .media{
+    height: 20rem;
+    padding-bottom: 0 !important;
+  }
+  .article_information .article-template__title{
+    margin: 0 auto;
+  }
+  .article__info-container{
+    padding: 0 20px 18px 20px;
   }
 }

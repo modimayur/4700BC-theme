@@ -1,0 +1,43 @@
+.newsletter__wrapper {
+
+}
+
+.newsletter__wrapper .grid{
+  align-items: center;
+}
+
+.newsletter__wrapper .inline-richtext{
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  margin: 0 auto 15px;
+  line-height: normal;
+}
+
+.newsletter__wrapper .newsletter__subheading{
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.newsletter__wrapper .newsletter-form{
+
+}
+
+.newsletter__wrapper .newsletter-form .newsletter-form__field-wrapper{
+
+}
+
+.newsletter__wrapper .newsletter-form .field{
+
+}
+
+.newsletter__wrapper .newsletter-form .field input{
+
+}
+
+.newsletter__wrapper .newsletter-form .field label{
+
+}
+
+.newsletter__wrapper .newsletter-form .field .newsletter-form__button{
+  
+}
