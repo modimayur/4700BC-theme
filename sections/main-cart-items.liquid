@@ -1,3 +1,6 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
 {{ 'component-cart.css' | asset_url | stylesheet_tag }}
 {{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
 {{ 'component-totals.css' | asset_url | stylesheet_tag }}
@@ -27,12 +30,6 @@
 
 <cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="page-width">
-    <div class="title-wrapper-with-link">
-      <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
-        {{- 'general.continue_shopping' | t -}}
-      </a>
-    </div>
 
     <div class="cart__warnings">
       <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
@@ -50,32 +47,26 @@
 
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
       <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
+        
         <div class="js-contents">
+          <div class="title-wrapper-with-link">
+            <h1 class="title title--primary">
+              <span class="cart-title">{{ 'sections.cart.title' | t }}</span>
+              <span class="cartitem_count">({{ 'sections.header.cart_count' | t: count: cart.item_count }})</span>
+            </h1>
+            <a href="/cart/clear" class="underlined-link">Clear Cart</a>
+            {% comment %} 
+            <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
+              {{- 'general.continue_shopping' | t -}}
+            </a>
+            {% endcomment %}
+          </div>
+      
           {%- if cart != empty -%}
             <table class="cart-items">
               <caption class="visually-hidden">
                 {{ 'sections.cart.title' | t }}
               </caption>
-              <thead>
-                <tr>
-                  <th class="caption-with-letter-spacing" colspan="2" scope="col">
-                    {{ 'sections.cart.headings.product' | t }}
-                  </th>
-                  <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">
-                    {{ 'sections.cart.headings.total' | t }}
-                  </th>
-                  <th
-                    class="cart-items__heading--wide cart-items__heading--quantity small-hide caption-with-letter-spacing"
-                    colspan="1"
-                    scope="col"
-                  >
-                    {{ 'sections.cart.headings.quantity' | t }}
-                  </th>
-                  <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">
-                    {{ 'sections.cart.headings.total' | t }}
-                  </th>
-                </tr>
-              </thead>
 
               <tbody>
                 {%- for item in cart.items -%}
@@ -122,6 +113,7 @@
                       {%- else -%}
                         <div class="product-option">
                           {{ item.original_price | money }}
+                          <s>{{ item.variant.compare_at_price | money  }}</s>
                         </div>
                       {%- endif -%}
 
@@ -171,7 +163,7 @@
                       </ul>
                     </td>
 
-                    <td class="cart-item__totals right medium-hide large-up-hide">
+                    <td class="cart-item__totals right medium-hide large-up-hide hidden">
                       {%- render 'loading-spinner' -%}
                       <div class="cart-item__price-wrapper">
                         {%- if item.original_line_price != item.final_line_price -%}
@@ -224,7 +216,7 @@
                         assign has_vol_pricing = true
                       endif
                     -%}
-                    <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}">
+                    <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %} right">
                       <quantity-popover>
                         <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
                           <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
@@ -387,7 +379,7 @@
                       </quantity-popover>
                     </td>
 
-                    <td class="cart-item__totals right small-hide">
+                    <td class="cart-item__totals right small-hide hidden">
                       {%- render 'loading-spinner' -%}
                       <div class="cart-item__price-wrapper">
                         {%- if item.original_line_price != item.final_line_price -%}
@@ -436,7 +428,125 @@
           {%- endif -%}
         </div>
       </div>
-
+      <div class="cart__footer isolate section-{{ section.id }}-padding">
+        {%- if settings.show_cart_note -%}
+          <cart-note class="cart__note field">
+            <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+            <textarea
+              class="text-area field__input"
+              name="note"
+              form="cart"
+              id="Cart-note"
+              placeholder="{{ 'sections.cart.note' | t }}"
+            >{{ cart.note }}</textarea>
+          </cart-note>
+        {%- endif -%}
+        
+        <div class="cart__blocks">
+          <h2>PRICE DETAILS</h2>
+          
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                {% render block %}
+              {%- when 'subtotal' -%}
+                <div class="js-contents" {{ block.shopify_attributes }}>
+                  <div>
+                    {%- if cart.cart_level_discount_applications.size > 0 -%}
+                      <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                        {%- for discount in cart.cart_level_discount_applications -%}
+                          <li class="discounts__discount discounts__discount--position">
+                            {%- render 'icon-discount' -%}
+                            {{ discount.title | escape }}
+                            (-{{ discount.total_allocated_amount | money }})
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                  </div>
+  
+                  <div class="totals">
+                    <h2 class="totals__total">Price <span class="cartitem_count">({{ 'sections.header.cart_count' | t: count: cart.item_count }})</span></h2>
+                    <p class="totals__total-value">{{ cart.items_subtotal_price | money_with_currency }}</p>
+                  </div>
+                  <div class="subtotals">
+                    <h2 class="totals__total">Total Amount</h2>
+                    <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+                  </div>
+                  {% comment %} 
+                  <small class="tax-note caption-large rte">
+                    {%- if cart.duties_included and cart.taxes_included -%}
+                      {%- if shop.shipping_policy.body == blank -%}
+                        {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
+                      {%- else -%}
+                        {{
+                          'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
+                          | t: link: shop.shipping_policy.url
+                        }}
+                      {%- endif -%}
+                    {%- elsif cart.duties_included == false and cart.taxes_included -%}
+                      {%- if shop.shipping_policy.body == blank -%}
+                        {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
+                      {%- else -%}
+                        {{
+                          'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
+                          | t: link: shop.shipping_policy.url
+                        }}
+                      {%- endif -%}
+                    {%- elsif cart.duties_included and cart.taxes_included == false -%}
+                      {%- if shop.shipping_policy.body == blank -%}
+                        {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                      {%- else -%}
+                        {{
+                          'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                          | t: link: shop.shipping_policy.url
+                        }}
+                      {%- endif -%}
+                    {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
+                      {%- if shop.shipping_policy.body == blank -%}
+                        {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
+                      {%- else -%}
+                        {{
+                          'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
+                          | t: link: shop.shipping_policy.url
+                        }}
+                      {%- endif -%}
+                    {%- endif -%}
+                  </small>
+                    {% endcomment %}
+                </div>
+              {%- else -%}
+              <ul>
+                <li>You will save ₹695 on this order</li>
+                <li>Gift and discounts, if applicable, will be added at checkout</li>
+                <li>Safe and Secure Payments. 100% Authentic Products.</li>
+                </ul>
+                <div class="cart__ctas" {{ block.shopify_attributes }}>
+                  <button
+                    type="submit"
+                    id="checkout"
+                    class="cart__checkout-button button"
+                    name="checkout"
+                    {% if cart == empty %}
+                      disabled
+                    {% endif %}
+                    form="cart"
+                  >
+                    {{ 'sections.cart.checkout' | t }}
+                  </button>
+                </div>
+  
+                {%- if additional_checkout_buttons -%}
+                  <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                    {{ content_for_additional_checkout_buttons }}
+                  </div>
+                {%- endif -%}
+            {%- endcase -%}
+          {% endfor %}
+  
+          <div id="cart-errors"></div>
+        </div>
+      </div>
       <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
       <p
         class="visually-hidden"
@@ -484,6 +594,21 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+    {
+      "type": "@app"
     }
   ]
 }

@@ -21,6 +21,10 @@
     opacity: 0;
     color: #592C29;
 }
+body.cart .swiper-wrapper.product-grid.contains-card--product .grid_item .card__information{
+    opacity:1;
+
+}
 .swiper-wrapper.product-grid.contains-card--product .grid_item .card__information .price .price-item{
     font-size: 2rem;
     transition: all 0.3s ease-in-out;

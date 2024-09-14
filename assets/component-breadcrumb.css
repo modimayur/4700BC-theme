@@ -61,13 +61,15 @@
 .breadcrumbs__link[aria-current="page"]:focus {
   text-decoration: underline;
 }
-
-.go_back_button{
-
-}
-
 @media screen and (max-width: 1199px){
   .breadcrumbs ol{
     row-gap: 0;
+  }
+}
+@media screen and (max-width: 749px) {
+  .breadcrumbs ol {
+    white-space: nowrap;
+    overflow: auto;
+    padding-bottom: 10px;
   }
 }
