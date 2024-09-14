@@ -203,7 +203,7 @@
     padding: 60px 0 25px;
   }
   .contact-form-container{
-    padding: 50px 25px 0;
+    padding: 50px 25px 10px;
   }
   .contact-information{
     padding: 0 25px;
@@ -270,5 +270,8 @@
   }
   .information-container .info p, .information-container .info a{
     font-size: 18px;
+  }
+  .contact-form-container .button{
+    width: 100%;
   }
 }

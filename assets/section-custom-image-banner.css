@@ -27,6 +27,7 @@
     .page-banner .banner__content .content-container .banner__heading{
         font-size: 40px;
         margin: 0 auto;
+        letter-spacing: 0.18rem;
     }
     .page-banner .banner__content .content-container .banner__text p{
         font-size: 14px;
