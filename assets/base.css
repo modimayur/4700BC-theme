@@ -3798,6 +3798,7 @@ details-disclosure > details {
   line-height: 150%;
   text-transform: uppercase;
   font-family: 'Formula Condensed';
+  z-index: 1;
 }
 
 @keyframes appear {

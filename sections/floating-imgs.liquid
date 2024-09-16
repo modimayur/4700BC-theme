@@ -97,7 +97,26 @@
     {% endfor %}
   </div>
 </div>
-
+<script>
+  const section = document.querySelector('.floating-images'); // Assuming you have a section element
+  if(section){
+    const floatingImages = document.querySelectorAll('.floating-images .floating-img-el img');
+    section.addEventListener('mousemove', (event) => {
+      floatingImages.forEach(floatingImage => {
+        const rect = floatingImage.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+  
+        // Adjust the offset based on the mouse position
+        const offsetX = x / 20; // Adjust the divisor for sensitivity
+        const offsetY = y / 20;
+  
+        // Apply the offset to the image
+        floatingImage.style.transform = `translate(${offsetX}%, ${offsetY}%)`;
+      });
+    });
+  }
+</script>
 {% schema %}
 {
   "name": "Floating Images",
