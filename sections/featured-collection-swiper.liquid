@@ -72,7 +72,8 @@
     </div>
 
     <div class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {% if section.settings.full_width %} full-page-width{% else %} page-width{% endif %}">
-      <div class="swiperslider swiper">
+      <div class="swipersliderwrapper">
+        <div class="swiperslider swiper">
           <div
             id="Slider-{{ section.id }}"
             data-id="{{ section.id }}"
@@ -103,7 +104,7 @@
                     section_id: section.id,
                     quick_add: section.settings.quick_add
                   %}
-                  {% else %}
+                {% else %}
                   {% render 'home-card-product',
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
@@ -117,7 +118,7 @@
                     quick_add: section.settings.quick_add
                   %}
                 {% endif %}
-            </div>
+              </div>
               {%- assign skip_card_product_styles = true -%}
             {%- else -%}
               {%- for i in (1..section.settings.columns_desktop) -%}
@@ -147,6 +148,41 @@
                 </li>
               {%- endfor -%}
             {%- endfor -%}
+          </div>
+          {% if section.settings.swiper_arrows %}
+            <button type="button" id="next--{{ section.id }}" class="swiper-navigation-button swiper-button-next">
+              <span>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="icon icon-caret"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9 18.5L15 12.5L9 6.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+            <button type="button" id="prev--{{ section.id }}" class="swiper-navigation-button swiper-button-prev">
+              <span>
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  class="icon icon-caret"
+                  width="24"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9 18.5L15 12.5L9 6.5" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -168,15 +204,14 @@
   </div>
 </div>
 {% liquid
-    if section.settings.columns_mobile == '1'
-        assign mobilecolumn = 1
-    elsif section.settings.columns_mobile == '1.5'
-        assign mobilecolumn = 1.5
-    elsif section.settings.columns_mobile == '2'
-        assign mobilecolumn = 2
-    endif
-    
- %}
+  if section.settings.columns_mobile == '1'
+    assign mobilecolumn = 1
+  elsif section.settings.columns_mobile == '1.5'
+    assign mobilecolumn = 1.5
+  elsif section.settings.columns_mobile == '2'
+    assign mobilecolumn = 2
+  endif
+%}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -190,13 +225,20 @@
       centeredSlides: true,
       breakpoints: {
         1024: {
-          slidesPerView: {{ section.settings.columns_desktop | plus: 0.5 }},
+          slidesPerView: {{ section.settings.columns_desktop  }},
         },
       }
+      {% if section.settings.swiper_arrows %}
+        ,
+      navigation: {
+        nextEl: '#next--{{ section.id }}',
+        prevEl: '#prev--{{ section.id }}',
+      }
+    {% endif %}
     });
   });
 </script>
-  
+
 {% schema %}
 {
   "name": "t:sections.featured-collection-swiper.name",
@@ -293,6 +335,11 @@
       "step": 1,
       "default": 4,
       "label": "t:sections.featured-collection-swiper.settings.columns_desktop.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "swiper_arrows",
+      "label": "Slider Arrows"
     },
     {
       "type": "checkbox",
