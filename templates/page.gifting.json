@@ -76,7 +76,9 @@
       "type": "find-the-perfect-gift",
       "settings": {
         "heading": "FIND THE PERFECT GIFT",
-        "heading_size": "hxl"
+        "heading_size": "hxl",
+        "collection": "",
+        "price_range": "0-250,\n250-500,\n500-1000,\n1000-1500,\n1500-2000,\n2000-4000"
       }
     },
     "multicolumn_TjD6BG": {
@@ -108,9 +110,9 @@
         "column_qfQ3DY"
       ],
       "settings": {
-        "title": "OUR RANGE ",
-        "ticertext": "BRINGS JOY~BRINGS JOY~BRINGS JOY~BRINGS JOY",
+        "title": "OUR RANGE",
         "heading_size": "hxxl",
+        "ticertext": "BRINGS JOY~BRINGS JOY~BRINGS JOY~BRINGS JOY",
         "image_width": "half",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -229,8 +231,8 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/gifting_banner_06.jpg",
             "name": "THOUGHTFULLY CURATED",
-            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.</p>",
-            "blockcolor": "#F2B65E",
+            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.<\/p>",
+            "blockcolor": "#f2b65e",
             "textcolor": "#212121"
           }
         },
@@ -239,8 +241,8 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/gifting_banner_07.jpg",
             "name": "SUSTAINABLY CRAFTED",
-            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.</p>",
-            "blockcolor": "#5C0124",
+            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.<\/p>",
+            "blockcolor": "#5c0124",
             "textcolor": "#ffffff"
           }
         },
@@ -249,8 +251,8 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/gifting_banner_08.jpg",
             "name": "PERFECTLY PERSONALISED",
-            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.</p>",
-            "blockcolor": "#592C29",
+            "description": "<p>Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection. Our curated popcorn gift boxes feature delightful flavors like sweet caramel and savory cheese, each bite crafted to perfection.<\/p>",
+            "blockcolor": "#592c29",
             "textcolor": "#ffffff"
           }
         }
@@ -262,10 +264,10 @@
       ],
       "settings": {
         "heading": "EXQUISITE GIFTING EXPERIENCES, PERFECTLY POPPED",
-        "subheading": "Why choose 4700 BC",
         "heading_size": "h1",
-        "color_scheme": "",
+        "subheading": "Why choose 4700 BC",
         "image": "shopify:\/\/shop_images\/gifting_banner_10.png",
+        "color_scheme": "",
         "padding_top": 100,
         "padding_bottom": 48
       }
@@ -319,18 +321,69 @@
         "custome_class": "corporategifting"
       }
     },
-    "sectionfloatingimgs":{
+    "sectionfloatingimgs": {
       "type": "floating-imgs",
       "blocks": {
-        "sectionfloatingimgs_item_01": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-1.png"}},
-        "sectionfloatingimgs_item_02": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-2.png"}},
-        "sectionfloatingimgs_item_03": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-3.png"}},
-        "sectionfloatingimgs_item_04": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-4.png"}},
-        "sectionfloatingimgs_item_05": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-5.png"}},
-        "sectionfloatingimgs_item_06": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-6.png"}},
-        "sectionfloatingimgs_item_07": {"type": "image","settings": {"image": "shopify:\/\/shop_images\/happiness-sec-img-7.png"}},
-        "icon_with_text_GdQAzm": {"type": "icon_with_text","settings": {"icon_text": "WHAT ARE YOUR","copy_count": 20,"scrolll_speed": 30,"scroll_direction": "rtl"}},
-        "icon_with_text_Nqcmcw": {"type": "icon_with_text","settings": {"icon_text": "CRAVING TODAY?","copy_count": 20,"scrolll_speed": 30,"scroll_direction": "ltr"}}
+        "sectionfloatingimgs_item_01": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/happiness-sec-img-1.png"
+          }
+        },
+        "sectionfloatingimgs_item_02": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/happiness-sec-img-2.png"
+          }
+        },
+        "sectionfloatingimgs_item_03": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/happiness-sec-img-3.png"
+          }
+        },
+        "sectionfloatingimgs_item_04": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/happiness-sec-img-4.png"
+          }
+        },
+        "sectionfloatingimgs_item_05": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/happiness-sec-img-5.png"
+          }
+        },
+        "sectionfloatingimgs_item_06": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/happiness-sec-img-6.png"
+          }
+        },
+        "sectionfloatingimgs_item_07": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/happiness-sec-img-7.png"
+          }
+        },
+        "icon_with_text_GdQAzm": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "WHAT ARE YOUR",
+            "copy_count": 20,
+            "scrolll_speed": 30,
+            "scroll_direction": "rtl"
+          }
+        },
+        "icon_with_text_Nqcmcw": {
+          "type": "icon_with_text",
+          "settings": {
+            "icon_text": "CRAVING TODAY?",
+            "copy_count": 20,
+            "scrolll_speed": 30,
+            "scroll_direction": "ltr"
+          }
+        }
       },
       "block_order": [
         "sectionfloatingimgs_item_01",
@@ -344,13 +397,14 @@
         "icon_with_text_Nqcmcw"
       ],
       "settings": {
-        "heading":"HAPPINESS AT ITS CRISPIEST",
+        "heading": "HAPPINESS AT ITS CRISPIEST",
         "heading_size": "h1",
-        "full_width": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "color_scheme": "",
         "button_label": "CHECK OUT SNACKING",
-        "button_link": "shopify:\/\/collections\/all"
+        "button_link": "shopify:\/\/collections\/all",
+        "backgrouptext": "WHAT ARE YOUR CRAVING TODAY?",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "logo_slider_6mcFra": {
@@ -359,6 +413,7 @@
         "logo_XaFDkQ": {
           "type": "logo",
           "settings": {
+            "brand_name": "",
             "brand_link": "shopify:\/\/collections\/all",
             "brand_image": "shopify:\/\/shop_images\/brand_logo_01.png"
           }
@@ -366,6 +421,7 @@
         "logo_zaxrwD": {
           "type": "logo",
           "settings": {
+            "brand_name": "",
             "brand_link": "shopify:\/\/collections\/all",
             "brand_image": "shopify:\/\/shop_images\/brand_logo_02.png"
           }
@@ -373,6 +429,7 @@
         "logo_jE6HB3": {
           "type": "logo",
           "settings": {
+            "brand_name": "",
             "brand_link": "shopify:\/\/collections\/all",
             "brand_image": "shopify:\/\/shop_images\/brand_logo_03.png"
           }
@@ -380,6 +437,7 @@
         "logo_dEXazt": {
           "type": "logo",
           "settings": {
+            "brand_name": "",
             "brand_link": "shopify:\/\/collections\/all",
             "brand_image": "shopify:\/\/shop_images\/brand_logo_04.png"
           }
@@ -387,6 +445,7 @@
         "logo_GJHxqy": {
           "type": "logo",
           "settings": {
+            "brand_name": "",
             "brand_link": "shopify:\/\/collections\/all",
             "brand_image": "shopify:\/\/shop_images\/brand_logo_05.png"
           }
@@ -394,6 +453,7 @@
         "logo_QkAk9r": {
           "type": "logo",
           "settings": {
+            "brand_name": "",
             "brand_link": "shopify:\/\/collections\/all",
             "brand_image": "shopify:\/\/shop_images\/brand_logo_06.png"
           }
@@ -401,6 +461,7 @@
         "logo_UJmFit": {
           "type": "logo",
           "settings": {
+            "brand_name": "",
             "brand_link": "shopify:\/\/collections\/all",
             "brand_image": "shopify:\/\/shop_images\/brand_logo_07.png"
           }
@@ -408,6 +469,7 @@
         "logo_Ew6L4i": {
           "type": "logo",
           "settings": {
+            "brand_name": "",
             "brand_link": "shopify:\/\/collections\/all",
             "brand_image": "shopify:\/\/shop_images\/brand_logo_08.png"
           }
@@ -426,13 +488,13 @@
       "settings": {
         "title": "OUR CUSTOMERS",
         "heading_size": "hxxl",
+        "brand_heading_size": "h4",
         "logo_width": 100,
         "color_scheme": "scheme-9",
         "full_width": true,
         "padding_top": 60,
         "padding_bottom": 60,
-        "custome_class": "ourcustomers-brands",
-        "brand_heading_size": "h4"
+        "custome_class": "ourcustomers-brands"
       }
     },
     "exclusivessection": {
@@ -455,8 +517,8 @@
         "blockquote_xYe9Mw": {
           "type": "blockquote",
           "settings": {
-            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
             "image": "shopify:\/\/shop_images\/testimonial-mediaslider-01.jpg",
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
             "name": "Derry Thomas",
             "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
             "ratting": 5
@@ -465,9 +527,9 @@
         "blockquote_P4UA6V": {
           "type": "blockquote",
           "settings": {
-            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
-            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-02.jpg",
             "video": "shopify:\/\/files\/videos\/123.mp4",
+            "image": "shopify:\/\/shop_images\/testimonial-mediaslider-02.jpg",
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
             "name": "Vinitha Sharma",
             "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
             "ratting": 4
@@ -476,8 +538,8 @@
         "blockquote_8XD6eL": {
           "type": "blockquote",
           "settings": {
-            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
             "image": "shopify:\/\/shop_images\/testimonial-mediaslider-03.jpg",
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
             "name": "Tanisha Verma",
             "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
             "ratting": 3
@@ -486,8 +548,8 @@
         "blockquote_mcdiXB": {
           "type": "blockquote",
           "settings": {
-            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
             "image": "shopify:\/\/shop_images\/testimonial-mediaslider-04.jpg",
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
             "name": "Manish Reddy",
             "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
             "ratting": 2
@@ -496,8 +558,8 @@
         "blockquote_BQpfGe": {
           "type": "blockquote",
           "settings": {
-            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
             "image": "shopify:\/\/shop_images\/testimonial-mediaslider-01.jpg",
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
             "name": "Derry Thomas",
             "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
             "ratting": 5
@@ -506,8 +568,8 @@
         "blockquote_nDzBBa": {
           "type": "blockquote",
           "settings": {
-            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
             "image": "shopify:\/\/shop_images\/testimonial-mediaslider-02.jpg",
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
             "name": "Vinitha Sharma",
             "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
             "ratting": 5
@@ -516,8 +578,8 @@
         "blockquote_7tRgjD": {
           "type": "blockquote",
           "settings": {
-            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
             "image": "shopify:\/\/shop_images\/testimonial-mediaslider-03.jpg",
+            "auther_img": "shopify:\/\/shop_images\/3751fbb302872ba292cb76fbab5b5a9b.jpg",
             "name": "Tanisha Verma",
             "description": "<p>I chose 4700BC for a family celebration, and it was a big hit. <\/p>",
             "ratting": 5
@@ -526,8 +588,8 @@
         "blockquote_Dcr4N6": {
           "type": "blockquote",
           "settings": {
-            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
             "image": "shopify:\/\/shop_images\/testimonial-mediaslider-04.jpg",
+            "auther_img": "shopify:\/\/shop_images\/4452ba09fbed307b58320b439846ab8a.png",
             "name": "Manish Reddy",
             "description": "<p>4700BC transformed our corporate gifting! Personalized tins with our logo were a hit. <\/p>",
             "ratting": 5
@@ -552,7 +614,7 @@
         "button_label": "Button label",
         "button_link": "",
         "padding_top": 120,
-        "padding_bottom": 120,
+        "padding_bottom": 120
       }
     }
   },

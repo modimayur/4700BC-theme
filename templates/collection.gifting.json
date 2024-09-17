@@ -8,98 +8,92 @@
 * ------------------------------------------------------------
 */
 {
-    "sections": {
-      "banner": {
-        "type": "main-collection-banner",
-        "settings": {
-          "show_collection_description": false,
-          "show_collection_image": true,
-          "color_scheme": "scheme-1"
-        }
-      },
-      "product-grid": {
-        "type": "main-collection-product-grid",
-        "settings": {
-          "products_per_page": 12,
-          "columns_desktop": 3,
-          "color_scheme": "scheme-1",
-          "image_ratio": "adapt",
-          "image_shape": "default",
-          "show_secondary_image": true,
-          "show_vendor": false,
-          "show_rating": false,
-          "quick_add": "standard",
-          "enable_filtering": false,
-          "filter_type": "horizontal",
-          "enable_sorting": true,
-          "columns_mobile": "2",
-          "padding_top": 0,
-          "padding_bottom": 36
-        }
-      },
-      "image_with_text_AEWNKg": {
-        "type": "image-with-text",
-        "blocks": {
-          "caption_MqbkhR": {
-            "type": "caption",
-            "settings": {
-              "caption": "Make Your Own Mix",
-              "text_style": "caption-with-letter-spacing",
-              "text_size": "medium"
-            }
-          },
-          "heading_mRUAiE": {
-            "type": "heading",
-            "settings": {
-              "heading": "Customize your ultimate snack mix",
-              "heading_size": "h1"
-            }
-          },
-          "text_dPjPQa": {
-            "type": "text",
-            "settings": {
-              "text": "<p>Craft your own tasty combos with protein pops, chips, seasonings, crunch corn, sweet corn, and more. Endless combinations, endless fun!<\/p>",
-              "text_style": "subtitle"
-            }
-          },
-          "button_mVqkT3": {
-            "type": "button",
-            "settings": {
-              "button_label": "Create Now",
-              "button_link": "#",
-              "button_style_secondary": false
-            }
-          }
-        },
-        "block_order": [
-          "caption_MqbkhR",
-          "heading_mRUAiE",
-          "text_dPjPQa",
-          "button_mVqkT3"
-        ],
-        "settings": {
-          "image": "shopify:\/\/shop_images\/1_acdd3568-2e45-402d-ae5e-71c03a8faaad.png",
-          "height": "adapt",
-          "desktop_image_width": "medium",
-          "layout": "text_first",
-          "desktop_content_position": "top",
-          "desktop_content_alignment": "left",
-          "content_layout": "no-overlap",
-          "section_color_scheme": "scheme-2",
-          "color_scheme": "scheme-2",
-          "full_width": false,
-          "image_behavior": "none",
-          "mobile_content_alignment": "left",
-          "padding_top": 48,
-          "padding_bottom": 0,
-          "custome_class": ""
-        }
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": true,
+        "color_scheme": "scheme-1"
       }
     },
-    "order": [
-      "banner",
-      "product-grid",
-      "image_with_text_AEWNKg"
-    ]
-  }
-  
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "featured_image_text_section_HnwAGF": {
+      "type": "featured-image-text-section",
+      "blocks": {
+        "caption_WiNFQ6": {
+          "type": "caption",
+          "settings": {
+            "caption": "Your Gift, Your Way!",
+            "text_style": "subtitle",
+            "text_size": "large",
+            "color": "#7f1617"
+          }
+        },
+        "heading_LbDKiU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Crafted with Love, Just for You",
+            "heading_size": "hxl",
+            "color": ""
+          }
+        },
+        "button_NqULJB": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start Customising",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_WiNFQ6",
+        "heading_LbDKiU",
+        "button_NqULJB"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/img.png",
+        "bg_image": "shopify:\/\/shop_images\/bg.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-dca2e16d-c377-4393-a487-0ba7d56afb09",
+        "color_scheme": "scheme-dca2e16d-c377-4393-a487-0ba7d56afb09",
+        "full_width": false,
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 48,
+        "padding_bottom": 0,
+        "custome_class": ""
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "featured_image_text_section_HnwAGF"
+  ]
+}

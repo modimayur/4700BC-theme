@@ -36,10 +36,72 @@
         "padding_top": 0,
         "padding_bottom": 36
       }
+    },
+    "featured_image_text_section_rxV3gY": {
+      "type": "featured-image-text-section",
+      "blocks": {
+        "caption_tJGy4J": {
+          "type": "caption",
+          "settings": {
+            "caption": "Make Your Own Mix",
+            "text_style": "subtitle",
+            "text_size": "large",
+            "color": "#592c29"
+          }
+        },
+        "heading_7tmVcX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Customise Your Ultimate Snack Mix",
+            "heading_size": "h0",
+            "color": "#212121"
+          }
+        },
+        "text_JMVarB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Craft your own tasty combos with protein pops, chips, seasonings, crunch corn, sweet corn, and more. Endless combinations, endless fun!<\/p>",
+            "text_style": "subtitle",
+            "color": "#4f4f4f"
+          }
+        },
+        "button_HDPV4Q": {
+          "type": "button",
+          "settings": {
+            "button_label": "Create Now",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_tJGy4J",
+        "heading_7tmVcX",
+        "text_JMVarB",
+        "button_HDPV4Q"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1_acdd3568-2e45-402d-ae5e-71c03a8faaad.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-dca2e16d-c377-4393-a487-0ba7d56afb09",
+        "color_scheme": "scheme-dca2e16d-c377-4393-a487-0ba7d56afb09",
+        "full_width": false,
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 48,
+        "padding_bottom": 0,
+        "custome_class": ""
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "featured_image_text_section_rxV3gY"
   ]
 }
