@@ -3843,6 +3843,7 @@ details-disclosure > details {
   line-height: 150%;
   text-transform: uppercase;
   font-family: 'Formula Condensed';
+  z-index: initial;
 }
 
 @keyframes appear {

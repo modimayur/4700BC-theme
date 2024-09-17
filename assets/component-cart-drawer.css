@@ -144,13 +144,15 @@ cart-drawer-items.is-empty + .drawer__footer {
   display: flex;
   gap: 1rem;
   margin-top: 2.4rem;
+  position: relative;
+  z-index: 1;
 }
 .drawer__footer .cart__ctas .button {
   width: auto;
   flex-grow: 1;
   margin: 0;
   position: relative;
-  z-index: 1;
+  z-index: initial;
   /* --color-shadow:0,0,00; */
 }
 .drawer__footer .cart__ctas .button:before {
@@ -159,8 +161,15 @@ cart-drawer-items.is-empty + .drawer__footer {
 .drawer__footer .cart__ctas .button:after {
   --color-button:0,0,0;
 }
-
-
+.drawer__footer .cart__ctas .button.button--secondary {
+  border: 1px solid #000;
+}
+.cart-item__quantity quantity-popover .cart-item__quantity-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 12px;
+}
 .drawer__footer > details + .cart-drawer__footer {
   padding-top: 1.5rem;
 }
@@ -515,7 +524,6 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
   color: #070707;
   border: 1px solid #070707;
   border-radius: 32px;
-  border: none;
   width: 8.9rem;
   padding: 0 6px;
   min-height: 3.6rem;
@@ -648,6 +656,9 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
   --color-button-text: 255,255,255;
   padding-block: 0;
 }
+.cart-drawer__upsell_products .cart-upsell-product .quick-add .quick-add__submit::after {
+  --color-button:0,0,0;
+}
 .cart-drawer h3{
   font-family: 'Formula Condensed';
   font-style: normal;
@@ -659,7 +670,7 @@ cart-drawer-items::-webkit-scrollbar-track-piece {
   color: #070707;
   margin: 10px 10px;
 }
-cart-items form#cart.cart__contents .cart__footer .cart__blocks h2{
+cart-items form#cart.cart__contents .cart__footer .cart__blocks > h2{
   margin-top: 0;
   font-family: 'Formula Condensed';
   font-style: normal;
@@ -669,6 +680,7 @@ cart-items form#cart.cart__contents .cart__footer .cart__blocks h2{
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #070707;
+  border-bottom: 1px solid #D2B275;
 }
 @media screen and (max-width: 749px) {
   .cart-drawer .cart-item__media {
