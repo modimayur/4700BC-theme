@@ -231,6 +231,7 @@ cart-items {
 cart-items form#cart.cart__contents .title-wrapper-with-link .title{
   text-transform: uppercase;
   font-size: 3.2rem;
+  letter-spacing: 0.16rem;
 }
 cart-items form#cart.cart__contents .title-wrapper-with-link .underlined-link{
   font-family: 'Formula Condensed';
@@ -272,7 +273,7 @@ cart-items  form#cart.cart__contents .title-wrapper-with-link{
   margin-bottom: 1.6rem;
 }
 cart-items  form#cart.cart__contents .cart-item td{
-  padding-block: 1.5rem;
+  padding-block: 1.8rem;
 }
 cart-items  form#cart.cart__contents .cart-item + .cart-item td{
   border-top: 1px dashed #D2B275;
@@ -366,7 +367,8 @@ cart-items form#cart.cart__contents .cart__footer .cart__blocks ul li:before{
   display: block;
 }
 cart-items form#cart.cart__contents .cart-item td .cart-item__name.h4.break{
-  font-family: 'Manrope';
+  /* font-family: 'Manrope'; */
+  font-family: var(--font-body-family);
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
@@ -374,19 +376,41 @@ cart-items form#cart.cart__contents .cart-item td .cart-item__name.h4.break{
   color: #B37600;
 }
 cart-items form#cart.cart__contents .cart-item td .product-option{
-  font-family: 'Formula Condensed';
+  /* font-family: 'Formula Condensed'; */
+  font-family: var(--font-body-family);
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
   line-height: 150%;
   color: #070707;
+  font-weight: 800;
+  letter-spacing: 0;
 }
   
 cart-items form#cart.cart__contents .cart-item td .product-option s{
   font-size: 16px;
   font-weight: normal;
 }
+cart-items form#cart.cart__contents .cart__footer .cart__blocks ul li,
+cart-items form#cart.cart__contents .cart__footer .cart__blocks .totals__total{
+  color: #4F4F4F;
+}
 
+@media screen and (min-width: 750px) {
+  body.cart .cart-item__quantity quantity-popover .cart-item__quantity-wrapper{
+    flex-direction: column-reverse;
+    row-gap: 2.0rem;
+  }
+  body.cart cart-items form#cart.cart__contents .cart-item td .product-option{
+    margin-top: 2rem;
+  }
+  body.cart .cart-item__quantity quantity-popover .cart-item__quantity-wrapper{
+    padding-right: 0;
+  }
+  body.cart cart-items form#cart.cart__contents .cart__footer .cart__blocks>h2{
+    margin-bottom: 0;
+  }
+}
 
 @media screen and (max-width: 749px) {
   cart-items form#cart.cart__contents{

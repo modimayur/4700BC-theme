@@ -132,11 +132,13 @@ if (!customElements.get('product-form')) {
       
       acceleratedCheckout() {
         var buybutton = this.querySelector('shopify-accelerated-checkout .shopify-payment-button__button');
-        var buybuttontext =  buybutton.innerText;
-        const span = document.createElement("span");
-        span.innerText = buybuttontext
-        buybutton.innerHTML = '';
-        buybutton.append(span)
+        if(buybutton != null){
+          var buybuttontext =  buybutton.innerText;
+          const span = document.createElement("span");
+          span.innerText = buybuttontext
+          buybutton.innerHTML = '';
+          buybutton.append(span)
+        }
       }
     }
   );

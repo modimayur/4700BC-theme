@@ -45,6 +45,7 @@
       {%- endif -%}
     </div>
 
+    {% unless cart.item_count == 0 %}
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
       <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
         
@@ -558,6 +559,7 @@
         {{ 'accessibility.loading' | t }}
       </p>
     </form>
+    {% endunless %}
   </div>
 </cart-items>
 
