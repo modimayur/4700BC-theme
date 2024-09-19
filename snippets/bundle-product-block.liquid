@@ -1,0 +1,25 @@
+<div class="product-block">
+  <div class="product-image-wrapper">
+    <div
+      class="media media--transparent media--adapt"
+      style="padding-bottom: {{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 }}%;"
+    >
+      {{
+        product.featured_image
+        | image_url: width: 3200
+        | image_tag:
+          widths: '50, 75, 100, 150, 200, 300, 400',
+          sizes: sizes,
+          class: 'product-block__image'
+      }}
+    </div>
+  </div>
+  <h4 class="product-title">
+    {{ product.title }}
+  </h4>
+  <div class="product-info-wrapper">
+    <span class="product-weight">{{ product.selected_or_first_available_variant.weight  }}{{ product.selected_or_first_available_variant.weight_unit  }}</span>
+    {% render 'price', product: product, price_class: 'bundle-product-price', show_compare_at_price: true %}
+  </div>
+  <button class="button button--secondary">Add</button>
+</div>

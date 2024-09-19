@@ -1,0 +1,232 @@
+{{ 'section-bundle.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="bundle-wrapper">
+  <div
+    class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    {% if settings.animations_reveal_on_scroll %}
+      data-cascade
+    {% endif %}
+  >
+    {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link center title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {%- endunless -%}
+    <div class="bundle-container">
+      <div class="grid">
+        <div class="grid__item bundle__collection-list">
+          <tab-content class="tab-container">
+            <div class="tab-list">
+              <ul class="inline-list">
+                {% for block in section.blocks %}
+                  {% if block.settings.collection != blank %}
+                    {% assign tab_title = block.settings.title | default: collections[block.settings.collection].title %}
+                    <li>
+                      <button data-handle="{{ collections[block.settings.collection].handle }}" class="tab-btn tab-switcher-btn">{{ tab_title }}</button>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="tab-list-content">
+              {% for block in section.blocks %}
+                {% if block.settings.collection != blank %}
+                  <div class="product-list-wrapper">
+                    <div class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+                      {% for product in collections[block.settings.collection].products %}
+                        <div class="grid__item">
+                          {% render 'bundle-product-block', product: product %}
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </tab-content>
+        </div>
+        <div class="grid__item bundle__added-product-list">
+          <div class="bundle__added-area">
+            <div class="bundle__header">
+              <h3 class="right-title">{{ section.settings.right_title }}</h3>
+              <div class="bundle-progress-bar-wrapper">
+                
+              <div>
+              <div class="right-info">
+                {{ section.settings.info }}
+              </div>
+            </div>
+            <div class="bundle__content">
+              <div class="bundle__list">
+              </div>
+              {% assign total = 0 %}
+              <div class="bundle__footer">
+                <div class="bundle__footer-total">
+                  <span>Your Total</span>
+                  <h3>{{ total | money_with_currency }}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Make Your Own Mix",
+    "class": "section make-your-mix",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "default": "t:sections.multicolumn.settings.title.default",
+        "label": "t:sections.multicolumn.settings.title.label"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "options": [
+          {
+            "value": "h2",
+            "label": "t:sections.all.heading_size.options__1.label"
+          },
+          {
+            "value": "h1",
+            "label": "t:sections.all.heading_size.options__2.label"
+          },
+          {
+            "value": "h0",
+            "label": "t:sections.all.heading_size.options__3.label"
+          },
+          {
+            "value": "hxl",
+            "label": "t:sections.all.heading_size.options__4.label"
+          },
+          {
+            "value": "hxxl",
+            "label": "t:sections.all.heading_size.options__5.label"
+          }
+        ],
+        "default": "h1",
+        "label": "t:sections.all.heading_size.label"
+      },
+      {
+        "type": "range",
+        "id": "columns_desktop",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 3,
+        "label": "t:sections.main-list-collections.settings.columns_desktop.label"
+      },
+      {
+        "type": "header",
+        "content": "Right Content"
+      },
+      {
+        "type": "text",
+        "id": "right_title",
+        "label": "Title",
+        "default":"Title"
+      },
+      {
+        "type": "richtext",
+        "id": "info",
+        "label": "Info",
+        "default": "<p>free shipping!</p>"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.main-list-collections.settings.header_mobile.content"
+      },
+      {
+        "type": "select",
+        "id": "columns_mobile",
+        "options": [
+          {
+            "value": "1",
+            "label": "t:sections.main-list-collections.settings.columns_mobile.options__1.label"
+          },
+          {
+            "value": "2",
+            "label": "t:sections.main-list-collections.settings.columns_mobile.options__2.label"
+          }
+        ],
+        "default": "2",
+        "label": "t:sections.main-list-collections.settings.columns_mobile.label"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      },
+      {
+        "type": "text",
+        "label": "Custome Class",
+        "id": "custome_class"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name":"Collection",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Make Your Own Mix"
+      }
+    ]
+  }
+{% endschema %}
