@@ -1,5 +1,8 @@
 {{ 'section-bundle.css' | asset_url | stylesheet_tag }}
 
+{{ 'component-tab.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'tab.js' | asset_url }}" defer="defer"></script>
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -32,54 +35,111 @@
       <div class="grid">
         <div class="grid__item bundle__collection-list">
           <tab-content class="tab-container">
-            <div class="tab-list">
-              <ul class="inline-list">
+            <div class="tab-container-wrapper animate--slide-in scroll-trigger">
+              <div class="tab-list">
+                <ul class="tabs">
+                  {% for block in section.blocks %}
+                    {% if block.settings.collection != blank %}
+                      {% assign tab_title = block.settings.title | default: collections[block.settings.collection].title %}
+                      <li>
+                        <button data-tab="tab-{{ forloop.index }}-{{ collections[block.settings.collection].handle }}" data-handle="{{ collections[block.settings.collection].handle }}" class="tab-button tab-switcher-button {% if forloop.first %}active{% endif %}">{{ tab_title }}</button>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class="tab-list-content tab-content">
                 {% for block in section.blocks %}
                   {% if block.settings.collection != blank %}
-                    {% assign tab_title = block.settings.title | default: collections[block.settings.collection].title %}
-                    <li>
-                      <button data-handle="{{ collections[block.settings.collection].handle }}" class="tab-btn tab-switcher-btn">{{ tab_title }}</button>
-                    </li>
+                    <div class="product-list-wrapper tab-data-content {% if forloop.first %}active{% endif %}" id="tab-{{ forloop.index }}-{{ collections[block.settings.collection].handle }}">
+                      <div class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
+                        {% for product in collections[block.settings.collection].products %}
+                          <div class="grid__item">
+                            {% render 'bundle-product-block', product: product %}
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
                   {% endif %}
                 {% endfor %}
-              </ul>
-            </div>
-            <div class="tab-list-content">
-              {% for block in section.blocks %}
-                {% if block.settings.collection != blank %}
-                  <div class="product-list-wrapper">
-                    <div class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down">
-                      {% for product in collections[block.settings.collection].products %}
-                        <div class="grid__item">
-                          {% render 'bundle-product-block', product: product %}
-                        </div>
-                      {% endfor %}
-                    </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
+              </div>
             </div>
           </tab-content>
         </div>
         <div class="grid__item bundle__added-product-list">
-          <div class="bundle__added-area">
-            <div class="bundle__header">
-              <h3 class="right-title">{{ section.settings.right_title }}</h3>
+          <div class="bundle__added-area animate--slide-in scroll-trigger">
+            <div class="bundle__header center">
+              <h3 class="right-title animate--slide-in scroll-trigger">{{ section.settings.right_title }}</h3>
               <div class="bundle-progress-bar-wrapper">
-                
-              <div>
-              <div class="right-info">
-                {{ section.settings.info }}
+                {% assign limit = section.settings.amount_limit | times: 100 | money_with_currency %}
+                <span class="bundle-progress-bar" 
+                  data-price-limit="{{ section.settings.amount_limit | times: 100 }}" 
+                  data-below-limit-text="{{ section.settings.below_text }}"
+                  data-reached-limit-text="{{ section.settings.reached_text }}"
+                ></span>
+              </div>
+              <div class="right-info animate--slide-in scroll-trigger">
+                <p>{{ section.settings.below_text | split:'amount' | first }} <strong>{{ limit }}</strong> {{ section.settings.below_text | split:'amount' | last }}</p>
               </div>
             </div>
             <div class="bundle__content">
-              <div class="bundle__list">
+              <div class="bundle__list center">
+                {% assign counter = 1 %}
+                <p class="packs-info">8 Pack</p>
+                <div class="bundle-product-list">
+                  {% for i in (1..8) %}
+                    <div class="item-block" data-index="{{ counter }}">
+                      
+                    </div>
+                    {% assign counter = counter | plus: 1 %}
+                  {% endfor %}
+                </div>
+                <p class="packs-info">10 Pack or 12 Pack</p>
+                <div class="bundle-product-list">
+                  {% for i in (1..4) %}
+                    <div class="item-block" data-index="{{ counter }}">
+                      
+                    </div>
+                    {% assign counter = counter | plus: 1 %}
+                  {% endfor %}
+                </div>
               </div>
               {% assign total = 0 %}
               <div class="bundle__footer">
-                <div class="bundle__footer-total">
+                <div class="bundle__footer-total center">
                   <span>Your Total</span>
                   <h3>{{ total | money_with_currency }}</h3>
+                </div>
+                <div class="bundle-form-wrapper">
+                  <quantity-input class="quantity">
+                    <button class="quantity__button" name="minus" type="button">
+                      <span class="visually-hidden">
+                        {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                      </span>
+                      {% render 'icon-minus' %}
+                    </button>
+                    <input
+                      class="quantity__input"
+                      type="number"
+                      name="quantity"
+                      id="Quantity-{{ section.id }}"
+                      value="1"
+                    >
+                    <button class="quantity__button" name="plus" type="button">
+                      <span class="visually-hidden">
+                        {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                      </span>
+                      {% render 'icon-plus' %}
+                    </button>
+                  </quantity-input>
+                  <div class="button-wrapper">
+                    <button
+                      type="button"
+                      class="button button--full-width button--primary"
+                    >
+                      {{ 'products.product.add_to_cart' | t }}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -150,10 +210,21 @@
         "default":"Title"
       },
       {
-        "type": "richtext",
-        "id": "info",
-        "label": "Info",
-        "default": "<p>free shipping!</p>"
+        "type": "text",
+        "id": "amount_limit",
+        "label": "Amount Limit"
+      },
+      {
+        "type": "textarea",
+        "id": "below_text",
+        "label": "Below Limit Text",
+        "info": "use amount to show the amount in info"
+      },
+      {
+        "type": "textarea",
+        "id": "reached_text",
+        "label": "Limit Reached Text",
+        "info": "use amount to show the amount in info"
       },
       {
         "type": "header",

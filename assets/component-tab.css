@@ -42,13 +42,13 @@
     padding: 24px;
     transition: opacity 1s ease-out;
     opacity: 0;
+  background: #F5CB7C;
     display: none;
 }
 
 .tab-container .tab-content .tab-data-content.active{
     opacity: 1;
     display: block;
-    background: #F5CB7C;
 }
 
 .tab-container .tab-content .product-list{
