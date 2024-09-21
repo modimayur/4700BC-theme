@@ -374,6 +374,9 @@ cart-items form#cart.cart__contents .cart-item td .cart-item__name.h4.break{
   font-size: 16px;
   line-height: 150%;
   color: #B37600;
+  text-decoration: none;
+  text-transform: unset;
+  letter-spacing: 0;
 }
 cart-items form#cart.cart__contents .cart-item td .product-option{
   /* font-family: 'Formula Condensed'; */

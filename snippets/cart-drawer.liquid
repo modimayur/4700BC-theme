@@ -121,8 +121,30 @@
                     </tr>
                   </thead>
 
+                  {% assign skip_item = '' %}
+                  {% assign bundle_group = '' %}
+                  {%- for item in cart.items -%}
+                    {% assign current_index = forloop.index %}
+                    {% for p in item.properties %}
+                      {% if p.first == '__bundle_id' %}
+                        {% if bundle_group == '' %}
+                        {% assign bundle_group = p.last %}
+                        {% endif %}
+                        {% assign skip_item = skip_item | append: current_index | append: ',' %}
+                      {% endif %}
+                    {% endfor %}
+                  {%- endfor -%}
+                  
                   <tbody role="rowgroup">
                     {%- for item in cart.items -%}
+                      {% assign is_bundle = false %}
+                      {% assign bundle_id = '' %}
+                      {% for p in item.properties %}
+                        {% if p.first == '__bundle_id' %}
+                          {% assign is_bundle = true %}
+                          {% assign bundle_id = p.last %}
+                        {% endif %}
+                      {% endfor %}
                       <tr id="CartDrawer-Item-{{ item.index | plus: 1 }}" class="cart-item" role="row">
                         <td class="cart-item__media" role="cell" headers="CartDrawer-ColumnProductImage">
                           {% if item.image %}

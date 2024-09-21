@@ -7,6 +7,14 @@
 .bundle-container{
   
 }
+.bundle-wrapper h2.title{
+  text-transform: capitalize;
+  /* font-size: 40px; */
+  text-align: center;
+  width: 100%;
+  max-width: 870px;
+  margin: 0px auto;
+}
 .bundle-container .grid__item.bundle__collection-list{
   max-width: calc(55% - var(--grid-desktop-horizontal-spacing) / 2);
 }
@@ -110,14 +118,54 @@
 }
 .bundle__added-product-list .bundle__added-area{
   border:1px solid #FCDB8B;
+  border-radius: 8px;
+  overflow: hidden;
 }
 .bundle__added-product-list .bundle__added-area .bundle__header{
   padding:20px;
   background:#F5CB7C;
 }
+.bundle__added-product-list .bundle__added-area .bundle__header .right-title{
+  margin: 0 auto 5px;
+  font-size: 32px;
+}
+.bundle__header .bundle-progress-bar-wrapper{
+  margin-bottom: 10px;
+}
+.bundle__header .bundle-progress-bar-wrapper .bundle-progress-bar{
+  height: 5px;
+  width: 100%;
+  display: block;
+  background: #fff;
+  border-radius: 5px;
+  position:relative;
+}
+.bundle__header .bundle-progress-bar-wrapper .bundle-progress-bar .progress{
+  display: block;
+  width:0;
+  height:5px;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+  background: #070707;
+}
+.bundle__header .bundle-progress-bar-wrapper .bundle-progress-bar:before{
+  
+}
+.bundle__added-product-list .bundle__added-area .bundle__header .right-info{
+}
+.bundle__added-product-list .bundle__added-area .bundle__header .right-info p{
+  margin: 0 auto;
+  color: #4F4F4F;
+  font-weight: 500;
+  font-size:18px;
+}
+.bundle__added-product-list .bundle__added-area .bundle__header .right-info p strong{
+  font-weight: 800;
+  color: #070707;
+}
 .bundle__added-product-list .bundle__added-area .bundle__content{
   padding: 20px 22px;
-  
+  background:#fff;
 }
 .bundle__list{
   margin-bottom: 40px;
@@ -144,6 +192,10 @@
   border-radius: 4px;
   position:relative;
   aspect-ratio: 1.0;
+  display: block;
+}
+.bundle__list .bundle-product-list .item-block.filled{
+  border-style:solid;
 }
 .bundle__list .bundle-product-list .item-block:before{
   content: attr(data-index);
@@ -155,6 +207,40 @@
   font-size: 24px;
   color: #B2B2B2;
   font-weight: 500;
+}
+.bundle__list .bundle-product-list .item-block[data-index="10"],
+.bundle__list .bundle-product-list .item-block[data-index="12"],
+.bundle__list .bundle-product-list .item-block[data-index="8"]{
+  background: #FFEDC6;
+  border-color: #D2B275;
+}
+.bundle-product-list .item-block .bundle-item-product{
+  position: relative;
+}
+.bundle-product-list .item-block .bundle-item-product .remove-btn{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  height: 20px;
+  width: 20px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  z-index: 1;
+}
+.bundle-product-list .item-block .bundle-item-product .remove-btn .remove-icon{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat:no-repeat;
+  background-image: url('data:image/svg+xml,<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 0.5C4.47 0.5 0 4.97 0 10.5C0 16.03 4.47 20.5 10 20.5C15.53 20.5 20 16.03 20 10.5C20 4.97 15.53 0.5 10 0.5ZM15 14.09L13.59 15.5L10 11.91L6.41 15.5L5 14.09L8.59 10.5L5 6.91L6.41 5.5L10 9.09L13.59 5.5L15 6.91L11.41 10.5L15 14.09Z" fill="%23B2B2B2"/><path d="M15 14.09L13.59 15.5L10 11.91L6.41 15.5L5 14.09L8.59 10.5L5 6.91L6.41 5.5L10 9.09L13.59 5.5L15 6.91L11.41 10.5L15 14.09Z" fill="white"/></svg>');
+  background-size: contain;
+}
+.bundle-product-list .item-block .bundle-item-product .product-image-wrapper{
+  
+}
+.bundle-product-list .item-block .bundle-item-product{
+  
 }
 .bundle__footer{
   padding-top: 15px;
@@ -169,6 +255,7 @@
 .bundle__footer .bundle__footer-total h3{
   font-size: 40px;
   color: #070707;
+  text-transform: unset;
   margin: 5px auto 25px;
   font-family: var(--font-body-family);
   letter-spacing: 0;
@@ -182,7 +269,32 @@
   gap: 20px;
   flex-wrap: nowrap; 
 }
+.bundle-form-wrapper .quantity{
+  --inputs-radius: 32px;
+  
+}
+.bundle-form-wrapper .quantity:before{display:none;}
+.bundle-form-wrapper .quantity:after{
+  border-radius: 32px;
+  border:1px solid #070707;
+  box-shadow:none;
+}
+.bundle-form-wrapper .quantity .quantity__button,
+.bundle-form-wrapper .quantity .quantity__input{
+  color: #070707;
+}
+.bundle-form-wrapper .quantity .quantity__button{
+  
+}
+.bundle-form-wrapper .quantity .quantity__input{
+  font-size: 1.8rem;
+  opacity:1;
+      min-width: 3rem;
+}
 .bundle-form-wrapper .quantity{ }
 .bundle-form-wrapper .button-wrapper{
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
+
